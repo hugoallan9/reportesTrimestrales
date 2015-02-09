@@ -5,6 +5,9 @@
  */
 package reportestrimestrales;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 /**
  *
  * @author INE
@@ -16,6 +19,12 @@ public class ReportesTrimestrales {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Calendar cal = Calendar.getInstance();
+        System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
+        Documento docu;
+        docu= new Documento("Doc de prueba", "trimestre");
+        System.out.println(docu.getTitulo());
+        docu.juntaDirectiva();
     }
     
 }
