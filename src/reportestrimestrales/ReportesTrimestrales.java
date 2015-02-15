@@ -21,10 +21,17 @@ public class ReportesTrimestrales {
         // TODO code application logic here
         Calendar cal = Calendar.getInstance();
         System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
-        Documento docu;
-        docu= new Documento("Doc de prueba", "trimestre");
-        System.out.println(docu.getTitulo());
+        Vitales docu;
+        docu= new Vitales("Mi primer documento", "Primero", "2012","C:/Users/INE/Documents/Graficador-Nuevo2/dataVT1");
+        docu.setRuta("C:\\Users\\INE\\Documents\\Salidas");
+        docu.setTex("primerDocumento");
+        docu.preambulo();
+        docu.iniciarDocumento();
+        docu.hacerTitulo();
         docu.juntaDirectiva();
+        docu.capitulo1();
+        docu.terminarDocumento();
+        docu.getRr().get().end();
     }
     
 }
