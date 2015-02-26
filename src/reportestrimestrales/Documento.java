@@ -40,9 +40,24 @@ public class Documento {
     private String trimestre;
     private List junta;
     private String ruta;
+
+    public String getRuta() {
+        return ruta;
+    }
     private File tex;
     private String anioPublicacion;
     private DecimalFormat df;
+    private DecimalFormat df2;
+    private String formatoTrimestre;
+
+    public String getFormatoTrimestre() {
+        return formatoTrimestre;
+    }
+
+    public String getFormatoSubtituloG() {
+        return formatoSubtituloG;
+    }
+    private String formatoSubtituloG;
 
     
 
@@ -57,10 +72,17 @@ public class Documento {
         tex = null;
         this.anioPublicacion = pYear;
         df = new DecimalFormat("#,###.#");
+        df2 = new DecimalFormat("#,###.##");
+        formatoTrimestre =  corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del " + getAnioPublicacion();
+        formatoSubtituloG =  corregirTrimestre(getTrimestre()) + " trimestre, año "+ getAnioPublicacion();
     }
 
     public DecimalFormat getDf() {
         return df;
+    }
+    
+    public DecimalFormat getDf2(){
+        return df2;
     }
 
     public String getAnioPublicacion() {
@@ -136,10 +158,10 @@ public class Documento {
             System.out.println(miembros.size());
             String[] temp;
             for( int i = 0 ; i < miembros.size(); i++ ){
-                String[] partes = miembros.get(i).text().split(", Titular");
+                String[] partes = miembros.get(i).text().split("Suplente");
                 if(i%2 != 0){
-                    junta.add(partes[0] + ", Titular");
-                    junta.add(partes[1]);
+                    junta.add(partes[0]);
+                    junta.add("Suplente" + partes[1]);
                 }else{
                     junta.add(partes[0]);
                 }
@@ -188,9 +210,9 @@ public class Documento {
 "		\\end{center} \n	");
             buffer.write("	\n" +
 "		{\\Bold \\large \\color{color1!89!black} GERENCIA}\\\\[0.2cm]\n" +
-"		Lic. Rubén Narciso, Gerente\\\\\n" +
-"		Lic. Jaime Mejía Salguero, Subgerente Técnico\\\\\n" +
-"		Ing. Orlando Monzón, Subgerente Administrativo Financiero\\\\ \n");
+"		Rubén Narciso, Gerente\\\\\n" +
+"		Jaime Mejía Salguero, Subgerente Técnico\\\\\n" +
+"		Orlando Monzón, Subgerente Administrativo Financiero\\\\ \n");
             buffer.write("\t \t \t \\end{center}\n");
             buffer.write("\t \t } \n");
             buffer.close();
@@ -341,6 +363,36 @@ public class Documento {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    protected String corregirTrimestre(String trimestre){
+        String trim = null;
+        if(trimestre.equalsIgnoreCase("primero")){
+            trim = "Primer";
+        }else if(trimestre.equalsIgnoreCase("segundo")){
+            trim = "Segundo";
+        }else if(trimestre.equalsIgnoreCase("tercero")){
+            trim = "Tercer";
+        }else{
+            trim = "Cuarto";
+        }
+        return trim;
+    }
+    
+//    protected void compilar(String ruta){
+//        Process p;
+//        File f = new File(ruta);
+//        try {
+//            p = Runtime.getRuntime().exec(" xelatex.exe -synctex=1 -interaction=nonstopmode " + f.getName());
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
+    
+        protected void compilar(SesionR rr, String ruta, String mostrar){
+            rr.get().eval("compilar('" + ruta + "',"+ mostrar+")" );
+            rr.get().end();
+        }
     
     
 }

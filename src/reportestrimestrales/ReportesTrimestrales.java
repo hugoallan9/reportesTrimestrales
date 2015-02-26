@@ -19,19 +19,24 @@ public class ReportesTrimestrales {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Calendar cal = Calendar.getInstance();
-        System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
+//        MenuPrincipal menu = new MenuPrincipal();
+//        menu.setVisible(true);
+//        Calendar cal = Calendar.getInstance();
+//        System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
         Vitales docu;
-        docu= new Vitales("Mi primer documento", "Primero", "2012","C:/Users/INE/Documents/Graficador-Nuevo2/dataVT1");
-        docu.setRuta("C:\\Users\\INE\\Documents\\Salidas");
-        docu.setTex("primerDocumento");
+        docu= new Vitales("Estadísticas Vitales", "Segundo", "2014","C:/Users/INE/Documents/Graficador-Nuevo2/dataVT1");
+        docu.setRuta("C:/Users/INE/Documents/Salidas");
+        docu.setTex("vitalesSegundo2015");
         docu.preambulo();
         docu.iniciarDocumento();
         docu.hacerTitulo();
         docu.juntaDirectiva();
+        docu.equipoYPresentacion();
         docu.capitulo1();
         docu.terminarDocumento();
         docu.getRr().get().end();
+        docu.generarGraficas();
+        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Salidas/vitalesSegundo2015.tex","T");
     }
     
 }

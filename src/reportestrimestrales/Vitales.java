@@ -5,6 +5,8 @@
  */
 package reportestrimestrales;
 
+import java.nio.charset.Charset;
+import java.text.Collator;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,9 @@ import org.rosuda.JRI.RVector;
 public class Vitales extends Documento{
     private List capitulos;
     private List introCapitulos;
+    private String formatoSerie;
+    Collator comparador = Collator.getInstance();
+        
 
     public SesionR getRr() {
         return rr;
@@ -28,12 +33,17 @@ public class Vitales extends Documento{
     private String rutaCSV;
     
     
+    
     public Vitales(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
         capitulos = new ArrayList();
         introCapitulos = new ArrayList();
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
+        comparador.setStrength(Collator.PRIMARY);
+        formatoSerie = "Serie histórica " + (Double.parseDouble(getAnioPublicacion()) -2) + "-" + getAnioPublicacion();
+                
+                
         cargarCSV(rutaCSV);
         setCapitulos();
         setIntroCapitulos();
@@ -78,33 +88,354 @@ public class Vitales extends Documento{
             {
                 System.err.println("No se pudo establecer  conexión con R ");
             }
-
+        // ALGUNAS VARIABLES UTILES
         //INTRODUCCION
         escribirCapitulo(capitulos.get(0).toString(), capitulos.get(0).toString()
                 ," ", introCapitulos.get(0).toString());
         
         //PRIMERA HOJA
-        String columna1 = columna("Nacimientos","Los nacimientos constituyen la variable en el "
+        section1_01();
+        
+        //SEGUNDA HOJA
+        section1_02();
+        
+        //TERCERA HOJA
+        section1_03();
+        
+        //CUARTA HOJA
+        
+        section1_04();
+        
+        //QUINTA HOJA
+        
+        section1_05();
+        
+        
+
+    }
+    
+    protected void section1_01(){
+          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+          String columna1 = columna("Nacimientos","El número de nacimientos es una de  las variable en el "
                 + "estudio de los fenómenos demográficos que, utilizado "
                 + "conjuntamente con la estadística de defunciones y matrimonios"
                 + ", ayuda a determinar la estructura y dinámica de población, "
-                + "con la incorporación de individuos a la población.", "Como se"
-                        + " muestra en gráfica de la serie histórica de nacimientos,"
-                        + " durante el " + 
-                        simboloToTrimestre(rr.get().eval("vitales$'1_01'$x[1]").asString().substring(0,2)) +
-                        " trimestre del " + getAnioPublicacion()+  " se registraron "
-                        +  getDf().format(rr.get().eval("vitales$'1_01'$y[1]").asDouble())  +", "
-                        + Math.round(rr.get().eval("cambioInterAnual(vitales$'1_01')").asDouble())
-                        +"\\% menos que lo registrado en el mismo período "
-                        + "del año anterior y "+ Math.round(rr.get().eval("cambioInterAnual(vitales$'1_01', paso = 1)").asDouble())
-                        + "\\% menos que lo registrado en el último "
-                        + "trimestre del " + String.valueOf((int)Double.parseDouble(getAnioPublicacion())-1)+"." ,
+                + "con la incorporación de individuos a la población.", "Durante el " + 
+                simboloToTrimestre(rr.get().eval("vitales$'1_01'$x[1]").asString().substring(0,2)) +
+                " trimestre del " + getAnioPublicacion()+  " se registraron "
+                +  getDf().format(rr.get().eval("vitales$'1_01'$y[9]").asDouble())  + " nacimientos, es decir,  "
+                + rr.get().eval("iconv(calcularRespuestaPor(vitales$'1_01'), 'utf8')").asString()
+                +" el mismo período "
+                + "del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'1_01', paso = 1)").asDouble())
+                + "\\% menos de lo registrado en el trimestre anterior. ",
                 "Nacimientos por trimestre", 
                 "Serie histórica " + rr.get().eval("vitales$'1_01'$x[1]").asString().substring(3) + "-" +rr.get().eval("vitales$'1_01'$x[9]").asString().substring(3)
-                , "","INE, con datos del RENAP", "");
+                , "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}","INE, con datos del RENAP", "");
+        
+        rr.get().eval("temp <- vitales$'1_02'[ordenarNiveles(vitales$'1_02',T),]");
+        String columna2 = columna("Nacimientos por departamento", "La cantidad "
+                + "de nacimientos por departamento permite identificar la dinámica "
+                + "poblacional a nivel interno en el país.", "La gráfica indica que la mayoría"
+                        + " de madres residen en el  "
+                        + "departamento de  " + rr.get().eval("temp$x[1]").asString() + 
+                        " con un " + getDf().format(rr.get().eval("temp$y[1]/sum(temp$y) *100").asDouble()) + 
+                        "\\%," + " seguido de " + rr.get().eval("temp$x[2]").asString() +
+                        " con el "+ getDf().format(rr.get().eval("temp$y[2]/sum(temp$y) *100").asDouble())+
+                        "\\% y " + rr.get().eval("temp$x[3]").asString() +
+                        " con " + getDf().format(rr.get().eval("temp$y[3]/sum(temp$y) * 100").asDouble())+
+                        "\\%." + " Los departamentos con menor proporción son "
+                        + rr.get().eval("temp$x[length(temp$x)]").asString() +  " con " +
+                        getDf().format(rr.get().eval("temp$y[length(temp$x)]/sum(temp$y) *100").asDouble()) + "\\% y "+
+                        rr.get().eval("temp$x[length(temp$x)-1]").asString() + " con " + 
+                        getDf().format(rr.get().eval("temp$y[length(temp$x)-1]/sum(temp$y) *100").asDouble()) + "\\%."
+                + " ", "Número de nacimientos por departamento de residencia de la madre"
+                , getFormatoSubtituloG()
+                ,"\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  "
+                        + "\\end{tikzpicture}" , "INE, con datos del RENAP", "");
                
-        escribirLinea(hojaTrimestral(columna1, ""));
+        escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
+    private void section1_02(){
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        rr.get().eval("temp <- vitales$'1_03'[ordenarNiveles(vitales$'1_03',T),]");
+        String columna1 = columna("Nacimientos por edad de la madre", 
+                "La desagregación por grupos de edad de la madre, permite "
+                + "identificar el tipo de fecundidad prevaleciente; "
+                + "la fecundidad es temprana si la mayoría de nacimientos "
+                + "ocurre entre los 20 y 24 años, tardía si es en el grupo "
+                + "de 25 a 29, y dilatada si no hay diferencia "
+                + "significativa entre los dos grupos.", "La gráfica "
+                + "de distribución de nacimientos por grupo de edad de la madre,"
+                + " muestra que el " + 
+                getDf().format(rr.get().eval("temp$y[1]").asDouble())+"\\% de los"
+                + " casos, la madre estaba comprendida entre las edades de "
+                + rr.get().eval("temp$x[1]").asString() +" años, "
+                + "seguido del grupo de población de madres de " + rr.get().eval("temp$x[2]").asString() +" años "
+                + " con un " + getDf().format(rr.get().eval("temp$y[2]").asDouble()) + "\\%."
+                + " En el "+ getFormatoTrimestre() + " se registraron " + 
+                ((rr.get().eval("vitales$'1_03'$y[1]").asDouble() > rr.get().eval("vitales$'1_03'$y[4]").asDouble()) ? " más " : " menos " ) +  " nacimientos en mujeres de 15 a 19 años "
+                + "que en mujeres de 30 a 34 años.", "Distribución de nacimientos "
+                        + "por grupo de edad de la madre", corregirTrimestre(getTrimestre()) + " trimestre, año " + getAnioPublicacion()
+                , "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex} \\end{tikzpicture}", "INE, "
+                        + "con datos del RENAP", "");
+        
+        String columna2 = columna("Nacimientos en madres adolescentes", 
+                "La desagregación de los nacimientos de las madres adolescentes\\footnote{Comprendidas entre los 10 y 19 años}"
+                        + " por edad " +
+                "simple muestra que, durante  el " + getFormatoTrimestre()  + ", " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[1:5])").asDouble()) +  
+                " fueron por madres en la etapa de adolescencia temprana\\footnote{Adolescencia temprana: entre los"
+                        + " 10 y los 14 años.}" +
+                " y " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[6:10])").asDouble()) + " fueron por madres en la etapa" +
+                " de adolescencia tardía\\footnote{Adolescencia tardía: entre los 15 y 19 años}.","Los nacimientos de madres adolecentes se consideran"
+                + " de alto riesgo y conlleva mayores complicaciones "
+                + "que los que se presentan en madres cuyas edades oscilan entre "
+                + "los 20 y 40 años.","Número de nacimientos en madres menores de "
+                + "20 años por edad simple",  corregirTrimestre(getTrimestre()) +
+                " trimestre, año " + getAnioPublicacion()  , 
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex} \\end{tikzpicture}", 
+                "INE, con datos del RENAP", "");
+        
+        
+        escribirLinea(hojaTrimestral(columna1,columna2));
+    }
     
+    private void section1_03(){
+         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        rr.get().eval("temp <- vitales$'1_05'[ordenarNiveles(vitales$'1_05',T),]");
+        String columna1 = columna("Nacimientos por pueblo de pertenecia de la madre", 
+                "En la distribución de nacimientos registrados en el " + getFormatoTrimestre()
+                +", el " + getDf().format(rr.get().eval("temp$y[1]").asDouble())+ "\\% " +
+                " de los nacimientos fueron por madres pertenecientes al pueblo " + 
+                rr.get().eval("temp$x[1]").asString() + " y el  "+ getDf().format(rr.get().eval("temp$y[2]").asDouble()) +
+                "\\% por madres del pueblo " + rr.get().eval("temp$x[2]").asString()+
+                " . Se desconoce el pueblo de pertenencia de la madre en " +
+                getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())+ "\\% de los casos.",
+                "", "Distribución porcentual de nacimientos"
+                + " por pueblo de pertenencia de la madre ", corregirTrimestre(getTrimestre()) + " trimestre, año " + getAnioPublicacion(), 
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex} \\end{tikzpicture}",
+                "INE, con datos del RENAP", "");
+        
+        rr.get().eval("temp <- vitales$'1_06'[ordenarNiveles(vitales$'1_06',T),]");
+        String columna2 = columna("Nacimientos según estado civil de la madre", 
+                "El estado conyugal de las madres es una desagregación utilizada "
+                + "para realizar análisis indirectos del comportamiento reproductivo"
+                + " de una población.  En el caso de Guatemala se cuenta con la variable"
+                + " estado civil, que permite desagregaciones de casadas, solteras y "
+                + "uniones formales, no así las madres que están separadas, "
+                + "divorciadas o en unión libre.", "La distribución de nacimientos"
+                + " por estado civil de la madre, muestra que el " + 
+                getDf().format(rr.get().eval("temp$y[1]").asDouble()) + "\\% corresponde a "
+                +"madres " + rr.get().eval("temp$x[1]").asString().toLowerCase()+"s, "
+                + getDf().format(rr.get().eval("temp$y[1]").asDouble()) + "\\% a madres " + 
+                rr.get().eval("temp$x[2]").asString().toLowerCase()+"s, y " + 
+                getDf().format(rr.get().eval("temp$y[3]").asDouble()) + "\\% a madres " + 
+                rr.get().eval("temp$x[3]").asString().toLowerCase()+"s. En el " + 
+                getDf2().format(rr.get().eval("temp$y[4]").asDouble()) + "\\% de los casos "
+                + "se ignora el estado civil de la madre.", "Distribución porcentual "
+                + "de nacimientos por estado civil de la madre",
+                corregirTrimestre(getTrimestre()) + " trimestre, año " + 
+                getAnioPublicacion(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex} \\end{tikzpicture}",
+                "INE, con datos del RENAP", "");
+        
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void section1_04(){
+        compilar(rr, getRuta() + "/1_07.tex","F");
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        String genero1 = "";
+        String genero2 = "";
+        if(rr.get().eval("vitales$'1_07'$x[1]").asString().equalsIgnoreCase("hombre")){
+            genero1 = "hombres";
+            genero2= "mujeres";
+        }else if(rr.get().eval("vitales$'1_07'$x[1]").asString().equalsIgnoreCase("mujer")){
+            genero1 = "mujeres";
+            genero2 = "hombres";
+        }else{
+            genero1 = rr.get().eval("vitales$'1_07'$x[1]").asString();
+            genero2 = rr.get().eval("vitales$'1_07'$x[2]").asString();
+        }
+        
+        String columna1 = columna("Nacimientos según sexo del recién nacido",
+            "El análisis de los nacimientos por sexo permite determinar "
+            + "el índice de masculinidad al nacer.\\footnote{El índice de "
+            + "masculinidad es la proporción de hombres frente al de "
+            + "mujeres en la población. Se calcula en cuatro etapas:  "
+            + "al nacer, población menor de 15 años, población entre 15 y "
+            + "65, y población mayor a 65 años.}", "En el " + 
+            trimestreToSimbolo(getTrimestre())+"-"+getAnioPublicacion() +", el  "
+            + getDf().format(rr.get().eval("vitales$'1_07'$y[1]").asDouble()) + "\\% de los nacidos fueron "+
+            genero1 + " mientras que el " + 
+            getDf().format(rr.get().eval("vitales$'1_07'$y[2]").asDouble()) + "\\% fueron " + 
+            genero2 , "Distribución "
+            + "porcentual de nacimientos por sexo del recién nacido",corregirTrimestre(getTrimestre()) 
+            + " trimestre, año " + getAnioPublicacion(), "\\XeTeXpdffile \"1_07.pdf\" " 
+            , "INE, con datos del RENAP", "");
+        
+        rr.get().eval("temp <- vitales$'1_08'[vitales$'1_08'$x != 'Peso adecuado',]");
+        rr.get().eval("temp <- temp[temp$x != 'Ignorado',]");
+        String columna2 = columna("Nacimientos según peso del recién nacido", 
+                "El peso\\footnote{Nota no definida por Fabiola} al nacer es una "
+                + "variable usada para evaluar las probabilidades de supervivencia "
+                + " del recién nacido en sus primeros días de vida, así como para "
+                + "evaluar las condiciones de las madres en una población.", 
+                "En " + getFormatoTrimestre() + ", el " + 
+                getDf().format(rr.get().eval("vitales$'1_08'[vitales$'1_08' == 'Peso adecuado',]$y").asDouble())
+                + "\\% del total de nacimientos registraron un peso adecuado al nacer, mientras que en el  "+
+                getDf().format(rr.get().eval("sum(temp$y)").asDouble()) + "\\%"
+                +" de los casos los recién nacidos pesaron  menos de 5.5 libras.", 
+                "Distribución porcentual de nacimientos por peso del recién nacido",
+                getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}",
+                "INE, con datos del RENAP", "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void section1_05(){
+         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        String cambio = ( (rr.get().eval("vitales$'1_09'$y[9]").asDouble() > rr.get().eval("vitales$'1_09'$y[1]").asDouble()) ?
+                        "aumentado":"disminuido" );
+        System.out.println(cambio);
+        String columna1 = columna("Nacimientos con bajo peso al nacer",
+                "Un bajo peso al nacer predispone al recién nacido a complicaciones "
+                + "de salud en los primeros días de vida.", 
+                "Se puede observar que en los últimos dos años, el porcentaje de nacimientos "+
+                "registrados con bajo peso al nacer, ha variado entre " + 
+                getDf().format(rr.get().eval("vitales$'1_09'$y[1]").asDouble()) + "\\%  y "+
+                getDf().format(rr.get().eval("vitales$'1_09'$y[9]").asDouble()) + "\\%. A partir del "
+                + simboloToTrimestre(rr.get().eval("substr(vitales$'1_09'$x[1],1,2)").asString()) 
+                + " trimestre de "+
+                Math.round(( Double.parseDouble(getAnioPublicacion())-2)) +  " el porcentaje ha " + cambio+
+                 "en " +  getDf().format(rr.get().eval("vitales$'1_09'$y[9] - vitales$'1_09'$y[1]").asDouble()) + 
+                " puntos.",
+                "Porcentaje de nacimientos con bajo peso al nacer", 
+                formatoSerie ,"\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}" 
+                ,"INE, con datos del RENAP", "");
+        
+        
+        rr.get().eval("temp <- vitales$'1_10'[ordenarNiveles(vitales$'1_10'),]");
+        String columna2 = columna("Nacimientos según asistencia recibida durante el parto",
+                "Una adecuada atención al momento del nacimiento garantiza la salud"
+                + " materna e infantil de una población.", "Del total de nacimientos registrados durante " +
+                getFormatoTrimestre() + " el " + getDf().format(rr.get().eval("temp$y[1]").asDouble()) +
+                "\\% de los casos " + asistencia(rr.get().eval("iconv(temp$x[1],'utf8')").asString()) + ", mientras que "
+                + "el " +getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())+ "\\%" +
+                " " + asistencia(rr.get().eval("iconv(temp$x[length(temp$x)], 'utf8')").asString())+".",
+                "Distribución porcentual de nacimientos según la asistencia recibida durante el parto",
+                getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}",
+                "INE, con datos del RENAP", "");
+        
+        
+        
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    protected void generarGraficas(){
+        Grafica vitales = new Grafica("vitales", getRuta(), rr.get());
+        vitales.start();
+    }
+    
+    protected void equipoYPresentacion(){
+        
+        
+        escribirLinea("\\clearpage\n" +
+                "\n" +
+                "$\\ $\n" +
+                "\\vspace{0.5cm}\n" +
+                "\n" +
+                "\\begin{center}\n" +
+                "	{\\Bold \\LARGE EQUIPO RESPONSABLE}\\\\[1.5cm]\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color2} REVISIÓN GENERAL}\\\\[0.2cm]\n" +
+                "	Rubén Narciso\\\\[0.8cm]\n" +
+                "	\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
+                "	Flor de María Hernández Soto\\\\\n" +
+                "	Cristian Miguel Cabrera Ayala\\\\\n" +
+                "	Blanca Angelica Ramirez González\\\\\n" +
+                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
+                "	Hugo Allan García Monterrosa\\\\\n" +
+                "	Fabiola Beatriz Ramírez Pinto\\\\\n" +
+                "	José Carlos Bonilla Aldana\\\\[0.8cm]\n" +
+                "	\n" +
+                "	\n" +
+                "	\n" +
+                "\\end{center}\\setcounter{page}{0}\\cleardoublepage\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[0.7cm]\n" +
+                "\n" +
+                "\\tableofcontents\n" +
+                "\n" +
+                "\\cleardoublepage\n" +
+                "\\pagestyle{estandar}\n" +
+                "\\setcounter{page}{1}\n" +
+                "\\setlength{\\arrayrulewidth}{1.0pt}\n" +
+                "\n" +
+                "\n" +
+                "\\cleardoublepage\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[0.5cm]\n" +
+                "\\thispagestyle{empty}\n" +
+                "\\noindent {\\Bold \\LARGE Presentación}\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\\n" +
+                "El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
+                + "demográfica y siendo el ente rector de la política estadística nacional "
+                + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
+                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Vitales}"
+                + ", con información correspondiente al {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
+                + getAnioPublicacion() +"}, información esencial para la planificación del desarrollo humano.\n" +
+                "\n" +
+                "La información presentada a continuación fue recolectada a través "
+                + "del Registro Nacional de las Personas  -RENAP- y consiste en "
+                + "los hechos ocurridos sobre nacimientos, defunciones, defunciones fetales, "
+                + "matrimonios y divorcios registrados "
+                + "en el "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion() +" .  "
+                + "Sin embargo, los datos para el período {\\Bold son preliminares}, "
+                + "sujetos a la adición de registros ingresados tardíamente.\n" +
+                "\n" +
+                "Por lo tanto, el INE se complace en presentar este informe, con "
+                + "el propósito de brindar una herramienta más de análisis a la "
+                + "población guatemalteca, y a la vez agradece el aporte y colaboración "
+                + "del Registro Nacional de las Personas, a quien se insta  a "
+                + "continuar con el apoyo a este proceso.\n" +
+                "\n" +
+                "\\thispagestyle{empty}\n" +
+                "\n" +
+                "\n" +
+                "\\cleardoublepage");
+    }
+    
+    private String asistencia(String valor){
+        String retorno = "";
+        System.out.println(valor);
+        if(comparador.compare(valor,"medica") == 0){
+            retorno = "recibieron asistencia médica";
+        }else if(comparador.compare(valor, "comadrona") == 0){
+            retorno = "fueron asistidos por una comadrona";
+        }else if(comparador.compare(valor,"ninguna") == 0){
+            retorno = "no recibieron ningún tipo de asistencia";
+        }else if(comparador.compare(valor,"paramedica") == 0){
+            retorno = "recibieron asistencia paramédica";
+        }else if(comparador.compare(valor, "empirica") == 0){
+            retorno = "recibieron asistencia empírica";
+        }
+        return retorno;
+    }
+
+//    protected void compilar(String ruta){
+//        rr.get().eval("compilar('" + ruta + "')" );
+//    }
 }
