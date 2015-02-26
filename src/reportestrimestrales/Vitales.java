@@ -246,29 +246,35 @@ public class Vitales extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         String genero1 = "";
         String genero2 = "";
+        Double masculinidad = 0.0;
         if(rr.get().eval("vitales$'1_07'$x[1]").asString().equalsIgnoreCase("hombre")){
             genero1 = "hombres";
             genero2= "mujeres";
+            masculinidad = rr.get().eval("vitales$'1_07'$y[1]").asDouble() / rr.get().eval("vitales$'1_07'$y[2]").asDouble() * 100; 
         }else if(rr.get().eval("vitales$'1_07'$x[1]").asString().equalsIgnoreCase("mujer")){
             genero1 = "mujeres";
             genero2 = "hombres";
+            masculinidad = rr.get().eval("vitales$'1_07'$y[2]").asDouble() / rr.get().eval("vitales$'1_07'$y[1]").asDouble() * 100; 
         }else{
             genero1 = rr.get().eval("vitales$'1_07'$x[1]").asString();
             genero2 = rr.get().eval("vitales$'1_07'$x[2]").asString();
+            masculinidad = rr.get().eval("vitales$'1_07'$y[1]").asDouble() / rr.get().eval("vitales$'1_07'$y[2]").asDouble() * 100; 
         }
-        
         String columna1 = columna("Nacimientos según sexo del recién nacido",
-            "El análisis de los nacimientos por sexo permite determinar "
-            + "el índice de masculinidad al nacer.\\footnote{El índice de "
-            + "masculinidad es la proporción de hombres frente al de "
+            "El análisis de los nacimientos según sexo permite determinar "
+            + "el índice de masculinidad\\footnote{El índice de "
+            + "masculinidad es el número  de hombres por cada cien "
             + "mujeres en la población. Se calcula en cuatro etapas:  "
             + "al nacer, población menor de 15 años, población entre 15 y "
-            + "65, y población mayor a 65 años.}", "En el " + 
-            trimestreToSimbolo(getTrimestre())+"-"+getAnioPublicacion() +", el  "
+            + "65, y población mayor a 65 años.} al nacer, este permite\n" +
+            "identificar cambios en la distribución por sexos "
+            + "de la población y facilita la lectura de género de" +
+            " eventos relacionados con la salud y otros de naturaleza social y económica.", "En el " + 
+            getFormatoTrimestre() +", el  "
             + getDf().format(rr.get().eval("vitales$'1_07'$y[1]").asDouble()) + "\\% de los nacidos fueron "+
             genero1 + " mientras que el " + 
             getDf().format(rr.get().eval("vitales$'1_07'$y[2]").asDouble()) + "\\% fueron " + 
-            genero2 , "Distribución "
+            genero2 +", además el índice de masculinidad registrado fue de " + getDf().format(masculinidad) + "\\%.", "Distribución "
             + "porcentual de nacimientos por sexo del recién nacido",corregirTrimestre(getTrimestre()) 
             + " trimestre, año " + getAnioPublicacion(), "\\XeTeXpdffile \"1_07.pdf\" " 
             , "INE, con datos del RENAP", "");
@@ -276,11 +282,18 @@ public class Vitales extends Documento{
         rr.get().eval("temp <- vitales$'1_08'[vitales$'1_08'$x != 'Peso adecuado',]");
         rr.get().eval("temp <- temp[temp$x != 'Ignorado',]");
         String columna2 = columna("Nacimientos según peso del recién nacido", 
-                "El peso\\footnote{Nota no definida por Fabiola} al nacer es una "
+                "El peso\\footnote{"
+                + "El peso se divide en cuatro categorías: "
+                + "\\begin{itemize} \n "
+                + "\\item Adecuado: Se refiere a pesos  de 5.5 libras o más. \n "
+                + "\\item Bajo: Comprende los pesos mayores a 3.3 libras pero menores a 5.5 libras. \n"
+                + "\\item  Muy bajo: Peso mayor a 2.2 libras y menor a 3.3. \n"
+                + "\\item Extremadamente bajo:  Comprende los pesos por debajo de las 2.2 libras. \n"
+                + "\\end{itemize} }"
                 + "variable usada para evaluar las probabilidades de supervivencia "
                 + " del recién nacido en sus primeros días de vida, así como para "
                 + "evaluar las condiciones de las madres en una población.", 
-                "En " + getFormatoTrimestre() + ", el " + 
+                "En el " + getFormatoTrimestre() + ", el " + 
                 getDf().format(rr.get().eval("vitales$'1_08'[vitales$'1_08' == 'Peso adecuado',]$y").asDouble())
                 + "\\% del total de nacimientos registraron un peso adecuado al nacer, mientras que en el  "+
                 getDf().format(rr.get().eval("sum(temp$y)").asDouble()) + "\\%"
