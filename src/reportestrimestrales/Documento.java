@@ -39,6 +39,7 @@ public class Documento {
     private String year;
     private String trimestre;
     private List junta;
+    private List gerencias;
     private String ruta;
 
     public String getRuta() {
@@ -69,6 +70,7 @@ public class Documento {
         mes = new SimpleDateFormat("MMMM").format(cal.getTime());
         this.year = new SimpleDateFormat("yyyy").format(cal.getTime());
         junta = new  ArrayList();
+        gerencias = new ArrayList();
         tex = null;
         this.anioPublicacion = pYear;
         df = new DecimalFormat("#,###.#");
@@ -130,6 +132,7 @@ public class Documento {
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write("\\renewcommand{\\titulodoc}{" + titulo + " " + trimestreToSimbolo(trimestre)+ "-"+anioPublicacion +"}");
             buffer.write("\\begin{document}\n");
+            buffer.write("\\includepdf{caratula.pdf}");
             buffer.close();
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
@@ -155,7 +158,6 @@ public class Documento {
             Elements tables =  doc.select("tbody");
             Element juntaDirectiva = tables.get(0);
             Elements miembros = juntaDirectiva.select("tr");
-            System.out.println(miembros.size());
             String[] temp;
             for( int i = 0 ; i < miembros.size(); i++ ){
                 String[] partes = miembros.get(i).text().split("Suplente");
@@ -167,6 +169,17 @@ public class Documento {
                 }
                 
             }
+            
+            Element  tablaGerente = tables.get(1);
+            Elements gerente = tablaGerente.select("tr");
+            gerencias.add(gerente.get(0).text().split("Gerente")[1]);
+            
+            Element tablaGerencias = tables.get(2);
+            Elements subgerencias = tablaGerencias.select("td");
+            gerencias.add(subgerencias.get(0).text().split("[Ss]ubgerencia [Aa]dministrativa [Ff]inanciera")[1]);
+            gerencias.add(subgerencias.get(1).text().split("[Ss]ubgerencia [Tt][ée]cnica")[1]);
+            System.out.println(gerencias.get(1));
+            System.out.println(gerencias.get(2));
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -210,9 +223,9 @@ public class Documento {
 "		\\end{center} \n	");
             buffer.write("	\n" +
 "		{\\Bold \\large \\color{color1!89!black} GERENCIA}\\\\[0.2cm]\n" +
-"		Rubén Narciso, Gerente\\\\\n" +
-"		Jaime Mejía Salguero, Subgerente Técnico\\\\\n" +
-"		Orlando Monzón, Subgerente Administrativo Financiero\\\\ \n");
+                "Gerente: " + gerencias.get(0) +   "		\\\\\n" +
+                "Subgerente Técnico: " + gerencias.get(2) + 		"\\\\\n" +
+                "Subgerente Administrativo Financiero: " + gerencias.get(1) +  "\\\\ \n");
             buffer.write("\t \t \t \\end{center}\n");
             buffer.write("\t \t } \n");
             buffer.close();
@@ -221,13 +234,14 @@ public class Documento {
         }
     }
     
+
     
     protected void preambulo(){
-       String dropboxPreambulo = "https://dl.dropboxusercontent.com/u/24564039/preambulo.tex";
+       String preambulo = "http://www.ine.gob.gt/ftparchivos/preambulo.tex";
        File file = new File(ruta,"preambulo.tex");
        URL url = null;
         try {
-            url = new URL(dropboxPreambulo);
+            url = new URL(preambulo);
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -236,6 +250,8 @@ public class Documento {
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
         
         try {
             FileWriter escritora = new FileWriter(tex,false);
@@ -378,21 +394,10 @@ public class Documento {
         }
         return trim;
     }
-    
-//    protected void compilar(String ruta){
-//        Process p;
-//        File f = new File(ruta);
-//        try {
-//            p = Runtime.getRuntime().exec(" xelatex.exe -synctex=1 -interaction=nonstopmode " + f.getName());
-//        } catch (IOException ex) {
-//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
+
     
         protected void compilar(SesionR rr, String ruta, String mostrar){
             rr.get().eval("compilar('" + ruta + "',"+ mostrar+")" );
             rr.get().end();
         }
-    
-    
 }

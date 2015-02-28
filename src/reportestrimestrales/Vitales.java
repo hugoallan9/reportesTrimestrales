@@ -5,12 +5,22 @@
  */
 package reportestrimestrales;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.Charset;
+import java.nio.file.Path;
 import java.text.Collator;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.apache.commons.io.FileUtils;
 import org.rosuda.JRI.REXP;
 import org.rosuda.JRI.RList;
 import org.rosuda.JRI.RVector;
@@ -346,6 +356,68 @@ public class Vitales extends Documento{
     protected void generarGraficas(){
         Grafica vitales = new Grafica("vitales", getRuta(), rr.get());
         vitales.start();
+    }
+    
+    protected void hacerPortada(){
+        String portada = "https://dl.dropboxusercontent.com/u/24564039/portada.pdf";
+       File file = new File(getRuta(),"portada.pdf");
+       URL url = null;
+        try {
+            url = new URL(portada);
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        try {
+            File p1 = new File(getRuta(),"caratula.tex");
+            FileWriter escritora = new FileWriter(p1.getAbsolutePath(),false);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\\documentclass[10pt,twoside]{book}\\usepackage[T1]{fontenc}\n" +
+            "\\usepackage{tikz}\n" +
+            "\n" +
+            "\\usepackage[active,tightpage,xetex]{preview}\n" +
+            "\n" +
+            "\\usepackage{fontspec,xunicode}\n" +
+            "\n" +
+            "\\PreviewEnvironment{pgfpicture}\n" +
+            "\n" +
+            "\\setlength\\PreviewBorder{0pt}\n" +
+            "\n" +
+            "\\usetikzlibrary{calc}\n" +
+            "\n" +
+            "\\usetikzlibrary{positioning}\n" +
+            "\n" +
+            "\\usepackage{fontspec,xunicode}\n" +
+            "\n" +
+            "\\setmainfont{Open Sans Condensed Light}\n" +
+            "\\begin{document}\n" +
+            "\n" +
+            "\\begin{tikzpicture} \n "+
+            "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
+            "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.44,0.595) {\n" +
+             "República de Guatemala \n" +
+            "		\\\\\n" +
+            getTitulo() + "\n" +
+            "		\\\\\n" +
+            corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
+            "\\end{scope}\n" +
+            "\\end{tikzpicture}\n" +
+            "\n" +
+            "\\end{document}");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     protected void equipoYPresentacion(){

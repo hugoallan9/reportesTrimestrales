@@ -27,6 +27,7 @@ public class ReportesTrimestrales {
         docu= new Vitales("Estadísticas Vitales", "Segundo", "2014","C:/Users/INE/Documents/Graficador-Nuevo2/dataVT1");
         docu.setRuta("C:/Users/INE/Documents/Salidas");
         docu.setTex("vitalesSegundo2015");
+        docu.hacerPortada();
         docu.preambulo();
         docu.iniciarDocumento();
         docu.hacerTitulo();
