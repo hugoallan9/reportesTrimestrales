@@ -346,15 +346,23 @@ public class Documento {
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
     
     protected String hojaTrimestral(String columna1, String columna2){
         return("\\hojados{" + columna1 +"}{" + columna2 + "}");
     }
     
-    protected String columna(String nombreSeccion, String parrafo1, String parrafo2, String tituloGrafica,
+    protected String columna(String codigo, String nombreSeccion, String parrafo1, String parrafo2, String tituloGrafica,
             String tipoGrafica, String grafica, String fuente, String pie){
+        File f = new File(tex, codigo);
+        if( !f.exists() ){
+            f.mkdir();
+        }
+        File titulo = new File(f, "descripcion");
+        File primeraDescripcion = new File(f, "parrafo1");
+        File segundaDescripcion = new File(f,"parrafo2");
+        
+        
         return("\n \\columna{"
                 + nombreSeccion + "}{"
                 + parrafo1 + "}{"
