@@ -237,14 +237,70 @@ public class Documento {
 
     
     protected void preambulo(){
-       String preambulo = "http://www.ine.gob.gt/ftparchivos/preambulo.tex";
-       File file = new File(ruta,"preambulo.tex");
+       File file = null; 
        URL url = null;
         try {
-            url = new URL(preambulo);
+            file = new  File(ruta,"preambulo.tex");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/preambulo.tex");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            file = new  File(ruta,"cabezae.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/cabezae.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        try {
+            file = new  File(ruta,"cabezao.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/cabezao.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            file = new  File(ruta,"capitulo3.png");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/capitulo3.png");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            file = new  File(ruta,"pie.png");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/pie.png");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         try {
             FileUtils.copyURLToFile(url, file);
         } catch (IOException ex) {
@@ -352,26 +408,87 @@ public class Documento {
         return("\\hojados{" + columna1 +"}{" + columna2 + "}");
     }
     
-    protected String columna(String codigo, String nombreSeccion, String parrafo1, String parrafo2, String tituloGrafica,
-            String tipoGrafica, String grafica, String fuente, String pie){
-        File f = new File(tex, codigo);
+    protected String columna(String codigo, String nombreSeccion, String parrafo1, String parrafo2, 
+            String tituloGrafica, String tipoGrafica, String grafica, String fuente, String pie){
+        File f = new File(tex.getParent(), codigo);
         if( !f.exists() ){
+            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
             f.mkdir();
         }
-        File titulo = new File(f, "descripcion");
-        File primeraDescripcion = new File(f, "parrafo1");
-        File segundaDescripcion = new File(f,"parrafo2");
+        
+        File titulo = new File(f, "titulo.tex");
+        File primeraDescripcion = new File(f, "parrafo1.tex");
+        File segundaDescripcion = new File(f,"parrafo2.tex");
+        File titleGrafica = new File(f,"tituloGrafica.tex");
+        File desGrafica = new File(f, "desGrafica.tex");
+        File desFuente = new File(f, "fuente.tex");
+        
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(titulo);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(nombreSeccion);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(primeraDescripcion);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(parrafo1);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         
-        return("\n \\columna{"
-                + nombreSeccion + "}{"
-                + parrafo1 + "}{"
-                + parrafo2 + "}{"
-                + tituloGrafica + "}{"
-                + tipoGrafica + "}{"
-                + grafica + "}{"
-                + fuente + "}{"
-                + pie+"}\n");
+        try {
+            escritora = new FileWriter(segundaDescripcion);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(parrafo2);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(titleGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tituloGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tipoGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desFuente);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(fuente);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return("\n \\columna{%\n"
+                + nombreSeccion+ "}%\n{"
+                + "%\n \\input{" + primeraDescripcion.getAbsolutePath().replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + segundaDescripcion.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n"
+                + "{%\n \\input{" + titleGrafica.getAbsolutePath().replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + desGrafica.getAbsolutePath().replaceAll("\\\\","/") +   "}} %\n"
+                + "{%\n " + grafica + "}%\n"
+                + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n "
+                + "{%\n " + pie+"}%\n");
     }
     
     protected  void escribirLinea(String linea){

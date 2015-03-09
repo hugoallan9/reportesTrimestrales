@@ -24,6 +24,7 @@ public class Grafica extends Thread {
     }
     
     public void run(){
+        System.out.println("HILO: " + ruta);
         r.eval("graficasVitales("+lista+ ",'"+ ruta +"/')");
 //        for(int i = 0 ; i <1000000; i++){
 //            System.out.println("Hola mundo en un hilo");

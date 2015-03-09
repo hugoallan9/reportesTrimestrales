@@ -126,12 +126,12 @@ public class Vitales extends Documento{
     
     protected void section1_01(){
           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-          String columna1 = columna("Nacimientos","El número de nacimientos es una de  las variable en el "
+          String columna1 = columna("1_01","Nacimientos","El número de nacimientos es una de  las variable en el "
                 + "estudio de los fenómenos demográficos que, utilizado "
                 + "conjuntamente con la estadística de defunciones y matrimonios"
                 + ", ayuda a determinar la estructura y dinámica de población, "
                 + "con la incorporación de individuos a la población.", "Durante el " + 
-                simboloToTrimestre(rr.get().eval("vitales$'1_01'$x[1]").asString().substring(0,2)) +
+                getFormatoTrimestre() +
                 " trimestre del " + getAnioPublicacion()+  " se registraron "
                 +  getDf().format(rr.get().eval("vitales$'1_01'$y[9]").asDouble())  + " nacimientos, es decir,  "
                 + rr.get().eval("iconv(calcularRespuestaPor(vitales$'1_01'), 'utf8')").asString()
@@ -143,7 +143,7 @@ public class Vitales extends Documento{
                 , "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}","INE, con datos del RENAP", "");
         
         rr.get().eval("temp <- vitales$'1_02'[ordenarNiveles(vitales$'1_02',T),]");
-        String columna2 = columna("Nacimientos por departamento", "La cantidad "
+        String columna2 = columna("1_02","Nacimientos por departamento", "La cantidad "
                 + "de nacimientos por departamento permite identificar la dinámica "
                 + "poblacional a nivel interno en el país.", "La gráfica indica que la mayoría"
                         + " de madres residen en el  "
@@ -169,7 +169,7 @@ public class Vitales extends Documento{
     private void section1_02(){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         rr.get().eval("temp <- vitales$'1_03'[ordenarNiveles(vitales$'1_03',T),]");
-        String columna1 = columna("Nacimientos por edad de la madre", 
+        String columna1 = columna("1_03","Nacimientos por edad de la madre", 
                 "La desagregación por grupos de edad de la madre, permite "
                 + "identificar el tipo de fecundidad prevaleciente; "
                 + "la fecundidad es temprana si la mayoría de nacimientos "
@@ -190,7 +190,7 @@ public class Vitales extends Documento{
                 , "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex} \\end{tikzpicture}", "INE, "
                         + "con datos del RENAP", "");
         
-        String columna2 = columna("Nacimientos en madres adolescentes", 
+        String columna2 = columna("1_04","Nacimientos en madres adolescentes", 
                 "La desagregación de los nacimientos de las madres adolescentes\\footnote{Comprendidas entre los 10 y 19 años}"
                         + " por edad " +
                 "simple muestra que, durante  el " + getFormatoTrimestre()  + ", " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[1:5])").asDouble()) +  
@@ -213,7 +213,7 @@ public class Vitales extends Documento{
     private void section1_03(){
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         rr.get().eval("temp <- vitales$'1_05'[ordenarNiveles(vitales$'1_05',T),]");
-        String columna1 = columna("Nacimientos por pueblo de pertenecia de la madre", 
+        String columna1 = columna("1_05","Nacimientos por pueblo de pertenecia de la madre", 
                 "En la distribución de nacimientos registrados en el " + getFormatoTrimestre()
                 +", el " + getDf().format(rr.get().eval("temp$y[1]").asDouble())+ "\\% " +
                 " de los nacimientos fueron por madres pertenecientes al pueblo " + 
@@ -227,7 +227,7 @@ public class Vitales extends Documento{
                 "INE, con datos del RENAP", "");
         
         rr.get().eval("temp <- vitales$'1_06'[ordenarNiveles(vitales$'1_06',T),]");
-        String columna2 = columna("Nacimientos según estado civil de la madre", 
+        String columna2 = columna("1_06","Nacimientos según estado civil de la madre", 
                 "El estado conyugal de las madres es una desagregación utilizada "
                 + "para realizar análisis indirectos del comportamiento reproductivo"
                 + " de una población.  En el caso de Guatemala se cuenta con la variable"
@@ -270,7 +270,7 @@ public class Vitales extends Documento{
             genero2 = rr.get().eval("vitales$'1_07'$x[2]").asString();
             masculinidad = rr.get().eval("vitales$'1_07'$y[1]").asDouble() / rr.get().eval("vitales$'1_07'$y[2]").asDouble() * 100; 
         }
-        String columna1 = columna("Nacimientos según sexo del recién nacido",
+        String columna1 = columna("1_07","Nacimientos según sexo del recién nacido",
             "El análisis de los nacimientos según sexo permite determinar "
             + "el índice de masculinidad\\footnote{El índice de "
             + "masculinidad es el número  de hombres por cada cien "
@@ -291,7 +291,7 @@ public class Vitales extends Documento{
         
         rr.get().eval("temp <- vitales$'1_08'[vitales$'1_08'$x != 'Peso adecuado',]");
         rr.get().eval("temp <- temp[temp$x != 'Ignorado',]");
-        String columna2 = columna("Nacimientos según peso del recién nacido", 
+        String columna2 = columna("1_08","Nacimientos según peso del recién nacido", 
                 "El peso\\footnote{"
                 + "El peso se divide en cuatro categorías: "
                 + "\\begin{itemize} \n "
@@ -319,7 +319,7 @@ public class Vitales extends Documento{
         String cambio = ( (rr.get().eval("vitales$'1_09'$y[9]").asDouble() > rr.get().eval("vitales$'1_09'$y[1]").asDouble()) ?
                         "aumentado":"disminuido" );
         System.out.println(cambio);
-        String columna1 = columna("Nacimientos con bajo peso al nacer",
+        String columna1 = columna("1_09","Nacimientos con bajo peso al nacer",
                 "Un bajo peso al nacer predispone al recién nacido a complicaciones "
                 + "de salud en los primeros días de vida.", 
                 "Se puede observar que en los últimos dos años, el porcentaje de nacimientos "+
@@ -337,7 +337,7 @@ public class Vitales extends Documento{
         
         
         rr.get().eval("temp <- vitales$'1_10'[ordenarNiveles(vitales$'1_10'),]");
-        String columna2 = columna("Nacimientos según asistencia recibida durante el parto",
+        String columna2 = columna("1_10","Nacimientos según asistencia recibida durante el parto",
                 "Una adecuada atención al momento del nacimiento garantiza la salud"
                 + " materna e infantil de una población.", "Del total de nacimientos registrados durante " +
                 getFormatoTrimestre() + " el " + getDf().format(rr.get().eval("temp$y[1]").asDouble()) +
@@ -354,12 +354,13 @@ public class Vitales extends Documento{
     }
     
     protected void generarGraficas(){
+        System.out.println("GENERANDO LAS GRAFICAS");
         Grafica vitales = new Grafica("vitales", getRuta(), rr.get());
         vitales.start();
     }
     
     protected void hacerPortada(){
-        String portada = "https://dl.dropboxusercontent.com/u/24564039/portada.pdf";
+       String portada = "http://www.ine.gob.gt/ftparchivos/portadaVitales.pdf";
        File file = new File(getRuta(),"portada.pdf");
        URL url = null;
         try {
@@ -418,6 +419,7 @@ public class Vitales extends Documento{
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        compilar(rr, getRuta() + "/caratula.tex","F");
     }
     
     protected void equipoYPresentacion(){
