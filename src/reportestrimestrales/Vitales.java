@@ -76,7 +76,14 @@ public class Vitales extends Documento{
                 + "cualquier otra señal de vida, como latidos del corazón, "
                 + "pulsaciones del cordón umbilical o movimientos efectivos de "
                 + "los músculos de contracción voluntaria.");
-        introCapitulos.add("");
+        introCapitulos.add("La estadística continua de defunciones permite "
+                + "identificar y diferenciar la frecuencia y las características"
+                + " de la mortalidad según el área donde habita, sexo, edad, grupo "
+                + "étnico  y la causa básica de defunción, datos necesarios para "
+                + "la elaboración de programas de salud pública para el control de "
+                + "enfermedades infecciosas, epidemiológicas, enfermedades crónicas "
+                + "no transmisibles, salud alimentaria y nutricional, inmunizaciones, "
+                + "salud mental, salud reproductiva, prevención de accidentes y otros.");
     }
     
     protected void cargarCSV(String ruta){
@@ -121,7 +128,6 @@ public class Vitales extends Documento{
         section1_05();
         
         
-
     }
     
     protected void section1_01(){
@@ -525,4 +531,87 @@ public class Vitales extends Documento{
 //    protected void compilar(String ruta){
 //        rr.get().eval("compilar('" + ruta + "')" );
 //    }
+
+    protected void capitulo2(){
+        //Escribiendo la introducción del capítulo 2
+        escribirCapitulo(capitulos.get(1).toString(), capitulos.get(1).toString()
+                ,"", introCapitulos.get(1).toString());
+        
+        
+        section2_01();
+        section2_02();
+    }
+    
+    private void section2_01() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 6%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        String columna1 =  columna("2_01","Defunciones","Las defunciones "
+                + "constituyen la variable en el estudio de los fenómenos "
+                + "demográficos que, utilizado conjuntamente con la estadística "
+                + "de nacimientos y matrimonios, ayuda a determinar su estructura "
+                + "y dinámica, con la salida de individuos de la población.", 
+                "La gráfica de la serie histórica muestra que durante " + getFormatoTrimestre() +
+                " se registraron " + getDf().format(rr.get().eval("vitales$'2_01'$y[9]").asDouble())+ 
+                ", esto es " + rr.get().eval("iconv(calcularRespuestaPor(vitales$'2_01'), 'utf8')").asString()
+                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'2_01', paso = 1)").asDouble())
+                + "\\% menos de lo registrado en el trimestre anterior. "
+                , "Defunciones por trimestre", getFormatoSubtituloG(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex} "
+                + "\\end{tikzpicture}","INE, con datos del RENAP", "");
+        
+        rr.get().eval("temp <- vitales$'2_02'[ordenarNiveles(vitales$'2_02',T),]");
+        String columna2 = columna("2_02","Defunciones por departamento", 
+                "La desagregación de las defunciones según el departamento de residencia, " +
+                "permite identificar la dinámica poblacional para la focalización de programas específicos\n" +
+                "para cubrir las necesidades del área.", "Para " + getFormatoTrimestre() + 
+                " , el departamento que registró mayor proporcición de de defunciones  "
+                + "fue " + rr.get().eval("temp$x[1]").asString() + " con un " + 
+                getDf().format(rr.get().eval("temp$y[1]/vitales$'2_01'$y[9] *100").asDouble()) + "\\% "
+                + "seguido de " + rr.get().eval("temp$x[2]").asString() + " con el " +
+                getDf().format(rr.get().eval("temp$y[2]/vitales$'2_01'$y[9] *100").asDouble()) + "\\% y "
+                + rr.get().eval("temp$x[3]").asString() + " con " + 
+                getDf().format(rr.get().eval("temp$y[3]/vitales$'2_01'$y[9] *100").asDouble()) + "\\%."
+                + " Los departamentos con menor proporción son "
+                + rr.get().eval("temp$x[length(temp$x)]").asString() +  " con " +
+                getDf().format(rr.get().eval("temp$y[length(temp$x)]/vitales$'2_01'$y[9] *100").asDouble()) + "\\% y "+
+                rr.get().eval("temp$x[length(temp$x)-1]").asString() + " con " + 
+                getDf().format(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'2_01'$y[9] *100").asDouble()) + "\\%." , 
+                "Número de defunciones por departamento de residencia de la persona fallecida", 
+                getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}","INE, con datos del RENAP", "");
+    
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void section2_02(){
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 7%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        rr.get().eval("temp <- vitales$'2_03'[ordenarNiveles(vitales$'2_03',T),]");
+        String columna1 =  columna("2_03","Defunciones por día de la semana","La "
+                + "frecuencia y el día de la semana en el que se dan las "
+                + "defunciones permite  identificar patrones temporales, "
+                + "especialmente cuando estas son ocasionadas por causas "
+                + "externas, y así diseñar planes de emergencia y concienciación "
+                + "de prevención.", 
+                "Para el " + getFormatoTrimestre() 
+                + " el día con mayor cantidad de defunciones fue " 
+                + rr.get().eval("temp$x[1]").asString().toLowerCase() +
+                " totalizando un  " + getDf().format(rr.get().eval("temp$y[1]").asDouble())+ 
+                "\\% de los casos, seguido de " +
+                rr.get().eval("temp$x[2]").asString().toLowerCase() + 
+                ", día en el que se registraron un " + getDf().format(rr.get().eval("temp$y[2]").asDouble())
+                +"\\%, de las defunciones. El "+ rr.get().eval("temp$x[length(temp$x)]").asString().toLowerCase() + 
+                " fue el día que registro menos descesos, contabilizando el " + 
+                getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())
+                + "\\% del total de defunciones. "
+                , "Distribución porcentual de defunciones por día de la semana de ocurrencia", getFormatoSubtituloG(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex} "
+                + "\\end{tikzpicture}","INE, con datos del RENAP", "");
+        
+        String columna2 = columna("2_04","Mortalidad infantil", 
+                "Durante " + getFormatoTrimestre() + " se registraron " +
+                getDf().format(rr.get().eval("(vitales$'2_04'[2])[1,]+(vitales$'2_04'[3])[1,]").asDouble())+
+                " defunciones de menores de un año, de los  cuales el " + ,"", 
+                "Número de defunciones por departamento de residencia de la persona fallecida", 
+                getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}","INE, con datos del RENAP", ""); 
+        
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
 }
