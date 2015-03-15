@@ -49,6 +49,7 @@ public class Documento {
     private String anioPublicacion;
     private DecimalFormat df;
     private DecimalFormat df2;
+    private DecimalFormat df3;
     private String formatoTrimestre;
 
     public String getFormatoTrimestre() {
@@ -73,8 +74,9 @@ public class Documento {
         gerencias = new ArrayList();
         tex = null;
         this.anioPublicacion = pYear;
-        df = new DecimalFormat("#,###.#");
-        df2 = new DecimalFormat("#,###.##");
+        df = new DecimalFormat("###,###.#");
+        df2 = new DecimalFormat("###,###.##");
+        df2 = new DecimalFormat("###,###.###");
         formatoTrimestre =  corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del " + getAnioPublicacion();
         formatoSubtituloG =  corregirTrimestre(getTrimestre()) + " trimestre, año "+ getAnioPublicacion();
     }
@@ -524,5 +526,17 @@ public class Documento {
         protected void compilar(SesionR rr, String ruta, String mostrar){
             rr.get().eval("compilar('" + ruta + "',"+ mostrar+")" );
             rr.get().end();
+        }
+        
+        protected String formatearNumero(Double numero){
+            String retorno= "";
+            if(df.format(numero) != "0.0"){
+                retorno = df.format(numero);
+            }else if(df2.format(numero) != "0.00"){
+                retorno = df2.format(numero);
+            }else{
+                retorno = df3.format(numero);
+            }     
+            return retorno;
         }
 }
