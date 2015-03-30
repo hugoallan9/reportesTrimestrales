@@ -36,9 +36,11 @@ public class ReportesTrimestrales {
         docu.capitulo1();
         docu.capitulo2();
         docu.capitulo3();
+        docu.capitulo4();
+        docu.capitulo5();
         docu.terminarDocumento();
         docu.getRr().get().end();
-        //docu.generarGraficas();
+        docu.generarGraficas();
         docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Salidas/vitalesSegundo2015.tex","T");
     }
     
