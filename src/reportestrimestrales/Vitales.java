@@ -150,9 +150,8 @@ public class Vitales extends Documento{
                 + "conjuntamente con la estadística de defunciones y matrimonios"
                 + ", ayuda a determinar la estructura y dinámica de población, "
                 + "con la incorporación de individuos a la población.", "Durante el " + 
-                getFormatoTrimestre() +
-                " trimestre del " + getAnioPublicacion()+  " se registraron "
-                +  getDf().format(rr.get().eval("vitales$'1_01'$y[9]").asDouble())  + " nacimientos, es decir,  "
+                getFormatoTrimestre() + " se registraron "
+                +  getDf().format(rr.get().eval("vitales$'1_01'$y[9]").asDouble())  + " nacimientos, lo que representa  "
                 + rr.get().eval("iconv(calcularRespuestaPor(vitales$'1_01'), 'utf8')").asString()
                 +" el mismo período "
                 + "del año anterior y "+ rr.get().eval("iconv(calcularRespuestaPor(vitales$'1_01', primeraPos = 8), 'utf8')").asString()
@@ -167,16 +166,16 @@ public class Vitales extends Documento{
                 + "poblacional a nivel interno en el país.", "La gráfica indica que la mayoría"
                         + " de madres residen en el  "
                         + "departamento de  " + rr.get().eval("temp$x[1]").asString() + 
-                        " con un " + getDf().format(rr.get().eval("temp$y[1]/sum(temp$y) *100").asDouble()) + 
+                        " con un " + formatearNumero(rr.get().eval("temp$y[1]/vitales$'1_01'$y[9] *100").asDouble()) + 
                         "\\%," + " seguido de " + rr.get().eval("temp$x[2]").asString() +
-                        " con el "+ getDf().format(rr.get().eval("temp$y[2]/sum(temp$y) *100").asDouble())+
+                        " con el "+ formatearNumero(rr.get().eval("temp$y[2]/vitales$'1_01'$y[9] *100").asDouble())+
                         "\\% y " + rr.get().eval("temp$x[3]").asString() +
-                        " con " + getDf().format(rr.get().eval("temp$y[3]/sum(temp$y) * 100").asDouble())+
+                        " con " + formatearNumero(rr.get().eval("temp$y[3]/vitales$'1_01'$y[9] * 100").asDouble())+
                         "\\%." + " Los departamentos con menor proporción son "
                         + rr.get().eval("temp$x[length(temp$x)]").asString() +  " con " +
-                        getDf().format(rr.get().eval("temp$y[length(temp$x)]/sum(temp$y) *100").asDouble()) + "\\% y "+
+                        formatearNumero(rr.get().eval("temp$y[length(temp$x)]/vitales$'1_01'$y[9] *100").asDouble()) + "\\% y "+
                         rr.get().eval("temp$x[length(temp$x)-1]").asString() + " con " + 
-                        getDf().format(rr.get().eval("temp$y[length(temp$x)-1]/sum(temp$y) *100").asDouble()) + "\\%."
+                        formatearNumero(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'1_01'$y[9] *100").asDouble()) + "\\%."
                 + " ", "Número de nacimientos por departamento de residencia de la madre"
                 , getFormatoSubtituloG()
                 ,"\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  "
@@ -203,13 +202,13 @@ public class Vitales extends Documento{
                 + "seguido del grupo de población de madres de " + rr.get().eval("temp$x[2]").asString() +" años "
                 + " con un " + getDf().format(rr.get().eval("temp$y[2]").asDouble()) + "\\%."
                 + " En el "+ getFormatoTrimestre() + " se registraron " + 
-                ((rr.get().eval("vitales$'1_03'$y[1]").asDouble() > rr.get().eval("vitales$'1_03'$y[4]").asDouble()) ? " más " : " menos " ) +  " nacimientos en mujeres de 15 a 19 años "
+                ((rr.get().eval("vitales$'1_03'$y[2]").asDouble() > rr.get().eval("vitales$'1_03'$y[5]").asDouble()) ? " más " : " menos " ) +  " nacimientos en mujeres de 15 a 19 años "
                 + "que en mujeres de 30 a 34 años.", "Distribución de nacimientos "
                         + "por grupo de edad de la madre", corregirTrimestre(getTrimestre()) + " trimestre, año " + getAnioPublicacion()
                 , "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex} \\end{tikzpicture}", "INE, "
                         + "con datos del RENAP", "");
         
-        String columna2 = columna("1_04","Nacimientos en madres adolescentes", 
+        String columna2 = columna("1_04","Nacimientos en madres menores de veinte años", 
                 "La desagregación de los nacimientos de las madres adolescentes\\footnote{Comprendidas entre los 10 y 19 años}"
                         + " por edad " +
                 "simple muestra que, durante  el " + getFormatoTrimestre()  + ", " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[1:5])").asDouble()) +  
@@ -508,7 +507,7 @@ public class Vitales extends Documento{
                 "\n" +
                 "\n" +
                 "$\\ $\\\\\n" +
-                "El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
+                "\\indent El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
                 + "demográfica y siendo el ente rector de la política estadística nacional "
                 + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
                 + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Vitales}"
@@ -526,7 +525,7 @@ public class Vitales extends Documento{
                 "Por lo tanto, el INE se complace en presentar este informe, con "
                 + "el propósito de brindar una herramienta más de análisis a la "
                 + "población guatemalteca, y a la vez agradece el aporte y colaboración "
-                + "del Registro Nacional de las Personas, a quien se insta  a "
+                + "del Registro Nacional de las Personas, al cual se insta  a "
                 + "continuar con el apoyo a este proceso.\n" +
                 "\n" +
                 "\\thispagestyle{empty}\n" +
@@ -597,7 +596,7 @@ public class Vitales extends Documento{
                 "La gráfica de la serie histórica muestra que durante " + getFormatoTrimestre() +
                 " se registraron " + getDf().format(rr.get().eval("vitales$'2_01'$y[9]").asDouble())+ 
                 " defunciones, esto es " + rr.get().eval("iconv(calcularRespuestaPor(vitales$'2_01'), 'utf8')").asString()
-                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'2_01', paso = 1)").asDouble())
+                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'2_01', ultimaPos = 9, primeraPos = 8)").asDouble())
                 + "\\% menos de lo registrado en el trimestre anterior. "
                 , "Defunciones por trimestre",formatoSerie,
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex} "
@@ -774,7 +773,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "La gráfica de la serie histórica muestra que durante " + getFormatoTrimestre() +
                 " se registraron " + getDf().format(rr.get().eval("vitales$'3_01'$y[9]").asDouble())+ 
                 " defunciones fetales, esto es " + rr.get().eval("iconv(calcularRespuestaPor(vitales$'3_01'), 'utf8')").asString()
-                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'3_01', paso = 1)").asDouble())
+                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'3_01', ultimaPos = 9, primeraPos=8)").asDouble())
                 + "\\% menos de lo registrado en el trimestre anterior. ",
                 "Defunciones fetales por trimestre",formatoSerie,
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex} "
@@ -932,7 +931,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "La serie histórica de matrimonios muestra que durante " + getFormatoTrimestre() +
                 " se registraron " + getDf().format(rr.get().eval("vitales$'4_01'$y[9]").asDouble())+ 
                 " , esto es " + rr.get().eval("iconv(calcularRespuestaPor(vitales$'4_01'), 'utf8')").asString()
-                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'4_01', paso = 1)").asDouble())
+                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'4_01', ultimaPos = 9, primeraPos = 8)").asDouble())
                 + "\\% menos de lo registrado en el trimestre anterior. ",
                  "Matrimonios por trimestre",
                 formatoSerie,
@@ -980,7 +979,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 ", día en el que se registraron un " + getDf().format(rr.get().eval("temp$y[2]").asDouble())
                 +"\\%, de los matrimonios. El "+ rr.get().eval("temp$x[length(temp$x)]").asString().toLowerCase() + 
                 " fue el día que registro menos matrimonios, contabilizando el " + 
-                getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())
+                formatearNumero(rr.get().eval("temp$y[length(temp$y)]").asDouble())
                 + "\\%. ", 
                 "",
                 "Distribución porcentual de matrimonios por día de la semana de ocurrencia",
@@ -1037,7 +1036,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "La serie histórica de divorcios muestra que durante " + getFormatoTrimestre() +
                 " se registraron " + getDf().format(rr.get().eval("vitales$'5_01'$y[9]").asDouble())+ 
                 " , esto es " + rr.get().eval("iconv(calcularRespuestaPor(vitales$'5_01'), 'utf8')").asString()
-                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'5_01', paso = 1)").asDouble())
+                +" el mismo período " + " del año anterior y "+ getDf().format(rr.get().eval("cambioInterAnual(vitales$'5_01', ultimaPos = 9, primeraPos = 8)").asDouble())
                 + "\\% menos de lo registrado en el trimestre anterior. ",
                  "Divorcios por trimestre",
                 formatoSerie,
