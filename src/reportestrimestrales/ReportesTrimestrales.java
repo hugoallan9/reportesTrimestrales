@@ -24,9 +24,9 @@ public class ReportesTrimestrales {
 //        Calendar cal = Calendar.getInstance();
 //        System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
         Vitales docu;
-        docu= new Vitales("Estadísticas Vitales", "Segundo", "2014","C:/Users/INE/Documents/dataVT2");
-        docu.setRuta("C:/Users/INE/Documents/Salidas");
-        docu.setTex("vitalesSegundo2015");
+        docu= new Vitales("Estadísticas Vitales", "Tercero", "2014","C:/Users/INE/Downloads/CSV_Vitales/CSV_Vitales");
+        docu.setRuta("C:/Users/INE/Documents/Vitales3");
+        docu.setTex("vitalesTercero2015");
         docu.hacerPortada();
         docu.preambulo();
         docu.iniciarDocumento();
@@ -41,7 +41,7 @@ public class ReportesTrimestrales {
         docu.terminarDocumento();
         docu.getRr().get().end();
         //docu.generarGraficas();
-        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Salidas/vitalesSegundo2015.tex","T");
+        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
     }
     
 }

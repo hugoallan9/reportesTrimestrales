@@ -211,10 +211,10 @@ public class Vitales extends Documento{
         String columna2 = columna("1_04","Nacimientos en madres menores de veinte años", 
                 "La desagregación de los nacimientos de las madres adolescentes\\footnote{Comprendidas entre los 10 y 19 años}"
                         + " por edad " +
-                "simple muestra que, durante  el " + getFormatoTrimestre()  + ", " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[1:5])").asDouble()) +  
+                "simple muestra que, durante  el " + getFormatoTrimestre()  + ", " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[0:4])").asDouble()) +  
                 " fueron  madres en la etapa de adolescencia temprana\\footnote{Adolescencia temprana: entre los"
                         + " 10 y los 14 años.}" +
-                " y " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[6:10])").asDouble()) + " fueron  madres en la etapa" +
+                " y " + getDf().format(rr.get().eval("sum(vitales$'1_04'$y[5:9])").asDouble()) + " fueron  madres en la etapa" +
                 " de adolescencia tardía\\footnote{Adolescencia tardía: entre los 15 y 19 años}.","Los nacimientos de madres adolecentes se consideran"
                 + " de alto riesgo y conlleva mayores complicaciones "
                 + "que los que se presentan en madres cuyas edades oscilan entre "
