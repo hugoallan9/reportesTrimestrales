@@ -15,17 +15,20 @@ public class Grafica extends Thread {
     private String lista;
     private Rengine r;
     private String ruta;
+    private String modalidad;
     
-    public Grafica(String lista, String ruta, Rengine r){
+    public Grafica(String lista, String ruta, Rengine r, String modalidad){
         super();
         this.lista = lista;
         this.r = r;
         this.ruta = ruta;
+        this.modalidad = modalidad;
     }
     
     public void run(){
         System.out.println("HILO: " + ruta);
-        r.eval("graficasVitales("+lista+ ",'"+ ruta +"/')");
+        System.out.println(r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = "+ modalidad +")"));
+        r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = '"+ modalidad +"')");
 //        for(int i = 0 ; i <1000000; i++){
 //            System.out.println("Hola mundo en un hilo");
 //        }

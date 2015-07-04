@@ -40,7 +40,7 @@ public class ReportesTrimestrales {
         docu.capitulo5();
         docu.terminarDocumento();
         docu.getRr().get().end();
-        //docu.generarGraficas();
+        //docu.generarGraficas("trimestral");
         docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
     }
     

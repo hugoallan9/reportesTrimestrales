@@ -372,9 +372,9 @@ public class Vitales extends Documento{
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
-    protected void generarGraficas(){
+    protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
-        Grafica vitales = new Grafica("vitales", getRuta(), rr.get());
+        Grafica vitales = new Grafica("vitales", getRuta(), rr.get(), modalidad);
         vitales.start();
     }
     
