@@ -11,19 +11,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.charset.Charset;
-import java.nio.file.Path;
 import java.text.Collator;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import org.apache.commons.io.FileUtils;
 import org.rosuda.JRI.REXP;
-import org.rosuda.JRI.RList;
-import org.rosuda.JRI.RVector;
 
 /**
  *
@@ -34,13 +28,13 @@ public class Vitales extends Documento{
     private List introCapitulos;
     private String formatoSerie;
     Collator comparador = Collator.getInstance();
-        
+    private SesionR rr;
+    private String rutaCSV;    
 
     public SesionR getRr() {
         return rr;
     }
-    private SesionR rr;
-    private String rutaCSV;
+    
     
     
     

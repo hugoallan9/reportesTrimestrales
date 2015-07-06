@@ -23,25 +23,35 @@ public class ReportesTrimestrales {
 //        menu.setVisible(true);
 //        Calendar cal = Calendar.getInstance();
 //        System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
-        Vitales docu;
-        docu= new Vitales("Estadísticas Vitales", "Tercero", "2014","C:/Users/INE/Downloads/CSV_Vitales/CSV_Vitales");
-        docu.setRuta("C:/Users/INE/Documents/Vitales3");
-        docu.setTex("vitalesTercero2015");
-        docu.hacerPortada();
-        docu.preambulo();
-        docu.iniciarDocumento();
-        docu.hacerTitulo();
-        docu.juntaDirectiva();
-        docu.equipoYPresentacion();
-        docu.capitulo1();
-        docu.capitulo2();
-        docu.capitulo3();
-        docu.capitulo4();
-        docu.capitulo5();
-        docu.terminarDocumento();
-        docu.getRr().get().end();
-        //docu.generarGraficas("trimestral");
-        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
+//        Vitales docu;
+//        docu= new Vitales("Estadísticas Vitales", "Tercero", "2014","C:/Users/INE/Downloads/CSV_Vitales/CSV_Vitales");
+//        docu.setRuta("C:/Users/INE/Documents/Vitales3");
+//        docu.setTex("vitalesTercero2015");
+//        docu.hacerPortada();
+//        docu.preambulo();
+//        docu.iniciarDocumento();
+//        docu.hacerTitulo();
+//        docu.juntaDirectiva();
+//        docu.equipoYPresentacion();
+//        docu.capitulo1();
+//        docu.capitulo2();
+//        docu.capitulo3();
+//        docu.capitulo4();
+//        docu.capitulo5();
+//        docu.terminarDocumento();
+//        docu.getRr().get().end();
+//        docu.generarGraficas("trimestral");
+//        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
+        
+        IPC docu;
+        docu = new IPC("IPC", "Junio", "2015", "C:/Users/INE/Desktop/IPC/CSV_IPC");
+        docu.setRuta("C:/Users/INE/Documentos/IPC");
+        docu.setTex("IPC" + docu.getMes());
+        //docu.hacerPortada();
+        //docu.preambuloAnual();
+        //docu.iniciarDocumentoAnual();
+        //docu.hacerTituloAnual();
+        docu.juntaDirectivaAnual();
     }
     
 }

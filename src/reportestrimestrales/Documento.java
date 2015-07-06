@@ -141,6 +141,40 @@ public class Documento {
         }
     }
     
+    protected void iniciarDocumentoAnual(){
+        try {
+            tex.createNewFile();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            FileWriter escritora = new FileWriter(tex,true);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\\renewcommand{\\titulodoc}{" + titulo + " " + " -  " + getMes()+ " " + anioPublicacion +"}");
+            buffer.write("\\definecolor{color1}{rgb}{0,0,0.8}\n" +
+            "\\definecolor{color2}{rgb}{0.3,0.5,1}");
+            buffer.write("\\usepackage{booktabs}\n" +
+            "\\usepackage{multirow} \n" +
+            "\\usepackage{lscape} \n" +
+            "\n" +
+            "\n" +
+            "\\newcommand{\\ra}[1]{\\renewcommand{\\arraystretch}{#1}}\n" +
+            "\n" +
+            "\\newcommand{\\mesreportado}{"+ getMes()+ "}\n" +
+            "\\newcommand{\\varmens}{0.21}\n" +
+            "\\newcommand{\\varanu}{2.43}\n" +
+            "\\newcommand{\\varacu}{0.17}\n\n");
+            buffer.write("\n\n\n  %#########INICIO DE DOCUMENTO#################");
+            buffer.write("\\begin{document}\n");
+            buffer.write("\\includepdf{caratula.pdf}");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     protected void terminarDocumento(){
         try {
             FileWriter escritora = new FileWriter(tex,true);
@@ -237,7 +271,209 @@ public class Documento {
         }
     }
     
+    
+    protected void juntaDirectivaAnual(){
+        try {
+            Document doc = Jsoup.connect("http://www.ine.gob.gt/index.php/institucion/organizacion").get();
+            Elements tables =  doc.select("tbody");
+            Element juntaDirectiva = tables.get(0);
+            Elements miembros = juntaDirectiva.select("tr");
+            String[] temp;
+            for( int i = 0 ; i < miembros.size(); i++ ){
+                String[] partes = miembros.get(i).text().split("Suplente");
+                if(i%2 != 0){
+                    junta.add(partes[0]);
+                    junta.add("Suplente" + partes[1]);
+                }else{
+                    junta.add(partes[0]);
+                }
+                
+            }
+            
+            Element  tablaGerente = tables.get(1);
+            Elements gerente = tablaGerente.select("tr");
+            gerencias.add(gerente.get(0).text().split("Gerente")[1]);
+            
+            Element tablaGerencias = tables.get(2);
+            Elements subgerencias = tablaGerencias.select("td");
+            gerencias.add(subgerencias.get(0).text().split("[Ss]ubgerencia [Aa]dministrativa [Ff]inanciera")[1]);
+            gerencias.add(subgerencias.get(1).text().split("[Ss]ubgerencia [Tt][ée]cnica")[1]);
+            System.out.println(gerencias.get(1));
+            System.out.println(gerencias.get(2));
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            FileWriter escritora = new FileWriter(tex,true);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\n" +
+            "	$\\ $\n" +
+            "	\\vspace{0.0cm}\n" +
+            "	\n" +
+            "	\\begin{center}\n" +
+            "		{\\Bold \\LARGE AUTORIDADES}\\\\[1cm]\n" +
+            "		\n" +
+            "		\n" +
+            "		{\\Bold \\large \\color{color1!89!black} JUNTA  DIRECTIVA} \\\\[0.4cm]\n" +
+            "		\n");
+            buffer.write("\t \t \t { \\Bold Ministerio de Economía}  		\\\\ \n");
+            buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Economía") + 1 )  + "  \\\\ \n");
+            buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Economía") + 2 )  +"  \\\\ [0.4cm] \n\n");
+            
+            buffer.write("\t \t \t {\\Bold Ministerio de Finanzas} \\ \n");
+            buffer.write("\t \t \t " + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 1 )  + "\\\\ \n");
+            buffer.write("\t \t \t" + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 2 )  + "\\\\ [0.4cm] \n \n ");
+            
+            
+            buffer.write("\t \t \t & \\\\\n" +
+"				{\\Bold Ministerio de Agricultura, Ganadería y Alimentación} \\\\ \n ");
+            buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Agricultura, Ganadería y Alimentación") + 1 )  + "  \\\\ \n");
+            buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Agricultura, Ganadería y Alimentación") + 2 )  +" \\\\ [0.4cm] \n\n");
+            
+            buffer.write("\t \t \t " + "{\\Bold Ministerio de Energía y Minas}\\\\ \n");
+            buffer.write("\t\t\t" +   junta.get(junta.indexOf("Ministerio de Energía y Minas")+1) +"\\\\ \n");
+            buffer.write("\t\t\t" + junta.get(junta.indexOf("Ministerio de Energía y Minas") + 2 ) + "\\\\ [0.4cm]\n");
+            
+            
+            
+            buffer.write("\t \t \t {\\Bold Secretaría de Planificación y Programación de la Presidencia}  " + " \\\\\n \t \t \t ");     
+            buffer.write("\t\t\t " + junta.get(junta.indexOf("Secretaría de Planificación y Programación de la Presidencia") + 1 ) +" & \\\\ \n");
+            buffer.write("\t \t \t " + junta.get(junta.indexOf("Secretaría de Planificación y Programación de la Presidencia") + 2 ) + "\\\\ [0.4cm] \n");        
+            
+            
+                  
+            
+            buffer.write("\t \t \t & {\\Bold Banco de Guatemala} \\\\ \n");
+            buffer.write("\t\t\t " +junta.get(junta.indexOf("Banco de Guatemala") + 1 ) +"\\\\ \n");
+            buffer.write("\t\t\t " + junta.get(junta.indexOf("Banco de Guatemala") + 2 ) +"\\\\ [0.4cm] \n");
+            
+              
+            buffer.write("\t\t\t {\\Bold Universidad de San Carlos de Guatemala} \" \\\\\\\\ \\n\"" );
+            buffer.write("&" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 1 )   +  "  \\\\\n");
+            buffer.write("&" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 2 )   +  "  \\\\ [0.4cm]\n");
+            
+            buffer.write("{\\Bold Universidades Privadas} \\\\\n");
+            buffer.write("\t\t\t " +  " & " + junta.get(junta.indexOf("Universidades Privadas") + 1)  + "\\\\");
+            buffer.write("\t\t\t " +  " & " + junta.get(junta.indexOf("Universidades Privadas") + 2)  + "\\\\ [0.4cm] \n");
+            
+            buffer.write("\t\t\t {\\Bold Comité Coordinador de \\ Asociaciones  Agrícolas, Comerciales,Industriales y Financieras} \\\\ \n");  
+            buffer.write("\t\t\t" + junta.get(junta.indexOf("Comité Coordinador de Asociaciones Agrícolas, Comerciales, Industriales y Financieras") +1 ) +   "\\\\\n");
+            buffer.write("\t\t\t " + junta.get(junta.indexOf("Comité Coordinador de Asociaciones Agrícolas, Comerciales, Industriales y Financieras") +2 ) +  "\\\\ [0.4cm]\n" );			  
+      
+            
+            
+            buffer.write("	\n" +
+"		{\\Bold \\large \\color{color1!89!black} GERENCIA}\\\\[0.2cm]\n" +
+                "Gerente: " + gerencias.get(0) +   "		\\\\\n" +
+                "Subgerente Técnico: " + gerencias.get(2) + 		"\\\\\n" +
+                "Subgerente Administrativo Financiero: " + gerencias.get(1) +  "\\\\ \n");
+            buffer.write("\t \t \t \\end{center}\n");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
+    
+    protected void equipoYPresentacion(){
+        
+        
+        escribirLinea("\\clearpage\n" +
+                "\n" +
+                "$\\ $\n" +
+                "\\vspace{1cm}\n" +
+                "\n" +
+                "\\begin{center}\n" +
+                "	{\\Bold \\LARGE EQUIPO RESPONSABLE}\\\\[2cm]\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color1!89!black} REVISIÓN GENERAL}\\\\[0.2cm]\n" +
+                "	Rubén Narciso\\\\[0.8cm]\n" +
+                "	\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color1!89!black} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
+                "	Equipo tecnico \\[0.8cm] \n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color1!89!black} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
+                "	Hugo Allan García Monterrosa\\\\\n" +
+                "	Fabiola Beatriz Ramírez Pinto\\\\\n" +
+                "	José Carlos Bonilla Aldana\\\\[0.8cm]\n" +
+                "	\n" +
+                "	\n" +
+                "	\n" +
+                "\\end{center}\\setcounter{page}{0}\\cleardoublepage\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[1cm]\n" +
+                "\n" +
+                "\\tableofcontents\n" +
+                "\n" +
+                "\\cleardoublepage\n" +
+                "\\pagestyle{estandar}\n" +
+                "\\setcounter{page}{1}\n" +
+                "\\setlength{\\arrayrulewidth}{1.0pt}\n" +
+                "\n" +
+                "\n" +
+                "\\cleardoublepage\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[0.5cm]\n" +
+                "\\thispagestyle{empty}\n" +
+                "\\noindent {\\Bold \\huge Presentación}\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[0.5cm]\n" +
+                "\\large"+
+                "$\\ $\\\\\n" +
+                "El presente informe mensual, contiene los principales resultados "
+                + "del Índice de Precios al Consumidor (IPC) del Instituto Nacional de Estadística "
+                + "-INE-.  Como indicador macroeconómico, este dato se utiliza para "
+                + "medir el comportamiento del nivel general de precios de la economía "
+                + "del país, tomando como base los precios observados en el mes de referencia. "+
+                "\n" +
+                "Los niveles de inflación más importantes de {\\Bold" + getMes() + " de " + getYear() +" }"
+                +"son los siguientes: se registró una variación intermensual de \\varmens\\%, una variación "
+                + "interanual de \\varanu\\% y una variación acumulada de \\varacu\\%."+
+                "Este informe se compone de seis apartados. En el primero se desarrollan "
+                + "algunas variables que condicionan los precios internos, en el "
+                + "cual se incluyen: el comportamiento del índice internacional "
+                + "de alimentos -elaborado por la FAO-, el precio medio "
+                + "internacional del petróleo, el tipo de cambio, la tasa bancaria "
+                + "de interés activa y el comportamiento de la inflación de los "
+                + "principales  socios comerciales; en el segundo se detalla los "
+                + "resultados de las variaciones intermensuales de los precios "
+                + "nacionales desagregados por Región y Grupo de Gasto; en el tercero "
+                + "se exponen y desagregan los resultados de las variaciones interanuales;"
+                + " en el cuarto se analizan las principales alzas y bajas  "
+                + "de los productos que conforman el IPC y su incidencia en "
+                + "la variación intermensual de precios; en el quinto se detallan "
+                + "los resultados del costo de la canasta básica, tanto la alimenticia como la vital, "
+                + "además se consigna la evolución del poder adquisitivo del "
+                + "Quetzal; en el sexto se incluyen los precios medios históricos "
+                + "y regionales de los bienes y servicios que registraron variaciones "
+                + "importantes del mes en estudio."
+                + ""
+                + "\n\n" +
+                "\n" +
+                "Finalmente, se incluye un glosario que contiene la definición "
+                + "de los principales conceptos relacionados con el IPC y la metodología"
+                + " de cálculo para la obtención de los diferentes índices y variaciones."
+                + ""
+                + "\n" +
+                "$\\ $"
+                +"\\thispagestyle{empty}\n" +
+                "\n" +
+                "\n" +
+                "\\cleardoublepage");
+    }
+    
     
     protected void preambulo(){
        File file = null; 
@@ -322,6 +558,115 @@ public class Documento {
         }
     }
     
+    protected void preambuloAnual(){
+       File file = null; 
+       URL url = null;
+        try {
+            file = new  File(ruta,"carta3.tex");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/carta3.tex");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            file = new  File(ruta,"encabezado.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/encabezado.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        try {
+            file = new  File(ruta,"encabezadopar.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/encabezadopar.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            file = new  File(ruta,"fondo-capitulo.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/fondo-capitulo.png");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            file = new  File(ruta,"fondo-capitulo-no-descripcion.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/fondo-capitulo-no-descripcion.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            file = new  File(ruta,"topeven3.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/topeven3.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            file = new  File(ruta,"topodd3.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/topodd3.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        try {
+            FileWriter escritora = new FileWriter(tex,false);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\\input{preambulo}\n");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     
     protected void hacerTitulo(){
         try{
@@ -350,6 +695,42 @@ public class Documento {
           "\\begin{center}\n" +
           "	\\Bold \\LARGE REPÚBLICA DE GUATEMALA\\\\\n" +
           "{\\MakeUppercase{\\titulodoc}}\n"+
+                   "\\end{center}\n" +
+          "\\cleardoublepage");
+           buffer.close();
+        } catch(IOException ex){
+            System.out.println(ex);
+        }
+    }
+    
+    
+    protected void hacerTituloAnual(){
+        try{
+           FileWriter escritora = new FileWriter(tex,true);
+           BufferedWriter buffer = new BufferedWriter(escritora);
+           buffer.write("$\\ $\n" +
+           "\\vspace{14.5cm}\n" +
+           "\n" +
+           "\\noindent\\begin{tabular}{p{0.9cm}p{6.8cm}}\n" +
+           "	& " + year +  ".$\\,$ Guatemala, América Central \\\\\n" +
+           "	&\\Bold Instituto Nacional de Estadística\\\\[-0.4cm]\n" +
+           "	&\\color{blue!50!black}\\url{www.ine.gob.gt}\\\\[0.9cm]\n" +
+           "\\end{tabular}\\\\\n" +
+           "\\noindent\\begin{tabular}{p{0.9cm}p{6.8cm}}\n" +
+           "	& Está permitida la reproducción parcial o total de los contenidos de este documento con la mención de la fuente. \\\\[0.5cm]\n" +
+           "	\n" +
+           "	& Este documento fue elaborado empleando  {\\Sans R}, Inkscape y {\\Logos \\XeLaTeX}.\\\\\n" +
+           "\\end{tabular} \n" +
+           "\n" +
+           "\n" +
+           "\\clearpage");
+           
+           buffer.write("$\\ $\n" +
+          "\\vspace{7cm}\n" +
+          "\n" +
+          "\\begin{center}\n" +
+          "	\\Bold \\LARGE {\\MakeUppercase{\\titulodoc}} \\\\\n" +
+          "\\mesreportado \n"+
                    "\\end{center}\n" +
           "\\cleardoublepage");
            buffer.close();
@@ -399,6 +780,21 @@ public class Documento {
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write(" \n \\INEchapter{" + nombreIndice + " }{" + nombre1 + "}{"
                    + nombre2 + "}{" + contenido + "}%\n");
+            buffer.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    protected void escribirCapituloAnual(String nombreIndice, String nombreReal){
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(tex,true);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(" \n \\INEchapter{" + nombreReal + " }{" + nombreIndice + "}\n");
             buffer.close();
             
             
@@ -492,6 +888,83 @@ public class Documento {
                 + "{%\n " + grafica + "}%\n"
                 + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n "
                 + "{%\n " + pie+"}%\n");
+    }
+    
+    
+    protected String seccion(String codigo, String nombreSeccion, String descripcion, 
+            String tituloGrafica, String tipoGrafica,
+            String grafica, String fuente) {
+    
+        File f = new File(tex.getParent(), codigo);
+        if( !f.exists() ){
+            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+            f.mkdir();
+        }
+        
+        File titulo = new File(f, "titulo.tex");
+        File primeraDescripcion = new File(f, "descripcion.tex");
+        File titleGrafica = new File(f,"tituloGrafica.tex");
+        File desGrafica = new File(f, "desGrafica.tex");
+        File desFuente = new File(f, "fuente.tex");
+        
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(titulo);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(nombreSeccion);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(primeraDescripcion);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(descripcion);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+        try {
+            escritora = new FileWriter(titleGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tituloGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tipoGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desFuente);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(fuente);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return("\n \\cajita{%\n"
+                + nombreSeccion+ "}%\n{"
+                + "%\n \\input{" + primeraDescripcion.getAbsolutePath().replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + titleGrafica.getAbsolutePath().replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + desGrafica.getAbsolutePath().replaceAll("\\\\","/") +   "}} %\n"
+                + "{%\n " + grafica + "}%\n"
+                + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n ");
+        
     }
     
     protected  void escribirLinea(String linea){
