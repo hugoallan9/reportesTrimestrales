@@ -166,7 +166,7 @@ public class Documento {
             "\\newcommand{\\varmens}{0.21}\n" +
             "\\newcommand{\\varanu}{2.43}\n" +
             "\\newcommand{\\varacu}{0.17}\n\n");
-            buffer.write("\n\n\n  %#########INICIO DE DOCUMENTO#################");
+            buffer.write("\n\n\n  %#########INICIO DE DOCUMENTO#################\n");
             buffer.write("\\begin{document}\n");
             buffer.write("\\includepdf{caratula.pdf}");
             buffer.close();
@@ -324,10 +324,10 @@ public class Documento {
             
             buffer.write("\t \t \t {\\Bold Ministerio de Finanzas} \\ \n");
             buffer.write("\t \t \t " + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 1 )  + "\\\\ \n");
-            buffer.write("\t \t \t" + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 2 )  + "\\\\ [0.4cm] \n \n ");
+            buffer.write("\t \t \t" + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 2 )  + "\\\\[0.4cm] \n\n ");
             
             
-            buffer.write("\t \t \t & \\\\\n" +
+            buffer.write("\t \t \t " +
 "				{\\Bold Ministerio de Agricultura, Ganadería y Alimentación} \\\\ \n ");
             buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Agricultura, Ganadería y Alimentación") + 1 )  + "  \\\\ \n");
             buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Agricultura, Ganadería y Alimentación") + 2 )  +" \\\\ [0.4cm] \n\n");
@@ -339,24 +339,24 @@ public class Documento {
             
             
             buffer.write("\t \t \t {\\Bold Secretaría de Planificación y Programación de la Presidencia}  " + " \\\\\n \t \t \t ");     
-            buffer.write("\t\t\t " + junta.get(junta.indexOf("Secretaría de Planificación y Programación de la Presidencia") + 1 ) +" & \\\\ \n");
+            buffer.write("\t\t\t " + junta.get(junta.indexOf("Secretaría de Planificación y Programación de la Presidencia") + 1 ) +"  \\\\ \n");
             buffer.write("\t \t \t " + junta.get(junta.indexOf("Secretaría de Planificación y Programación de la Presidencia") + 2 ) + "\\\\ [0.4cm] \n");        
             
             
                   
             
-            buffer.write("\t \t \t & {\\Bold Banco de Guatemala} \\\\ \n");
+            buffer.write("\t \t \t  {\\Bold Banco de Guatemala} \\\\ \n");
             buffer.write("\t\t\t " +junta.get(junta.indexOf("Banco de Guatemala") + 1 ) +"\\\\ \n");
             buffer.write("\t\t\t " + junta.get(junta.indexOf("Banco de Guatemala") + 2 ) +"\\\\ [0.4cm] \n");
             
               
-            buffer.write("\t\t\t {\\Bold Universidad de San Carlos de Guatemala} \" \\\\\\\\ \\n\"" );
-            buffer.write("&" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 1 )   +  "  \\\\\n");
-            buffer.write("&" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 2 )   +  "  \\\\ [0.4cm]\n");
+            buffer.write("\t\t\t {\\Bold Universidad de San Carlos de Guatemala} \" \\\\ \n\"" );
+            buffer.write("\t\t\t" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 1 )   +  "  \\\\\n");
+            buffer.write("\t\t\t" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 2 )   +  "  \\\\ [0.4cm]\n");
             
             buffer.write("{\\Bold Universidades Privadas} \\\\\n");
-            buffer.write("\t\t\t " +  " & " + junta.get(junta.indexOf("Universidades Privadas") + 1)  + "\\\\");
-            buffer.write("\t\t\t " +  " & " + junta.get(junta.indexOf("Universidades Privadas") + 2)  + "\\\\ [0.4cm] \n");
+            buffer.write("\t\t\t "  + junta.get(junta.indexOf("Universidades Privadas") + 1)  + "\\\\");
+            buffer.write("\t\t\t "  + junta.get(junta.indexOf("Universidades Privadas") + 2)  + "\\\\ [0.4cm] \n");
             
             buffer.write("\t\t\t {\\Bold Comité Coordinador de \\ Asociaciones  Agrícolas, Comerciales,Industriales y Financieras} \\\\ \n");  
             buffer.write("\t\t\t" + junta.get(junta.indexOf("Comité Coordinador de Asociaciones Agrícolas, Comerciales, Industriales y Financieras") +1 ) +   "\\\\\n");
@@ -393,7 +393,7 @@ public class Documento {
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Equipo tecnico \\[0.8cm] \n" +
+                "	Equipo tecnico \\\\[0.8cm] \n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
@@ -438,7 +438,7 @@ public class Documento {
                 + "medir el comportamiento del nivel general de precios de la economía "
                 + "del país, tomando como base los precios observados en el mes de referencia. "+
                 "\n" +
-                "Los niveles de inflación más importantes de {\\Bold" + getMes() + " de " + getYear() +" }"
+                "Los niveles de inflación más importantes de {\\Bold " + getMes() + " de " + getYear() +" }"
                 +"son los siguientes: se registró una variación intermensual de \\varmens\\%, una variación "
                 + "interanual de \\varanu\\% y una variación acumulada de \\varacu\\%."+
                 "Este informe se compone de seis apartados. En el primero se desarrollan "
@@ -563,7 +563,7 @@ public class Documento {
        URL url = null;
         try {
             file = new  File(ruta,"carta3.tex");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/carta3.tex");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta3.tex");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -604,7 +604,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"fondo-capitulo.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/fondo-capitulo.png");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/fondo-capitulo.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -660,7 +660,7 @@ public class Documento {
         try {
             FileWriter escritora = new FileWriter(tex,false);
             BufferedWriter buffer = new BufferedWriter(escritora);
-            buffer.write("\\input{preambulo}\n");
+            buffer.write("\\input{Carta3}\n");
             buffer.close();
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
@@ -794,7 +794,7 @@ public class Documento {
         try {
             escritora = new FileWriter(tex,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
-            buffer.write(" \n \\INEchapter{" + nombreReal + " }{" + nombreIndice + "}\n");
+            buffer.write(" \n \\INEchaptercarta{" + nombreIndice + " }{" + nombreReal + "}\n");
             buffer.close();
             
             

@@ -41,6 +41,7 @@ public class IPC extends Documento{
     
     protected void hacerPortada(){
        String portada = "http://www.ine.gob.gt/ftparchivos/portadaIPC.pdf";
+       System.out.println(getRuta());
        File file = new File(getRuta(),"portada.pdf");
        URL url = null;
         try {

@@ -159,14 +159,14 @@ public class Vitales extends Documento{
                 + "de nacimientos por departamento permite identificar la dinámica "
                 + "poblacional a nivel interno en el país.", "La gráfica indica que la mayoría"
                         + " de madres residen en el  "
-                        + "departamento de  " + rr.get().eval("temp$x[1]").asString() + 
+                        + "departamento de  " + rr.get().eval("iconv(temp$x[1],'utf8')").asString() + 
                         " con un " + formatearNumero(rr.get().eval("temp$y[1]/vitales$'1_01'$y[9] *100").asDouble()) + 
-                        "\\%," + " seguido de " + rr.get().eval("temp$x[2]").asString() +
+                        "\\%," + " seguido de " + rr.get().eval("iconv(temp$x[2],'utf8')").asString() +
                         " con el "+ formatearNumero(rr.get().eval("temp$y[2]/vitales$'1_01'$y[9] *100").asDouble())+
-                        "\\% y " + rr.get().eval("temp$x[3]").asString() +
+                        "\\% y " + rr.get().eval("iconv(temp$x[3],'utf8')").asString() +
                         " con " + formatearNumero(rr.get().eval("temp$y[3]/vitales$'1_01'$y[9] * 100").asDouble())+
                         "\\%." + " Los departamentos con menor proporción son "
-                        + rr.get().eval("temp$x[length(temp$x)]").asString() +  " con " +
+                        + rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString() +  " con " +
                         formatearNumero(rr.get().eval("temp$y[length(temp$x)]/vitales$'1_01'$y[9] *100").asDouble()) + "\\% y "+
                         rr.get().eval("temp$x[length(temp$x)-1]").asString() + " con " + 
                         formatearNumero(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'1_01'$y[9] *100").asDouble()) + "\\%."
@@ -632,13 +632,13 @@ public class Vitales extends Documento{
                 + "de prevención.", 
                 "Para el " + getFormatoTrimestre() 
                 + " el día con mayor cantidad de defunciones fue " 
-                + rr.get().eval("temp$x[1]").asString().toLowerCase() +
+                + rr.get().eval("iconv(temp$x[1],'utf8')").asString().toLowerCase() +
                 " totalizando un  " + getDf().format(rr.get().eval("temp$y[1]").asDouble())+ 
                 "\\% de los casos, seguido de " +
                 rr.get().eval("iconv(temp$x[2],'utf8')").asString().toLowerCase() + 
                 ", día en el que se registraron un " + getDf().format(rr.get().eval("temp$y[2]").asDouble())
-                +"\\%, de las defunciones. El "+ rr.get().eval("temp$x[length(temp$x)]").asString().toLowerCase() + 
-                " fue el día que registró menos descesos, contabilizando el " + 
+                +"\\%, de las defunciones. El "+ rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString().toLowerCase() + 
+                " fue el día que registró menos decesos, contabilizando el " + 
                 getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())
                 + "\\% del total de defunciones. "
                 , "Distribución porcentual de defunciones por día de la semana de ocurrencia", getFormatoSubtituloG(),
@@ -707,8 +707,8 @@ public class Vitales extends Documento{
                 + "relacionado con la atención recibida y las condiciones de la misma.", 
                 "Según la gráfica de defunciones por lugar de ocurrencia, el  "+
                 getDf().format(rr.get().eval("temp$y[1]").asDouble()) + "\\% de los casos ocurrieron en "
-                + sitio(rr.get().eval("temp$x[1]").asString()) + ". Por otro lado, la menor proporción "
-                + " de defunciones sucedieron en " + sitio(rr.get().eval("temp$x[length(temp$x)]").asString())+
+                + sitio(rr.get().eval("iconv(temp$x[1],'utf8')").asString()) + ". Por otro lado, la menor proporción "
+                + " de defunciones sucedieron en " + sitio(rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString())+
                 ", representando el " + formatearNumero(rr.get().eval("temp$y[length(temp$y)]").asDouble()) + 
                 "\\% de los casos. ",
                 "Distribución porcentual de defunciones por lugar de ocurrencia",
@@ -783,16 +783,16 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + "económicas y ambientales que inciden en ellos.",
                 "Para el " + getFormatoTrimestre() + 
                 ", el departamento que registró mayor proporcición de  defunciones fetales  "
-                + "fue " + rr.get().eval("temp$x[1]").asString() + " con un " + 
+                + "fue " + rr.get().eval("iconv(temp$x[1],'utf8')").asString() + " con un " + 
                 getDf().format(rr.get().eval("temp$y[1]/vitales$'3_01'$y[9] *100").asDouble()) + "\\% "
-                + "seguido de " + rr.get().eval("temp$x[2]").asString() + " con " +
+                + "seguido de " + rr.get().eval("iconv(temp$x[2],'utf8')").asString() + " con " +
                 getDf().format(rr.get().eval("temp$y[2]/vitales$'3_01'$y[9] *100").asDouble()) + "\\% y "
-                + rr.get().eval("temp$x[3]").asString() + " con " + 
+                + rr.get().eval("iconv(temp$x[3],'utf8')").asString() + " con " + 
                 getDf().format(rr.get().eval("temp$y[3]/vitales$'3_01'$y[9] *100").asDouble()) + "\\%."
                 + " Los departamentos con menor proporción son "
-                + rr.get().eval("temp$x[length(temp$x)]").asString() +  " con " +
+                + rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString() +  " con " +
                 getDf().format(rr.get().eval("temp$y[length(temp$x)]/vitales$'3_01'$y[9] *100").asDouble()) + "\\% y "+
-                rr.get().eval("temp$x[length(temp$x)-1]").asString() + " con " + 
+                rr.get().eval("iconv(temp$x[length(temp$x)-1],'utf8')").asString() + " con " + 
                 getDf().format(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'3_01'$y[9] *100").asDouble()) + "\\%." , 
                 "Número de defunciones fetales por departamento de residencia de la madre", 
                 getFormatoSubtituloG(),
@@ -859,8 +859,8 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "En la distribución de defunciones fetales registrados en el " + getFormatoTrimestre()
                 +", el " + getDf().format(rr.get().eval("temp$y[1]").asDouble())+ "\\% " +
                 " de los nacimientos fueron por madres pertenecientes al pueblo " + 
-                rr.get().eval("temp$x[1]").asString() + " y el  "+ getDf().format(rr.get().eval("temp$y[2]").asDouble()) +
-                "\\% por madres del pueblo " + rr.get().eval("temp$x[2]").asString()+
+                rr.get().eval("iconv(temp$x[1],'utf8')").asString() + " y el  "+ getDf().format(rr.get().eval("temp$y[2]").asDouble()) +
+                "\\% por madres del pueblo " + rr.get().eval("iconv(temp$x[2],'utf8')").asString()+
                 " . Se desconoce el pueblo de pertenencia de la madre en " +
                 getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())+ "\\% de los casos.", 
                 "Distribución porcentual de defunciones fetales  por pueblo de pertenencia de la madre ",
@@ -941,16 +941,16 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + "realizados durante el " + getFormatoTrimestre() +" en los departamentos. "
                 + "Este dato es utilizado para realizar análisis de la estructura de las familias.", 
                 "El departamento que realizó la mayor proporción de matrimonios  "
-                + "fue " + rr.get().eval("temp$x[1]").asString() + " con un " + 
+                + "fue " + rr.get().eval("iconv(temp$x[1],'utf8')").asString() + " con un " + 
                 getDf().format(rr.get().eval("temp$y[1]/vitales$'4_01'$y[9] *100").asDouble()) + "\\% "
-                + "seguido de " + rr.get().eval("temp$x[2]").asString() + " con el " +
+                + "seguido de " + rr.get().eval("iconv(temp$x[2],'utf8')").asString() + " con el " +
                 getDf().format(rr.get().eval("temp$y[2]/vitales$'4_01'$y[9] *100").asDouble()) + "\\% y "
-                + rr.get().eval("temp$x[3]").asString() + " con " + 
+                + rr.get().eval("iconv(temp$x[3],'utf8')").asString() + " con " + 
                 getDf().format(rr.get().eval("temp$y[3]/vitales$'4_01'$y[9] *100").asDouble()) + "\\%."
                 + " Los departamentos con menor proporción de matrimonios son "
-                + rr.get().eval("temp$x[length(temp$x)]").asString() +  " con " +
+                + rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString() +  " con " +
                 getDf().format(rr.get().eval("temp$y[length(temp$x)]/vitales$'4_01'$y[9] *100").asDouble()) + "\\% y "+
-                rr.get().eval("temp$x[length(temp$x)-1]").asString() + " con " + 
+                rr.get().eval("iconv(temp$x[length(temp$x)-1],'utf8')").asString() + " con " + 
                 getDf().format(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'4_01'$y[9] *100").asDouble()) + "\\%." , 
                 "Número de matrimonios por departamento de ocurrencia", 
                 getFormatoSubtituloG(),
@@ -970,9 +970,9 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + rr.get().eval("iconv(temp$x[1], 'utf8')").asString().toLowerCase() +
                 " totalizando un  " + getDf().format(rr.get().eval("temp$y[1]").asDouble())+ 
                 "\\% de los casos, seguido de " +
-                rr.get().eval("temp$x[2]").asString().toLowerCase() + 
+                rr.get().eval("iconv(temp$x[2],'utf8')").asString().toLowerCase() + 
                 ", día en el que se registraron un " + getDf().format(rr.get().eval("temp$y[2]").asDouble())
-                +"\\%, de los matrimonios. El "+ rr.get().eval("temp$x[length(temp$x)]").asString().toLowerCase() + 
+                +"\\%, de los matrimonios. El "+ rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString().toLowerCase() + 
                 " fue el día que registro menos matrimonios, contabilizando el " + 
                 formatearNumero(rr.get().eval("temp$y[length(temp$y)]").asDouble())
                 + "\\%. ", 
@@ -1046,11 +1046,11 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "En este apartado se muestra la distribución de los divoricios "
                 + "realizados durante el " + getFormatoTrimestre() +" en los departamentos. ", 
                 "La gráfica muestra que el departamento donde ocurrió la mayor proporción de divorcios  "
-                + "fue " + rr.get().eval("temp$x[1]").asString() + " con un " + 
+                + "fue " + rr.get().eval("iconv(temp$x[1],'utf8')").asString() + " con un " + 
                 getDf().format(rr.get().eval("temp$y[1]/vitales$'5_01'$y[9] *100").asDouble()) + "\\% "
-                + "seguido de " + rr.get().eval("temp$x[2]").asString() + " con el " +
+                + "seguido de " + rr.get().eval("iconv(temp$x[2],'utf8')").asString() + " con el " +
                 getDf().format(rr.get().eval("temp$y[2]/vitales$'5_01'$y[9] *100").asDouble()) + "\\% y "
-                + rr.get().eval("temp$x[3]").asString() + " con " + 
+                + rr.get().eval("iconv(temp$x[3],'utf8')").asString() + " con " + 
                 getDf().format(rr.get().eval("temp$y[3]/vitales$'5_01'$y[9] *100").asDouble()) + "\\%."
                 + " Los departamentos con menor proporción de divorcios realizados son "
                 + rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString() +  " con " +
