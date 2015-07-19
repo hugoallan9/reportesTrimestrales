@@ -17,6 +17,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
+import org.rosuda.JRI.REXP;
 
 /**
  *
@@ -34,7 +35,7 @@ public class IPC extends Documento{
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
-        
+        cargarCSV(rutaCSV);
         setCapitulos();
     }
     
@@ -151,6 +152,31 @@ public class IPC extends Documento{
                 "Instituto Nacional de Estadística"));
     }
 
-    
+    protected void generarGraficas(String modalidad){
+        System.out.println("GENERANDO LAS GRAFICAS");
+         rr.get().eval("setPath('" + getRuta() + "')");
+         System.out.println("La ruta para las gráficas es " + rr.get().eval("getPath()"));
+        Grafica vitales = new Grafica("ipc", getRuta(), rr.get(), modalidad);
+        vitales.start();
+    } 
+
+    private void cargarCSV(String ruta) {
+        if (!rr.get().waitForR())
+            {
+                System.err.println("No se pudo establecer  conexión con R ");
+            }else {
+                System.out.println("La ruta para cargar los CSV " + ruta);
+                rr.get().eval("library(funcionesINE)");
+                System.out.println(rr.get().eval(".libPaths()"));
+                System.out.println(rr.get().eval("R.version"));
+                System.out.println("ipc <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("ipc <- cargaMasiva('" +  ruta +"')");
+                REXP nombres = rr.get().eval("names(ipc)");
+                rr.get().eval("setListIpc(ipc)");
+                System.out.println(listadoCSV);
+                System.out.println(nombres);
+                
+            }
+    }
     
 }

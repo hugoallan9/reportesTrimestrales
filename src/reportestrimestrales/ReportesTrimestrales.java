@@ -21,11 +21,11 @@ public class ReportesTrimestrales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try {
-            Conector c = new Conector("C:\\Users\\INE\\Downloads\\marzo.csv","C:\\Users\\INE\\Desktop\\CSV");
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            Conector c = new Conector("C:\\Users\\INE\\Downloads\\marzo.csv","C:\\Users\\INE\\Desktop\\CSV");
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
+//        }
             // TODO code application logic here
 //        MenuPrincipal menu = new MenuPrincipal();
 //        menu.setVisible(true);
@@ -51,19 +51,20 @@ public class ReportesTrimestrales {
 //        docu.generarGraficas("presentacion");
 //        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
         
-//        IPC docu;
-//        docu = new IPC("IPC", "Junio", "2015", "C:/Users/INE/Desktop/IPC/CSV_IPC");
-//        docu.setRuta("C:/Users/INE/Documents/IPC");
-//        docu.setTex("IPC" + docu.getMes());
-//        docu.hacerPortada();
-//        docu.preambuloAnual();
-//        docu.iniciarDocumentoAnual();
-//        docu.hacerTituloAnual();
-//        docu.juntaDirectivaAnual();
-//        docu.equipoYPresentacion();
-//        docu.capitulo1();
-//        docu.capitulo2();
-//        docu.terminarDocumento();
+        IPC docu;
+        docu = new IPC("IPC", "Junio", "2015", "C:/Users/hugoa_000/Documents/IPC/CSV_IPC/");
+        docu.setRuta("C:/Users/hugoa_000/Documents/IPC/");
+        docu.setTex("IPC" + docu.getMes());
+        docu.hacerPortada();
+        docu.preambuloAnual();
+        docu.iniciarDocumentoAnual();
+        docu.hacerTituloAnual();
+        docu.juntaDirectivaAnual();
+        docu.equipoYPresentacion();
+        docu.capitulo1();
+        docu.capitulo2();
+        docu.generarGraficas("anual");
+        docu.terminarDocumento();
         
     }
     

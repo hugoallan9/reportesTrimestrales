@@ -27,10 +27,21 @@ public class Grafica extends Thread {
     
     public void run(){
         System.out.println("HILO: " + ruta);
-        System.out.println(r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = "+ modalidad +")"));
-        r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = '"+ modalidad +"')");
-//        for(int i = 0 ; i <1000000; i++){
-//            System.out.println("Hola mundo en un hilo");
-//        }
+        if(lista.equalsIgnoreCase("vitales")){
+            r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = '"+ modalidad +"')");    
+        }else if( lista.equalsIgnoreCase("ipc") ){
+            System.out.println("IPC");
+            System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
+            r.eval("sink(file = 'C:/Users/hugoa_000/Documents/IPC/" + "log.txt', type = 'message')" );
+            r.eval("library(tikzDevice)");
+            System.out.println(r.eval("getListIpc()"));
+            System.out.println(r.eval("lsf.str(asNamespace('funcionesINE'))[14]"));
+            System.out.println(r.eval("tempdir()"));
+            r.eval("capitulo2()");
+            r.eval("sink()");
+
+            
+        }
+        
     }
 }
