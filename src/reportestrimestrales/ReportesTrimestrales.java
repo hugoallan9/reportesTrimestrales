@@ -52,8 +52,8 @@ public class ReportesTrimestrales {
 //        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
         
         IPC docu;
-        docu = new IPC("IPC", "Junio", "2015", "C:/Users/hugoa_000/Documents/IPC/CSV_IPC/");
-        docu.setRuta("C:/Users/hugoa_000/Documents/IPC/");
+        docu = new IPC("IPC", "Junio", "2015", "C:/Users/lisa/Documents/IPC/CSV_IPC/");
+        docu.setRuta("C:/Users/lisa/Documents/IPC/");
         docu.setTex("IPC" + docu.getMes());
         docu.hacerPortada();
         docu.preambuloAnual();
@@ -63,7 +63,7 @@ public class ReportesTrimestrales {
         docu.equipoYPresentacion();
         docu.capitulo1();
         docu.capitulo2();
-        docu.generarGraficas("anual");
+        //docu.generarGraficas("anual");
         docu.terminarDocumento();
         
     }

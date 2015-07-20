@@ -139,19 +139,283 @@ public class IPC extends Documento{
         escribirCapituloAnual(capitulos.get(1).toString(), "");
         
         section2_02();
-        
+        section2_03();
+        section2_06();
+        section2_07();
+        section2_08();
+        section2_09();
+        section2_10();
+        section2_11();
+        section2_12();
+        section2_13();
+        section2_15();
+        section2_16();
+        section2_17();
+        section2_18();
+        section2_19();
+        section2_20();
+        section2_21();
+        section2_23();
+        section2_24();
+        section2_27();
+        section2_28();
+        section2_29();
+        section2_30();
     }
 
     private void section2_02() {
-        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 1%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_02","Evolución del IPC", 
-                "descripcion2_01",
+                "descripcion201",
                 "IPC nacional, base diciembre del 2010",
                 "Serie histórica mensual",
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_03() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_03","IPC por división de gasto", 
+                "descripcion203",
+                "IPC por divisiòn de gasto, base diciembre del 2010",
+                getMes() + " " + getYear(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_06() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_06","Evolución del cambio mensual del IPC", 
+                "descripcion206",
+                "Variación intermensual del IPC nacional ",
+                "Serie histórica mensual",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_07() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_07","Cambio mensual del IPC por gasto", 
+                "descripcion207",
+                "Variación intermensual del IPC nacional por división de gastos",
+                getMes() + " " + getYear(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_08() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_08","Bienes con mayor incremento mensual", 
+                "descripcion208",
+                "Principales variaciones intermensuales positivas del IPC,  " + getMes() + " " + getYear(),
+                "Por gasto básico, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_09() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_08","Bienes con mayor disminuciòn mensual", 
+                "descripcion209",
+                "Principales variaciones intermensuales negativas del IPC, " + getMes() + " " + getYear(),
+                "Por gasto básico, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_10() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_10","Cambio mensual del IPC de alimentos", 
+                "descripcion210",
+                "Variación intermensual nacional del IPC de alimentos y bebidas no alcohólicas",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_11() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_11","Cambio mensual del IPC de bebidas alcohólicas", 
+                "descripcion211",
+                "Variación intermensual nacional del IPC de bebidas alcohólicas y tabaco",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+    private void section2_12() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_12","Cambio mensual del IPC de vestuario", 
+                "descripcion212",
+                "Variación intermensual nacional del IPC de prendas de vestir y calzado",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_13() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_13","Cambio mensual del IPC de  viviendas", 
+                "descripcion213",
+                "Variación intermensual nacional del IPC de vivienda, agua, electricidad y gas",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
 
+    
+    private void section2_14() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_14","Cambio mensual del IPC de muebles", 
+                "descripcion214",
+                "Variación intermensual nacional del IPC de muebles y artículos para el hogar",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_14.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_15() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_15","Cambio mensual del IPC de salud", 
+                "descripcion215",
+                "Variación intermensual nacional del IPC de salud",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_15.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+    private void section2_16() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_16","Cambio mensual del IPC de transporte", 
+                "descripcion216",
+                "Variación intermensual nacional del IPC de transporte",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_16.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_17() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_17","Cambio mensual del IPC de comunicaciones", 
+                "descripcion217",
+                "Variación intermensual nacional del IPC de comunicaciones",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_17.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+    
+    private void section2_18() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_18","Cambio mensual del IPC de recreación", 
+                "descripcion218",
+                "Variación intermensual nacional del IPC de recreación y cultura",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_18.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_19() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_19","Cambio mensual del IPC de educación", 
+                "descripcion219",
+                "Variación intermensual nacional del IPC de educación",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_19.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+     private void section2_20() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_20","Cambio mensual del IPC de restaurantes", 
+                "descripcion220",
+                "Variación intermensual nacional del IPC de restaurantes y hoteles",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_20.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_21() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_21","Cambio mensual del IPC de bienes diversos", 
+                "descripcion221",
+                "Variación intermensual nacional del IPC de bienes y servicios diversos",
+                "Serie histórica, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_21.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+     private void section2_23() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 24%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_23","Impacto del tipo de gasto en la variación mensual ", 
+                "descripcion223",
+                "Incidencia de las divisiones de gasto en la variación intermensual del IPC nacional",
+                getMes() + " " + getYear(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_23.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_24() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 24%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_24","Bienes con mayor impacto en el cambio mensual", 
+                "descripcion224",
+                "Gastos básicos con mayor incidencia positiva  y negativa absoluta en la variación intermensual del IPC",
+                getMes() + " " + getYear(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_24.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+    private void section2_27() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 27%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_27","Variación interanual del IPC nacional  ", 
+                "descripcion227",
+                "Variación interanual del IPC nacional",
+                "Serie histórica mensual",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_27.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_28() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 27%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_28","Cambio anual del IPC por tipo de gasto ", 
+                "descripcion228",
+                "Variación interanual del IPC nacional por división de gasto",
+                getMes() + " " + getYear(),
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_28.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+    private void section2_29() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 28%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_29","Bienes con mayor aumento anual  ", 
+                "descripcion229",
+                "Principales variaciones interanuales positivas del IPC, " + getMes() + " " + getYear(),
+                "Por gasto básico, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_29.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_30() {
+           escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 28%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "2_30","Bienes con mayor disminución anual", 
+                "descripcion230",
+                "Principales variaciones interanuales negativas del IPC, " + getMes() + " " + getYear(),
+                "Por gasto básico, en porcentaje",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_30.tex}  \\end{tikzpicture}",
+                "Instituto Nacional de Estadística"));
+    }
+    
+    
+    
+    
+    
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
          rr.get().eval("setPath('" + getRuta() + "')");
@@ -160,6 +424,9 @@ public class IPC extends Documento{
         vitales.start();
     } 
 
+    
+    
+    
     private void cargarCSV(String ruta) {
         if (!rr.get().waitForR())
             {
@@ -178,5 +445,6 @@ public class IPC extends Documento{
                 
             }
     }
+
     
 }
