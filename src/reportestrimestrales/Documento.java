@@ -117,7 +117,7 @@ public class Documento {
     }
     
     public void setTex(String tex){
-        this.tex = new File(ruta + "\\" + tex + ".tex");
+        this.tex = new File(ruta , tex + ".tex");
     }
     
     
@@ -917,14 +917,14 @@ public class Documento {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        try {
-            escritora = new FileWriter(primeraDescripcion);
-            BufferedWriter buffer = new BufferedWriter(escritora);
-            buffer.write(descripcion);
-            buffer.close();
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            escritora = new FileWriter(primeraDescripcion);
+//            BufferedWriter buffer = new BufferedWriter(escritora);
+//            buffer.write(descripcion);
+//            buffer.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         
         
@@ -966,6 +966,84 @@ public class Documento {
                 + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n ");
         
     }
+    
+    
+    protected String cajotaTabla(String codigo, String nombreSeccion, String descripcion, 
+            String tituloGrafica, String tipoGrafica,
+            String tabla, String fuente) {
+    
+        File f = new File(tex.getParent(), codigo);
+        if( !f.exists() ){
+            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+            f.mkdir();
+        }
+        
+        File titulo = new File(f, "titulo.tex");
+        File primeraDescripcion = new File(f, "descripcion.tex");
+        File titleGrafica = new File(f,"tituloGrafica.tex");
+        File desGrafica = new File(f, "desGrafica.tex");
+        File desFuente = new File(f, "fuente.tex");
+        
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(titulo);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(nombreSeccion);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+//        try {
+//            escritora = new FileWriter(primeraDescripcion);
+//            BufferedWriter buffer = new BufferedWriter(escritora);
+//            buffer.write(descripcion);
+//            buffer.close();
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        
+        
+        
+        try {
+            escritora = new FileWriter(titleGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tituloGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tipoGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desFuente);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(fuente);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return("\n \\cajota{%\n"
+                + nombreSeccion+ "}%\n{"
+                + "%\n \\input{" + primeraDescripcion.getAbsolutePath().replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + titleGrafica.getAbsolutePath().replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + desGrafica.getAbsolutePath().replaceAll("\\\\","/") +   "}} %\n"
+                + "{%\n " + tabla + "}%\n"
+                + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n ");
+        
+    }
+    
     
     protected  void escribirLinea(String linea){
         FileWriter escritora;

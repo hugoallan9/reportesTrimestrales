@@ -32,7 +32,7 @@ public class Grafica extends Thread {
         }else if( lista.equalsIgnoreCase("ipc") ){
             System.out.println("IPC");
             System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
-            r.eval("sink(file = 'C:/Users/lisa/Documents/IPC/" + "log.txt', type = 'message')" );
+            r.eval("sink(file = 'C:/Users/INE/Documents/IPC/" + "log.txt', type = 'message')" );
             r.eval("library(tikzDevice)");
             System.out.println(r.eval("getListIpc()"));
             System.out.println(r.eval("lsf.str(asNamespace('funcionesINE'))[14]"));

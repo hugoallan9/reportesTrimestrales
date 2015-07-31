@@ -8,6 +8,7 @@ package reportestrimestrales;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import consultor.*;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,8 +22,19 @@ public class ReportesTrimestrales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+//        File f = new File("C:\\Users\\INE\\Documents\\IPC\\CSV");
+//        if( !f.exists() ){
+//            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+//            f.mkdir();
+//        }
+//        
+//        File f1 = new File("C:\\Users\\INE\\Documents\\IPC\\CSV\\tablas");
+//        if( !f1.exists() ){
+//            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
+//            f1.mkdir();
+//        }
 //        try {
-//            Conector c = new Conector("C:\\Users\\INE\\Downloads\\marzo.csv","C:\\Users\\INE\\Desktop\\CSV");
+//            Conector c = new Conector("C:\\Users\\INE\\Downloads\\marzo.csv","C:\\Users\\INE\\Documents\\IPC\\CSV", "C:\\Users\\INE\\Documents\\IPC");
 //        } catch (SQLException ex) {
 //            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
 //        }
@@ -52,8 +64,8 @@ public class ReportesTrimestrales {
 //        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
         
         IPC docu;
-        docu = new IPC("IPC", "Junio", "2015", "C:/Users/lisa/Documents/IPC/CSV_IPC/");
-        docu.setRuta("C:/Users/lisa/Documents/IPC/");
+        docu = new IPC("IPC", "Junio", "2015", "C:/Users/INE/Documents/IPC/CSV/");
+        docu.setRuta("C:/Users/INE/Documents/IPC/");
         docu.setTex("IPC" + docu.getMes());
         docu.hacerPortada();
         docu.preambuloAnual();
@@ -63,9 +75,25 @@ public class ReportesTrimestrales {
         docu.equipoYPresentacion();
         docu.capitulo1();
         docu.capitulo2();
-        //docu.generarGraficas("anual");
+       // docu.generarGraficas("anual");
         docu.terminarDocumento();
         
+        
+//        IPC docu;
+//        docu = new IPC(args[0],args[1], args[2], args[3]);
+//        docu.setRuta(args[4]);
+//        docu.setTex("IPC" + docu.getMes());
+//        docu.hacerPortada();
+//        docu.preambuloAnual();
+//        docu.iniciarDocumentoAnual();
+//        docu.hacerTituloAnual();
+//        docu.juntaDirectivaAnual();
+//        docu.equipoYPresentacion();
+//        docu.capitulo1();
+//        docu.capitulo2();
+//        //docu.generarGraficas("anual");
+//        docu.terminarDocumento();
+//        
     }
     
 }
