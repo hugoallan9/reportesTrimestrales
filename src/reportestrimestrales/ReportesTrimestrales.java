@@ -18,27 +18,37 @@ import java.util.logging.Logger;
  */
 public class ReportesTrimestrales {
 
+    private static String rutaDescripciones, rutaDestinoCSV, rutaArchivoSubido;
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-//        File f = new File("C:\\Users\\INE\\Documents\\IPC\\CSV");
-//        if( !f.exists() ){
-//            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
-//            f.mkdir();
-//        }
-//        
-//        File f1 = new File("C:\\Users\\INE\\Documents\\IPC\\CSV\\tablas");
-//        if( !f1.exists() ){
-//            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
-//            f1.mkdir();
-//        }
-//        try {
-//            Conector c = new Conector("C:\\Users\\INE\\Downloads\\marzo.csv","C:\\Users\\INE\\Documents\\IPC\\CSV", "C:\\Users\\INE\\Documents\\IPC");
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+        rutaArchivoSubido = "/home/ine031/Documentos/marzo.csv";
+        rutaDescripciones = "/home/ine031/IPC";
+        File f = new File(rutaDescripciones, "CSV");
+        if( !f.exists() ){
+            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+            f.mkdir();
+        }
+        
+        File f1 = new File(f, "tablas");
+        if( !f1.exists() ){
+            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
+            f1.mkdir();
+        }
+        rutaDestinoCSV = f.getAbsolutePath();
+        
+        Consultor.reescribirCSV("/home/ine031/Documentos/marzo.csv");
+        try {
+            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaDescripciones);
+        } catch (SQLException ex) {
+            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
+        }
             // TODO code application logic here
+
+
+
+
 //        MenuPrincipal menu = new MenuPrincipal();
 //        menu.setVisible(true);
 //        Calendar cal = Calendar.getInstance();
@@ -64,18 +74,19 @@ public class ReportesTrimestrales {
 //        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
         
         IPC docu;
-        docu = new IPC("IPC", "Junio", "2015", "C:/Users/INE/Documents/IPC/CSV/");
-        docu.setRuta("C:/Users/INE/Documents/IPC/");
+        docu = new IPC("IPC", "Junio", "2015", rutaDestinoCSV);
+        docu.setRuta("/home/ine031/IPC/");
         docu.setTex("IPC" + docu.getMes());
         docu.hacerPortada();
         docu.preambuloAnual();
         docu.iniciarDocumentoAnual();
         docu.hacerTituloAnual();
-        docu.juntaDirectivaAnual();
+        //docu.juntaDirectivaAnual();
         docu.equipoYPresentacion();
         docu.capitulo1();
         docu.capitulo2();
-       // docu.generarGraficas("anual");
+        docu.capitulosRegionales();
+          //docu.generarGraficas("anual");
         docu.terminarDocumento();
         
         

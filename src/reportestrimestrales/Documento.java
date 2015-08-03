@@ -393,7 +393,8 @@ public class Documento {
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Equipo tecnico \\\\[0.8cm] \n" +
+                "	Eiji Arturo De Paz Pérez \\\\[0.8cm] \n" +
+                "       Edwin Rafael Tut Rocael" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +

@@ -38,6 +38,14 @@ public class Grafica extends Thread {
             System.out.println(r.eval("lsf.str(asNamespace('funcionesINE'))[14]"));
             System.out.println(r.eval("tempdir()"));
             r.eval("capitulo2()");
+            r.eval("capitulo3()");
+            r.eval("capitulo4()");
+            r.eval("capitulo5()");
+            r.eval("capitulo6()");
+            r.eval("capitulo7()");
+            r.eval("capitulo8()");
+            r.eval("capitulo9()");
+            r.eval("capitulo10()");
             r.eval("sink()");
 
             
