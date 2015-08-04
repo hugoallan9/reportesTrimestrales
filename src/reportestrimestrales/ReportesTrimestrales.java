@@ -23,27 +23,27 @@ public class ReportesTrimestrales {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        rutaArchivoSubido = "/home/ine031/Documentos/marzo.csv";
-        rutaDescripciones = "/home/ine031/IPC";
-        File f = new File(rutaDescripciones, "CSV");
-        if( !f.exists() ){
-            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
-            f.mkdir();
-        }
-        
-        File f1 = new File(f, "tablas");
-        if( !f1.exists() ){
-            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
-            f1.mkdir();
-        }
-        rutaDestinoCSV = f.getAbsolutePath();
-        
-        Consultor.reescribirCSV("/home/ine031/Documentos/marzo.csv");
-        try {
-            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaDescripciones);
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        rutaArchivoSubido = "/home/ine031/Documentos/marzo.csv";
+//        rutaDescripciones = "/home/ine031/IPC";
+//        File f = new File(rutaDescripciones, "CSV");
+//        if( !f.exists() ){
+//            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+//            f.mkdir();
+//        }
+//        
+//        File f1 = new File(f, "tablas");
+//        if( !f1.exists() ){
+//            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
+//            f1.mkdir();
+//        }
+//        rutaDestinoCSV = f.getAbsolutePath();
+//        
+//        Consultor.reescribirCSV("/home/ine031/Documentos/marzo.csv");
+//        try {
+//            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaDescripciones);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
+//        }
             // TODO code application logic here
 
 
@@ -73,23 +73,24 @@ public class ReportesTrimestrales {
 //        docu.generarGraficas("presentacion");
 //        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
         
-        IPC docu;
-        docu = new IPC("IPC", "Junio", "2015", rutaDestinoCSV);
-        docu.setRuta("/home/ine031/IPC/");
-        docu.setTex("IPC" + docu.getMes());
-        docu.hacerPortada();
-        docu.preambuloAnual();
-        docu.iniciarDocumentoAnual();
-        docu.hacerTituloAnual();
-        //docu.juntaDirectivaAnual();
-        docu.equipoYPresentacion();
-        docu.capitulo1();
-        docu.capitulo2();
-        docu.capitulosRegionales();
-          //docu.generarGraficas("anual");
-        docu.terminarDocumento();
+//        IPC docu;
+//        docu = new IPC("IPC", "Junio", "2015", rutaDestinoCSV);
+//        docu.setRuta("/home/ine031/IPC/");
+//        docu.setTex("IPC" + docu.getMes());
+//        docu.hacerPortada();
+//        docu.preambuloAnual();
+//        docu.iniciarDocumentoAnual();
+//        docu.hacerTituloAnual();
+//        //docu.juntaDirectivaAnual();
+//        docu.equipoYPresentacion();
+//        docu.capitulo1();
+//        docu.capitulo2();
+//        docu.capitulosRegionales();
+//          //docu.generarGraficas("anual");
+//        docu.terminarDocumento();
         
-        
+          Mapa nuevo = new Mapa("","/home/hugo/");
+          nuevo.descarga();
 //        IPC docu;
 //        docu = new IPC(args[0],args[1], args[2], args[3]);
 //        docu.setRuta(args[4]);
