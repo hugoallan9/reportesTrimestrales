@@ -89,8 +89,9 @@ public class ReportesTrimestrales {
 //          //docu.generarGraficas("anual");
 //        docu.terminarDocumento();
         
-          Mapa nuevo = new Mapa("","/home/hugo/");
+          Mapa nuevo = new Mapa("/home/hugo/Descargas/regiones.csv","/home/hugo/");
           nuevo.descarga();
+          nuevo.hacerRegional();
 //        IPC docu;
 //        docu = new IPC(args[0],args[1], args[2], args[3]);
 //        docu.setRuta(args[4]);
