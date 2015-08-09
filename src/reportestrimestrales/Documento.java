@@ -563,7 +563,7 @@ public class Documento {
        File file = null; 
        URL url = null;
         try {
-            file = new  File(ruta,"carta3.tex");
+            file = new  File(ruta,"Carta3.tex");
             url = new URL("http://www.ine.gob.gt/ftparchivos/Carta3.tex");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
