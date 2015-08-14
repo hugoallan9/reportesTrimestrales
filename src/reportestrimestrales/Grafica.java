@@ -32,7 +32,7 @@ public class Grafica extends Thread {
         }else if( lista.equalsIgnoreCase("ipc") ){
             System.out.println("IPC");
             System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
-            r.eval("sink(file = '/home/IPC/" + "log.txt', type = 'message')" );
+            r.eval("sink(file = '/var/www/html/IPC/sync.txt')" );
             r.eval("library(tikzDevice)");
             System.out.println(r.eval("getListIpc()"));
             System.out.println(r.eval("lsf.str(asNamespace('funcionesINE'))[14]"));
@@ -47,6 +47,7 @@ public class Grafica extends Thread {
             r.eval("capitulo9()");
             r.eval("capitulo10()");
             r.eval("sink()");
+            
 
             
         }

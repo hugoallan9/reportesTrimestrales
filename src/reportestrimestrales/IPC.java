@@ -942,6 +942,7 @@ public class IPC extends Documento{
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
+        System.out.println("La ruta que se obtiene es : " + getRuta());
          rr.get().eval("setPath('" + getRuta() + "')");
          System.out.println("La ruta para las gráficas es " + rr.get().eval("getPath()"));
         Grafica vitales = new Grafica("ipc", getRuta(), rr.get(), modalidad);
@@ -957,7 +958,7 @@ public class IPC extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 System.out.println("La ruta para cargar los CSV " + ruta);
-                rr.get().eval("library(funcionesINE)");
+                System.out.println(rr.get().eval("library(funcionesINE)"));
                 System.out.println(rr.get().eval(".libPaths()"));
                 System.out.println(rr.get().eval("R.version"));
                 System.out.println("ipc <- cargaMasiva('" +  ruta +"')");

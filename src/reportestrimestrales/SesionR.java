@@ -15,7 +15,11 @@ public class SesionR {
     Rengine re;
     
     public SesionR(){ 
-        re=new Rengine (new String [] {"--vanilla"}, false, null);
+        re = Rengine.getMainEngine();
+        if(re == null){ 
+         
+        re=new Rengine (new String [] {"--vanilla"}, false, null);   
+        }
         System.out.println("Rengine created, waiting for R"); 
     }
     

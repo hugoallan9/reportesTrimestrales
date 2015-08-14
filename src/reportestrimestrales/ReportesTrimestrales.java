@@ -4,9 +4,11 @@
  * and open the template in the editor.
  */
 package reportestrimestrales;
-
+import com.rabbitmq.client.*;
+import com.rabbitmq.client.ConnectionFactory;
 import consultor.*;
 import java.io.File;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,19 +17,32 @@ import java.util.logging.Logger;
  * @author INE
  */
 public class ReportesTrimestrales {
-
+    
+    
+    
     private static String rutaIPC, rutaDestinoCSV, rutaArchivoSubido;
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-
-//        System.out.println(args[0] + ", " + args[1]);
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-//        }
+    
+    private static void doWork(String task) {  
+      
+        
+        System.out.println("XXXXXXXXXXX");
+   for (char ch : task.toCharArray()) {
+      if (ch == '.') {
+          System.out.println("zZzZ");
+        try {
+          Thread.sleep(1000);
+        } catch (InterruptedException _ignored) {
+          Thread.currentThread().interrupt();
+        }
+      }
+      else{
+          System.out.println("O/");
+             String[] args = task.split(",");
+        
+        System.out.println("el mensajito.");
         rutaArchivoSubido = "/var/www/archivos/ipc_csv.csv";
         rutaIPC = "/var/www/html/IPC";
         File f = new File(rutaIPC, "CSV");
@@ -49,12 +64,80 @@ public class ReportesTrimestrales {
         }
         rutaDestinoCSV = f.getAbsolutePath();
         
-       // Consultor.reescribirCSV(rutaArchivoSubido);
+        Consultor.reescribirCSV(rutaArchivoSubido);
         try {
-            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaIPC, "1", "0");
+            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaIPC, args[0], args[1]);
         } catch (SQLException ex) {
             Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
+    IPC docu;
+        docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[1])), args[0], rutaDestinoCSV);
+        docu.setRuta(rutaIPC);
+        docu.setTex("IPC" + docu.getMes());
+        docu.hacerPortada();
+        docu.preambuloAnual();
+        docu.iniciarDocumentoAnual();
+        docu.hacerTituloAnual();
+        //docu.juntaDirectivaAnual();
+        docu.equipoYPresentacion();
+        docu.capitulo1();
+        docu.capitulo2();
+        docu.capitulosRegionales();
+        if (args[2].equalsIgnoreCase("true")){
+            docu.generarGraficas("anual");
+        }
+        docu.terminarDocumento();
+     
+      }
+    }
+  }
+    
+    public static String TASK_QUEUE_NAME = "ipc";
+    public static void main(String[] args) throws Exception {
+        
+
+        
+        
+    ConnectionFactory factory = new ConnectionFactory();
+    factory.setHost("localhost");
+    factory.setPassword("test");
+    factory.setUsername("test");
+    final Connection connection = factory.newConnection();
+    
+    final Channel channel = connection.createChannel();
+
+    channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
+    System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+
+    channel.basicQos(1);
+
+    final Consumer consumer = new DefaultConsumer(channel) {
+      @Override
+      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+        String message = new String(body, "UTF-8");
+
+        System.out.println(" [x] Received '" + message + "'");
+        try {
+          doWork(message);
+        } finally {
+          System.out.println(" [x] Done");
+          channel.basicAck(envelope.getDeliveryTag(), false);
+        }
+      }
+    };
+    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);
+        
+        
+
+//        System.out.println(args[0] + ", " + args[1]);
+//        try {
+//            Thread.sleep(2000);
+//        } catch (InterruptedException ex) {
+//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+
 //        rutaArchivoSubido = "/home/ine031/Documentos/marzo.csv";
 //        rutaDescripciones = "/home/ine031/IPC";
 //        File f = new File(rutaDescripciones, "CSV");
@@ -105,23 +188,7 @@ public class ReportesTrimestrales {
 //        docu.generarGraficas("presentacion");
 //        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
         
-        IPC docu;
-        docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[1])), args[0], rutaDestinoCSV);
-        docu.setRuta(rutaIPC);
-        docu.setTex("IPC" + docu.getMes());
-        docu.hacerPortada();
-        docu.preambuloAnual();
-        docu.iniciarDocumentoAnual();
-        docu.hacerTituloAnual();
-        //docu.juntaDirectivaAnual();
-        docu.equipoYPresentacion();
-        docu.capitulo1();
-        docu.capitulo2();
-        docu.capitulosRegionales();
-        if (args[2].equalsIgnoreCase("true")){
-            docu.generarGraficas("anual");
-        }
-        docu.terminarDocumento();
+        
 
 //        IPC docu;
 //        docu = new IPC("IPC", "Junio", "2015", rutaDestinoCSV);
@@ -139,9 +206,9 @@ public class ReportesTrimestrales {
 //          //docu.generarGraficas("anual");
 //        docu.terminarDocumento();
         
-          Mapa nuevo = new Mapa("/home/hugo/Descargas/regiones.csv","/home/hugo/");
-          nuevo.descarga();
-          nuevo.hacerRegional();
+//          Mapa nuevo = new Mapa("/home/hugo/Descargas/regiones.csv","/home/hugo/");
+//          nuevo.descarga();
+//          nuevo.hacerRegional();
 //        IPC docu;
 //        docu = new IPC(args[0],args[1], args[2], args[3]);
 //        docu.setRuta(args[4]);
