@@ -29,16 +29,7 @@ public class ReportesTrimestrales {
       
         
         System.out.println("XXXXXXXXXXX");
-   for (char ch : task.toCharArray()) {
-      if (ch == '.') {
-          System.out.println("zZzZ");
-        try {
-          Thread.sleep(1000);
-        } catch (InterruptedException _ignored) {
-          Thread.currentThread().interrupt();
-        }
-      }
-      else{
+ 
           System.out.println("O/");
              String[] args = task.split(",");
         
@@ -90,8 +81,7 @@ public class ReportesTrimestrales {
         }
         docu.terminarDocumento();
      
-      }
-    }
+      
   }
     
     public static String TASK_QUEUE_NAME = "ipc";
@@ -120,11 +110,13 @@ public class ReportesTrimestrales {
 
         System.out.println(" [x] Received '" + message + "'");
         try {
-          doWork(message);
-        } finally {
+         // doWork(message);
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
           System.out.println(" [x] Done");
           channel.basicAck(envelope.getDeliveryTag(), false);
-        }
+        
       }
     };
     channel.basicConsume(TASK_QUEUE_NAME, false, consumer);
