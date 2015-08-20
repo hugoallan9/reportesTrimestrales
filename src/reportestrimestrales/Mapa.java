@@ -5,12 +5,17 @@
  */
 package reportestrimestrales;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
@@ -25,32 +30,39 @@ public class Mapa {
     static Boolean bajada;
     
     
-    Mapa(String rutaCSV, String rutaSalida){
+   public Mapa(String rutaCSV, String rutaSalida){
         this.rutaCSV = new File(rutaCSV);
         this.rutaSalida = new File(rutaSalida);
     }
     
-    protected void hacerRegional(){
+    public void hacerRegional(String csv){
         try {
             File  f = new File(rutaSalida,"mapaRegional.py");
             File f1 = new File(rutaSalida, "mapasRegionales");
             f1 = new File(f1, "datos.tex");
+            File CSV =  new File(rutaCSV,csv);
             /*
             Los parámetros son 1. Ruta para el csv
             2. Ruta de los shapes para los mapas
             3. Ruta del tex de los datos para etiquetas
             4. La ruta de salida para el pdf
             */
-            System.out.println("python2.7 " + f.getAbsolutePath() + " " + rutaCSV + " " + 
+            System.out.println("python2.7 " + f.getAbsolutePath() + " " + CSV.getAbsolutePath() + " " + 
                     rutaSalida + " " + f1 + " " + rutaSalida);
-            Runtime.getRuntime().exec("python2.7 " + f.getAbsolutePath() + " " + rutaCSV + " " + 
-                    rutaSalida + " " + f1 + " " + rutaSalida);
+            Process p = Runtime.getRuntime().exec("python2.7 '" + f.getAbsolutePath() + "' " + CSV.getAbsolutePath() + " " + 
+                    rutaSalida + " " + f1 + " " + rutaSalida + " > /home/hugo/log.txt");
+            BufferedReader in = new BufferedReader(
+                                new InputStreamReader(p.getInputStream()));
+            String line = null;
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
         } catch (IOException ex) {
             Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
-    protected static void descarga(){
+    public static void descarga(){
         File file = null; 
        URL url = null;
        System.out.println(rutaSalida);
@@ -187,7 +199,16 @@ public class Mapa {
         
     }
     
-    
+    public void mapasIPC(){
+        List mapas = new ArrayList();
+        mapas.add("2_04.csv");
+        mapas.add("2_22.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerRegional((String) iterator.next());
+        }
+        
+    }
     
     
 }
