@@ -47,10 +47,46 @@ public class Mapa {
             3. Ruta del tex de los datos para etiquetas
             4. La ruta de salida para el pdf
             */
-            System.out.println("python2.7 " + f.getAbsolutePath() + " " + CSV.getAbsolutePath() + " " + 
-                    rutaSalida + " " + f1 + " " + rutaSalida);
-            Process p = Runtime.getRuntime().exec("python2.7 '" + f.getAbsolutePath() + "' " + CSV.getAbsolutePath() + " " + 
-                    rutaSalida + " " + f1 + " " + rutaSalida + " > /home/hugo/log.txt");
+            String[] cmd = {
+            "/bin/bash",
+            "-c",
+            "python2.7 " + f.getAbsolutePath() + " " + CSV.getAbsolutePath() + " " + 
+                    rutaSalida + " " + f1 + " " + rutaSalida  
+            };
+            Process p = Runtime.getRuntime().exec(cmd);
+            BufferedReader in = new BufferedReader(
+                                new InputStreamReader(p.getInputStream()));
+            String line = null;
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(Mapa.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
+    public void hacerDepartamental(String csv){
+        try {
+            File  f = new File(rutaSalida,"mapa.py");
+            File f1 = new File(rutaSalida, "mapasDepartamentales");
+            f1 = new File(f1, "datos.tex");
+            File CSV =  new File(rutaCSV,csv);
+            /*
+            Los parámetros son 1. Ruta para el csv
+            2. Ruta de los shapes para los mapas
+            3. Ruta del tex de los datos para etiquetas
+            4. La ruta de salida para el pdf
+            */
+            String[] cmd = {
+            "/bin/bash",
+            "-c",
+            "python2.7 " + f.getAbsolutePath() + " " + CSV.getAbsolutePath() + " " + 
+                    rutaSalida + " " + f1 + " " + rutaSalida  
+            };
+            System.out.println(cmd[2]);
+            Process p = Runtime.getRuntime().exec(cmd);
             BufferedReader in = new BufferedReader(
                                 new InputStreamReader(p.getInputStream()));
             String line = null;
@@ -199,6 +235,163 @@ public class Mapa {
         
     }
     
+    
+    public static void descargaDepartamental(){
+        File file = null; 
+       URL url = null;
+       System.out.println(rutaSalida);
+        
+       try {
+            if( rutaSalida.exists() == false){
+                rutaSalida.mkdir();
+            }
+            file = new  File(rutaSalida,"mapa.py");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Scripts/mapa.py");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+       
+       
+       try {
+            File f = new File(rutaSalida, "mapasDepartamentales");
+            if( f.exists() == false){
+                f.mkdir();
+            }
+            file = new  File(f,"mapaAnotado.tex");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/mapasDepartamentos/mapaAnotado.tex");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            File f = new File(rutaSalida, "mapasDepartamentales");
+            if( f.exists() == false){
+                f.mkdir();
+            }
+            file = new  File(f,"barraColor.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/mapasDepartamentos/barraColor.pdf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            File f = new  File(rutaSalida,"MapaDepartamentos");
+            if( f.exists() == false){
+                f.mkdir();
+            }
+            file = new  File(f,"22_DEPARTAMENTOS.dbf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/pruebasMapas/MapaRepublica/22_DEPARTAMENTOS.dbf");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+//        try {
+//            File f = new  File(rutaSalida,"MapaDepartamentos");
+//            if( f.exists() == false){
+//                f.mkdir();
+//            }
+//            file = new  File(f,"mapaRegiones.prj");
+//            url = new URL("http://www.ine.gob.gt/ftparchivos/pruebasMapas/MapaRepublica/22_DEPARTAMENTOS.prj");
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        try {
+//            FileUtils.copyURLToFile(url, file);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        
+        
+//        try {
+//            File f = new  File(rutaSalida,"MapaDepartamentos");
+//            if( f.exists() == false){
+//                f.mkdir();
+//            }
+//            file = new  File(f,"mapaRegiones.qpj");
+//            url = new URL("http://www.ine.gob.gt/ftparchivos/pruebasMapas/MapaRegiones/mapaRegiones.qpj");
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        try {
+//            FileUtils.copyURLToFile(url, file);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+        
+        
+        try {
+            File f = new  File(rutaSalida,"MapaDepartamentos");
+            if( f.exists() == false){
+                f.mkdir();
+            }
+            file = new  File(f,"22_DEPARTAMENTOS.shp");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/pruebasMapas/MapaRepublica/22_DEPARTAMENTOS.shp");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        try {
+            File f = new  File(rutaSalida,"MapaDepartamentos");
+            if( f.exists() == false){
+                f.mkdir();
+            }
+            file = new  File(f,"22_DEPARTAMENTOS.shx");
+            System.out.println(f.getAbsolutePath());
+            url = new URL("http://www.ine.gob.gt/ftparchivos/pruebasMapas/MapaRepublica/22_DEPARTAMENTOS.shx");
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            FileUtils.copyURLToFile(url, file);
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        
+        
+    }
+    
+    
     public void mapasIPC(){
         List mapas = new ArrayList();
         mapas.add("2_04.csv");
@@ -210,5 +403,61 @@ public class Mapa {
         
     }
     
+    public void preprimaria(){
+        List mapas = new ArrayList();
+        mapas.add("1.9.csv");
+        mapas.add("1.12.csv");
+        mapas.add("1.6.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+    
+    public void primaria(){
+        List mapas = new ArrayList();
+        mapas.add("1.16.csv");
+        mapas.add("1.19.csv");
+        mapas.add("1.22.csv");
+        mapas.add("1.25.csv");
+        mapas.add("1.7.csv");
+        mapas.add("1.10.csv");
+        mapas.add("1.13.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+    
+    
+        public void diversificado(){
+        List mapas = new ArrayList();
+        mapas.add("1.13.csv");
+        mapas.add("1.16.csv");
+        mapas.add("1.19.csv");
+        mapas.add("1.22.csv");
+        mapas.add("1.25.csv");
+        mapas.add("1.7.csv");
+        mapas.add("1.10.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+        
+        public void basicos(){
+        List mapas = new ArrayList();
+        mapas.add("1.10.csv");
+        mapas.add("1.13.csv");
+        mapas.add("1.16.csv");
+        mapas.add("1.19.csv");
+        mapas.add("1.22.csv");
+        mapas.add("1.25.csv");
+        mapas.add("1.7.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
     
 }
