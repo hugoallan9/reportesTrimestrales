@@ -396,6 +396,9 @@ public class Mapa {
         List mapas = new ArrayList();
         mapas.add("2_04.csv");
         mapas.add("2_22.csv");
+        mapas.add("2_25.csv");
+        mapas.add("2_43.csv");
+        mapas.add("2_46.csv");
         Iterator iterator = mapas.iterator();
         while( iterator.hasNext() ){
             hacerRegional((String) iterator.next());

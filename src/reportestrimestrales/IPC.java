@@ -135,6 +135,9 @@ public class IPC extends Documento{
     
     
     protected void capitulo2(){
+        Mapa mapa = new Mapa(rutaCSV, getRuta());
+        Mapa.descarga();
+        mapa.mapasIPC();
         escribirCapituloAnual(capitulos.get(1).toString(), "");
         section2_01();
         section2_02();
@@ -250,6 +253,17 @@ public class IPC extends Documento{
                 getMes() + " " + getYear(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_04(){
+        escribirLinea(cajotaMapa("2_04", 
+                "Índice de precios al consumidor por regiones", 
+                "",
+                "IPC por regiones",
+                getMes() + " " + getYear(),
+                "\\includegraphics[width=52\\cuadri]{2_04.pdf}",
+                "Instituto Nacional de Estadística"));
+        
     }
     
     private void section2_05(){

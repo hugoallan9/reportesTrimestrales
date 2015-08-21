@@ -110,7 +110,7 @@ public class ReportesTrimestrales {
 
         System.out.println(" [x] Received '" + message + "'");
         try {
-         // doWork(message);
+          doWork(message);
         } catch(Exception e){
             System.out.println(e.getMessage());
         }
