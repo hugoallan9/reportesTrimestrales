@@ -35,8 +35,15 @@ public class ReportesTrimestrales {
         
         System.out.println("el mensajito.");
         rutaArchivoSubido = "/var/www/archivos/ipc_csv.csv";
-        rutaIPC = "/var/www/html/IPC";
-        File f = new File(rutaIPC, "CSV");
+        rutaIPC = "/home/ineservidor/IPC";
+        File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[1])) + args[0]);
+        if ( !ipcMes.exists() ){
+            ipcMes.setReadable(true, false);
+            ipcMes.setExecutable(true, false);
+            ipcMes.setWritable(true, false);
+            ipcMes.mkdir();
+        }
+        File f = new File(ipcMes, "CSV");
         if( !f.exists() ){
             System.out.println("La carpeta no existe: " + f.getAbsolutePath());
             f.setReadable(true, false);
@@ -57,7 +64,7 @@ public class ReportesTrimestrales {
         
         Consultor.reescribirCSV(rutaArchivoSubido);
         try {
-            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaIPC, args[0], args[1]);
+            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[0], args[1]);
         } catch (SQLException ex) {
             Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -65,7 +72,7 @@ public class ReportesTrimestrales {
         
     IPC docu;
         docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[1])), args[0], rutaDestinoCSV);
-        docu.setRuta(rutaIPC);
+        docu.setRuta(ipcMes.getAbsolutePath());
         docu.setTex("IPC" + docu.getMes());
         docu.hacerPortada();
         docu.preambuloAnual();
@@ -80,6 +87,7 @@ public class ReportesTrimestrales {
             docu.generarGraficas("anual");
         }
         docu.terminarDocumento();
+        
      
       
   }

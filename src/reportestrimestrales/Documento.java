@@ -121,6 +121,11 @@ public class Documento {
     }
     
     
+    public File getTex(){
+        return tex;
+    }
+    
+    
     protected void iniciarDocumento(){
         try {
             tex.createNewFile();

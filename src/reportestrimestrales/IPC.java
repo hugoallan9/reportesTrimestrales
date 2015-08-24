@@ -959,7 +959,7 @@ public class IPC extends Documento{
         System.out.println("La ruta que se obtiene es : " + getRuta());
          rr.get().eval("setPath('" + getRuta() + "')");
          System.out.println("La ruta para las gráficas es " + rr.get().eval("getPath()"));
-        Grafica vitales = new Grafica("ipc", getRuta(), rr.get(), modalidad);
+        Grafica vitales = new Grafica("ipc", getTex().getAbsolutePath(), rr.get(), modalidad);
         vitales.start();
     } 
 
