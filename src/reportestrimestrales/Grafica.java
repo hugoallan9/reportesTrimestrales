@@ -49,7 +49,7 @@ public class Grafica extends Thread {
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             System.out.println("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado IPC', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(ruta)) + ".pdf"+ "')");
-            r.eval("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado IPC', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(ruta)) + ".pdf"+ "')"); 
+            r.eval("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado IPC', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(".")) + ".pdf"+ "')"); 
             //r.eval("sink()");
             
 

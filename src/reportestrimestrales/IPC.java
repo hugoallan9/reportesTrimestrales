@@ -142,7 +142,7 @@ public class IPC extends Documento{
         section2_01();
         section2_02();
         section2_03();
-        
+        section2_04();
         section2_05();
         section2_06();
         section2_07();
@@ -160,9 +160,10 @@ public class IPC extends Documento{
         section2_19();
         section2_20();
         section2_21();
+        section2_22();
         section2_23();
         section2_24();
-        
+        section2_25();
         section2_26();
         section2_27();
         section2_28();
@@ -180,9 +181,12 @@ public class IPC extends Documento{
         section2_40();
         section2_41();
         section2_42();
+        section2_43();
         section2_44();
         section2_45();
+        section2_46();
         section2_47();
+        
     }
     
     protected void capitulosRegionales(){
@@ -456,6 +460,17 @@ public class IPC extends Documento{
                 "Instituto Nacional de Estadística"));
     }
     
+     private void section2_22(){
+        escribirLinea(cajotaMapa("2_22", 
+                "Cambio mensual del IPC por región", 
+                "",
+                "Variaciones intermensuales del IPC de las regiones",
+                getMes() + " " + getYear(),
+                "\\includegraphics[width=52\\cuadri]{2_22.pdf}",
+                "Instituto Nacional de Estadística"));
+        
+    }
+     
     private void section2_24() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 24%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_24","Bienes con mayor impacto en el cambio mensual", 
@@ -464,6 +479,17 @@ public class IPC extends Documento{
                 getMes() + " " + getYear(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_24.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
+    }
+    
+    private void section2_25(){
+        escribirLinea(cajotaMapa("2_25", 
+                "Impacto de las regiones en el cambio mensual", 
+                "",
+                "Incidencias de las regiones en la variación intermensual del IPC",
+                getMes() + " " + getYear(),
+                "\\includegraphics[width=52\\cuadri]{2_25.pdf}",
+                "Instituto Nacional de Estadística"));
+        
     }
     
     private void section2_26(){
@@ -646,6 +672,17 @@ public class IPC extends Documento{
                 "Instituto Nacional de Estadística"));
     }
     
+    private void section2_43(){
+        escribirLinea(cajotaMapa("2_43", 
+                "Cambio anual del IPC por región", 
+                "",
+                "Variaciones interanuales del IPC de las regiones",
+                getMes() + " " + getYear(),
+                "\\includegraphics[width=52\\cuadri]{2_43.pdf}",
+                "Instituto Nacional de Estadística"));
+        
+    }
+    
     private void section2_44() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 36%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_44","Impacto del tipo de gasto en la variación anual", 
@@ -665,6 +702,19 @@ public class IPC extends Documento{
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_45.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
+    
+    
+    private void section2_46(){
+        escribirLinea(cajotaMapa("2_46", 
+                "Impacto de las regiones en el cambiio anual", 
+                "",
+                "Incidencias de las regiones en la variación interanual del IPC",
+                getMes() + " " + getYear(),
+                "\\includegraphics[width=52\\cuadri]{2_46.pdf}",
+                "Instituto Nacional de Estadística"));
+        
+    }
+    
     
     private void section2_47() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 38%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
