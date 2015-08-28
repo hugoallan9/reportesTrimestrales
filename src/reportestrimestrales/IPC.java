@@ -222,13 +222,13 @@ public class IPC extends Documento{
     
     private void section2_01(){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = "	\\begin{tabular}{rlrrrcc}\n" +
-"		&  \\multicolumn{2}{c}{Número Índice} \\phantom{abc} &   \\multicolumn{4}{c}{Variación porcentual}\\\\\n" +
-"		\\cmidrule{2-3} \\cmidrule{5-7} \n" +
-                "Año &  Mes &  Índice &   Mensual &  Acumulada&  Interanual\\\\ \\hline \n"+
-                "\\input{CSV/tablas/2_01.csv}"+
-                "	\\bottomrule\n" +
-"	\\end{tabular}\n";
+        String tabla = " 	\\begin{tabular}{crcccc}\n" +
+"		&  \\multicolumn{2}{c}{ Número índice}  &   \\multicolumn{3}{c}{Variación porcentual}\\\\\n" +
+"		\\cmidrule{2-6}  \n" +
+"Año &  Mes &  Índice &   Mensual &  Acumulada&  Interanual\\\\ \\hline \n" +
+"\\input{CSV/tablas/2_01.csv}	\\bottomrule\n" +
+"	\\end{tabular}\n" +
+"}%";
         
         escribirLinea(cajotaTabla("2_01", 
                 "IPC y sus variaciones",
@@ -706,7 +706,7 @@ public class IPC extends Documento{
     
     private void section2_46(){
         escribirLinea(cajotaMapa("2_46", 
-                "Impacto de las regiones en el cambiio anual", 
+                "Impacto de las regiones en el cambio anual", 
                 "",
                 "Incidencias de las regiones en la variación interanual del IPC",
                 getMes() + " " + getYear(),
@@ -728,13 +728,13 @@ public class IPC extends Documento{
     
     private void sectionR_01(int region){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 1 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = "	\\begin{tabular}{rlrrrcc}\n" +
-"		&  \\multicolumn{2}{c}{Número Índice} \\phantom{abc} &   \\multicolumn{4}{c}{Variación porcentual}\\\\\n" +
-"		\\cmidrule{2-3} \\cmidrule{5-7} \n" +
-                "Año &  Mes &  Índice &   Mensual &  Acumulada&  Interanual\\\\ \\hline \n"+
-                "\\input{CSV/tablas/" + (region+2) + "_01.csv}"+
-                "	\\bottomrule\n" +
-"	\\end{tabular}\n";
+        String tabla = " 	\\begin{tabular}{clcccc}\n" +
+"		&  \\multicolumn{2}{c}{ Número índice}  &   \\multicolumn{3}{c}{Variación porcentual}\\\\\n" +
+"		\\cmidrule{2-6}  \n" +
+"Año &  Mes &  Índice &   Mensual &  Acumulada&  Interanual\\\\ \\hline \n" +
+"\\input{CSV/tablas/2_01.csv}	\\bottomrule\n" +
+"	\\end{tabular}\n" +
+"}%";
         
         escribirLinea(cajotaTabla((region + 2) + "_01", 
                 "IPC y sus variaciones",

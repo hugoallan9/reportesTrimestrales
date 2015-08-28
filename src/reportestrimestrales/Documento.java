@@ -569,7 +569,7 @@ public class Documento {
        URL url = null;
         try {
             file = new  File(ruta,"Carta3.tex");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta3.tex");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/Carta3.tex");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -582,7 +582,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"encabezado.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/encabezado.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/encabezado.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -597,7 +597,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"encabezadopar.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/encabezadopar.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/encabezadopar.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -610,7 +610,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"fondo-capitulo.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/fondo-capitulo.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/fondo-capitulo.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -624,7 +624,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"fondo-capitulo-no-descripcion.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/fondo-capitulo-no-descripcion.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/fondo-capitulo-no-descripcion.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -637,7 +637,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"topeven3.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/topeven3.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/topeven3.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -650,7 +650,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"topodd3.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/topodd3.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/topodd3.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
