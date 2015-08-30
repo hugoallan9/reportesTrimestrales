@@ -32,61 +32,65 @@ public class ReportesTrimestrales {
  
           System.out.println("O/");
              String[] args = task.split(",");
-        
+        for(int i = 0;i < args.length;i++){
+            System.out.println(args[i]);
+        }
         System.out.println("el mensajito.");
-        rutaArchivoSubido = "/var/www/archivos/ipc_csv.csv";
-        rutaIPC = "/home/ineservidor/IPC";
-        File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[1])) + args[0]);
-        if ( !ipcMes.exists() ){
-            ipcMes.setReadable(true, false);
-            ipcMes.setExecutable(true, false);
-            ipcMes.setWritable(true, false);
-            ipcMes.mkdir();
+        if ( args[0].equalsIgnoreCase("ipc") ){
+            rutaArchivoSubido = "/var/www/archivos/ipc_csv.csv";
+            rutaIPC = "/home/ineservidor/IPC";
+            File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !ipcMes.exists() ){
+                ipcMes.setReadable(true, false);
+                ipcMes.setExecutable(true, false);
+                ipcMes.setWritable(true, false);
+                ipcMes.mkdir();
+            }
+            File f = new File(ipcMes, "CSV");
+            if( !f.exists() ){
+                System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+                f.setReadable(true, false);
+                f.setExecutable(true, false);
+                f.setWritable(true, false);
+                f.mkdir();
+            }
+
+            File f1 = new File(f, "tablas");
+            if( !f1.exists() ){
+                System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
+                f1.mkdir();
+                f.setReadable(true, false);
+                f.setExecutable(true, false);
+                f.setWritable(true, false);
+            }
+            rutaDestinoCSV = f.getAbsolutePath();
+
+            Consultor.reescribirCSV(rutaArchivoSubido);
+            try {
+                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4]);
+            } catch (SQLException ex) {
+                Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+
+            IPC docu;
+            docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
+            docu.setRuta(ipcMes.getAbsolutePath());
+            docu.setTex("IPC" + docu.getMes());
+            docu.hacerPortada();
+            docu.preambuloAnual();
+            docu.iniciarDocumentoAnual();
+            docu.hacerTituloAnual();
+            docu.juntaDirectivaAnual();
+            docu.equipoYPresentacion();
+            docu.capitulo1();
+            docu.capitulo2();
+            docu.capitulosRegionales();
+            if (args[3].equalsIgnoreCase("true")){
+                docu.generarGraficas("anual");
+            }
+            docu.terminarDocumento();
         }
-        File f = new File(ipcMes, "CSV");
-        if( !f.exists() ){
-            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
-            f.setReadable(true, false);
-    f.setExecutable(true, false);
-    f.setWritable(true, false);
-    f.mkdir();
-        }
-        
-        File f1 = new File(f, "tablas");
-        if( !f1.exists() ){
-            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
-            f1.mkdir();
-            f.setReadable(true, false);
-    f.setExecutable(true, false);
-    f.setWritable(true, false);
-        }
-        rutaDestinoCSV = f.getAbsolutePath();
-        
-        Consultor.reescribirCSV(rutaArchivoSubido);
-        try {
-            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[0], args[1]);
-        } catch (SQLException ex) {
-            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-    IPC docu;
-        docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[1])), args[0], rutaDestinoCSV);
-        docu.setRuta(ipcMes.getAbsolutePath());
-        docu.setTex("IPC" + docu.getMes());
-        docu.hacerPortada();
-        docu.preambuloAnual();
-        docu.iniciarDocumentoAnual();
-        docu.hacerTituloAnual();
-        //docu.juntaDirectivaAnual();
-        docu.equipoYPresentacion();
-        docu.capitulo1();
-        docu.capitulo2();
-        docu.capitulosRegionales();
-        if (args[2].equalsIgnoreCase("true")){
-            docu.generarGraficas("anual");
-        }
-        docu.terminarDocumento();
         
      
       
@@ -127,104 +131,7 @@ public class ReportesTrimestrales {
         
       }
     };
-    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);
-        
-        
-
-//        System.out.println(args[0] + ", " + args[1]);
-//        try {
-//            Thread.sleep(2000);
-//        } catch (InterruptedException ex) {
-//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-
-//        rutaArchivoSubido = "/home/ine031/Documentos/marzo.csv";
-//        rutaDescripciones = "/home/ine031/IPC";
-//        File f = new File(rutaDescripciones, "CSV");
-//        if( !f.exists() ){
-//            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
-//            f.mkdir();
-//        }
-//        
-//        File f1 = new File(f, "tablas");
-//        if( !f1.exists() ){
-//            System.out.println("La carpeta no existe: " + f1.getAbsolutePath());
-//            f1.mkdir();
-//        }
-//        rutaDestinoCSV = f.getAbsolutePath();
-//        
-//        Consultor.reescribirCSV("/home/ine031/Documentos/marzo.csv");
-//        try {
-//            Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, rutaDescripciones);
-//        } catch (SQLException ex) {
-//            Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-            // TODO code application logic here
-
-
-
-
-//        MenuPrincipal menu = new MenuPrincipal();
-//        menu.setVisible(true);
-//        Calendar cal = Calendar.getInstance();
-//        System.out.println(new SimpleDateFormat("MMMM").format(cal.getTime()));
-//        Vitales docu;
-//        docu= new Vitales("Estadísticas Vitales", "Tercero", "2014","C:/Users/INE/Downloads/CSV_Vitales/CSV_Vitales");
-//        docu.setRuta("C:/Users/INE/Documents/Vitales3/Vitales/");
-//        docu.setTex("vitalesTercero2015");
-//        docu.hacerPortada();
-//        docu.preambulo();
-//        docu.iniciarDocumento();
-//        docu.hacerTitulo();
-//        docu.juntaDirectiva();
-//        docu.equipoYPresentacion();
-//        docu.capitulo1();
-//        docu.capitulo2();
-//        docu.capitulo3();
-//        docu.capitulo4();
-//        docu.capitulo5();
-//        docu.terminarDocumento();
-//        docu.getRr().get().end();
-//        docu.generarGraficas("presentacion");
-//        docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Vitales3/vitalesTercero2015.tex","T");
-        
-        
-
-//        IPC docu;
-//        docu = new IPC("IPC", "Junio", "2015", rutaDestinoCSV);
-//        docu.setRuta("/home/ine031/IPC/");
-//        docu.setTex("IPC" + docu.getMes());
-//        docu.hacerPortada();
-//        docu.preambuloAnual();
-//        docu.iniciarDocumentoAnual();
-//        docu.hacerTituloAnual();
-//        //docu.juntaDirectivaAnual();
-//        docu.equipoYPresentacion();
-//        docu.capitulo1();
-//        docu.capitulo2();
-//        docu.capitulosRegionales();
-//          //docu.generarGraficas("anual");
-//        docu.terminarDocumento();
-        
-//          Mapa nuevo = new Mapa("/home/hugo/Descargas/regiones.csv","/home/hugo/");
-//          nuevo.descarga();
-//          nuevo.hacerRegional();
-//        IPC docu;
-//        docu = new IPC(args[0],args[1], args[2], args[3]);
-//        docu.setRuta(args[4]);
-//        docu.setTex("IPC" + docu.getMes());
-//        docu.hacerPortada();
-//        docu.preambuloAnual();
-//        docu.iniciarDocumentoAnual();
-//        docu.hacerTituloAnual();
-//        docu.juntaDirectivaAnual();
-//        docu.equipoYPresentacion();
-//        docu.capitulo1();
-//        docu.capitulo2();
-//        //docu.generarGraficas("anual");
-//        docu.terminarDocumento();
-//        
-        System.out.println("Generación de reporte finalizada.");
+    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);       
     }
     
      private static String getMesCadena(int mes){

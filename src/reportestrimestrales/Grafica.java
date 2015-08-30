@@ -36,6 +36,8 @@ public class Grafica extends Thread {
             System.out.println(r.eval("getListIpc()"));
             System.out.println(r.eval("lsf.str(asNamespace('funcionesINE'))[14]"));
             System.out.println(r.eval("tempdir()"));
+            System.out.println("Iniciando Gráficas");
+            r.eval("capitulo1()");
             r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");

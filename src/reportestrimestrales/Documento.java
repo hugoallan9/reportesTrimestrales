@@ -327,7 +327,7 @@ public class Documento {
             buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Economía") + 1 )  + "  \\\\ \n");
             buffer.write( "\t \t \t " +  junta.get(junta.indexOf("Ministerio de Economía") + 2 )  +"  \\\\ [0.4cm] \n\n");
             
-            buffer.write("\t \t \t {\\Bold Ministerio de Finanzas} \\ \n");
+            buffer.write("\t \t \t {\\Bold Ministerio de Finanzas} \\\\ \n");
             buffer.write("\t \t \t " + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 1 )  + "\\\\ \n");
             buffer.write("\t \t \t" + junta.get(junta.indexOf("Ministerio de Finanzas Públicas") + 2 )  + "\\\\[0.4cm] \n\n ");
             
@@ -355,7 +355,7 @@ public class Documento {
             buffer.write("\t\t\t " + junta.get(junta.indexOf("Banco de Guatemala") + 2 ) +"\\\\ [0.4cm] \n");
             
               
-            buffer.write("\t\t\t {\\Bold Universidad de San Carlos de Guatemala} \" \\\\ \n\"" );
+            buffer.write("\t \t \t  {\\Bold Universidad de San Carlos de Guatemala de Guatemala} \\\\ \n");
             buffer.write("\t\t\t" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 1 )   +  "  \\\\\n");
             buffer.write("\t\t\t" + junta.get(junta.indexOf("Universidad de San Carlos de Guatemala") + 2 )   +  "  \\\\ [0.4cm]\n");
             

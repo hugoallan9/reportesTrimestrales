@@ -344,7 +344,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_11","Cambio mensual del IPC de bebidas alcohólicas", 
                 "descripcion211",
-                "Variación intermensual nacional del IPC de bebidas alcohólicas y tabaco",
+                "Variación intermensual nacional del IPC de \\ bebidas alcohólicas y tabaco",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
