@@ -131,6 +131,76 @@ public class IPC extends Documento{
     
     protected void capitulo1(){
         escribirCapituloAnual(capitulos.get(0).toString(),"");
+        section1_01();
+        section1_02();
+        section1_03();
+        section1_04();
+        section1_05();
+        section1_06();
+    }
+    
+    private void section1_01() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "1_01","Índice de precios internacionales de los alimentos", 
+                "descripcion201",
+                "Índice de precios de los alimentos de la FAO",
+                "Índice base 2002-2004",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}",
+                "FAO"));
+    }
+    
+    
+    private void section1_02() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "1_02","Precio del pretróleo", 
+                "descripcion201",
+                "Precio Internacional del Petróleo",
+                "Precio medio",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}",
+                "FAO"));
+    }
+    
+    private void section1_03() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "1_03","Cambio del quetzal", 
+                "descripcion201",
+                "Tipo de cambio nominal promedio",
+                "Quetzal por dólar estadounidense",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}",
+                "FAO"));
+    }
+    
+    
+    private void section1_04() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "1_04","Tasa de interés", 
+                "descripcion201",
+                "Tasas de interés activa bancaria",
+                "Tasa promedio ponderada",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}",
+                "FAO"));
+    }
+    
+    
+    private void section1_05() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "1_05","Índice de precios al consumidor de EE.UU.", 
+                "descripcion201",
+                "Variación interanual del IPC de Estados Unidos de América",
+                "Serie histórica mensual",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}",
+                "FAO"));
+    }
+    
+    
+    private void section1_06() {
+        escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        escribirLinea(seccion( "1_06","Índice de precios al consumidor de México", 
+                "descripcion201",
+                "Variación interanual del IPC de México",
+                "Serie histórica mensual",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}",
+                "FAO"));
     }
     
     
