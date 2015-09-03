@@ -101,7 +101,7 @@ public class IPC extends Documento{
             "		\\\\\n" +
             "Índice de  Precios  al \\\\ Consumidor \n" +
             "		\\\\\n" + " };" +
-            "\\node[inner sep =0, scale =2]at(0.54,0.05){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "+
+            "\\node[inner sep =0, scale =2, color = white]at(0.54,0.05){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "+
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
             "\n" +
