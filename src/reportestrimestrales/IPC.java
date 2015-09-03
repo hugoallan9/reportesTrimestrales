@@ -90,19 +90,18 @@ public class IPC extends Documento{
             "\n" +
             "\\usepackage{fontspec,xunicode}\n" +
             "\n" +
-            "\\setmainfont{Open Sans Condensed Light}\n" +
+            "\\setmainfont{FuturaStd-CondensedLight.otf}\n" +
             "\\begin{document}\n" +
             "\n" +
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.54,0.57) {\n" +
+            + "\\node[inner sep =0, scale = 4.7, align = left, color = white] at (0.49,0.56) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
-            "Indice de  precios al consumidor - IPC\n" +
-            "		\\\\\n" +
-            getMes() + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, scale =2.5]at(0.54,0.05){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "+
+            "Índice de  Precios  al \\\\ Consumidor \n" +
+            "		\\\\\n" + " };" +
+            "\\node[inner sep =0, scale =2]at(0.54,0.05){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "+
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
             "\n" +
@@ -412,7 +411,7 @@ public class IPC extends Documento{
     
     private void section2_11() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion( "2_11","Cambio mensual del IPC de bebidas alcohólicas", 
+        escribirLinea(seccion( "2_11","Cambio mensual del IPC de \\ bebidas alcohólicas", 
                 "descripcion211",
                 "Variación intermensual nacional del IPC de \\ bebidas alcohólicas y tabaco",
                 "Serie histórica, en porcentaje",
@@ -424,7 +423,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_12","Cambio mensual del IPC de vestuario", 
                 "descripcion212",
-                "Variación intermensual nacional del IPC de prendas de vestir y calzado",
+                "Variación intermensual nacional del IPC de \\ prendas de vestir y calzado",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -434,7 +433,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_13","Cambio mensual del IPC de  viviendas", 
                 "descripcion213",
-                "Variación intermensual nacional del IPC de vivienda, agua, electricidad y gas",
+                "Variación intermensual nacional del IPC de vivienda, \\ agua, electricidad y gas",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -474,7 +473,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_17","Cambio mensual del IPC de comunicaciones", 
                 "descripcion217",
-                "Variación intermensual nacional del IPC de comunicaciones",
+                "Variación intermensual nacional del IPC de \\ comunicaciones",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_17.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -484,7 +483,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_18","Cambio mensual del IPC de recreación", 
                 "descripcion218",
-                "Variación intermensual nacional del IPC de recreación y cultura",
+                "Variación intermensual nacional del IPC de \\ recreación y cultura",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_18.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -494,7 +493,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_19","Cambio mensual del IPC de educación", 
                 "descripcion219",
-                "Variación intermensual nacional del IPC de educación",
+                "Variación intermensual nacional del IPC de \\ educación",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_19.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -504,7 +503,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_20","Cambio mensual del IPC de restaurantes", 
                 "descripcion220",
-                "Variación intermensual nacional del IPC de restaurantes y hoteles",
+                "Variación intermensual nacional del IPC de \\ restaurantes y hoteles",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_20.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -514,7 +513,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_21","Cambio mensual del IPC de bienes diversos", 
                 "descripcion221",
-                "Variación intermensual nacional del IPC de bienes y servicios diversos",
+                "Variación intermensual nacional del IPC de bienes y \\ servicios diversos",
                 "Serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_21.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -616,7 +615,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 28%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_30","Bienes con mayor disminución anual", 
                 "descripcion230",
-                "Principales variaciones interanuales negativas del IPC, " + getMes() + " " + getYear(),
+                "Principales variaciones interanuales negativas del IPC, \\ " + getMes() + " " + getYear(),
                 "Por gasto básico, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_30.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -626,7 +625,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_31","Cambio anual de IPC de alimentos  ", 
                 "descripcion231",
-                "Variación interanual nacional del IPC de alimentos y bebidas no alcohólicas",
+                "Variación interanual nacional del IPC de alimentos \\ y bebidas no alcohólicas",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_31.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -636,7 +635,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_32","Cambio anual del IPC de bebidas alcohólicas ", 
                 "descripcion232",
-                "Variación interanual del IPC de bebidas alcohólicas y tabaco",
+                "Variación interanual del IPC de \\ bebidas alcohólicas y tabaco",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_32.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -646,7 +645,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 30%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_33","Cambio anual de IPC de vestuario  ", 
                 "descripcion233",
-                "Variación interanual nacional del IPC de prendas de vestir y calzado",
+                "Variación interanual nacional del IPC de \\ prendas de vestir y calzado",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_33.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -666,7 +665,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 31%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_35","Cambio anual de IPC de muebles  ", 
                 "descripcion235",
-                "Variación interanual nacional del IPC de muebles y artículos para el hogar",
+                "Variación interanual nacional del IPC de muebles \\ y artículos para el hogar",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_35.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -696,7 +695,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 32%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_38","Cambio anual del IPC de comunicaciones ", 
                 "descripcion238",
-                "Variación interanual del IPC de comunicaciones",
+                "Variación interanual del IPC de \\ comunicaciones",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_38.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -704,7 +703,7 @@ public class IPC extends Documento{
     
     private void section2_39() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 33%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion( "2_39","Cambio anual de IPC de recreación  ", 
+        escribirLinea(seccion( "2_39","Cambio anual de IPC de \\ recreación  ", 
                 "descripcion237",
                 "Variación interanual nacional del IPC de recreación y cultura",
                 "Serie histórica mensual, en porcentaje",
@@ -714,7 +713,7 @@ public class IPC extends Documento{
     
     private void section2_40() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 33%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion( "2_40","Cambio anual del IPC de educación ", 
+        escribirLinea(seccion( "2_40","Cambio anual del IPC de \\ educación ", 
                 "descripcion238",
                 "Variación interanual del IPC de educación",
                 "Serie histórica mensual, en porcentaje",
@@ -726,7 +725,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 34%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_41","Cambio anual de IPC de restaurantes  ", 
                 "descripcion237",
-                "Variación interanual nacional del IPC de los servicios en restaurantes y hoteles",
+                "Variación interanual nacional del IPC de \\ los servicios en restaurantes y hoteles",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_41.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -736,7 +735,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 34%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_42","Cambio anual del IPC de bienes diversos ", 
                 "descripcion238",
-                "Variación interanual del IPC de bienes y servicios diversos",
+                "Variación interanual del IPC de bienes y \\ servicios diversos",
                 "Serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_42.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
