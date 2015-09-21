@@ -90,8 +90,30 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("anual");
             }
             docu.terminarDocumento();
+        }//ipc
+        if ( args[0].equalsIgnoreCase("vitales") ){
+            Vitales docu;
+            docu= new Vitales("Estadísticas Vitales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Vitales/Entradas");
+            docu.setRuta("/home/ineservidor/Vitales");
+            docu.setTex("vitales" + getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.capitulo1();
+            docu.capitulo2();
+            docu.capitulo3();
+            docu.capitulo4();
+            docu.capitulo5();
+            docu.terminarDocumento();
+            docu.getRr().get().end();
+            if (args[3].equalsIgnoreCase("true")){
+                docu.generarGraficas("presentacion");
+            }
+            docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Salidas/vitalesSegundo2015.tex","T");
         }
-        
      
       
   }
@@ -148,6 +170,14 @@ public class ReportesTrimestrales {
          else if(mes == 11)return "Noviembre";
          else if(mes == 12)return "Diciembre";
          return "";    
+     }
+     
+     private static String getTrimestreCadena(int trimestre){
+         if(trimestre==1) return "Primer";
+         else if(trimestre==2) return "Segundo";
+         else if(trimestre==3) return "Tercer";
+         else if(trimestre==4) return "Cuarto";
+         return "";
      }
     
 }
