@@ -97,16 +97,18 @@ public class Vitales extends Documento{
     }
     
     protected void cargarCSV(String ruta){
-        if (!rr.get().waitForR())
-            {
-                System.err.println("No se pudo establecer  conexión con R ");
-            }else {
+        //if (!rr.get().waitForR())
+          //  {
+             //   System.err.println("No se pudo establecer  conexión con R ");
+            //}else {
                 rr.get().eval("library(funcionesINE)");
                 REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"')");
                 REXP nombres = rr.get().eval("names(vitales)");
+                REXP prueba = rr.get().eval("vitales$'1_02'");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
-            }
+                System.out.println(prueba);
+            //}
     }
     
     protected void capitulo1(){

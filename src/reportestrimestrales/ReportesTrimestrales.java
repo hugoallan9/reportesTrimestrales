@@ -67,7 +67,7 @@ public class ReportesTrimestrales {
 
             Consultor.reescribirCSV(rutaArchivoSubido);
             try {
-                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4]);
+                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4], args[5]);
             } catch (SQLException ex) {
                 Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -92,10 +92,19 @@ public class ReportesTrimestrales {
             docu.terminarDocumento();
         }//ipc
         if ( args[0].equalsIgnoreCase("vitales") ){
+            String rutaVitales = "/home/ineservidor/Vitales";
+            File vitalesTrimestre = new File(rutaVitales, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !vitalesTrimestre.exists() ){
+                vitalesTrimestre.setReadable(true, false);
+                vitalesTrimestre.setExecutable(true, false);
+                vitalesTrimestre.setWritable(true, false);
+                vitalesTrimestre.mkdir();
+            }
+            System.out.println("Arg 3: " + args[3]);
             Vitales docu;
             docu= new Vitales("Estadísticas Vitales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Vitales/Entradas");
-            docu.setRuta("/home/ineservidor/Vitales");
-            docu.setTex("vitales" + getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            docu.setRuta(vitalesTrimestre.getAbsolutePath()+"/");
+            docu.setTex("vitales");
             docu.hacerPortada();
             docu.preambulo();
             docu.iniciarDocumento();
@@ -109,10 +118,10 @@ public class ReportesTrimestrales {
             docu.capitulo5();
             docu.terminarDocumento();
             docu.getRr().get().end();
-            if (args[3].equalsIgnoreCase("true")){
-                docu.generarGraficas("presentacion");
-            }
-            docu.compilar(docu.getRr(),"C:/Users/INE/Documents/Salidas/vitalesSegundo2015.tex","T");
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
         }
      
       
