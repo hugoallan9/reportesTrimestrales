@@ -5,6 +5,7 @@
  */
 package reportestrimestrales;
 
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -23,14 +24,14 @@ import org.rosuda.JRI.REXP;
  *
  * @author INE
  */
-public class Vitales extends Documento{
+public class FaltasJudiciales extends Documento{
     private List capitulos;
     private List introCapitulos;
+    private List contenidos;
     private String formatoSerie;
     Collator comparador = Collator.getInstance();
     private SesionR rr;
     private String rutaCSV;    
-
     public SesionR getRr() {
         return rr;
     }
@@ -38,10 +39,11 @@ public class Vitales extends Documento{
     
     
     
-    public Vitales(String titulo, String trimestre, String pYear, String rutaCSV) {
+    public FaltasJudiciales(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
         capitulos = new ArrayList();
         introCapitulos = new ArrayList();
+        contenidos = new ArrayList();
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
@@ -54,62 +56,288 @@ public class Vitales extends Documento{
     }
     
     protected void setCapitulos(){
-        capitulos.add("Nacimientos");
-        capitulos.add("Defunciones");
-        capitulos.add("Defunciones Fetales");
-        capitulos.add("Matrimonios");
-        capitulos.add("Divorcios");
-        capitulos.add("CUADROS ESTADÍSTICOS");
-        capitulos.add("TABLAS DE VARIACIONES");
+        capitulos.add("Faltas judiciales");
+        capitulos.add("Infractores menores de edad");
+        capitulos.add("Tipos de faltas");
+        
     }
     
     protected void setIntroCapitulos(){
-        introCapitulos.add("Es la expulsión completa del cuerpo de la madre, "
-                + "independiente de la duración del embarazo, de un producto de "
-                + "la concepción que, después de dicha separación, respire o dé "
-                + "cualquier otra señal de vida, como latidos del corazón, "
-                + "pulsaciones del cordón umbilical o movimientos efectivos de "
-                + "los músculos de contracción voluntaria.");
-        introCapitulos.add("La estadística continua de defunciones permite "
-                + "identificar y diferenciar la frecuencia y las características"
-                + " de la mortalidad según el área donde habita, sexo, edad, grupo "
-                + "étnico  y la causa básica de defunción, datos necesarios para "
-                + "la elaboración de programas de salud pública para el control de "
-                + "enfermedades infecciosas, epidemiológicas, enfermedades crónicas "
-                + "no transmisibles, salud alimentaria y nutricional, inmunizaciones, "
-                + "salud mental, salud reproductiva, prevención de accidentes y otros.");
-        introCapitulos.add("Estas estadísticas permiten conocer el entorno en que "
-                + "se da este tipo de muertes (situación social y económica de "
-                + "los padres, tipo de asistencia, estado de salud de la madre y "
-                + "del feto, etc.), así como la frecuencia con la que ocurren.");
-        introCapitulos.add("La estadística continua de matrimonios registra la "
-                + "clase de unión, edad, región de residencia de las parejas que "
-                + "forman nuevas familias, información que permite identificar las "
-                + "características demográficas y socioeconómicas de la población involucrada, "
-                + "así como la relación con otras variables como las demandas de "
-                + "necesidades básicas como vivienda, servicios de salud,"
-                + " planificación familiar, entre otros.");
-        introCapitulos.add("La estadística continua de divorcios tiene como objetivo presentar"
-                + " la frecuencia con la que ocurren las disoluciones matrimoniales, "
-                + "factores que influyen en estos hechos y, como consecuencia, contribuir "
-                + "a la elaboración de planes de apoyo a menores de edad, hijos de padres divorciados, "
-                + "programas de orientación y fomento de la paternidad responsable.");
+        introCapitulos.add("Las faltas judiciales son acciones u omisiones voluntarias castigadas "
+                + "por la ley con pena leve. En la legislación guatemalteca están contenidas "
+                + "en el Libro Tercero del Código Penal.");
+        introCapitulos.add("Comprende a todas las edades de las personas antes de cumplir 18 " 
+                + "años que han cometido acciones u omisiones voluntarias castigadas por " 
+                + "la Ley con pena leve.");
+        introCapitulos.add("En derecho Penal, son acciones u omisiones voluntarias castigadas " 
+                + "por la ley con pena leve.  Contenidas en el libro tercero de las faltas, " 
+                + "título único del Código Penal, el artículo 480 en el inciso 6º. Indica: “Se " 
+                + "sancionará como falta solamente los hechos que,conforme a este Código " 
+                + "(Código Penal), no constituya delito”.");
+    }
+    protected void setContenidos(){
+         contenidos.add(cargarCapitulo1());
+         contenidos.add(cargarCapitulo2());
+         contenidos.add(cargarCapitulo3());         
     }
     
+    protected void rellenar(){
+        int hoja =1;
+        int finContenido = contenidos.size();
+        for (int i=0; i<finContenido;i++){
+            ArrayList tmp = (ArrayList)contenidos.get(i);
+            escribirCapitulo(capitulos.get(i).toString(), capitulos.get(i).toString()
+                ," ", introCapitulos.get(i).toString());
+            int finSeccion = tmp.size();
+            for (int j=0; j<finSeccion;j++){
+                String columna1="";
+                String columna2="";
+                escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+                columna1 = columna(tmp.get(0).toString(),tmp.get(1).toString(),"",
+                        "",tmp.get(2).toString(),tmp.get(3).toString(),
+                        tmp.get(4).toString(),tmp.get(5).toString(),"");
+                if(j<(finSeccion-1)){
+                columna2 = columna(tmp.get(6).toString(),tmp.get(7).toString(),"",
+                        "",tmp.get(8).toString(),tmp.get(9).toString(),
+                        tmp.get(10).toString(),tmp.get(11).toString(),"");
+                }
+                escribirLinea(hojaTrimestral(columna1, columna2));
+                hoja++;
+                
+            }
+        }
+        
+    }
     protected void cargarCSV(String ruta){
-        //if (!rr.get().waitForR())
-          //  {
-             //   System.err.println("No se pudo establecer  conexión con R ");
-            //}else {
+        if (!rr.get().waitForR())
+            {
+                System.err.println("No se pudo establecer  conexión con R ");
+            }else {
                 rr.get().eval("library(funcionesINE)");
                 REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"')");
                 REXP nombres = rr.get().eval("names(vitales)");
-                REXP prueba = rr.get().eval("vitales$'1_02'");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
-                System.out.println(prueba);
-            //}
+            }
     }
+    
+    protected ArrayList cargarCapitulo1(){
+        ArrayList cap1 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("1_01");
+        seccion1.add("Faltas judiciales");
+        seccion1.add("Número de faltas judiciales");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion1.add("1_02");
+        seccion1.add("Faltas judiciales por departamento");
+        seccion1.add("Faltas judiciales ocurridas en el año 2014");
+        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap1.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("1_03");
+        seccion2.add("Faltas judiciales por área geográfica");
+        seccion2.add("Faltas judiciales ocurridas en el año 2014");
+        seccion2.add("Distribución porcentual por área geográfica");
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion2.add("1_04");
+        seccion2.add("Faltas judiciales por edad del infractor");
+        seccion2.add("Faltas judiciales ocurridas en el año 2014");
+        seccion2.add("Distribución porcentual por edad del infractor");
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap1.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("1_05");
+        seccion3.add("Faltas judiciales según sexo");
+        seccion3.add("Faltas judiciales ocurridas en el año 2014");
+        seccion3.add("Distribución porcentual por sexo");
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion3.add("1_06");
+        seccion3.add("Faltas judiciales por grupo étnico");
+        seccion3.add("Faltas judiciales ocurridas en el año 2014");
+        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap1.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("1_07");
+        seccion4.add("Faltas judiciales por analfabetismo");
+        seccion4.add("Faltas judiciales ocurridas en el año 2014");
+        seccion4.add("Distribución porcentual por condición de analfabetismo");
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion4.add("1_08");
+        seccion4.add("Faltas judiciales por nivel de educación");
+        seccion4.add("Faltas judiciales ocurridas en el año 2014");
+        seccion4.add("Distribución porcentual por nivel de educación");
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap1.add(seccion4);
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("1_09");
+        seccion5.add("Faltas judiciales por condición de ebriedad");
+        seccion5.add("Faltas judiciales ocurridas en el año 2014");
+        seccion5.add("Distribución porcentual por condición de ebriedad");
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion5.add("1_10");
+        seccion5.add("Faltas judiciales por tipo de falta");
+        seccion5.add("Faltas judiciales ocurridas en el año 2014");
+        seccion5.add("Distribución porcentual por tipo de falta");
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap1.add(seccion5);
+        
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("1_11");
+        seccion6.add("Faltas judiciales por sexo del infractor según tipo de"
+        + " falta cometida");
+        seccion6.add("Faltas judiciales ocurridas en el año 2014");
+        seccion6.add("Distribución porcentual por tipo de falta cometida");
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_11.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap1.add(seccion6);
+        return cap1;        
+    }
+    protected ArrayList cargarCapitulo2(){
+        ArrayList cap2 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("2_01");
+        seccion1.add("Infractores menores de 18 años");
+        seccion1.add("Número de faltas judiciales");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion1.add("2_02");
+        seccion1.add("Infractores menores de edad por departamento");
+        seccion1.add("Faltas judiciales ocurridas en el año 2014");
+        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap2.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("2_03");
+        seccion2.add("Infractores menores de edad por sexo");
+        seccion2.add("Faltas judiciales ocurridas en el año 2014");
+        seccion2.add("Distribución porcentual por sexo");
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion2.add("2_04");
+        seccion2.add("Infractores menores de edad por edad");
+        seccion2.add("Faltas judiciales ocurridas en el año 2014");
+        seccion2.add("Distribución porcentual por edades simples");
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap2.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("2_05");
+        seccion3.add("Infractores menores de edad por grupo étnico");
+        seccion3.add("Faltas judiciales ocurridas en el año 2014");
+        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion3.add("2_06");
+        seccion3.add("Infractores menores de edad por nivel de educación");
+        seccion3.add("Faltas judiciales ocurridas en el año 2014");
+        seccion3.add("Distribución porcentual por nivel de educación");
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap2.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("2_07");
+        seccion4.add("Infractores menores de edad por tipo de falta cometida");
+        seccion4.add("Faltas judiciales ocurridas en el año 2014");
+        seccion4.add("Distribución porcentual por tipo de falta cometida");
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap2.add(seccion4);
+        
+        
+        return cap2;        
+    }
+    
+    
+    
+    protected ArrayList cargarCapitulo3(){
+        ArrayList cap3 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("3_01");
+        seccion1.add("Faltas contra las personas");
+        seccion1.add("Número de faltas judiciales contra las personas");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion1.add("3_02");
+        seccion1.add("Faltas contra la propiedad");
+        seccion1.add("Número de faltas judiciales contra la propiedad");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap3.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("3_03");
+        seccion2.add("Faltas contra las buenas costumbres");
+        seccion2.add("Número de faltas judiciales contra las buenas costumbres");
+        seccion2.add(formatoSerie);
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        seccion2.add("3_04");
+        seccion2.add("Faltas contra el orden público");
+        seccion2.add("Número de faltas judiciales contra el orden público");
+        seccion2.add(formatoSerie);
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        cap3.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("3_05");
+        seccion3.add("Otras faltas");
+        seccion3.add("Número de faltas judiciales (Clasificadas como \"Otras\")");
+        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        
+        cap3.add(seccion3);
+        
+        
+        return cap3;        
+    }
+    
+    
     
     protected void capitulo1(){
         //CARGA DE SESION DE R
@@ -118,6 +346,7 @@ public class Vitales extends Documento{
         //INTRODUCCION
         escribirCapitulo(capitulos.get(0).toString(), capitulos.get(0).toString()
                 ," ", introCapitulos.get(0).toString());
+        
         
         //PRIMERA HOJA
         section1_01();
@@ -562,7 +791,7 @@ public class Vitales extends Documento{
         }else if(comparador.compare(valor,"Centro de salud") == 0){
             retorno = "un centro de salud";
         }else if(comparador.compare(valor, "Lugar de trabajo") == 0){
-            retorno = " el lugar de trabajo del fallecido";
+            retorno = " el lugar de trabajo del fallecido ";
         }else if(comparador.compare(valor, "Vía pública") == 0){
             retorno = " la vía pública";
         }
@@ -598,7 +827,7 @@ public class Vitales extends Documento{
                 , "Defunciones por trimestre",formatoSerie,
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex} "
                 + "\\end{tikzpicture}","INE, con datos del RENAP", "");
-        
+         
         rr.get().eval("temp <- vitales$'2_02'[ordenarNiveles(vitales$'2_02',T),]");
         String columna2 = columna("2_02","Defunciones por departamento", 
                 "La desagregación de las defunciones según el departamento de residencia, " +
@@ -663,7 +892,7 @@ public class Vitales extends Documento{
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
 
-     private void section2_03() {
+    private void section2_03() {
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         String columna1 =  columna("2_05",
                 "Defunciones en menores de cinco años",
@@ -692,7 +921,7 @@ public class Vitales extends Documento{
                 +"\\% "+ asistencia(rr.get().eval("iconv(temp$x[2],'utf8')").asString())+ 
                 " y  " + getDf().format(rr.get().eval("temp$y[3]").asDouble()) + "\\% "+
                 asistencia(rr.get().eval("iconv(temp$x[3],'utf8')").asString()) + ".",
-                "Distribución porcentual de defunciones según asistencia recibida",
+                "Distribución porcentual de nacimientos según la asistencia recibida durante el parto",
                 getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}",
                 "INE, con datos del RENAP", ""); 
         
@@ -808,7 +1037,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         rr.get().eval("temp <- excluirNiveles(vitales$'3_03')");
         String columna1 = columna("3_03",
-                "Defunciones fetales por semanas de gestación", 
+                "Defunciones fetales por semana de gestación", 
                 "La defunción fetal es la muerte de un producto de la concepción, antes de la "
                 + "expulsión o extracción completa del cuerpo de su madre, "
                 + "independientemente de la duración del embarazo.",
@@ -819,7 +1048,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + rr.get().eval("iconv(temp$x[1], 'utf8')").asString().toLowerCase() +" semanas y el  "
                 + getDf().format(rr.get().eval("temp$y[2]").asDouble()) + "\\% de " +
                rr.get().eval("iconv(temp$x[2], 'utf8')").asString().toLowerCase() + " semanas. ",
-                "Distribución porcentual de defunciones fetales según semanas de gestación",
+                "Distribución porcentual de defunciones fetales según semana de gestación",
                 getFormatoSubtituloG(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex} \\end{tikzpicture}",
                 "INE, con datos del RENAP",
@@ -829,7 +1058,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
         String columna2 = columna("3_04",
                 "Defunciones fetales por grupo de edad de la madre", 
                 "La distribución de las defunciones fetales según la edad de la "
-                + "madre, permite identificar los grupos más vulnerables, "
+                + "madre, permite identificar los grupos mas vulnerables, "
                 + "asociados con la tasa de fecundidad. En el " + getFormatoTrimestre()  + ", "
                 + "el " + getDf().format(rr.get().eval("temp$y[1]").asDouble()) +  
                 "\\%  de las defunciones fetales fueron por madres de " + 
@@ -908,7 +1137,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + " de defunciones sucedieron en " + sitio(rr.get().eval("iconv(temp$x[length(temp$x)], 'utf8')").asString())+
                 ", representando el " + formatearNumero(rr.get().eval("temp$y[length(temp$y)]").asDouble()) + 
                 "\\% de los casos. ",
-                "Distribución porcentual de defunciones fetales por lugar de ocurrencia",
+                "Distribución porcentual de defunciones por lugar de ocurrencia",
                 getFormatoSubtituloG(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt] \\input{3_07.tex} \\end{tikzpicture}",
                 "INE, con datos del RENAP",

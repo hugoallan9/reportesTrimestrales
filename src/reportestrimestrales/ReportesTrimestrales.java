@@ -67,6 +67,7 @@ public class ReportesTrimestrales {
 
             Consultor.reescribirCSV(rutaArchivoSubido);
             try {
+<<<<<<< HEAD
                 Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4]);
                 IPC docu;
                 docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
@@ -91,13 +92,98 @@ public class ReportesTrimestrales {
                     docu.generarGraficas("anual");
                 }
                 docu.terminarDocumento();
+=======
+                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4], args[5]);
+>>>>>>> 8a4b1ee1ec1956284c6850a6d6ca12ecfdc6b299
             } catch (SQLException ex) {
                 Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
             }
 
 
+<<<<<<< HEAD
             
+=======
+            IPC docu;
+            docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
+            docu.setRuta(ipcMes.getAbsolutePath());
+            docu.setTex("IPC" + docu.getMes());
+            docu.hacerPortada();
+            docu.preambuloAnual();
+            docu.iniciarDocumentoAnual();
+            docu.hacerTituloAnual();
+            docu.juntaDirectivaAnual();
+            docu.equipoYPresentacion();
+            docu.capitulo1();
+            docu.capitulo2();
+            docu.capitulosRegionales();
+            if (args[3].equalsIgnoreCase("true")){
+                docu.generarGraficas("anual");
+            }
+            docu.terminarDocumento();
+        }//ipc
+        if ( args[0].equalsIgnoreCase("vitales") ){
+            String rutaVitales = "/home/ineservidor/Vitales";
+            File vitalesTrimestre = new File(rutaVitales, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !vitalesTrimestre.exists() ){
+                vitalesTrimestre.setReadable(true, false);
+                vitalesTrimestre.setExecutable(true, false);
+                vitalesTrimestre.setWritable(true, false);
+                vitalesTrimestre.mkdir();
+            }
+            System.out.println("Arg 3: " + args[3]);
+            Vitales docu;
+            docu= new Vitales("Estadísticas Vitales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Vitales/Entradas");
+            docu.setRuta(vitalesTrimestre.getAbsolutePath()+"/");
+            docu.setTex("vitales");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.capitulo1();
+            docu.capitulo2();
+            docu.capitulo3();
+            docu.capitulo4();
+            docu.capitulo5();
+            docu.terminarDocumento();
+            docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+>>>>>>> 8a4b1ee1ec1956284c6850a6d6ca12ecfdc6b299
         }
+        
+        if ( args[0].equalsIgnoreCase("faltas") ){
+            String rutaFaltas = "/home/ineservidor/FaltasJudiciales";
+            File faltasTrimestre = new File(rutaFaltas, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !faltasTrimestre.exists() ){
+                faltasTrimestre.setReadable(true, false);
+                faltasTrimestre.setExecutable(true, false);
+                faltasTrimestre.setWritable(true, false);
+                faltasTrimestre.mkdir();
+            }
+            System.out.println("Arg 3: " + args[3]);
+            FaltasJudiciales docu;
+            docu= new FaltasJudiciales("Faltas Judiciales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/FaltasJudiciales/Entradas");
+            docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
+            docu.setTex("faltasJudiciales");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.terminarDocumento();
+            docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
+
         
      
       
@@ -175,6 +261,14 @@ public class ReportesTrimestrales {
          else if(mes == 11)return "Noviembre";
          else if(mes == 12)return "Diciembre";
          return "";    
+     }
+     
+     private static String getTrimestreCadena(int trimestre){
+         if(trimestre==1) return "Primer";
+         else if(trimestre==2) return "Segundo";
+         else if(trimestre==3) return "Tercer";
+         else if(trimestre==4) return "Cuarto";
+         return "";
      }
     
 }
