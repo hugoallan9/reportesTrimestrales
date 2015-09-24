@@ -68,28 +68,35 @@ public class ReportesTrimestrales {
             Consultor.reescribirCSV(rutaArchivoSubido);
             try {
                 Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4]);
+                IPC docu;
+                docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
+                docu.setVarAnual(c.getVariacionAnual());
+                docu.setVarMensual(c.getVariacionMensual());
+                docu.setVarAcumulada(c.getVariacionAcumulada());
+                System.out.println("**************************************");
+                System.out.println(c.getVariacionAcumulada());
+                System.out.println("***************************************");
+                docu.setRuta(ipcMes.getAbsolutePath());
+                docu.setTex("IPC" + docu.getMes());
+                docu.hacerPortada();
+                docu.preambuloAnual();
+                docu.iniciarDocumentoAnual();
+                docu.hacerTituloAnual();
+                docu.juntaDirectivaAnual();
+                docu.equipoYPresentacion();
+                docu.capitulo1();
+                docu.capitulo2();
+                docu.capitulosRegionales();
+                if (args[3].equalsIgnoreCase("true")){
+                    docu.generarGraficas("anual");
+                }
+                docu.terminarDocumento();
             } catch (SQLException ex) {
                 Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
             }
 
 
-            IPC docu;
-            docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
-            docu.setRuta(ipcMes.getAbsolutePath());
-            docu.setTex("IPC" + docu.getMes());
-            docu.hacerPortada();
-            docu.preambuloAnual();
-            docu.iniciarDocumentoAnual();
-            docu.hacerTituloAnual();
-            docu.juntaDirectivaAnual();
-            docu.equipoYPresentacion();
-            docu.capitulo1();
-            docu.capitulo2();
-            docu.capitulosRegionales();
-            if (args[3].equalsIgnoreCase("true")){
-                docu.generarGraficas("anual");
-            }
-            docu.terminarDocumento();
+            
         }
         
      
@@ -98,40 +105,60 @@ public class ReportesTrimestrales {
     
     public static String TASK_QUEUE_NAME = "ipc";
     public static void main(String[] args) throws Exception {
-        
-
-        
-        
-    ConnectionFactory factory = new ConnectionFactory();
-    factory.setHost("localhost");
-    factory.setPassword("test");
-    factory.setUsername("test");
-    final Connection connection = factory.newConnection();
     
-    final Channel channel = connection.createChannel();
-
-    channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
-    System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
-
-    channel.basicQos(1);
-
-    final Consumer consumer = new DefaultConsumer(channel) {
-      @Override
-      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-        String message = new String(body, "UTF-8");
-
-        System.out.println(" [x] Received '" + message + "'");
-        try {
-          doWork(message);
-        } catch(Exception e){
-            System.out.println(e.getMessage());
-        }
-          System.out.println(" [x] Done");
-          channel.basicAck(envelope.getDeliveryTag(), false);
+    
+         Vitales docu;
+         docu= new Vitales("Estadísticas Vitales", "Tercero", "2014","/mnt/Data/CSV_Vitales/CSV_Vitales");
+         docu.setRuta("/mnt/Data/Vitales/");
+         docu.setTex("vitalesTercero2015");
+         docu.hacerPortada();
+         docu.preambulo();
+         docu.iniciarDocumento();
+         docu.hacerTitulo();
+         docu.juntaDirectiva();
+         docu.equipoYPresentacion();
+         docu.capitulo1();
+         docu.capitulo2();
+         docu.capitulo3();
+         docu.capitulo4();
+         docu.capitulo5();
+         docu.terminarDocumento();
+         docu.getRr().get().end();
+         //docu.generarGraficas("presentacion");
+         docu.compilar(docu.getRr(),"/mnt/Data/vitalesTercero2015.tex","T");
         
-      }
-    };
-    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);       
+        
+        
+//    ConnectionFactory factory = new ConnectionFactory();
+//    factory.setHost("localhost");
+//    factory.setPassword("test");
+//    factory.setUsername("test");
+//    final Connection connection = factory.newConnection();
+//    
+//    final Channel channel = connection.createChannel();
+//
+//    channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
+//    System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+//
+//    channel.basicQos(1);
+//
+//    final Consumer consumer = new DefaultConsumer(channel) {
+//      @Override
+//      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+//        String message = new String(body, "UTF-8");
+//
+//        System.out.println(" [x] Received '" + message + "'");
+//        try {
+//          doWork(message);
+//        } catch(Exception e){
+//            System.out.println(e.getMessage());
+//        }
+//          System.out.println(" [x] Done");
+//          channel.basicAck(envelope.getDeliveryTag(), false);
+//        
+//      }
+//    };
+//    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);       
     }
     
      private static String getMesCadena(int mes){

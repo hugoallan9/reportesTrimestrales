@@ -96,7 +96,7 @@ public class IPC extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 4.7, align = left, color = white] at (0.49,0.56) {\n" +
+            + "\\node[inner sep =0, scale = 4.7, align = left, color = white] at (0.49,0.53) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
             "Índice de  Precios  al \\\\ Consumidor \n" +
@@ -564,7 +564,7 @@ public class IPC extends Documento{
     private void section2_26(){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 26%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         String tabla = " 	\\begin{tabular}{@{}ccrrrrrrrrrrrrr@{}}\\toprule\n" +
-" 		\\multirow{2}{2cm}{Región}&  \\multirow{2}{1cm}{Variación mensual} &  \\phantom{abc} &  \\multicolumn{10}{c}{División del Gasto}\\\\\n" +
+" 		\\multirow{2}{2cm}{Región}&  \\multirow{2}{1cm}{Variación interanual} &  \\phantom{abc} &  \\multicolumn{10}{c}{División del Gasto}\\\\\n" +
 " 		\\cmidrule{3-14}\n" +
 " 		& & \\begin{sideways}Alimentos\\end{sideways} &  \\begin{sideways}Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}Vestuario\\end{sideways} &  \\begin{sideways}Vivienda\\end{sideways} &  \\begin{sideways}Muebles\\end{sideways} &  \\begin{sideways}Salud\\end{sideways} &  \\begin{sideways}Transporte\\end{sideways} &  \\begin{sideways}Comunicaciones\\end{sideways} &  \\begin{sideways}Recreación\\end{sideways} &  \\begin{sideways}Educación\\end{sideways} &  \\begin{sideways}Restaurantes\\end{sideways} &  \\begin{sideways} Bienes diversos \\end{sideways}\\\\\n" +
 " 		\\cmidrule{1-14} \n"+

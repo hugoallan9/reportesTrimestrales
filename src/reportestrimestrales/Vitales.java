@@ -560,7 +560,7 @@ public class Vitales extends Documento{
         }else if(comparador.compare(valor,"Centro de salud") == 0){
             retorno = "un centro de salud";
         }else if(comparador.compare(valor, "Lugar de trabajo") == 0){
-            retorno = " el lugar de trabajo del fallecido ";
+            retorno = " el lugar de trabajo del fallecido";
         }else if(comparador.compare(valor, "Vía pública") == 0){
             retorno = " la vía pública";
         }
@@ -661,7 +661,7 @@ public class Vitales extends Documento{
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
 
-    private void section2_03() {
+     private void section2_03() {
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 8%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         String columna1 =  columna("2_05",
                 "Defunciones en menores de cinco años",
@@ -690,7 +690,7 @@ public class Vitales extends Documento{
                 +"\\% "+ asistencia(rr.get().eval("iconv(temp$x[2],'utf8')").asString())+ 
                 " y  " + getDf().format(rr.get().eval("temp$y[3]").asDouble()) + "\\% "+
                 asistencia(rr.get().eval("iconv(temp$x[3],'utf8')").asString()) + ".",
-                "Distribución porcentual de nacimientos según la asistencia recibida durante el parto",
+                "Distribución porcentual de defunciones según asistencia recibida",
                 getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}",
                 "INE, con datos del RENAP", ""); 
         
@@ -806,7 +806,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         rr.get().eval("temp <- excluirNiveles(vitales$'3_03')");
         String columna1 = columna("3_03",
-                "Defunciones fetales por semana de gestación", 
+                "Defunciones fetales por semanas de gestación", 
                 "La defunción fetal es la muerte de un producto de la concepción, antes de la "
                 + "expulsión o extracción completa del cuerpo de su madre, "
                 + "independientemente de la duración del embarazo.",
@@ -817,7 +817,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + rr.get().eval("iconv(temp$x[1], 'utf8')").asString().toLowerCase() +" semanas y el  "
                 + getDf().format(rr.get().eval("temp$y[2]").asDouble()) + "\\% de " +
                rr.get().eval("iconv(temp$x[2], 'utf8')").asString().toLowerCase() + " semanas. ",
-                "Distribución porcentual de defunciones fetales según semana de gestación",
+                "Distribución porcentual de defunciones fetales según semanas de gestación",
                 getFormatoSubtituloG(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex} \\end{tikzpicture}",
                 "INE, con datos del RENAP",
@@ -827,7 +827,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
         String columna2 = columna("3_04",
                 "Defunciones fetales por grupo de edad de la madre", 
                 "La distribución de las defunciones fetales según la edad de la "
-                + "madre, permite identificar los grupos mas vulnerables, "
+                + "madre, permite identificar los grupos más vulnerables, "
                 + "asociados con la tasa de fecundidad. En el " + getFormatoTrimestre()  + ", "
                 + "el " + getDf().format(rr.get().eval("temp$y[1]").asDouble()) +  
                 "\\%  de las defunciones fetales fueron por madres de " + 
@@ -906,7 +906,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + " de defunciones sucedieron en " + sitio(rr.get().eval("iconv(temp$x[length(temp$x)], 'utf8')").asString())+
                 ", representando el " + formatearNumero(rr.get().eval("temp$y[length(temp$y)]").asDouble()) + 
                 "\\% de los casos. ",
-                "Distribución porcentual de defunciones por lugar de ocurrencia",
+                "Distribución porcentual de defunciones fetales por lugar de ocurrencia",
                 getFormatoSubtituloG(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt] \\input{3_07.tex} \\end{tikzpicture}",
                 "INE, con datos del RENAP",

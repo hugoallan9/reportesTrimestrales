@@ -19,6 +19,7 @@ import java.io.Writer;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Calendar;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,6 +28,7 @@ import org.jsoup.select.Elements;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils; 
@@ -41,6 +43,9 @@ public class Documento {
     private List junta;
     private List gerencias;
     private String ruta;
+    private Double varAnual;
+    private Double varMensual;
+    private Double varAcumulada;
 
     public String getRuta() {
         return ruta;
@@ -61,6 +66,17 @@ public class Documento {
     }
     private String formatoSubtituloG;
 
+    protected void setVarAnual( Double valor ){
+        this.varAnual = valor;
+    }
+    
+    protected void setVarMensual( Double valor ){
+        this.varMensual = valor;
+    }
+    
+    protected void setVarAcumulada( Double valor ){
+        this.varAcumulada = valor;
+    }
     
 
     
@@ -74,9 +90,11 @@ public class Documento {
         gerencias = new ArrayList();
         tex = null;
         this.anioPublicacion = pYear;
-        df = new DecimalFormat("###,###.#");
-        df2 = new DecimalFormat("###,###.##");
-        df2 = new DecimalFormat("###,###.###");
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
+        df =  (DecimalFormat) nf;
+        df.applyPattern("###,###.#");
+        df2 =  (DecimalFormat) nf;
+        df2.applyPattern("###,###.###");
         formatoTrimestre =  corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del " + getAnioPublicacion();
         formatoSubtituloG =  corregirTrimestre(getTrimestre()) + " trimestre, año "+ getAnioPublicacion();
     }
@@ -168,9 +186,9 @@ public class Documento {
             "\\newcommand{\\ra}[1]{\\renewcommand{\\arraystretch}{#1}}\n" +
             "\n" +
             "\\newcommand{\\mesreportado}{"+ getMes()+ "}\n" +
-            "\\newcommand{\\varmens}{0.21}\n" +
-            "\\newcommand{\\varanu}{2.43}\n" +
-            "\\newcommand{\\varacu}{0.17}\n\n");
+            "\\newcommand{\\varmens}{"+ varMensual +  "}\n" +
+            "\\newcommand{\\varanu}{"+ varAnual  +"}\n" +
+            "\\newcommand{\\varacu}{"+ varAcumulada   +"}\n\n");
             buffer.write("\n\n\n  %#########INICIO DE DOCUMENTO#################\n");
             buffer.write("\\begin{document}\n");
             buffer.write("\\includepdf{caratula.pdf}");
@@ -399,7 +417,7 @@ public class Documento {
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
                 "	Eiji Arturo De Paz Pérez \\\\[0.8cm] \n" +
-                "       Edwin Rafael Tut Rocael" +
+                "       Edwin Rafael Tut Rocael \\\\[0.8cm]" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
@@ -446,29 +464,8 @@ public class Documento {
                 "\n" +
                 "Los niveles de inflación más importantes de {\\Bold " + getMes() + " de " + getYear() +" }"
                 +"son los siguientes: se registró una variación intermensual de \\varmens\\%, una variación "
-                + "interanual de \\varanu\\% y una variación acumulada de \\varacu\\%."+
-                "Este informe se compone de seis apartados. En el primero se desarrollan "
-                + "algunas variables que condicionan los precios internos, en el "
-                + "cual se incluyen: el comportamiento del índice internacional "
-                + "de alimentos -elaborado por la FAO-, el precio medio "
-                + "internacional del petróleo, el tipo de cambio, la tasa bancaria "
-                + "de interés activa y el comportamiento de la inflación de los "
-                + "principales  socios comerciales; en el segundo se detalla los "
-                + "resultados de las variaciones intermensuales de los precios "
-                + "nacionales desagregados por Región y Grupo de Gasto; en el tercero "
-                + "se exponen y desagregan los resultados de las variaciones interanuales;"
-                + " en el cuarto se analizan las principales alzas y bajas  "
-                + "de los productos que conforman el IPC y su incidencia en "
-                + "la variación intermensual de precios; en el quinto se detallan "
-                + "los resultados del costo de la canasta básica, tanto la alimenticia como la vital, "
-                + "además se consigna la evolución del poder adquisitivo del "
-                + "Quetzal; en el sexto se incluyen los precios medios históricos "
-                + "y regionales de los bienes y servicios que registraron variaciones "
-                + "importantes del mes en estudio."
-                + ""
-                + "\n\n" +
-                "\n" +
-                "Finalmente, se incluye un glosario que contiene la definición "
+                + "interanual de \\varanu\\% y una variación acumulada de \\varacu\\%." +
+                "Al final  se incluye un glosario que contiene la definición "
                 + "de los principales conceptos relacionados con el IPC y la metodología"
                 + " de cálculo para la obtención de los diferentes índices y variaciones."
                 + ""
