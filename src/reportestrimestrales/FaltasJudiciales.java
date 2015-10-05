@@ -53,6 +53,7 @@ public class FaltasJudiciales extends Documento{
         cargarCSV(rutaCSV);
         setCapitulos();
         setIntroCapitulos();
+        setContenidos();
     }
     
     protected void setCapitulos(){
@@ -78,21 +79,26 @@ public class FaltasJudiciales extends Documento{
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
-         contenidos.add(cargarCapitulo3());         
+         contenidos.add(cargarCapitulo3());
+         System.out.println("cargados los contenidos");
     }
     
     protected void rellenar(){
         int hoja =1;
         int finContenido = contenidos.size();
         for (int i=0; i<finContenido;i++){
-            ArrayList tmp = (ArrayList)contenidos.get(i);
+            ArrayList tmpSeccion = (ArrayList)contenidos.get(i);
             escribirCapitulo(capitulos.get(i).toString(), capitulos.get(i).toString()
                 ," ", introCapitulos.get(i).toString());
-            int finSeccion = tmp.size();
+            int finSeccion = tmpSeccion.size();
             for (int j=0; j<finSeccion;j++){
+                
                 String columna1="";
                 String columna2="";
                 escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+                System.out.println("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+                ArrayList tmp = (ArrayList)tmpSeccion.get(j);
+                
                 columna1 = columna(tmp.get(0).toString(),tmp.get(1).toString(),"",
                         "",tmp.get(2).toString(),tmp.get(3).toString(),
                         tmp.get(4).toString(),tmp.get(5).toString(),"");

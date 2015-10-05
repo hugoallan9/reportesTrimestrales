@@ -400,7 +400,7 @@ public class Documento {
     }
 
     
-    protected void equipoYPresentacion(){
+    protected void equipoYPresentacion(Double anual, Double mensual, Double acumulada){
         
         
         escribirLinea("\\clearpage\n" +
@@ -463,8 +463,8 @@ public class Documento {
                 + "del país, tomando como base los precios observados en el mes de referencia. "+
                 "\n" +
                 "Los niveles de inflación más importantes de {\\Bold " + getMes() + " de " + getYear() +" }"
-                +"son los siguientes: se registró una variación intermensual de \\varmens\\%, una variación "
-                + "interanual de \\varanu\\% y una variación acumulada de \\varacu\\%." +
+                +"son los siguientes: se registró una variación intermensual de " + String.valueOf(mensual) +"\\%, una variación "
+                + "interanual de " +  String.valueOf(anual) + "//% y una variación acumulada de "+  String.valueOf(acumulada)+"\\%." +
                 "Al final  se incluye un glosario que contiene la definición "
                 + "de los principales conceptos relacionados con el IPC y la metodología"
                 + " de cálculo para la obtención de los diferentes índices y variaciones."

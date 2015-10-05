@@ -463,4 +463,17 @@ public class Mapa {
         }
     }
     
+        
+           public void estructuraPoblacion(){
+        List mapas = new ArrayList();
+        mapas.add("1.3.csv");
+        mapas.add("1.4.csv");
+        mapas.add("1.7.csv");
+        mapas.add("1.19.csv");
+        mapas.add("1.23.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
 }

@@ -7,6 +7,7 @@ package reportestrimestrales;
 import com.rabbitmq.client.*;
 import com.rabbitmq.client.ConnectionFactory;
 import consultor.*;
+import descripciones_faltas_judiciales.Generador;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -64,45 +65,11 @@ public class ReportesTrimestrales {
                 f.setWritable(true, false);
             }
             rutaDestinoCSV = f.getAbsolutePath();
-
             Consultor.reescribirCSV(rutaArchivoSubido);
             try {
-<<<<<<< HEAD
-                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4]);
-                IPC docu;
-                docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
-                docu.setVarAnual(c.getVariacionAnual());
-                docu.setVarMensual(c.getVariacionMensual());
-                docu.setVarAcumulada(c.getVariacionAcumulada());
-                System.out.println("**************************************");
-                System.out.println(c.getVariacionAcumulada());
-                System.out.println("***************************************");
-                docu.setRuta(ipcMes.getAbsolutePath());
-                docu.setTex("IPC" + docu.getMes());
-                docu.hacerPortada();
-                docu.preambuloAnual();
-                docu.iniciarDocumentoAnual();
-                docu.hacerTituloAnual();
-                docu.juntaDirectivaAnual();
-                docu.equipoYPresentacion();
-                docu.capitulo1();
-                docu.capitulo2();
-                docu.capitulosRegionales();
-                if (args[3].equalsIgnoreCase("true")){
-                    docu.generarGraficas("anual");
-                }
-                docu.terminarDocumento();
-=======
                 Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4], args[5]);
->>>>>>> 8a4b1ee1ec1956284c6850a6d6ca12ecfdc6b299
-            } catch (SQLException ex) {
-                Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-
-<<<<<<< HEAD
-            
-=======
+                c.getVariacionAnual();
+                
             IPC docu;
             docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
             docu.setRuta(ipcMes.getAbsolutePath());
@@ -112,7 +79,7 @@ public class ReportesTrimestrales {
             docu.iniciarDocumentoAnual();
             docu.hacerTituloAnual();
             docu.juntaDirectivaAnual();
-            docu.equipoYPresentacion();
+            docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
             docu.capitulo1();
             docu.capitulo2();
             docu.capitulosRegionales();
@@ -120,9 +87,20 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("anual");
             }
             docu.terminarDocumento();
+            } catch (SQLException ex) {
+                Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+   
         }//ipc
         if ( args[0].equalsIgnoreCase("vitales") ){
             String rutaVitales = "/home/ineservidor/Vitales";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            r.get().eval("vitales <- leerLibro('/var/www/html/Vitales/Entradas/vitales.xlsx')");
+            r.get().eval("escribirCSV(vitales, '/var/www/html/Vitales/Entradas/CSV')");
+            r.get().end();
             File vitalesTrimestre = new File(rutaVitales, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
             if ( !vitalesTrimestre.exists() ){
                 vitalesTrimestre.setReadable(true, false);
@@ -132,7 +110,7 @@ public class ReportesTrimestrales {
             }
             System.out.println("Arg 3: " + args[3]);
             Vitales docu;
-            docu= new Vitales("Estadísticas Vitales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Vitales/Entradas");
+            docu= new Vitales("Estadísticas Vitales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Vitales/Entradas/CSV");
             docu.setRuta(vitalesTrimestre.getAbsolutePath()+"/");
             docu.setTex("vitales");
             docu.hacerPortada();
@@ -152,7 +130,6 @@ public class ReportesTrimestrales {
                 System.out.println("entro a hacer graficas");
                 docu.generarGraficas("trimestral");
             //}
->>>>>>> 8a4b1ee1ec1956284c6850a6d6ca12ecfdc6b299
         }
         
         if ( args[0].equalsIgnoreCase("faltas") ){
@@ -178,6 +155,9 @@ public class ReportesTrimestrales {
             docu.rellenar();
             docu.terminarDocumento();
             docu.getRr().get().end();
+            Generador descripciones = new Generador("/var/www/html/FaltasJudiciales/Entradas", rutaFaltas);
+            descripciones.run();
+            
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
                 docu.generarGraficas("trimestral");
@@ -191,60 +171,37 @@ public class ReportesTrimestrales {
     
     public static String TASK_QUEUE_NAME = "ipc";
     public static void main(String[] args) throws Exception {
+            
+    ConnectionFactory factory = new ConnectionFactory();
+    factory.setHost("localhost");
+    factory.setPassword("test");
+    factory.setUsername("test");
+    final Connection connection = factory.newConnection();
     
-    
-         Vitales docu;
-         docu= new Vitales("Estadísticas Vitales", "Tercero", "2014","/mnt/Data/CSV_Vitales/CSV_Vitales");
-         docu.setRuta("/mnt/Data/Vitales/");
-         docu.setTex("vitalesTercero2015");
-         docu.hacerPortada();
-         docu.preambulo();
-         docu.iniciarDocumento();
-         docu.hacerTitulo();
-         docu.juntaDirectiva();
-         docu.equipoYPresentacion();
-         docu.capitulo1();
-         docu.capitulo2();
-         docu.capitulo3();
-         docu.capitulo4();
-         docu.capitulo5();
-         docu.terminarDocumento();
-         docu.getRr().get().end();
-         //docu.generarGraficas("presentacion");
-         docu.compilar(docu.getRr(),"/mnt/Data/vitalesTercero2015.tex","T");
+    final Channel channel = connection.createChannel();
+
+    channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
+    System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+
+    channel.basicQos(1);
+
+    final Consumer consumer = new DefaultConsumer(channel) {
+      @Override
+      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
+        String message = new String(body, "UTF-8");
+
+        System.out.println(" [x] Received '" + message + "'");
+        try {
+          doWork(message);
+        } catch(Exception e){
+            System.out.println(e.getMessage());
+        }
+          System.out.println(" [x] Done");
+          channel.basicAck(envelope.getDeliveryTag(), false);
         
-        
-        
-//    ConnectionFactory factory = new ConnectionFactory();
-//    factory.setHost("localhost");
-//    factory.setPassword("test");
-//    factory.setUsername("test");
-//    final Connection connection = factory.newConnection();
-//    
-//    final Channel channel = connection.createChannel();
-//
-//    channel.queueDeclare(TASK_QUEUE_NAME, true, false, false, null);
-//    System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
-//
-//    channel.basicQos(1);
-//
-//    final Consumer consumer = new DefaultConsumer(channel) {
-//      @Override
-//      public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-//        String message = new String(body, "UTF-8");
-//
-//        System.out.println(" [x] Received '" + message + "'");
-//        try {
-//          doWork(message);
-//        } catch(Exception e){
-//            System.out.println(e.getMessage());
-//        }
-//          System.out.println(" [x] Done");
-//          channel.basicAck(envelope.getDeliveryTag(), false);
-//        
-//      }
-//    };
-//    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);       
+      }
+    };
+    channel.basicConsume(TASK_QUEUE_NAME, false, consumer);       
     }
     
      private static String getMesCadena(int mes){

@@ -102,12 +102,9 @@ public class Vitales extends Documento{
              //   System.err.println("No se pudo establecer  conexión con R ");
             //}else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"')");
-                REXP nombres = rr.get().eval("names(vitales)");
-                REXP prueba = rr.get().eval("vitales$'1_02'");
+                REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 System.out.println(listadoCSV);
-                System.out.println(nombres);
-                System.out.println(prueba);
+                System.out.println("EL CSV 1_06 es: " + rr.get().eval("vitales$'1_06'"));
             //}
     }
     
@@ -241,9 +238,18 @@ public class Vitales extends Documento{
                 getFormatoSubtituloG(), 
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex} \\end{tikzpicture}",
                 "INE, con datos del RENAP", "");
+        System.out.println(columna1);
+        
         
         rr.get().eval("temp <- vitales$'1_06'[ordenarNiveles(vitales$'1_06',T),]");
-        String columna2 = columna("1_06","Nacimientos según estado civil de la madre", 
+        rr.get().eval("temp$x <- as.character(temp$x)");
+        System.out.println(rr.get().eval("as.character(temp$x[1])").asString().toLowerCase());
+         
+            
+       
+        try {
+            
+            String columna2 = columna("1_06","Nacimientos según estado civil de la madre", 
                 "El estado conyugal de las madres es una desagregación utilizada "
                 + "para realizar análisis indirectos del comportamiento reproductivo"
                 + " de una población.  En el caso de Guatemala se cuenta con la variable"
@@ -262,8 +268,14 @@ public class Vitales extends Documento{
                 corregirTrimestre(getTrimestre()) + " trimestre, año " + 
                 getAnioPublicacion(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex} \\end{tikzpicture}",
                 "INE, con datos del RENAP", "");
-        
+            
+        System.out.println(columna1);
         escribirLinea(hojaTrimestral(columna1, columna2));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        
+        
     }
     
     private void section1_04(){
@@ -974,11 +986,11 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "\\% de los casos, seguido de " +
                 rr.get().eval("iconv(temp$x[2],'utf8')").asString().toLowerCase() + 
                 ", día en el que se registraron un " + getDf().format(rr.get().eval("temp$y[2]").asDouble())
-                +"\\%, de los matrimonios. El "+ rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString().toLowerCase() + 
+                +"\\%, de los matrimonios.", 
+                "El "+ rr.get().eval("iconv(temp$x[length(temp$x)],'utf8')").asString().toLowerCase() + 
                 " fue el día que registro menos matrimonios, contabilizando el " + 
                 formatearNumero(rr.get().eval("temp$y[length(temp$y)]").asDouble())
-                + "\\%. ", 
-                "",
+                + "\\%. ",
                 "Distribución porcentual de matrimonios por día de la semana de ocurrencia",
                 getFormatoSubtituloG(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex} "
