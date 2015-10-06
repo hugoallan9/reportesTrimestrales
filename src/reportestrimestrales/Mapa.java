@@ -475,5 +475,59 @@ public class Mapa {
         while( iterator.hasNext() ){
             hacerDepartamental((String) iterator.next());
         }
+        
+        }
+           
+        public void salud(){
+        List mapas = new ArrayList();
+        mapas.add("8.5.csv");
+        mapas.add("8.10.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+        
     }
+        
+        public void migracion(){
+        List mapas = new ArrayList();
+        mapas.add("2.3.csv");
+        mapas.add("2.12.csv");
+        mapas.add("2.15.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+            }
+        }
+        
+        public void participacion(){
+        List mapas = new ArrayList();
+        mapas.add("4.7.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+            }
+        }
+        
+        public void tipologia(){
+        List mapas = new ArrayList();
+        mapas.add("3.5.csv");
+        mapas.add("3.8.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+            }
+        }
+        
+        
+        public void medios(){
+        List mapas = new ArrayList();
+        mapas.add("5.7.csv");
+        mapas.add("5.12.csv");
+        mapas.add("5.17.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+            }
+        }
 }
