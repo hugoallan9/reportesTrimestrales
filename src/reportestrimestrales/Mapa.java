@@ -530,4 +530,18 @@ public class Mapa {
             hacerDepartamental((String) iterator.next());
             }
         }
+        
+        public void inmunizacion(){
+        List mapas = new ArrayList();
+        mapas.add("14.7.csv");
+        mapas.add("14.12.csv");
+        mapas.add("14.17.csv");
+        mapas.add("14.22.csv");
+        mapas.add("14.27");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+            }
+        }
+        
 }
