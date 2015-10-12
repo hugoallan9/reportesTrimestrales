@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -373,7 +373,7 @@ public class Vitales extends Documento{
             + getDf().format(rr.get().eval("vitales$'1_07'$y[1]").asDouble()) + "\\% de los nacidos fueron "+
             genero1 + " mientras que el " + 
             getDf().format(rr.get().eval("vitales$'1_07'$y[2]").asDouble()) + "\\% fueron " + 
-            genero2 +", además el índice de masculinidad registrado fue de " + getDf().format(masculinidad) + ".", "Distribución "
+            genero2 +", además el índice de masculinidad registrado fue de " + Math.round(masculinidad) + ".", "Distribución "
             + "porcentual de nacimientos por sexo del recién nacido",corregirTrimestre(getTrimestre()) 
             + " trimestre, año " + getAnioPublicacion(), "\\XeTeXpdffile \"1_07.pdf\" " 
             , "INE, con datos del RENAP", "");
@@ -405,6 +405,7 @@ public class Vitales extends Documento{
     
     private void section1_05(){
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA 5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+        rr.get().eval("temp <- vitales$'1_09'[ordenarNiveles(vitales$'1_09',T),]");
         String cambio = ( (rr.get().eval("vitales$'1_09'$y[9]").asDouble() > rr.get().eval("vitales$'1_09'$y[1]").asDouble()) ?
                         "aumentado":"disminuido" );
         System.out.println(cambio);
@@ -413,8 +414,8 @@ public class Vitales extends Documento{
                 + "de salud en los primeros días de vida.", 
                 "Se puede observar que en los últimos dos años, el porcentaje de nacimientos "+
                 "registrados con bajo peso al nacer, ha variado entre " + 
-                getDf().format(rr.get().eval("vitales$'1_09'$y[1]").asDouble()) + "\\%  y "+
-                getDf().format(rr.get().eval("vitales$'1_09'$y[9]").asDouble()) + "\\%. A partir del "
+                getDf().format(rr.get().eval("temp$y[1]").asDouble()) + "\\%  y "+
+                getDf().format(rr.get().eval("temp$y[9]").asDouble()) + "\\%. A partir del "
                 + simboloToTrimestre(rr.get().eval("substr(vitales$'1_09'$x[1],1,2)").asString()) 
                 + " trimestre de "+
                 Math.round(( Double.parseDouble(getAnioPublicacion())-2)) +  " el porcentaje ha  " + cambio+

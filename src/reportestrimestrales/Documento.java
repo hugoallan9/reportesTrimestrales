@@ -94,17 +94,26 @@ public class Documento {
         df =  (DecimalFormat) nf;
         df.applyPattern("###,###.#");
         df2 =  (DecimalFormat) nf;
-        df2.applyPattern("###,###.###");
+        df2.applyPattern("###,###.##");
+        df3 =  (DecimalFormat) nf;
+        df3.applyPattern("###,###.###");
         formatoTrimestre =  corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del " + getAnioPublicacion();
         formatoSubtituloG =  corregirTrimestre(getTrimestre()) + " trimestre, año "+ getAnioPublicacion();
     }
 
     public DecimalFormat getDf() {
+        df.applyPattern("###,###.#");
         return df;
     }
     
     public DecimalFormat getDf2(){
+        df2.applyPattern("###,###.##");
         return df2;
+    }
+    
+    public DecimalFormat getDf3(){
+            df3.applyPattern("###,###.###");
+            return(df3);
     }
 
     public String getAnioPublicacion() {
@@ -881,15 +890,15 @@ public class Documento {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        System.out.println(primeraDescripcion.getParent().replaceAll("\\\\", "/"));
         return("\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + primeraDescripcion.getAbsolutePath().replaceAll("\\\\", "/") + "}}%\n"
-                + "{%\n \\input{" + segundaDescripcion.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n"
-                + "{%\n \\input{" + titleGrafica.getAbsolutePath().replaceAll("\\\\", "/") +   "}} %\n"
-                + "{%\n \\input{" + desGrafica.getAbsolutePath().replaceAll("\\\\","/") +   "}} %\n"
+                + "%\n \\input{" + (codigo + "/parrafo1.tex").replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
+                + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
                 + "{%\n " + grafica + "}%\n"
-                + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n "
+                + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n "
                 + "{%\n " + pie+"}%\n");
     }
     
@@ -962,11 +971,11 @@ public class Documento {
         
         return("\n \\cajita{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + primeraDescripcion.getAbsolutePath().replaceAll("\\\\", "/") + "}}%\n"
-                + "{%\n \\input{" + titleGrafica.getAbsolutePath().replaceAll("\\\\", "/") +   "}} %\n"
-                + "{%\n \\input{" + desGrafica.getAbsolutePath().replaceAll("\\\\","/") +   "}} %\n"
+                + "%\n \\input{" + primeraDescripcion.getName().replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + titleGrafica.getName().replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + desGrafica.getName().replaceAll("\\\\","/") +   "}} %\n"
                 + "{%\n " + grafica + "}%\n"
-                + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n ");
+                + "{%\n \\input{" + desFuente.getName().replaceAll("\\\\","/") + "}} %\n ");
         
     }
     
@@ -1161,13 +1170,22 @@ public class Documento {
         
         protected String formatearNumero(Double numero){
             String retorno= "";
-            if(df.format(numero) != "0.0"){
-                retorno = df.format(numero);
-            }else if(df2.format(numero) != "0.00"){
-                retorno = df2.format(numero);
+            System.out.println("**************************************");
+            System.out.println(getDf().format(numero).substring(0 , 1));
+            System.out.println("**************************************");
+            if(getDf().format(numero).substring(0 , 1) == "0"){
+                if(getDf().format(numero) != "0.0"){
+                    retorno = getDf().format(numero);
+                }else if(getDf2().format(numero) != "0.00"){
+                    retorno = getDf2().format(numero);
+                }else{
+                    retorno = getDf3().format(numero);
+                }
             }else{
-                retorno = df3.format(numero);
-            }     
+                System.out.println("No comienza en cero y retorna " + df2.format(numero));
+                retorno =  getDf2().format(numero);
+            }
+                 
             return retorno;
         }
 }

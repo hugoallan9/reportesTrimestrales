@@ -391,7 +391,7 @@ public class IPC extends Documento{
     
     private void section2_09() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion( "2_08","Bienes con mayor disminuciòn mensual", 
+        escribirLinea(seccion( "2_09","Bienes con mayor disminuciòn mensual", 
                 "descripcion209",
                 "Principales variaciones intermensuales negativas del IPC, " + getMes() + " " + getYear(),
                 "Por gasto básico, en porcentaje",
