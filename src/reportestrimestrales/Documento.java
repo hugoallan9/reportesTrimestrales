@@ -893,12 +893,12 @@ public class Documento {
         System.out.println(primeraDescripcion.getParent().replaceAll("\\\\", "/"));
         return("\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + primeraDescripcion.getParent().replaceAll("\\\\", "/") + "}}%\n"
-                + "{%\n \\input{" + segundaDescripcion.getParent().replaceAll("\\\\","/") + "}} %\n"
-                + "{%\n \\input{" + titleGrafica.getParent().replaceAll("\\\\", "/") +   "}} %\n"
-                + "{%\n \\input{" + desGrafica.getParent().replaceAll("\\\\","/") +   "}} %\n"
+                + "%\n \\input{" + (codigo + "/parrafo1.tex").replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
+                + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
                 + "{%\n " + grafica + "}%\n"
-                + "{%\n \\input{" + desFuente.getParent().replaceAll("\\\\","/") + "}} %\n "
+                + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n "
                 + "{%\n " + pie+"}%\n");
     }
     
