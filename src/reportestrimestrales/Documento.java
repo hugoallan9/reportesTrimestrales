@@ -971,11 +971,11 @@ public class Documento {
         
         return("\n \\cajita{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + primeraDescripcion.getAbsolutePath().replaceAll("\\\\", "/") + "}}%\n"
-                + "{%\n \\input{" + titleGrafica.getAbsolutePath().replaceAll("\\\\", "/") +   "}} %\n"
-                + "{%\n \\input{" + desGrafica.getAbsolutePath().replaceAll("\\\\","/") +   "}} %\n"
+                + "%\n \\input{" + primeraDescripcion.getName().replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + titleGrafica.getName().replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + desGrafica.getName().replaceAll("\\\\","/") +   "}} %\n"
                 + "{%\n " + grafica + "}%\n"
-                + "{%\n \\input{" + desFuente.getAbsolutePath().replaceAll("\\\\","/") + "}} %\n ");
+                + "{%\n \\input{" + desFuente.getName().replaceAll("\\\\","/") + "}} %\n ");
         
     }
     
