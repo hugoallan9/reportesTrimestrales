@@ -57,7 +57,7 @@ public class Tabla {
     
     
     
-    private void escribirTEX(String nombre, String texto){
+    private void escribirTEX(String nombre, String texto,boolean compilar){
      File file = new File(nombre);
      file.getParentFile().setReadable(true, false);
     file.getParentFile().setExecutable(true, false);
@@ -70,7 +70,9 @@ public class Tabla {
      
     try {
         Files.write(textFile, lines, StandardCharsets.UTF_8);
-        r.get().eval("compilar('" + textFile + "', mostrar = F)");
+        if (compilar)
+            System.out.println(textFile);
+            r.get().eval("compilar('" + textFile+ "', mostrar = F)");
     } catch (IOException ex) {
         Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -108,12 +110,12 @@ public class Tabla {
         
         try {
             br = new BufferedReader(new FileReader(f.getAbsolutePath()));
-            lista.add("\\\\multirow{2}{*}{\\\\Bold{Departamento}} &");//aqui va el texto en latex del archivo info.tex
+            lista.add("\\multirow{2}{*}{\\Bold{Departamento}} &");//aqui va el texto en latex del archivo info.tex
             for(int i = 0;i<9;i++){
                 if(i==8){
-                    lista.add("\\\\multirow{2}{*}{\\\\rotatebox[origin = c]{90}{"+trimestres.get(8).toString()+"}} \\\\");
+                    lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{"+trimestres.get(8).toString()+"}} \\\\");
                 }else{
-                lista.add("\\\\multirow{2}{*}{\\\\rotatebox[origin = c]{90}{"+trimestres.get(i).toString()+"}} &");
+                lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{"+trimestres.get(i).toString()+"}} &");
                 }
             }
             lista.add("& & & & & & & & &\\\\[0.25cm]");
@@ -148,17 +150,10 @@ public class Tabla {
             }
         }
     }
-        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla1").getPath()).getAbsolutePath(), listToString(listaPlantilla));
-        escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista));
+        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla1").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);
+        escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
           
-         try{
-             String comando ="cd "+rutaTex+" && cd "+csv+" && xelatex  --synctex=1 --interaction=nonstopmode planillaTabla1.tex";
-             Process p = Runtime.getRuntime().exec (comando); 
-             comando = "pdfcrop plantillaTabla1.pdf " +csv+ ".pdf" ;
-             p = Runtime.getRuntime().exec (comando); 
-         }catch (Exception e){
-             e.printStackTrace();
-         }
+      
          
         
   }
@@ -184,7 +179,7 @@ public class Tabla {
         listaPlantilla.add("\\end{tabular}\\addtocounter{Cuadro}{1}");
         listaPlantilla.add("\\end{center}");
         listaPlantilla.add("\\end{document}");
-        
+         
         try {
             br = new BufferedReader(new FileReader(f.getAbsolutePath()));
             lista.add("&\\multirow{2}{*}{\\Bold{Periodo}} ");//aqui va el texto en latex del archivo info.tex
@@ -212,12 +207,15 @@ public class Tabla {
             lista.add("&\\multicolumn{1}{g{2cm}}{"+valores[0]+"} &");
             lista.add("\\multicolumn{1}{g{3cm}}{"+valores[1]+"} & ");
             lista.add("\\multicolumn{1}{g{2cm}}{"+valores[2]+"} &");
+            String linean= "";
             try{
-                lista.add("\\multicolumn{1}{g{2.5cm}}{"+valores[3]+"}\\\\[0.1cm]");
+                linean = "\\multicolumn{1}{g{2.5cm}}{"+valores[3]+"}";
             }catch (Exception e){
+                
                 e.printStackTrace();
             }
-            
+            linean = linean+"\\\\[0.1cm]";
+            lista.add(linean);
             x++;
             }
     } catch (FileNotFoundException e) {
@@ -233,8 +231,8 @@ public class Tabla {
             }
         }
     }
-        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla2").getPath()).getAbsolutePath(), listToString(listaPlantilla));        
-        escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista));
+        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla2").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);        
+        escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
          try{
              String comando = "cd "+rutaTex+" && cd "+csv+" && xelatex  --synctex=1 --interaction=nonstopmode plantillaTabla2.tex";
              Process p = Runtime.getRuntime().exec (comando); 
