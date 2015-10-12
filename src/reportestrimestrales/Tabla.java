@@ -32,11 +32,13 @@ public class Tabla {
     String rutaTex;
     String archivo;
     List trimestres;
-    public Tabla(String rutaTEX, List listado){
+    SesionR r;
+    public Tabla(String rutaTEX, List listado,SesionR rr){
         this.ruta = "/var/www/html/Vitales/Entradas/CSV";
         texs = new File(rutaTEX);
         this.trimestres = listado;
         this.rutaTex = rutaTEX;
+        this.r = rr;
     }
     
     public void generar(){
@@ -68,6 +70,7 @@ public class Tabla {
      
     try {
         Files.write(textFile, lines, StandardCharsets.UTF_8);
+        r.get().eval("compilar('" + textFile + "', mostrar = F)");
     } catch (IOException ex) {
         Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
     }
