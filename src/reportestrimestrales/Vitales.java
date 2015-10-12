@@ -35,7 +35,62 @@ public class Vitales extends Documento{
         return rr;
     }
     
-    
+    private List trimestres(){
+        String trm = super.getTrimestre();
+        int anio =Integer.parseInt(super.getYear());
+        List lista= new ArrayList();
+        
+        switch (trm.toLowerCase()) {
+            case "primero":
+                lista.add("T1-"+(anio-2));
+                lista.add("T2-"+(anio-2));
+                lista.add("T3-"+(anio-2));
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));                
+                break;
+            case "segundo":
+                lista.add("T2-"+(anio-2));
+                lista.add("T3-"+(anio-2));
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));
+                lista.add("T2-"+(anio));                
+                break;
+            case "tercero":
+                lista.add("T3-"+(anio-2));
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));
+                lista.add("T2-"+(anio));
+                lista.add("T3-"+(anio));                                
+                break;
+            case "cuarto":
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));
+                lista.add("T2-"+(anio));
+                lista.add("T3-"+(anio));
+                lista.add("T4-"+(anio));                
+                break;
+            default:
+                throw new AssertionError();
+        }
+        return lista;
+        
+    }
     
     
     public Vitales(String titulo, String trimestre, String pYear, String rutaCSV) {
@@ -132,6 +187,13 @@ public class Vitales extends Documento{
         //QUINTA HOJA
         
         section1_05();
+        
+        
+    }
+    protected void apendices(String rutaTEX){
+        Tabla ap = new Tabla(rutaCSV,rutaTEX,trimestres());
+        ap.generar();
+        
         
         
     }

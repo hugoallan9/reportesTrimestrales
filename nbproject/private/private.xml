@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/SesionR.java</file>
-            <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/Vitales.java</file>
-            <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/ReportesTrimestrales.java</file>
-            <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/Documento.java</file>
-            <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/IPC.java</file>
-            <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/FaltasJudiciales.java</file>
+            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Documento.java</file>
+            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Vitales.java</file>
+            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/ReportesTrimestrales.java</file>
+            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Tabla.java</file>
         </group>
     </open-files>
 </project-private>
