@@ -893,12 +893,12 @@ public class Documento {
         
         return("\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + primeraDescripcion.getName().replaceAll("\\\\", "/") + "}}%\n"
-                + "{%\n \\input{" + segundaDescripcion.getName().replaceAll("\\\\","/") + "}} %\n"
-                + "{%\n \\input{" + titleGrafica.getName().replaceAll("\\\\", "/") +   "}} %\n"
-                + "{%\n \\input{" + desGrafica.getName().replaceAll("\\\\","/") +   "}} %\n"
+                + "%\n \\input{" + primeraDescripcion.getParent().replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + segundaDescripcion.getParent().replaceAll("\\\\","/") + "}} %\n"
+                + "{%\n \\input{" + titleGrafica.getParent().replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + desGrafica.getParent().replaceAll("\\\\","/") +   "}} %\n"
                 + "{%\n " + grafica + "}%\n"
-                + "{%\n \\input{" + desFuente.getName().replaceAll("\\\\","/") + "}} %\n "
+                + "{%\n \\input{" + desFuente.getParent().replaceAll("\\\\","/") + "}} %\n "
                 + "{%\n " + pie+"}%\n");
     }
     
