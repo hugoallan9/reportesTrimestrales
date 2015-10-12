@@ -1095,7 +1095,8 @@ public class IPC extends Documento{
                 System.out.println(rr.get().eval(".libPaths()"));
                 System.out.println(rr.get().eval("R.version"));
                 System.out.println("ipc <- cargaMasiva('" +  ruta +")");
-                REXP listadoCSV = rr.get().eval("ipc <- cargaMasiva('" +  ruta +")");
+                System.out.println("***********SIN CODIFICACION********************");
+                REXP listadoCSV = rr.get().eval("ipc <- cargaMasiva('" +  ruta +"')");
                 REXP nombres = rr.get().eval("names(ipc)");
                 rr.get().eval("setListIpc(ipc)");
                 System.out.println(listadoCSV);

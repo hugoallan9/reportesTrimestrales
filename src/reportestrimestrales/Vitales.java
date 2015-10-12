@@ -191,7 +191,7 @@ public class Vitales extends Documento{
         
     }
     protected void apendices(String rutaTEX){
-        Tabla ap = new Tabla(rutaCSV,rutaTEX,trimestres());
+        Tabla ap = new Tabla(rutaTEX,trimestres());
         ap.generar();
         
         

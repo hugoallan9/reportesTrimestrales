@@ -124,6 +124,7 @@ public class ReportesTrimestrales {
             docu.capitulo3();
             docu.capitulo4();
             docu.capitulo5();
+            docu.apendices(vitalesTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){

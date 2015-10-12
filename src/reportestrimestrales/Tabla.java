@@ -32,8 +32,8 @@ public class Tabla {
     String rutaTex;
     String archivo;
     List trimestres;
-    public Tabla(String rutaCSV,String rutaTEX, List listado){
-        this.ruta = rutaCSV;
+    public Tabla(String rutaTEX, List listado){
+        this.ruta = "/var/www/html/Vitales/Entradas/CSV";
         texs = new File(rutaTEX);
         this.trimestres = listado;
         this.rutaTex = rutaTEX;
@@ -86,7 +86,7 @@ public class Tabla {
         boolean encabezado = true;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
-        listaPlantilla.add("\\input{../pre2}");
+        listaPlantilla.add("\\input{../../pre2}");
         listaPlantilla.add("\\begin{document}");
         listaPlantilla.add("	\\addtocounter{section}{1}");
         listaPlantilla.add("\\begin{center}");
@@ -169,7 +169,7 @@ public class Tabla {
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
 
-        listaPlantilla.add("\\input{pre2}");
+        listaPlantilla.add("\\input{../../pre2}");
         listaPlantilla.add("\\begin{document}");
         listaPlantilla.add("\\addtocounter{section}{1}");
         listaPlantilla.add("\\begin{center}");
