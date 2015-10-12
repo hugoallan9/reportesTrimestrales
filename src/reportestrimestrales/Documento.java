@@ -890,7 +890,7 @@ public class Documento {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        
+        System.out.println(primeraDescripcion.getParent().replaceAll("\\\\", "/"));
         return("\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
                 + "%\n \\input{" + primeraDescripcion.getParent().replaceAll("\\\\", "/") + "}}%\n"
