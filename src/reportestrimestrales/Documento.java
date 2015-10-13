@@ -492,7 +492,7 @@ public class Documento {
        URL url = null;
         try {
             file = new  File(ruta,"preambulo.tex");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/preambulo.tex");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/preambulo.tex");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -505,7 +505,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"cabezae.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/cabezae.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/cabezae.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -520,7 +520,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"cabezao.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/cabezao.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/cabezao.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -533,7 +533,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"capitulo3.png");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/capitulo3.png");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/capitulo3.png");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -547,7 +547,7 @@ public class Documento {
         
         try {
             file = new  File(ruta,"pie.png");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/pie.png");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/pie.png");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -901,6 +901,56 @@ public class Documento {
                 + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n "
                 + "{%\n " + pie+"}%\n");
     }
+    
+    
+    protected String tablaApendice(String codigo, String nombreSeccion, String tipo,String tabla, String fuente, String pie){
+        File f = new File(tex.getParent(), codigo);
+        if( !f.exists() ){
+            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+            f.mkdir();
+        }
+        
+        File titulo = new File(f, "titulo.tex");
+        File desFuente = new File(f, "fuente.tex");
+        
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(titulo);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(nombreSeccion);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+
+        
+
+        
+        try {
+            escritora = new FileWriter(desFuente);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(fuente);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return("\n \\columnatablaprovisional{%\n"
+                + nombreSeccion+ "}%\n{"
+                + "%\n \\input{" + "}}%\n"
+                + "{%\n \\input{" + "}} %\n"
+                + "{%\n \\input{" + tipo +   "}} %\n"
+                + "{%\n \\input{"  +   "}} %\n"
+                + "{%\n \\includegraphics[width=26\\cuadri]{" + (codigo + "/"+ tabla).replaceAll("\\\\","/")  + "}}%\n"
+                + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n "
+                + "{%\n " + pie+"}%\n");
+    }
+    
+    
+    
     
     
     protected String seccion(String codigo, String nombreSeccion, String descripcion, 

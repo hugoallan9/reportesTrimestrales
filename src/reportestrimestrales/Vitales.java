@@ -191,6 +191,25 @@ public class Vitales extends Documento{
         
     }
     protected void apendices(String rutaTEX){
+        escribirLinea("\\appendix\n" +
+        "\n" +
+        "\n" +
+        "\n" +
+        "$\\ $\n" +
+        "\\vspace{3.6cm}\n" +
+        "\n" +
+        "\\thispagestyle{empty}\n" +
+        "\\begin{center}\n" +
+        "	\\fontsize{16mm}{1em}\\selectfont\\Bold \\color{color2} APÉNDICES\n" +
+        "\\end{center}\n" +
+        "\\addtocontents{toc}{\\protect\\addvspace{0.6\\baselineskip}}\n" +
+        "\\addcontentsline{toc}{chapter}{APÉNDICES}\n" +
+        "\\cleardoublepage");
+        apendice1();
+        apendice2();
+        apendice3();
+        apendice4();
+        apendice5();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.generar();
         
@@ -1143,7 +1162,92 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
     
     }
 
+    private void apendice1(){
+        String columna1 = tablaApendice("A_01",
+                "Nacimientos por trimestre de ocurrencia, según departamento de residencia de la madre",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_02",
+                "Análisis de variación de nacimientos",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    
+    
+    private void apendice2(){
+        String columna1 = tablaApendice("A_03",
+                "Defunciones por trimestre de ocurrencia, según departamento de residencia de la persona",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_04",
+                "Análisis de variación de defunciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice3(){
+        String columna1 = tablaApendice("A_05",
+                "Defunciones fetales por trimestre de ocurrencia, según departamento de residencia de la madre",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_06",
+                "Análisis de variación de defunciones fetales",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
 
-
+    private void apendice4(){
+        String columna1 = tablaApendice("A_07",
+                "Matrimonios por trimestre, según departamento de ocurrencia",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_08",
+                "Análisis de variación de matrimonios",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice5(){
+        String columna1 = tablaApendice("A_09",
+                "Divorcios por trimestre, según departamento de ocurrencia",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_10",
+                "Análisis de variación de divorcios",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
 }
 
