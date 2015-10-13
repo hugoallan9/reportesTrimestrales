@@ -124,18 +124,20 @@ public class Tabla {
         while ((line = br.readLine()) != null) {
             String[] valores = line.split(";");
             
-            if(encabezado){
-            lista.add("\\multicolumn{1}{g{1.5cm}}{"+valores[0]+"} & ");
+            if(encabezado){            
                         encabezado = false;
-            }else lista.add("\\multicolumn{1}{l}{"+valores[0]+"} & ");                        
-            for(int j=1;j<10;j++){
-                if(j==9)
-                    lista.add("\\multicolumn{1}{g{0.9cm}}{"+valores[j]+"} \\\\[0.15cm]");
-                else
-                    lista.add("\\multicolumn{1}{g{0.9cm}}{"+valores[j]+"} &");
-                
-            }
+            }else{
             
+                    lista.add("\\multicolumn{1}{l}{"+valores[0]+"} & ");
+                    for(int j=1;j<10;j++){
+
+                        if(j==9)
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+valores[j]+"} \\\\[0.15cm]");
+                        else
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+valores[j]+"} &");
+
+                    }
+                }
             }
     } catch (FileNotFoundException e) {
         e.printStackTrace();
@@ -152,7 +154,12 @@ public class Tabla {
     }
         escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla1").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);
         escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
-          
+                   try{
+             String comando = "pdfcrop plantillaTabla1.pdf " +csv+ ".pdf" ;
+             Process p = Runtime.getRuntime().exec (comando); 
+         }catch (Exception e){
+             e.printStackTrace();
+         }
       
          
         
@@ -192,31 +199,39 @@ public class Tabla {
 
             int x=1;
         while ((line = br.readLine()) != null) {
-            String[] valores = line.split(";");
-            if(x==14){
-                lista.add("\\hline");
-                lista.add("\\\\[-0.1cm]");
-                lista.add("\\multirow{9}{*}{\\rotatebox[origin = c]{90}{\\Bold{Trimestral}}} ");    
-            }
-            if(x==23){
-                lista.add("\\hline");
-                lista.add("\\\\[-0.2cm]");
-                lista.add("\\multirow{4}{*}{\\rotatebox[origin = c]{90}{\\Bold{Anual}}}");
-            }
-                                    
-            lista.add("&\\multicolumn{1}{g{2cm}}{"+valores[0]+"} &");
-            lista.add("\\multicolumn{1}{g{3cm}}{"+valores[1]+"} & ");
-            lista.add("\\multicolumn{1}{g{2cm}}{"+valores[2]+"} &");
-            String linean= "";
-            try{
-                linean = "\\multicolumn{1}{g{2.5cm}}{"+valores[3]+"}";
-            }catch (Exception e){
-                
-                e.printStackTrace();
-            }
-            linean = linean+"\\\\[0.1cm]";
-            lista.add(linean);
-            x++;
+            
+            if(encabezado)
+                encabezado=false;
+            else{
+                    String[] valores = line.split(";");
+                    if(x==14){
+                        lista.add("\\hline");
+                        lista.add("\\\\[-0.1cm]");
+                        lista.add("\\multirow{9}{*}{\\rotatebox[origin = c]{90}{\\Bold{Trimestral}}} ");    
+                    }
+                    if(x==23){
+                        lista.add("\\hline");
+                        lista.add("\\\\[-0.2cm]");
+                        lista.add("\\multirow{4}{*}{\\rotatebox[origin = c]{90}{\\Bold{Anual}}}");
+                    }
+
+                    lista.add("&\\multicolumn{1}{g{2cm}}{"+valores[0]+"} &");
+                    Long valtemp1 = (Long)(Math.round(Double.parseDouble(valores[1].toString())*100)/100);
+                    lista.add("\\multicolumn{1}{g{3cm}}{"+valtemp1.toString()+"} & ");
+                    Long valtemp2 = (Long)(Math.round(Double.parseDouble(valores[2].toString())*100)/100);
+                    lista.add("\\multicolumn{1}{g{2cm}}{"+valtemp2.toString()+"} &");
+                    String linean= "";
+                    try{
+                        Long valtemp3 = (Long)(Math.round(Double.parseDouble(valores[3].toString())*100)/100);
+                        linean = "\\multicolumn{1}{g{2.5cm}}{"+valtemp3.toString()+"}";
+                    }catch (Exception e){
+
+                        e.printStackTrace();
+                    }
+                    linean = linean+"\\\\[0.1cm]";
+                    lista.add(linean);
+                    x++;
+                }
             }
     } catch (FileNotFoundException e) {
         e.printStackTrace();
@@ -234,10 +249,8 @@ public class Tabla {
         escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla2").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);        
         escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
          try{
-             String comando = "cd "+rutaTex+" && cd "+csv+" && xelatex  --synctex=1 --interaction=nonstopmode plantillaTabla2.tex";
+             String comando = "pdfcrop plantillaTabla2.pdf " +csv+ ".pdf" ;
              Process p = Runtime.getRuntime().exec (comando); 
-             comando = "pdfcrop plantillaTabla2.pdf " +csv+ ".pdf" ;
-             p = Runtime.getRuntime().exec (comando); 
          }catch (Exception e){
              e.printStackTrace();
          }
