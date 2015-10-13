@@ -73,6 +73,9 @@ public class Tabla {
         if (compilar)
             System.out.println(textFile);
             r.get().eval("compilar('" + textFile+ "', mostrar = F)");
+            
+            r.get().eval("compilar(ruta = '" + textFile.getParent()+ "')");
+            
     } catch (IOException ex) {
         Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
     }
@@ -124,10 +127,12 @@ public class Tabla {
         while ((line = br.readLine()) != null) {
             String[] valores = line.split(";");
             
-            if(encabezado){            
+            if(encabezado){
+                System.out.println("salta la linea"+valores[0].toString()+"\n");
                         encabezado = false;
             }else{
-            
+                
+                    System.out.println("dato:"+valores[0].toString()+"\n");
                     lista.add("\\multicolumn{1}{l}{"+valores[0]+"} & ");
                     for(int j=1;j<10;j++){
 
@@ -248,6 +253,8 @@ public class Tabla {
     }
         escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla2").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);        
         escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
+        
+        
          try{
              String comando = "pdfcrop plantillaTabla2.pdf " +csv+ ".pdf" ;
              Process p = Runtime.getRuntime().exec (comando); 
