@@ -70,11 +70,12 @@ public class Tabla {
      
     try {
         Files.write(textFile, lines, StandardCharsets.UTF_8);
-        if (compilar)
+        if (compilar){
             System.out.println(textFile);
             r.get().eval("compilar('" + textFile+ "', mostrar = F)");
-            
-            r.get().eval("compilar(ruta = '" + textFile.getParent()+ "')");
+            System.out.println(textFile.getParent()+ "/"+nombre);
+            r.get().eval("pdfcrop(ruta = '" + textFile.getParent()+ "/"+nombre+".pdf')");
+        }
             
     } catch (IOException ex) {
         Logger.getLogger(Generador.class.getName()).log(Level.SEVERE, null, ex);
@@ -221,14 +222,14 @@ public class Tabla {
                     }
 
                     lista.add("&\\multicolumn{1}{g{2cm}}{"+valores[0]+"} &");
-                    Long valtemp1 = (Long)(Math.round(Double.parseDouble(valores[1].toString())*100)/100);
-                    lista.add("\\multicolumn{1}{g{3cm}}{"+valtemp1.toString()+"} & ");
-                    Long valtemp2 = (Long)(Math.round(Double.parseDouble(valores[2].toString())*100)/100);
-                    lista.add("\\multicolumn{1}{g{2cm}}{"+valtemp2.toString()+"} &");
+                    double valtemp1 = (double)(Math.round(Double.parseDouble(valores[1].toString())*100)/100);
+                    lista.add("\\multicolumn{1}{g{3cm}}{"+Double.toString(valtemp1)+"} & ");
+                    double valtemp2 = (double)(Math.round(Double.parseDouble(valores[2].toString())*100)/100);
+                    lista.add("\\multicolumn{1}{g{2cm}}{"+Double.toString(valtemp2)+"} &");
                     String linean= "";
                     try{
-                        Long valtemp3 = (Long)(Math.round(Double.parseDouble(valores[3].toString())*100)/100);
-                        linean = "\\multicolumn{1}{g{2.5cm}}{"+valtemp3.toString()+"}";
+                        double valtemp3 = (double)(Math.round(Double.parseDouble(valores[3].toString())*100)/100);
+                        linean = "\\multicolumn{1}{g{2.5cm}}{"+Double.toString(valtemp3)+"}";
                     }catch (Exception e){
 
                         e.printStackTrace();
