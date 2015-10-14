@@ -73,8 +73,7 @@ public class Tabla {
         if (compilar){
             System.out.println(textFile);
             r.get().eval("compilar('" + textFile+ "', mostrar = F)");
-            System.out.println(textFile.getParent()+ "/"+nombre);
-            r.get().eval("pdfcrop(ruta = '" + textFile.getParent()+ "/"+nombre+".pdf')");
+            System.out.println(r.get().eval("pdfcrop(ruta = '" + textFile+"')"));
         }
             
     } catch (IOException ex) {

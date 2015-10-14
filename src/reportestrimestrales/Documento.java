@@ -51,6 +51,8 @@ public class Documento {
         return ruta;
     }
     private File tex;
+    private File cuerpoReporte;
+    private File cuerpoPresentacion;
     private String anioPublicacion;
     private DecimalFormat df;
     private DecimalFormat df2;
@@ -141,6 +143,8 @@ public class Documento {
     
     public void setRuta(String ruta) {
         this.ruta = ruta;
+        this.cuerpoReporte = new File(ruta, "cuerpoReporte.tex");
+        this.cuerpoPresentacion = new File(ruta, "cuerpoPresentacion.tex");
     }
     
     public void setTex(String tex){
@@ -820,7 +824,7 @@ public class Documento {
     }
     
     protected String columna(String codigo, String nombreSeccion, String parrafo1, String parrafo2, 
-            String tituloGrafica, String tipoGrafica, String grafica, String fuente, String pie){
+            String tituloGrafica, String tipoGrafica, String grafica, String fuente, String pie, Boolean presentacion){
         File f = new File(tex.getParent(), codigo);
         if( !f.exists() ){
             System.out.println("La carpeta no existe: " + f.getAbsolutePath());
@@ -891,15 +895,50 @@ public class Documento {
         }
         
         System.out.println(primeraDescripcion.getParent().replaceAll("\\\\", "/"));
-        return("\n \\columna{%\n"
+        String extension = grafica.substring(grafica.length()-3, grafica.length());
+        String formato = null;
+        String formatoP = null;
+        String carpeta = null;
+        if(presentacion == true){
+            if( extension == "pdf" ){
+                formatoP = "\\includegraphics{GraficasPresentacion//"+  grafica+"}";
+            }else{
+                formatoP = "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{GraficasPresentacion//" + grafica +"} \\end{tikzpicture}";
+            }
+        }else{
+            if( extension == "pdf" ){
+                formato = "\\includegraphics{"+  grafica+"}";
+            }else{
+                formato = "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{" + grafica +"} \\end{tikzpicture}";
+            }
+        }
+        
+        String retorno =  "\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
                 + "%\n \\input{" + (codigo + "/parrafo1.tex").replaceAll("\\\\", "/") + "}}%\n"
                 + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
                 + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
                 + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
-                + "{%\n " + grafica + "}%\n"
+                + "{%\n"+ formato + "   }%\n"
                 + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n "
-                + "{%\n " + pie+"}%\n");
+                + "{%\n " + pie+"}%\n";
+        
+        String retorno1 =  "\n \\columna{%\n"
+                + nombreSeccion+ "}%\n{"
+                + "%\n \\input{" + (codigo + "/parrafo1.tex").replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
+                + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
+                + "{%\n \\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex} \\end{tikzpicture} }%\n"
+                + "{%\n"+ formatoP + "   }%\n"
+                + "{%\n " + pie+"}%\n";
+        
+        if(presentacion == true){
+            escribirLineaPresentacion(retorno1);
+        }
+        
+        return(retorno);
+        
     }
     
     
@@ -1187,6 +1226,21 @@ public class Documento {
         FileWriter escritora;
         try {
             escritora = new FileWriter(tex,true);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(linea);
+            buffer.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    protected  void escribirLineaPresentacion(String linea){
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(cuerpoPresentacion,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write(linea);
             buffer.close();
