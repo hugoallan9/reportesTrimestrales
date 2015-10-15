@@ -162,6 +162,17 @@ public class Vitales extends Documento{
                 System.out.println("EL CSV 1_06 es: " + rr.get().eval("vitales$'1_06'"));
             //}
     }
+  
+    @Override
+    protected void preambuloPresentacion(){
+        File source = new File("/home/ineservidor/Vitales/Presentacion");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     
     protected void capitulo1(){
         //CARGA DE SESION DE R
@@ -191,20 +202,10 @@ public class Vitales extends Documento{
         
     }
     protected void apendices(String rutaTEX){
-        escribirLinea("\\appendix\n" +
+        escribirLinea("\n \\appendixa \n" +
         "\n" +
         "\n" +
-        "\n" +
-        "$\\ $\n" +
-        "\\vspace{3.6cm}\n" +
-        "\n" +
-        "\\thispagestyle{empty}\n" +
-        "\\begin{center}\n" +
-        "	\\fontsize{16mm}{1em}\\selectfont\\Bold \\color{color2} APÉNDICES\n" +
-        "\\end{center}\n" +
-        "\\addtocontents{toc}{\\protect\\addvspace{0.6\\baselineskip}}\n" +
-        "\\addcontentsline{toc}{chapter}{APÉNDICES}\n" +
-        "\\cleardoublepage");
+        "\n" );
         apendice1();
         apendice2();
         apendice3();
@@ -393,7 +394,7 @@ public class Vitales extends Documento{
             getDf().format(rr.get().eval("vitales$'1_07'$y[2]").asDouble()) + "\\% fueron " + 
             genero2 +", además el índice de masculinidad registrado fue de " + Math.round(masculinidad) + ".", "Distribución "
             + "porcentual de nacimientos por sexo del recién nacido",corregirTrimestre(getTrimestre()) 
-            + " trimestre, año " + getAnioPublicacion(), "\\XeTeXpdffile \"1_07.pdf\" " 
+            + " trimestre, año " + getAnioPublicacion(), "1_07.pdf" 
             , "INE, con datos del RENAP", "",true);
         
         rr.get().eval("temp <- vitales$'1_08'[vitales$'1_08'$x != 'Peso adecuado',]");
@@ -750,7 +751,7 @@ public class Vitales extends Documento{
                 getDf().format(rr.get().eval("( vitales$'2_04'$Hombres[2] + vitales$'2_04'$Mujeres[2] )/ total * 100").asDouble()) + 
                 "\\% en la etapa post-neonatal\\footnote{Niños menores de un año pero mayores de 27 días.}. ", 
                 "Defunciones neonatales y post neonatales por sexo", 
-                getFormatoSubtituloG(), "\\XeTeXpdffile \"Graficas/2_04.pdf\" ","INE, con datos del RENAP", "",false); 
+                getFormatoSubtituloG(), "2_04.pdf","INE, con datos del RENAP", "",false); 
         
         escribirLinea(hojaTrimestral(columna1, columna2));
     }

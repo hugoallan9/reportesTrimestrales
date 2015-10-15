@@ -145,6 +145,22 @@ public class Documento {
         this.ruta = ruta;
         this.cuerpoReporte = new File(ruta, "cuerpoReporte.tex");
         this.cuerpoPresentacion = new File(ruta, "cuerpoPresentacion.tex");
+        File presentacion = new File(ruta,"GraficasPresentacion");
+        if (!presentacion.exists()) {
+            System.out.println("creating directory: " + presentacion.getAbsolutePath());
+            boolean result = false;
+
+        try{
+            presentacion.mkdir();
+            result = true;
+        } 
+        catch(SecurityException se){
+        //handle it
+        }        
+        if(result) {    
+            System.out.println("DIR created");  
+        }
+}
     }
     
     public void setTex(String tex){
@@ -491,6 +507,11 @@ public class Documento {
     }
     
     
+    protected void preambuloPresentacion(){
+    
+    }
+    
+    
     protected void preambulo(){
        File file = null; 
        URL url = null;
@@ -536,8 +557,8 @@ public class Documento {
         }
         
         try {
-            file = new  File(ruta,"capitulo3.png");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/capitulo3.png");
+            file = new  File(ruta,"capitulo3.pdf");
+            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/capitulo3.pdf");
         } catch (MalformedURLException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -900,18 +921,20 @@ public class Documento {
         String formatoP = null;
         String carpeta = null;
         if(presentacion == true){
-            if( extension == "pdf" ){
-                formatoP = "\\includegraphics{GraficasPresentacion//"+  grafica+"}";
+            if( extension.equalsIgnoreCase("pdf") ){
+                System.out.println("***********ES UN PDF PARA PRESENTACION Y ENTRE AL SI*****************************");
+                formatoP = "\\includegraphics{GraficasPresentacion/"+  grafica+"}";
             }else{
-                formatoP = "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{GraficasPresentacion//" + grafica +"} \\end{tikzpicture}";
+                formatoP = "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{GraficasPresentacion/" + grafica +"} \\end{tikzpicture}";
             }
-        }else{
-            if( extension == "pdf" ){
+        }
+            if( extension.equalsIgnoreCase("pdf") ){
+                System.out.println("***********ES UN PDF Y ENTRE AL SI*****************************");
                 formato = "\\includegraphics{"+  grafica+"}";
             }else{
                 formato = "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{" + grafica +"} \\end{tikzpicture}";
             }
-        }
+        System.out.println("PARA EL CODIGO " + codigo + " la extension es: " + extension + " ADEMAS FORMATO ES " + formato + " Y FORMATOP ES " + formatoP);
         
         String retorno =  "\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
@@ -929,8 +952,8 @@ public class Documento {
                 + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
                 + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
                 + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
-                + "{%\n \\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex} \\end{tikzpicture} }%\n"
                 + "{%\n"+ formatoP + "   }%\n"
+                + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n "
                 + "{%\n " + pie+"}%\n";
         
         if(presentacion == true){

@@ -115,6 +115,7 @@ public class ReportesTrimestrales {
             docu.setTex("vitales");
             docu.hacerPortada();
             docu.preambulo();
+            docu.preambuloPresentacion();
             docu.iniciarDocumento();
             docu.hacerTitulo();
             docu.juntaDirectiva();

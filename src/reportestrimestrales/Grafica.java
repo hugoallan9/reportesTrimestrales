@@ -5,6 +5,7 @@
  */
 package reportestrimestrales;
 
+import java.io.File;
 import org.rosuda.JRI.Rengine;
 
 /**
@@ -28,13 +29,16 @@ public class Grafica extends Thread {
     public void run(){
         System.out.println("HILO: " + ruta);
         if(lista.equalsIgnoreCase("vitales")){
-            r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = '"+ modalidad +"')"); 
+            r.eval("graficasVitales("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasVitales("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasVitales("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta  + "/vitales.tex', mostrar = F)");
             r.eval("compilar('" + ruta + "/vitales.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionVitales.tex', mostrar = F)");
             System.out.println("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(ruta)) + ".pdf"+ "')");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
-            r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            r.eval("mandarCorreo(c('<hugoallangm@gmail.com>, <rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "/vitales.pdf"+ "'," + ruta+ " '/presentacionVitales.pdf')");
         }else if( lista.equalsIgnoreCase("ipc") ){
             System.out.println("IPC");
             System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
