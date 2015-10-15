@@ -252,8 +252,7 @@ public class Vitales extends Documento{
                         formatearNumero(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'1_01'$y[9] *100").asDouble()) + "\\%."
                 + " ", "Número de nacimientos por departamento de residencia de la madre"
                 , getFormatoSubtituloG()
-                ,"1_02.tex"
-                        + "\\end{tikzpicture}" , "INE, con datos del RENAP", "",true);
+                ,"1_02.tex" , "INE, con datos del RENAP", "",true);
                
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
@@ -690,8 +689,7 @@ public class Vitales extends Documento{
                 +" el mismo período " + " del año anterior y " + rr.get().eval("iconv(calcularRespuestaPor(vitales$'2_01', primeraPos = 8), 'utf8')").asString()
                 + " el trimestre anterior. "
                 , "Defunciones por trimestre",formatoSerie,
-                "2_01"
-                + "\\end{tikzpicture}","INE, con datos del RENAP", "",true);
+                "2_01","INE, con datos del RENAP", "",true);
         
         rr.get().eval("temp <- vitales$'2_02'[ordenarNiveles(vitales$'2_02',T),]");
         String columna2 = columna("2_02","Defunciones por departamento", 
@@ -787,7 +785,7 @@ public class Vitales extends Documento{
                 " y  " + getDf().format(rr.get().eval("temp$y[3]").asDouble()) + "\\% "+
                 asistencia(rr.get().eval("iconv(temp$x[3],'utf8')").asString()) + ".",
                 "Distribución porcentual de defunciones según asistencia recibida",
-                getFormatoSubtituloG(), "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{Graficas/2_06.tex}  \\end{tikzpicture}",
+                getFormatoSubtituloG(), "2_06.tex",
                 "INE, con datos del RENAP", "",true); 
         
         escribirLinea(hojaTrimestral(columna1, columna2));
@@ -809,7 +807,7 @@ public class Vitales extends Documento{
                 "\\% de los casos. ",
                 "Distribución porcentual de defunciones por lugar de ocurrencia",
                 getFormatoSubtituloG(),
-                "\\begin{tikzpicture}[x=1pt,y=1pt] \\input{Graficas/2_07.tex} \\end{tikzpicture}",
+                "2_07.tex",
                 "INE, con datos del RENAP",
                 ""
                 ,true);
@@ -867,8 +865,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 +" el mismo período " + " del año anterior y "+  rr.get().eval("iconv(calcularRespuestaPor(vitales$'3_01', primeraPos = 8), 'utf8')").asString()
                 + " el trimestre anterior. ",
                 "Defunciones fetales por trimestre",formatoSerie,
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{Graficas/3_01.tex} "
-                + "\\end{tikzpicture}","INE, con datos del RENAP", "",false);
+                "3_01.tex","INE, con datos del RENAP", "",false);
         
         rr.get().eval("temp <- excluirNiveles( vitales$'3_02')");
         String columna2 = columna("3_02",
@@ -892,7 +889,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 getDf().format(rr.get().eval("temp$y[length(temp$x)-1]/vitales$'3_01'$y[9] *100").asDouble()) + "\\%." , 
                 "Número de defunciones fetales por departamento de residencia de la madre", 
                 getFormatoSubtituloG(),
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{Graficas/3_02.tex}  \\end{tikzpicture}",
+                "3_02.tex",
                 "INE, con datos del RENAP", "",false);
     
         escribirLinea(hojaTrimestral(columna1, columna2));
@@ -915,7 +912,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                rr.get().eval("iconv(temp$x[2], 'utf8')").asString().toLowerCase() + " semanas. ",
                 "Distribución porcentual de defunciones fetales según semanas de gestación",
                 getFormatoSubtituloG(),
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{Graficas/3_03.tex} \\end{tikzpicture}",
+                "3_03.tex",
                 "INE, con datos del RENAP",
                 "",false);
         
@@ -961,7 +958,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 getDf().format(rr.get().eval("temp$y[length(temp$y)]").asDouble())+ "\\% de los casos.", 
                 "Distribución porcentual de defunciones fetales  por pueblo de pertenencia de la madre ",
                 getFormatoSubtituloG(), 
-                "[x=1pt,y=1pt]  \\input{3_05.tex} \\end{tikzpicture}",
+                "3_05.tex",
                 "INE, con datos del RENAP", "",false);
         
         rr.get().eval("temp <- excluirNiveles(vitales$'3_06')");
@@ -982,7 +979,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 asistencia(rr.get().eval("iconv(temp$x[3],'utf8')").asString()),
                 "Distribución porcentual de defunciones fetales según la asistencia recibida durante el parto",
                 getFormatoSubtituloG(),
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}",
+                "3_06.tex",
                 "INE, con datos del RENAP", "",false); 
         
         escribirLinea(hojaTrimestral(columna1, columna2));
@@ -1004,7 +1001,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 "\\% de los casos. ",
                 "Distribución porcentual de defunciones fetales por lugar de ocurrencia",
                 getFormatoSubtituloG(),
-                "\\begin{tikzpicture}[x=1pt,y=1pt] \\input{3_07.tex} \\end{tikzpicture}",
+                "3_07.tex",
                 "INE, con datos del RENAP",
                 ""
                 ,false);
@@ -1026,8 +1023,7 @@ protected ArrayList<String> filtrarDatos(String dataFrame){
                 + "\\% menos de lo registrado en el trimestre anterior. ",
                  "Matrimonios por trimestre",
                 formatoSerie,
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex} "
-                + "\\end{tikzpicture}",
+                "4_01.tex",
                 "INE, con datos del RENAP", "",true);
         
         rr.get().eval("temp <- vitales$'4_02'[ordenarNiveles(vitales$'4_02',T),]");
