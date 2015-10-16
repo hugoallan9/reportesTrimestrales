@@ -37,8 +37,8 @@ public class Grafica extends Thread {
             r.eval("compilar('" + ruta + "/vitales.tex', mostrar = F)");
             r.eval("compilar('" + ruta  + "/presentacionVitales.tex', mostrar = F)");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
-            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "/vitales.pdf','" + ruta+ " /presentacionVitales.pdf')");
-            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "/vitales.pdf','" + ruta+ " /presentacionVitales.pdf')"));
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
         }else if( lista.equalsIgnoreCase("ipc") ){
             System.out.println("IPC");
             System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
