@@ -72,7 +72,7 @@ public class Tabla {
         Files.write(textFile, lines, StandardCharsets.UTF_8);
         if (compilar){
             System.out.println(textFile);
-            r.get().eval("compilar('" + textFile+ "', mostrar = F)");
+            System.out.println(r.get().eval("compilar('" + textFile+ "', mostrar = F)"));
             System.out.println(r.get().eval("pdfcrop(ruta = '" + textFile+"')"));
         }
             
