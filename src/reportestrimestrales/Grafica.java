@@ -38,7 +38,7 @@ public class Grafica extends Thread {
             r.eval("compilar('" + ruta  + "/presentacionVitales.tex', mostrar = F)");
             System.out.println("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(ruta)) + ".pdf"+ "')");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
-            r.eval("mandarCorreo(c('<hugoallangm@gmail.com>, <rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "/vitales.pdf"+ "'," + ruta+ " '/presentacionVitales.pdf')");
+            r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "/vitales.pdf','" + ruta+ " /presentacionVitales.pdf')");
         }else if( lista.equalsIgnoreCase("ipc") ){
             System.out.println("IPC");
             System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
