@@ -99,6 +99,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("vitales <- leerLibro('/var/www/html/Vitales/Entradas/vitales.xlsx')"));
+            System.out.println(r.get().eval("vitales <- convertirFechas(vitales)"));
             r.get().eval("escribirCSV(vitales, '/var/www/html/Vitales/Entradas/CSV')");
             r.get().end();
             File vitalesTrimestre = new File(rutaVitales, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
