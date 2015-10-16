@@ -923,9 +923,9 @@ public class Documento {
         if(presentacion == true){
             if( extension.equalsIgnoreCase("pdf") ){
                 System.out.println("***********ES UN PDF PARA PRESENTACION Y ENTRE AL SI*****************************");
-                formatoP = "\\includegraphics{GraficasPresentacion/"+  grafica+"}";
+                formatoP = "\\includegraphics[scale=1.15]{GraficasPresentacion/"+  grafica+"}";
             }else{
-                formatoP = "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{GraficasPresentacion/" + grafica +"} \\end{tikzpicture}";
+                formatoP = "\\begin{tikzpicture}[x=1pt,y=1pt,scale = 1.15]  \\input{GraficasPresentacion/" + grafica +"} \\end{tikzpicture}";
             }
         }
             if( extension.equalsIgnoreCase("pdf") ){
