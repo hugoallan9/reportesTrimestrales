@@ -38,7 +38,7 @@ public class ReportesTrimestrales {
         }
         System.out.println("el mensajito.");
         if ( args[0].equalsIgnoreCase("ipc") ){
-            rutaArchivoSubido = "/var/www/archivos/ipc_csv.csv";
+            rutaArchivoSubido = "/var/www/archivos/CSV/IPC POR GASTO BASICO.csv";
             rutaIPC = "/home/ineservidor/IPC";
             
             /*
@@ -47,13 +47,15 @@ public class ReportesTrimestrales {
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
-            //cambie vitales por ipc en la siguiente instruccion. creé la carpeta CSV
+            System.out.println(r.get().eval("ipc <- leerLibro('/var/www/archivos/ipc_csv.xlsx')"));
+            System.out.println(r.get().eval("ipc <- convertirFechas(ipc)"));
+            //cambié vitales por ipc en la siguiente instruccion. creé la carpeta CSV
             r.get().eval("escribirCSV(ipc, '/var/www/archivos/CSV')");
             r.get().end();
                     
             //termina lo del xlsx
             
-            File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[2])) + args[1]);
+            /*File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[2])) + args[1]);
             if ( !ipcMes.exists() ){
                 ipcMes.setReadable(true, false);
                 ipcMes.setExecutable(true, false);
@@ -102,7 +104,7 @@ public class ReportesTrimestrales {
             docu.terminarDocumento();
             } catch (SQLException ex) {
                 Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            }*/
 
    
         }//ipc
