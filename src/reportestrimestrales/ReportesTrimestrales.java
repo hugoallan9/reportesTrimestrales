@@ -40,6 +40,19 @@ public class ReportesTrimestrales {
         if ( args[0].equalsIgnoreCase("ipc") ){
             rutaArchivoSubido = "/var/www/archivos/ipc_csv.csv";
             rutaIPC = "/home/ineservidor/IPC";
+            
+            /*
+            21/10/2015 Codigo para el archivo xlsx
+            */
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            //cambie vitales por ipc en la siguiente instruccion. Hay que crear la carpeta?
+            r.get().eval("escribirCSV(ipc, '/var/www/archivos/CSV')");
+            r.get().end();
+                    
+            //termina lo del xlsx
+            
             File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[2])) + args[1]);
             if ( !ipcMes.exists() ){
                 ipcMes.setReadable(true, false);
