@@ -47,7 +47,7 @@ public class ReportesTrimestrales {
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
-            //cambie vitales por ipc en la siguiente instruccion. Hay que crear la carpeta?
+            //cambie vitales por ipc en la siguiente instruccion. creé la carpeta CSV
             r.get().eval("escribirCSV(ipc, '/var/www/archivos/CSV')");
             r.get().end();
                     
