@@ -41,7 +41,6 @@ public class Grafica extends Thread {
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
         }else if( lista.equalsIgnoreCase("ipc") ){
             System.out.println("IPC");
-            System.out.println("sink(file = '" + r.eval("getPath()").asString() + "log.txt'");
             //r.eval("sink(file = '/var/www/html/IPC/sync.txt')" );
             System.out.println(r.eval("getListIpc()"));
             System.out.println(r.eval("lsf.str(asNamespace('funcionesINE'))[14]"));

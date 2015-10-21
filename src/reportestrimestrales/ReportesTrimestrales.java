@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.io.FileUtils;
 /**
  *
  * @author INE
@@ -48,14 +49,13 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("ipc <- leerLibro('/var/www/archivos/ipc_csv.xlsx')"));
-            System.out.println(r.get().eval("ipc <- convertirFechas(ipc)"));
             //cambié vitales por ipc en la siguiente instruccion. creé la carpeta CSV
             r.get().eval("escribirCSV(ipc, '/var/www/archivos/CSV')");
             r.get().end();
                     
             //termina lo del xlsx
             
-            /*File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[2])) + args[1]);
+            File ipcMes = new File(rutaIPC, getMesCadena(Integer.parseInt(args[2])) + args[1]);
             if ( !ipcMes.exists() ){
                 ipcMes.setReadable(true, false);
                 ipcMes.setExecutable(true, false);
@@ -80,11 +80,19 @@ public class ReportesTrimestrales {
                 f.setWritable(true, false);
             }
             rutaDestinoCSV = f.getAbsolutePath();
-            Consultor.reescribirCSV(rutaArchivoSubido);
+            //Consultor.reescribirCSV(rutaArchivoSubido);
             try {
-                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2], args[4], args[5]);
+                System.out.println("Entro al try de la base");
+                Conector c = new Conector(rutaArchivoSubido, rutaDestinoCSV, ipcMes.getAbsolutePath(), args[1], args[2]);
                 c.getVariacionAnual();
                 
+            
+            File source = new File("/var/www/archivos/CSV");
+            try {
+                FileUtils.copyDirectory(source, f);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }    
             IPC docu;
             docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
             docu.setRuta(ipcMes.getAbsolutePath());
@@ -98,13 +106,11 @@ public class ReportesTrimestrales {
             docu.capitulo1();
             docu.capitulo2();
             docu.capitulosRegionales();
-            if (args[3].equalsIgnoreCase("true")){
-                docu.generarGraficas("anual");
-            }
+            docu.generarGraficas("anual");
             docu.terminarDocumento();
             } catch (SQLException ex) {
                 Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
-            }*/
+            }
 
    
         }//ipc
