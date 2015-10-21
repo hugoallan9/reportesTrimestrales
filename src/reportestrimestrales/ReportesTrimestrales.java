@@ -51,7 +51,7 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("ipc <- leerLibro('/var/www/archivos/ipc_csv.xlsx')"));
             //cambié vitales por ipc en la siguiente instruccion. creé la carpeta CSV
             r.get().eval("escribirCSV(ipc, '/var/www/archivos/CSV')");
-            r.get().end();
+            //r.get().end();
                     
             //termina lo del xlsx
             
@@ -103,7 +103,7 @@ public class ReportesTrimestrales {
             docu.hacerTituloAnual();
             docu.juntaDirectivaAnual();
             docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
-            docu.capitulo1();
+            //docu.capitulo1();
             docu.capitulo2();
             docu.capitulosRegionales();
             docu.generarGraficas("anual");
