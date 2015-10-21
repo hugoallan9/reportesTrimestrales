@@ -16,6 +16,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -33,6 +34,8 @@ public class Tabla {
     String archivo;
     List trimestres;
     SesionR r;
+    DecimalFormat df = new DecimalFormat("#.##");
+    DecimalFormat dm = new DecimalFormat("#,###");
     public Tabla(String rutaTEX, List listado,SesionR rr){
         this.ruta = "/var/www/html/Vitales/Entradas/CSV";
         texs = new File(rutaTEX);
@@ -137,9 +140,9 @@ public class Tabla {
                     for(int j=1;j<10;j++){
 
                         if(j==9)
-                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+valores[j]+"} \\\\[0.15cm]");
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} \\\\[0.15cm]");
                         else
-                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+valores[j]+"} &");
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} &");
 
                     }
                 }
@@ -221,14 +224,13 @@ public class Tabla {
                     }
 
                     lista.add("&\\multicolumn{1}{g{2cm}}{"+valores[0]+"} &");
-                    double valtemp1 = (double)(Math.round(Double.parseDouble(valores[1].toString())*100)/100);
-                    lista.add("\\multicolumn{1}{g{3cm}}{"+Double.toString(valtemp1)+"} & ");
-                    double valtemp2 = (double)(Math.round(Double.parseDouble(valores[2].toString())*100)/100);
-                    lista.add("\\multicolumn{1}{g{2cm}}{"+Double.toString(valtemp2)+"} &");
+                    
+                    lista.add("\\multicolumn{1}{g{3cm}}{"+dm.format(Long.parseLong(valores[1]))+"} & ");
+                    
+                    lista.add("\\multicolumn{1}{g{2cm}}{"+df.format(Double.parseDouble(valores[2]))+"} &");
                     String linean= "";
-                    try{
-                        double valtemp3 = (double)(Math.round(Double.parseDouble(valores[3].toString())*100)/100);
-                        linean = "\\multicolumn{1}{g{2.5cm}}{"+Double.toString(valtemp3)+"}";
+                    try{                        
+                        linean = "\\multicolumn{1}{g{2.5cm}}{"+df.format(Double.parseDouble(valores[3]))+"}";
                     }catch (Exception e){
 
                         e.printStackTrace();
