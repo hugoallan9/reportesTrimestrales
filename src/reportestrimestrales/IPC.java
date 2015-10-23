@@ -96,12 +96,14 @@ public class IPC extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 4.7, align = left, color = white] at (0.49,0.53) {\n" +
-             "República de Guatemala \n" +
+            + "\\node[inner sep =0, scale = 3.8, align = left, color = white] at (0.49,0.53) {\n" +
+             "República de Guatemala: \n" +
             "		\\\\\n" +
-            "Índice de  Precios  al \\\\ Consumidor \n" +
+            "Índice de  Precios  al  Consumidor \n "+
+                    "		\\\\\n" +
+            getMes()+ " " +getYear()+
             "		\\\\\n" + " };" +
-            "\\node[inner sep =0, scale =2, color = white]at(0.54,0.05){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "+
+            "\\node[inner sep =0, scale =2, color = white]at(0.54,0.05){Guatemala, "+ getMesServidor()  +" de " +  getYearServidor()+"};\n "+
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
             "\n" +

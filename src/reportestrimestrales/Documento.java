@@ -39,6 +39,8 @@ public class Documento {
     private String titulo;
     private String mes;
     private String year;
+    private String yearServidor;
+    private String mesServidor;
     private String trimestre;
     private List junta;
     private List gerencias;
@@ -86,8 +88,8 @@ public class Documento {
         this.titulo = titulo;
         this.trimestre = trimestre;
         Calendar cal = Calendar.getInstance();
-        mes = new SimpleDateFormat("MMMM").format(cal.getTime());
-        this.year = new SimpleDateFormat("yyyy").format(cal.getTime());
+        this.mesServidor = new SimpleDateFormat("MMMM").format(cal.getTime());
+        this.yearServidor = new SimpleDateFormat("yyyy").format(cal.getTime());
         junta = new  ArrayList();
         gerencias = new ArrayList();
         tex = null;
@@ -122,7 +124,17 @@ public class Documento {
         return anioPublicacion;
     }
     
+    public void setMes(String mes){
+        this.mes = mes;
+    }
     
+    public void setYear(String year){
+        this.year = year;
+    }
+    
+    public String getYearServidor(){
+       return(yearServidor); 
+    }
 
     public String getTitulo() {
         return titulo;
@@ -130,6 +142,10 @@ public class Documento {
 
     public String getMes() {
         return mes;
+    }
+    
+    public String getMesServidor(){
+        return mesServidor;
     }
 
     public String getYear() {
@@ -493,7 +509,7 @@ public class Documento {
                 "\n" +
                 "Los niveles de inflación más importantes de {\\Bold " + getMes() + " de " + getYear() +" }"
                 +"son los siguientes: se registró una variación intermensual de " + String.valueOf(mensual) +"\\%, una variación "
-                + "interanual de " +  String.valueOf(anual) + "//% y una variación acumulada de "+  String.valueOf(acumulada)+"\\%." +
+                + "interanual de " +  String.valueOf(anual) + "\\% y una variación acumulada de "+  String.valueOf(acumulada)+"\\%. " +
                 "Al final  se incluye un glosario que contiene la definición "
                 + "de los principales conceptos relacionados con el IPC y la metodología"
                 + " de cálculo para la obtención de los diferentes índices y variaciones."
@@ -767,7 +783,6 @@ public class Documento {
           "\n" +
           "\\begin{center}\n" +
           "	\\Bold \\LARGE {\\MakeUppercase{\\titulodoc}} \\\\\n" +
-          "\\mesreportado \n"+
                    "\\end{center}\n" +
           "\\cleardoublepage");
            buffer.close();

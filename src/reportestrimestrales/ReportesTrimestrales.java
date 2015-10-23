@@ -95,6 +95,8 @@ public class ReportesTrimestrales {
             }    
             IPC docu;
             docu = new IPC("IPC", getMesCadena(Integer.parseInt(args[2])), args[1], rutaDestinoCSV);
+            docu.setMes(getMesCadena(Integer.parseInt(args[2])));
+            docu.setYear(args[1]);
             docu.setRuta(ipcMes.getAbsolutePath());
             docu.setTex("IPC" + docu.getMes());
             docu.hacerPortada();
@@ -104,8 +106,8 @@ public class ReportesTrimestrales {
             docu.juntaDirectivaAnual();
             docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
             //docu.capitulo1();
-            docu.capitulo2();
-            docu.capitulosRegionales();
+            //docu.capitulo2();
+            //docu.capitulosRegionales();
             docu.generarGraficas("anual");
             docu.terminarDocumento();
             } catch (SQLException ex) {
