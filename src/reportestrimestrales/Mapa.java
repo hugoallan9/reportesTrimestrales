@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 /**
  *
@@ -391,6 +392,25 @@ public class Mapa {
         
     }
     
+    public void mapasDepAutomaticos(){
+        List mapas = new ArrayList();
+        File[] listOfFiles = rutaCSV.listFiles();
+        for (int i = 0; i < listOfFiles.length; i++) {
+        if (listOfFiles[i].isFile()) {
+            if( FilenameUtils.getExtension(listOfFiles[i].getName().trim()).equalsIgnoreCase("csv") ){
+                System.out.println("File " + listOfFiles[i].getName().trim() );
+                mapas.add(listOfFiles[i].getName());
+                Iterator iterator = mapas.iterator();
+                while( iterator.hasNext() ){
+                    hacerDepartamental((String) iterator.next());
+                }
+            }
+        }else{
+            System.out.println("ES: " + listOfFiles[i].getName());
+        }
+        }
+    }
+    
     
     public void mapasIPC(){
         List mapas = new ArrayList();
@@ -417,6 +437,41 @@ public class Mapa {
         }
     }
     
+    
+    public void preprimaria1(){
+        List mapas = new ArrayList();
+        mapas.add("14.7.csv");
+        mapas.add("1.12.csv");
+        mapas.add("1.6.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+    
+    
+    
+    public void terciaria(){
+        List mapas = new ArrayList();
+        mapas.add("17.3.csv");
+        mapas.add("17.20.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+    
+    
+    public void diarrea(){
+        List mapas = new ArrayList();
+        mapas.add("10.8.csv");
+        mapas.add("10.3.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+    
     public void primaria(){
         List mapas = new ArrayList();
         mapas.add("1.16.csv");
@@ -425,6 +480,23 @@ public class Mapa {
         mapas.add("1.25.csv");
         mapas.add("1.7.csv");
         mapas.add("1.10.csv");
+        mapas.add("1.13.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+    
+    
+    
+    public void primaria1(){
+        List mapas = new ArrayList();
+        mapas.add("15.3.csv");
+        mapas.add("15.7.csv");
+        mapas.add("15.12.csv");
+        mapas.add("15.15.csv");
+        mapas.add("15.20.csv");
+        mapas.add("15.28.csv");
         mapas.add("1.13.csv");
         Iterator iterator = mapas.iterator();
         while( iterator.hasNext() ){
@@ -457,6 +529,19 @@ public class Mapa {
         mapas.add("1.22.csv");
         mapas.add("1.25.csv");
         mapas.add("1.7.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+        }
+    }
+        
+        public void secundaria(){
+        List mapas = new ArrayList();
+        mapas.add("16.3.csv");
+        mapas.add("16.10.csv");
+        mapas.add("16.13.csv");
+        mapas.add("16.18.csv");
+        mapas.add("16.29.csv");
         Iterator iterator = mapas.iterator();
         while( iterator.hasNext() ){
             hacerDepartamental((String) iterator.next());
@@ -537,11 +622,31 @@ public class Mapa {
         mapas.add("14.12.csv");
         mapas.add("14.17.csv");
         mapas.add("14.22.csv");
-        mapas.add("14.27");
+        mapas.add("14.27.csv");
         Iterator iterator = mapas.iterator();
         while( iterator.hasNext() ){
             hacerDepartamental((String) iterator.next());
             }
         }
+        
+         public void fecundidad(){
+        List mapas = new ArrayList();
+        mapas.add("12.9.csv");
+        mapas.add("12.12.csv");
+        mapas.add("12.15.csv");
+        mapas.add("12.18.csv");
+        mapas.add("12.23");
+        mapas.add("12.26");
+        mapas.add("12.29");
+        mapas.add("12.34");
+        mapas.add("12.37");
+        mapas.add("12.40");
+        mapas.add("12.43");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerDepartamental((String) iterator.next());
+            }
+        }
+        
         
 }
