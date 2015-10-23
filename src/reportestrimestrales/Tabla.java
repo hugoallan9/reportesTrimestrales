@@ -173,7 +173,7 @@ public class Tabla {
         
   }
      
-     private void generarCSV2(String csv) {
+     public void generarCSV2(String csv) {
          
         File f = new File(ruta,csv + ".csv");
     BufferedReader br = null;
