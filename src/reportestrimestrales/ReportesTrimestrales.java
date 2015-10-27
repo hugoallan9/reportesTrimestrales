@@ -103,6 +103,7 @@ public class ReportesTrimestrales {
             docu.preambuloAnual();
             docu.iniciarDocumentoAnual();
             docu.hacerTituloAnual();
+            docu.portadaAzul();
             docu.juntaDirectivaAnual();
             docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
             docu.capitulo1();

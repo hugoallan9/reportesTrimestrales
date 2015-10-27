@@ -17,8 +17,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,14 +36,25 @@ public class Tabla {
     String archivo;
     List trimestres;
     SesionR r;
-    DecimalFormat df = new DecimalFormat("#.##");
-    DecimalFormat dm = new DecimalFormat("#,###");
+    DecimalFormat df;
+    DecimalFormat dm;
+    
+    
+   
     public Tabla(String rutaTEX, List listado,SesionR rr){
-        this.ruta = "/var/www/html/Vitales/Entradas/CSV";
+        NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
+        df =  (DecimalFormat) nf;
+        df.applyPattern("#.##");
+        dm = (DecimalFormat) nf;
+        dm.applyPattern("#,###");
         texs = new File(rutaTEX);
         this.trimestres = listado;
         this.rutaTex = rutaTEX;
         this.r = rr;
+    }
+    
+    public void setRuta(String ruta){
+        this.ruta = ruta;
     }
     
     public void generar(){
@@ -94,7 +107,7 @@ public class Tabla {
         File f = new File(ruta, csv + ".csv");
     BufferedReader br = null;
     String line = "";
-        boolean encabezado = true;
+        boolean encabezado = false;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
         listaPlantilla.add("\\input{../../pre2}");
@@ -178,7 +191,7 @@ public class Tabla {
         File f = new File(ruta,csv + ".csv");
     BufferedReader br = null;
     String line = "";
-        boolean encabezado = true;
+        boolean encabezado = false;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
 
@@ -199,8 +212,8 @@ public class Tabla {
             br = new BufferedReader(new FileReader(f.getAbsolutePath()));
             lista.add("&\\multirow{2}{*}{\\Bold{Periodo}} ");//aqui va el texto en latex del archivo info.tex
             lista.add("&\\multirow{2}{*}{\\Bold{Numero de nacimientos}}");
-            lista.add("&\\multirow{2}{2.5cm}{\\Bold{Variacion entre periodos}} ");
-            lista.add("&\\multirow{2}{3.5cm}{\\Bold{Variacion entre mismo periodo año anterior}}\\\\");
+            lista.add("&\\multirow{2}{2.5cm}{\\Bold{Variación entre periodos}} ");
+            lista.add("&\\multirow{2}{3.5cm}{\\Bold{Variación respecto al mismo periodo año anterior}}\\\\");
             lista.add("&&&&\\\\[0.2cm]");
             lista.add("\\hline \\\\[-0.2cm]");
             lista.add("\\multirow{13}{*}{\\rotatebox[origin = c]{90}{\\Bold{Mensual}}} ");
@@ -224,10 +237,18 @@ public class Tabla {
                     }
 
                     lista.add("&\\multicolumn{1}{g{2cm}}{"+valores[0]+"} &");
+                    try{
+                        lista.add("\\multicolumn{1}{g{3cm}}{"+dm.format(Long.parseLong(valores[1]))+"} & ");
+                    }catch(Exception e){
+                        lista.add("\\multicolumn{1}{g{3cm}}{"+ valores[1]+"} & ");
+                    }
                     
-                    lista.add("\\multicolumn{1}{g{3cm}}{"+dm.format(Long.parseLong(valores[1]))+"} & ");
+                    try{
+                        lista.add("\\multicolumn{1}{g{2cm}}{"+df.format(Double.parseDouble(valores[2]))+"} &");
+                    }catch(Exception e){
+                        lista.add("\\multicolumn{1}{g{2cm}}{"+ valores[2]+"} &");
+                    }
                     
-                    lista.add("\\multicolumn{1}{g{2cm}}{"+df.format(Double.parseDouble(valores[2]))+"} &");
                     String linean= "";
                     try{                        
                         linean = "\\multicolumn{1}{g{2.5cm}}{"+df.format(Double.parseDouble(valores[3]))+"}";

@@ -400,14 +400,14 @@ public class Mapa {
             if( FilenameUtils.getExtension(listOfFiles[i].getName().trim()).equalsIgnoreCase("csv") ){
                 System.out.println("File " + listOfFiles[i].getName().trim() );
                 mapas.add(listOfFiles[i].getName());
-                Iterator iterator = mapas.iterator();
-                while( iterator.hasNext() ){
-                    hacerDepartamental((String) iterator.next());
                 }
-            }
         }else{
             System.out.println("ES: " + listOfFiles[i].getName());
         }
+        Iterator iterator = mapas.iterator();
+                while( iterator.hasNext() ){
+                    hacerDepartamental((String) iterator.next());
+                }
         }
     }
     
