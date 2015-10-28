@@ -260,6 +260,9 @@ public class IPC extends Documento{
         
     }
     
+    
+    
+    
     protected void capitulosRegionales(){
         for(int i=1; i<=8; i++){
             escribirCapituloAnual(capitulos.get(i+1).toString(), "");
@@ -1105,6 +1108,28 @@ public class IPC extends Documento{
                 System.out.println(nombres);
                 
             }
+    }
+    
+     @Override
+    protected void preambuloPresentacion(){
+        File source = new File("/home/ineservidor/IPC/Utilidades");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    protected void portadaAzul(){
+         try{
+           FileWriter escritora = new FileWriter(getTex(),true);
+           BufferedWriter buffer = new BufferedWriter(escritora);
+           buffer.write("\n \n \\includepdf{portadaTranIPC.pdf} \n \n");
+           buffer.close();
+        } catch(IOException ex){
+            System.out.println(ex);
+        }
     }
 
     

@@ -103,11 +103,12 @@ public class ReportesTrimestrales {
             docu.preambuloAnual();
             docu.iniciarDocumentoAnual();
             docu.hacerTituloAnual();
+            docu.portadaAzul();
             docu.juntaDirectivaAnual();
             docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
-            //docu.capitulo1();
-            //docu.capitulo2();
-            //docu.capitulosRegionales();
+            docu.capitulo1();
+            docu.capitulo2();
+            docu.capitulosRegionales();
             docu.generarGraficas("anual");
             docu.terminarDocumento();
             } catch (SQLException ex) {

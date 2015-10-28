@@ -212,6 +212,7 @@ public class Vitales extends Documento{
         apendice4();
         apendice5();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        ap.setRuta("/var/www/html/Vitales/Entradas/CSV");
         ap.generar();
         
         
