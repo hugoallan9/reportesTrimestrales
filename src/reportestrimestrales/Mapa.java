@@ -34,6 +34,9 @@ public class Mapa {
    public Mapa(String rutaCSV, String rutaSalida){
         this.rutaCSV = new File(rutaCSV);
         this.rutaSalida = new File(rutaSalida);
+        if( this.rutaSalida.exists() == false ){
+            this.rutaSalida.mkdir();
+        }
     }
     
     public void hacerRegional(String csv){
@@ -400,7 +403,11 @@ public class Mapa {
             if( FilenameUtils.getExtension(listOfFiles[i].getName().trim()).equalsIgnoreCase("csv") ){
                 System.out.println("File " + listOfFiles[i].getName().trim() );
                 mapas.add(listOfFiles[i].getName());
+<<<<<<< HEAD
+            }
+=======
                 }
+>>>>>>> 9b4e45a3f6df4dd24242047dd9cefe9ec571be55
         }else{
             System.out.println("ES: " + listOfFiles[i].getName());
         }
@@ -409,6 +416,11 @@ public class Mapa {
                     hacerDepartamental((String) iterator.next());
                 }
         }
+        
+        Iterator iterator = mapas.iterator();
+                while( iterator.hasNext() ){
+                    hacerDepartamental((String) iterator.next());
+                }
     }
     
     
