@@ -99,6 +99,7 @@ public class ReportesTrimestrales {
             docu.setYear(args[1]);
             docu.setRuta(ipcMes.getAbsolutePath());
             docu.setTex("IPC" + docu.getMes());
+            docu.preambuloPresentacion();
             docu.hacerPortada();
             docu.preambuloAnual();
             docu.iniciarDocumentoAnual();
@@ -125,7 +126,6 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("vitales <- leerLibro('/var/www/html/Vitales/Entradas/vitales.xlsx')"));
             System.out.println(r.get().eval("vitales <- convertirFechas(vitales)"));
             r.get().eval("escribirCSV(vitales, '/var/www/html/Vitales/Entradas/CSV')");
-            r.get().end();
             File vitalesTrimestre = new File(rutaVitales, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
             if ( !vitalesTrimestre.exists() ){
                 vitalesTrimestre.setReadable(true, false);
@@ -161,6 +161,12 @@ public class ReportesTrimestrales {
         
         if ( args[0].equalsIgnoreCase("faltas") ){
             String rutaFaltas = "/home/ineservidor/FaltasJudiciales";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("faltas <- leerLibro('/var/www/html/FaltasJudiciales/Entradas/faltasJudiciales.xlsx')"));
+            System.out.println(r.get().eval("faltas <- convertirFechas(faltas)"));
+            r.get().eval("escribirCSV(faltas, '/var/www/html/FaltasJudiciales/Entradas/CSV')");
             File faltasTrimestre = new File(rutaFaltas, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
             if ( !faltasTrimestre.exists() ){
                 faltasTrimestre.setReadable(true, false);
@@ -170,7 +176,7 @@ public class ReportesTrimestrales {
             }
             System.out.println("Arg 3: " + args[3]);
             FaltasJudiciales docu;
-            docu= new FaltasJudiciales("Faltas Judiciales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/FaltasJudiciales/Entradas");
+            docu= new FaltasJudiciales("Faltas Judiciales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
             docu.setTex("faltasJudiciales");
             docu.hacerPortada();
@@ -182,8 +188,10 @@ public class ReportesTrimestrales {
             docu.rellenar();
             docu.terminarDocumento();
             docu.getRr().get().end();
-            Generador descripciones = new Generador("/var/www/html/FaltasJudiciales/Entradas", rutaFaltas);
+            System.out.println("Antes ");
+            Generador descripciones = new Generador("/var/www/html/FaltasJudiciales/Entradas/CSV", rutaFaltas);
             descripciones.run();
+            System.out.println("Despues");
             
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");

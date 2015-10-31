@@ -501,15 +501,21 @@ public class Documento {
                 "$\\ $\\\\[0.5cm]\n" +
                 "\\large"+
                 "$\\ $\\\\\n" +
-                "El presente informe mensual, contiene los principales resultados "
-                + "del Índice de Precios al Consumidor (IPC) del Instituto Nacional de Estadística "
-                + "-INE-.  Como indicador macroeconómico, este dato se utiliza para "
+                "El presente informe contiene los principales resultados "
+                + "del Índice de Precios al Consumidor (IPC) generado por el Instituto Nacional de Estadística "
+                + "-INE-.  Como indicador macroeconómico, este se utiliza para "
                 + "medir el comportamiento del nivel general de precios de la economía "
-                + "del país, tomando como base los precios observados en el mes de referencia. "+
+                + "del país, tomando como base los precios observados en el mes de referencia. \\\\ \\\\"+
                 "\n" +
-                "Los niveles de inflación más importantes de {\\Bold " + getMes() + " de " + getYear() +" }"
-                +"son los siguientes: se registró una variación intermensual de " + String.valueOf(mensual) +"\\%, una variación "
-                + "interanual de " +  String.valueOf(anual) + "\\% y una variación acumulada de "+  String.valueOf(acumulada)+"\\%. " +
+                "Las variaciones del Índice de Precios al Consumidor más importantes a " + getMes()+ " de " +getYear()  + "  son las siguientes: " +
+                "se registró una variación intermensual de " + String.valueOf(mensual) +"\\%, una variación "
+                + "interanual de " +  String.valueOf(anual) + "\\% y una variación acumulada de "+  String.valueOf(acumulada)+"\\%. \\\\ \\\\" +
+                "Para profundizar en los resultados, el informe "
+                + "contiene diez capítulos; en el primero se presenta información "
+                + "sobre variables que influyen en el nivel de precios internos, "
+                + "en el segundo se encuentran los resultados del IPC a "
+                + "nivel nacional, y en los restantes se detalla la información del indicador "
+                + "de cada una de las ocho regiones del país. "+
                 "Al final  se incluye un glosario que contiene la definición "
                 + "de los principales conceptos relacionados con el IPC y la metodología"
                 + " de cálculo para la obtención de los diferentes índices y variaciones."
@@ -714,6 +720,10 @@ public class Documento {
             FileWriter escritora = new FileWriter(tex,false);
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write("\\input{Carta3}\n");
+            buffer.write("\\usepackage{multirow} \n" +
+            "\\usepackage{lscape} \n" +
+            "\\setlength{\\aboverulesep}{-2pt}\n" +
+            "\\setlength{\\belowrulesep}{0pt}");
             buffer.close();
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);

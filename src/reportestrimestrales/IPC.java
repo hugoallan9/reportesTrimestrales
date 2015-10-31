@@ -142,7 +142,7 @@ public class IPC extends Documento{
     
     private void section1_01() {
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion( "1_01","Índice de precios internacionales de los alimentos", 
+        escribirLinea(seccion( "1_01","Precio internacional de los alimentos", 
                 "descripcion201",
                 "Índice de precios de los alimentos de la FAO",
                 "Índice base 2002-2004",
@@ -156,9 +156,9 @@ public class IPC extends Documento{
         escribirLinea(seccion( "1_02","Precio del pretróleo", 
                 "descripcion201",
                 "Precio Internacional del Petróleo",
-                "Precio medio",
+                "Precio medio por barril",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}",
-                "FAO"));
+                "Bloomberg"));
     }
     
     private void section1_03() {
@@ -168,7 +168,7 @@ public class IPC extends Documento{
                 "Tipo de cambio nominal promedio",
                 "Quetzal por dólar estadounidense",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}",
-                "FAO"));
+                "Banco de Guatemala"));
     }
     
     
@@ -179,7 +179,7 @@ public class IPC extends Documento{
                 "Tasas de interés activa bancaria",
                 "Tasa promedio ponderada",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}",
-                "FAO"));
+                "Banco de Guatemala"));
     }
     
     
@@ -190,7 +190,7 @@ public class IPC extends Documento{
                 "Variación interanual del IPC de Estados Unidos de América",
                 "Serie histórica mensual",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}",
-                "FAO"));
+                "U.S. Bureau of Labor Statistics "));
     }
     
     
@@ -201,7 +201,7 @@ public class IPC extends Documento{
                 "Variación interanual del IPC de México",
                 "Serie histórica mensual",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}",
-                "FAO"));
+                "INEGI"));
     }
     
     
@@ -296,12 +296,26 @@ public class IPC extends Documento{
     
     private void section2_01(){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 11%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = " 	\\begin{tabular}{crcccc}\n" +
-"		&  \\multicolumn{2}{c}{ Número índice}  &   \\multicolumn{3}{c}{Variación porcentual}\\\\\n" +
-"		\\cmidrule{2-6}  \n" +
-"Año &  Mes &  Índice &   Mensual &  Acumulada&  Interanual\\\\ \\hline \n" +
-"\\input{CSV/tablas/2_01.csv}	\\bottomrule\n" +
-"	\\end{tabular}\n" +
+        String tabla = "\n \\begin{tabular}{clcrrr}\n" +
+"\n" +
+"\\hline \\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]\n" +
+"\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\n" +
+"\\multicolumn{3}{c}{\\cellcolor{color1!10!white} \\Bold{Variación porcentual}} \\\\[1mm]\n" +
+"\\arrayrulecolor{color1!10!white}\n" +
+"\\cmidrule{1-3}\n" +
+"\\arrayrulecolor{color1}\n" +
+"\\cmidrule{4-6}\n" +
+"\n" +
+"\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Año} &\n" +
+"\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Mes} &\n" +
+"\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Índice} & \\cellcolor{color1!10!white}  \\Bold Mensual & \\cellcolor{color1!10!white} \\Bold Acumulada& \\cellcolor{color1!10!white} \\Bold Interanual\\\\[0.04cm] \n" +
+"\n" +
+"\\hline\n" +
+"\\rowcolor{white}\n" +
+"\\input{CSV/tablas/2_01.csv}	\n" +
+"\\bottomrule\n" +
+"\n" +
+"	\\end{tabular} \n" +
 "}%";
         
         escribirLinea(cajotaTabla("2_01", 
@@ -346,14 +360,23 @@ public class IPC extends Documento{
     
     private void section2_05(){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 14%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = " 	\\begin{tabular}{@{}ccrrrrrrrrrrrrr@{}}\\toprule\n" +
-" 		\\multirow{2}{2cm}{Región}&  \\multirow{2}{1cm}{Variación mensual} &  \\phantom{abc} &  \\multicolumn{10}{c}{División del Gasto}\\\\\n" +
-" 		\\cmidrule{3-14}\n" +
-" 		& & \\begin{sideways}Alimentos\\end{sideways} &  \\begin{sideways}Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}Vestuario\\end{sideways} &  \\begin{sideways}Vivienda\\end{sideways} &  \\begin{sideways}Muebles\\end{sideways} &  \\begin{sideways}Salud\\end{sideways} &  \\begin{sideways}Transporte\\end{sideways} &  \\begin{sideways}Comunicaciones\\end{sideways} &  \\begin{sideways}Recreación\\end{sideways} &  \\begin{sideways}Educación\\end{sideways} &  \\begin{sideways}Restaurantes\\end{sideways} &  \\begin{sideways} Bienes diversos \\end{sideways}\\\\\n" +
-" 		\\cmidrule{1-14} \n"+
-                "\\input{CSV/tablas/2_05.csv}"+
-                "	\\bottomrule\n" +
-"	\\end{tabular}\n";
+        String tabla = "\\begin{tabular}{l@{1}rrrrrrrrrrrrrr@{}}\n" +
+        "          \\rowcolor{color1!10!white}\n" +
+        "          \\hline\n" +
+        "          &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+        "          &  & &  \\phantom{abc} &  \\multicolumn{10}{c}{\\Bold División del Gasto}\\\\\n" +
+        "         \\cmidrule{3-14}\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+        "         \\multirow{-7}[0]{*}{\\Bold Región}&\\multirow{-7}[0]{*}{\\begin{tabular}{c}\\Bold Variación\\\\ \\Bold Mensual\\end{tabular}} & \\begin{sideways}\\small \\Bold Alimentos\\end{sideways} &  \\begin{sideways} \\small \\Bold Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}\\small \\Bold Vestuario\\end{sideways} &  \\begin{sideways}\\small \\Bold Vivienda\\end{sideways} &  \\begin{sideways}\\small \\Bold Muebles\\end{sideways} &  \\begin{sideways}\\small \\Bold Salud\\end{sideways} &  \\begin{sideways}\\small \\Bold Transporte\\end{sideways} &  \\begin{sideways}\\small \\Bold Comunicaciones\\end{sideways} &  \\begin{sideways}\\small \\Bold Recreación\\end{sideways} &  \\begin{sideways}\\small \\Bold Educación\\end{sideways} &  \\begin{sideways}\\small \\Bold Restaurantes\\end{sideways} &  \\begin{sideways}\\small \\Bold Bienes diversos \\end{sideways}\\\\\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+        "\n" +
+        "         \\hline\n" +
+        "         \\rowcolor{white}\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+        "\n" +
+        "\\input{CSV/tablas/2_05.csv}   \n" +
+        "\\bottomrule\n" +
+        "    \\end{tabular}";
         
         escribirLinea(cajotaTabla("2_05", 
                 "Cambio mensual del IPC, por región y tipo de gasto",
@@ -568,14 +591,23 @@ public class IPC extends Documento{
     
     private void section2_26(){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 26%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = " 	\\begin{tabular}{@{}ccrrrrrrrrrrrrr@{}}\\toprule\n" +
-" 		\\multirow{2}{2cm}{Región}&  \\multirow{2}{1cm}{Variación interanual} &  \\phantom{abc} &  \\multicolumn{10}{c}{División del Gasto}\\\\\n" +
-" 		\\cmidrule{3-14}\n" +
-" 		& & \\begin{sideways}Alimentos\\end{sideways} &  \\begin{sideways}Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}Vestuario\\end{sideways} &  \\begin{sideways}Vivienda\\end{sideways} &  \\begin{sideways}Muebles\\end{sideways} &  \\begin{sideways}Salud\\end{sideways} &  \\begin{sideways}Transporte\\end{sideways} &  \\begin{sideways}Comunicaciones\\end{sideways} &  \\begin{sideways}Recreación\\end{sideways} &  \\begin{sideways}Educación\\end{sideways} &  \\begin{sideways}Restaurantes\\end{sideways} &  \\begin{sideways} Bienes diversos \\end{sideways}\\\\\n" +
-" 		\\cmidrule{1-14} \n"+
-                "\\input{CSV/tablas/2_26.csv}"+
-                "	\\bottomrule\n" +
-"	\\end{tabular}\n";
+        String tabla = "\n \\begin{tabular}{l@{1}rrrrrrrrrrrrrr@{}}\n" +
+        "          \\rowcolor{color1!10!white}\n" +
+        "          \\hline\n" +
+        "          &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+        "          &  & &  \\phantom{abc} &  \\multicolumn{10}{c}{\\Bold División del Gasto}\\\\\n" +
+        "         \\cmidrule{3-14}\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+        "         \\multirow{-7}[0]{*}{\\Bold Región}&\\multirow{-7}[0]{*}{\\begin{tabular}{c}\\Bold Variación\\\\ \\Bold Mensual\\end{tabular}} & \\begin{sideways}\\small \\Bold Alimentos\\end{sideways} &  \\begin{sideways} \\small \\Bold Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}\\small \\Bold Vestuario\\end{sideways} &  \\begin{sideways}\\small \\Bold Vivienda\\end{sideways} &  \\begin{sideways}\\small \\Bold Muebles\\end{sideways} &  \\begin{sideways}\\small \\Bold Salud\\end{sideways} &  \\begin{sideways}\\small \\Bold Transporte\\end{sideways} &  \\begin{sideways}\\small \\Bold Comunicaciones\\end{sideways} &  \\begin{sideways}\\small \\Bold Recreación\\end{sideways} &  \\begin{sideways}\\small \\Bold Educación\\end{sideways} &  \\begin{sideways}\\small \\Bold Restaurantes\\end{sideways} &  \\begin{sideways}\\small \\Bold Bienes diversos \\end{sideways}\\\\\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+        "\n" +
+        "         \\hline\n" +
+        "         \\rowcolor{white}\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+        "\n" +
+        "\\input{CSV/tablas/2_26.csv}   \n" +
+        "\\bottomrule\n" +
+        "    \\end{tabular}";
         
         escribirLinea(cajotaTabla("2_26", 
                 "Cambio anual del IPC, por región y tipo de gasto",
@@ -802,13 +834,24 @@ public class IPC extends Documento{
     
     private void sectionR_01(int region){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 1 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = " 	\\begin{tabular}{clcccc}\n" +
-"		&  \\multicolumn{2}{c}{ Número índice}  &   \\multicolumn{3}{c}{Variación porcentual}\\\\\n" +
-"		\\cmidrule{2-6}  \n" +
-"Año &  Mes &  Índice &   Mensual &  Acumulada&  Interanual\\\\ \\hline \n" +
-"\\input{CSV/tablas/2_01.csv}	\\bottomrule\n" +
-"	\\end{tabular}\n" +
-"}%";
+        String tabla = "      \\begin{tabular}{clcrrr}\n" +
+"\n" +
+"\\hline \\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]\n" +
+"\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\n" +
+"\\multicolumn{3}{c}{\\cellcolor{color1!10!white} \\Bold{Variación porcentual}} \\\\\n" +
+"\n" +
+"\\cmidrule{4-6}\n" +
+"\n" +
+"\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Año} &\n" +
+"\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Mes} &\n" +
+"\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Índice} & \\cellcolor{color1!10!white}  \\Bold Mensual & \\cellcolor{color1!10!white} \\Bold Acumulada& \\cellcolor{color1!10!white} \\Bold Interanual\\\\[0.04cm]\n" +
+"\n" +
+"\\hline\n" +
+"\\rowcolor{white}\n" +
+"\\input{CSV/tablas/"+ (region+2) +"_01.csv}   \n" +
+"\\bottomrule\n" +
+"\n" +
+"    \\end{tabular}";
         
         escribirLinea(cajotaTabla((region + 2) + "_01", 
                 "IPC y sus variaciones",
@@ -853,16 +896,25 @@ public class IPC extends Documento{
     
     private void sectionR_04(int region){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 3 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = " 	\\begin{tabular}{@{}ccrrrrrrrrrrrrr@{}}\\toprule\n" +
-" 		\\multirow{2}{2cm}{Región}&  \\multirow{2}{1cm}{Variación mensual} &  \\phantom{abc} &  \\multicolumn{10}{c}{División del Gasto}\\\\\n" +
-" 		\\cmidrule{3-14}\n" +
-" 		& & \\begin{sideways}Alimentos\\end{sideways} &  \\begin{sideways}Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}Vestuario\\end{sideways} &  \\begin{sideways}Vivienda\\end{sideways} &  \\begin{sideways}Muebles\\end{sideways} &  \\begin{sideways}Salud\\end{sideways} &  \\begin{sideways}Transporte\\end{sideways} &  \\begin{sideways}Comunicaciones\\end{sideways} &  \\begin{sideways}Recreación\\end{sideways} &  \\begin{sideways}Educación\\end{sideways} &  \\begin{sideways}Restaurantes\\end{sideways} &  \\begin{sideways} Bienes diversos \\end{sideways}\\\\\n" +
-" 		\\cmidrule{1-14} \n"+
-                "\\input{CSV/tablas/"+(region + 2)+"_04.csv}"+
-                "	\\bottomrule\n" +
-"	\\end{tabular}\n";
+        String tabla = "\\begin{tabular}{l@{1}rrrrrrrrrrrrrr@{}}\n" +
+        "          \\rowcolor{color1!10!white}\n" +
+        "          \\hline\n" +
+        "          &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+        "          &  & &  \\phantom{abc} &  \\multicolumn{10}{c}{\\Bold División del Gasto}\\\\\n" +
+        "         \\cmidrule{3-14}\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+        "         \\multirow{-7}[0]{*}{\\Bold Región}&\\multirow{-7}[0]{*}{\\begin{tabular}{c}\\Bold Variación\\\\ \\Bold Mensual\\end{tabular}} & \\begin{sideways}\\small \\Bold Alimentos\\end{sideways} &  \\begin{sideways} \\small \\Bold Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}\\small \\Bold Vestuario\\end{sideways} &  \\begin{sideways}\\small \\Bold Vivienda\\end{sideways} &  \\begin{sideways}\\small \\Bold Muebles\\end{sideways} &  \\begin{sideways}\\small \\Bold Salud\\end{sideways} &  \\begin{sideways}\\small \\Bold Transporte\\end{sideways} &  \\begin{sideways}\\small \\Bold Comunicaciones\\end{sideways} &  \\begin{sideways}\\small \\Bold Recreación\\end{sideways} &  \\begin{sideways}\\small \\Bold Educación\\end{sideways} &  \\begin{sideways}\\small \\Bold Restaurantes\\end{sideways} &  \\begin{sideways}\\small \\Bold Bienes diversos \\end{sideways}\\\\\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+        "\n" +
+        "         \\hline\n" +
+        "         \\rowcolor{white}\n" +
+        "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+        "\n" +
+        "\\input{CSV/tablas/" + (region+2) + "_04.csv}   \n" +
+        "\\bottomrule\n" +
+        "    \\end{tabular}";
         
-        escribirLinea(cajotaTabla((region + 2) + "_05", 
+        escribirLinea(cajotaTabla((region + 2) + "_04", 
                 "Cambio mensual del IPC, por región y tipo de gasto, serie mensual",
                 "",
                 "Variación mensual del IPC de la región " + getRomano(region) + "por división de gasto",
@@ -979,14 +1031,23 @@ public class IPC extends Documento{
     
     private void sectionR_23(int region){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 13 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = " 	\\begin{tabular}{@{}ccrrrrrrrrrrrrr@{}}\\toprule\n" +
-" 		\\multirow{2}{2cm}{Región}&  \\multirow{2}{1cm}{Variación mensual} &  \\phantom{abc} &  \\multicolumn{10}{c}{División del Gasto}\\\\\n" +
-" 		\\cmidrule{3-14}\n" +
-" 		& & \\begin{sideways}Alimentos\\end{sideways} &  \\begin{sideways}Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}Vestuario\\end{sideways} &  \\begin{sideways}Vivienda\\end{sideways} &  \\begin{sideways}Muebles\\end{sideways} &  \\begin{sideways}Salud\\end{sideways} &  \\begin{sideways}Transporte\\end{sideways} &  \\begin{sideways}Comunicaciones\\end{sideways} &  \\begin{sideways}Recreación\\end{sideways} &  \\begin{sideways}Educación\\end{sideways} &  \\begin{sideways}Restaurantes\\end{sideways} &  \\begin{sideways} Bienes diversos \\end{sideways}\\\\\n" +
-" 		\\cmidrule{1-14} \n"+
-                "\\input{CSV/tablas/"+(region + 2)+"_23.csv}"+
-                "	\\bottomrule\n" +
-"	\\end{tabular}\n";
+        String tabla = "\\begin{tabular}{l@{1}rrrrrrrrrrrrrr@{}}\n" +
+"          \\rowcolor{color1!10!white}\n" +
+"          \\hline\n" +
+"          &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+"          &  & &  \\phantom{abc} &  \\multicolumn{10}{c}{\\Bold División del Gasto}\\\\\n" +
+"         \\cmidrule{3-14}\n" +
+"         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+"         \\multirow{-7}[0]{*}{\\Bold Región}&\\multirow{-7}[0]{*}{\\begin{tabular}{c}\\Bold Variación\\\\ \\Bold Mensual\\end{tabular}} & \\begin{sideways}\\small \\Bold Alimentos\\end{sideways} &  \\begin{sideways} \\small \\Bold Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}\\small \\Bold Vestuario\\end{sideways} &  \\begin{sideways}\\small \\Bold Vivienda\\end{sideways} &  \\begin{sideways}\\small \\Bold Muebles\\end{sideways} &  \\begin{sideways}\\small \\Bold Salud\\end{sideways} &  \\begin{sideways}\\small \\Bold Transporte\\end{sideways} &  \\begin{sideways}\\small \\Bold Comunicaciones\\end{sideways} &  \\begin{sideways}\\small \\Bold Recreación\\end{sideways} &  \\begin{sideways}\\small \\Bold Educación\\end{sideways} &  \\begin{sideways}\\small \\Bold Restaurantes\\end{sideways} &  \\begin{sideways}\\small \\Bold Bienes diversos \\end{sideways}\\\\\n" +
+"         &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
+"\n" +
+"         \\hline\n" +
+"         \\rowcolor{white}\n" +
+"         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
+"\n" +
+"\\input{CSV/tablas/" + (region+2) +"_23.csv}   \n" +
+"\\bottomrule\n" +
+"    \\end{tabular}";
         
         escribirLinea(cajotaTabla((region + 2) + "_23", 
                 "Cambio anual del IPC, por región y tipo de gasto, serie mensual",
