@@ -204,6 +204,21 @@ public class IPC extends Documento{
                 "INEGI"));
     }
     
+    private void section1_07(){
+         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
+                 String tabla = "";
+        
+        escribirLinea(cajotaTabla("1_07", 
+                "Inflación en América Central",
+                "",
+                "Tasa de variación del IPC de los países Centroamericanos",
+                "En porcentaje" ,
+                tabla,
+                "Instituto Nacional de Estadística"));
+    
+    
+    }
+    
     
     protected void capitulo2(){
         Mapa mapa = new Mapa(rutaCSV, getRuta());
