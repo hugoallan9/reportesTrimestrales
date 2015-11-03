@@ -315,10 +315,8 @@ public class IPC extends Documento{
 "\n" +
 "\\hline \\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]\n" +
 "\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\n" +
-"\\multicolumn{3}{c}{\\cellcolor{color1!10!white} \\Bold{Variación porcentual}} \\\\[1mm]\n" +
-"\\arrayrulecolor{color1!10!white}\n" +
-"\\cmidrule{1-3}\n" +
-"\\arrayrulecolor{color1}\n" +
+"\\multicolumn{3}{c}{\\cellcolor{color1!10!white} \\Bold{Variación porcentual}} \\\\\n" +
+"\n" +
 "\\cmidrule{4-6}\n" +
 "\n" +
 "\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{\\Bold Año} &\n" +
