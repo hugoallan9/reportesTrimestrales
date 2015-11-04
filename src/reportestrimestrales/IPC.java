@@ -112,7 +112,53 @@ public class IPC extends Documento{
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        try {
+            File p1 = new File(getRuta(),"transicion.tex");
+            FileWriter escritora = new FileWriter(p1.getAbsolutePath(),false);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\\documentclass[11pt,twoside]{book}\\usepackage[T1]{fontenc}\n" +
+            "\\usepackage{tikz}\n" +
+            "\n" +
+            "\\usepackage[active,tightpage,xetex]{preview}\n" +
+            "\n" +
+            "\\usepackage{fontspec,xunicode}\n" +
+            "\n" +
+            "\\PreviewEnvironment{pgfpicture}\n" +
+            "\n" +
+            "\\setlength\\PreviewBorder{0pt}\n" +
+            "\n" +
+            "\\usetikzlibrary{calc}\n" +
+            "\n" +
+            "\\usetikzlibrary{positioning}\n" +
+            "\n" +
+            "\\usepackage{fontspec,xunicode}\n" +
+            "\n" +
+            "\\setmainfont{FuturaStd-CondensedLight.otf}\n" +
+            "\\begin{document}\n" +
+            "\n" +
+            "\\begin{tikzpicture} \n "+
+            "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portadaTranIPC.pdf}};\n" +
+            "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
+            + "\\node[inner sep =0, scale = 3.8, align = left, color = white] at (0.49,0.53) {\n" +
+             "República de Guatemala: \n" +
+            "		\\\\\n" +
+            "Índice de  Precios  al  Consumidor \n "+
+                    "		\\\\\n" +
+            getMes()+ " " +getYear()+
+            "		\\\\\n" + " };" +
+            "\\node[inner sep =0, scale =2, color = white]at(0.54,0.05){Guatemala, "+ getMesServidor()  +" de " +  getYearServidor()+"};\n "+
+            "\\end{scope}\n" +
+            "\\end{tikzpicture}\n" +
+            "\n" +
+            "\\end{document}");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         compilar(rr, getRuta() + "/caratula.tex","F");
+        compilar(rr, getRuta() + "/transicion.tex","F");
     }
     
     protected void setCapitulos(){
@@ -1201,7 +1247,7 @@ public class IPC extends Documento{
          try{
            FileWriter escritora = new FileWriter(getTex(),true);
            BufferedWriter buffer = new BufferedWriter(escritora);
-           buffer.write("\n \n \\includepdf{portadaTranIPC.pdf} \n \n");
+           buffer.write("\n \n \\includepdf{transicion.pdf} \n \n");
            buffer.close();
         } catch(IOException ex){
             System.out.println(ex);

@@ -454,6 +454,15 @@ public class Mapa {
         }
     }
     
+    public void mapaRegional(){
+        List mapas = new ArrayList();
+        mapas.add("Hoja11.csv");
+        Iterator iterator = mapas.iterator();
+        while( iterator.hasNext() ){
+            hacerRegional((String) iterator.next());
+        }
+    }
+    
     
     
     public void terciaria(){
