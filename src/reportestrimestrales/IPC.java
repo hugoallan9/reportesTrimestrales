@@ -5,8 +5,11 @@
  */
 package reportestrimestrales;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
@@ -251,8 +254,69 @@ public class IPC extends Documento{
     }
     
     private void section1_07(){
+               File f = new File(rutaCSV,"1_07.csv");
+    BufferedReader br = null;
+    String line = "";
+        boolean encabezado = true;
+             String tabla = "\\begin{tabular}{lcrr}\n" +
+" 		\n" +
+" 		\\hline \\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]\n" +
+"		\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\n" +
+" 		\\multicolumn{2}{c}{\\cellcolor{color1!10!white} \\Bold{\\small Inflación interanual a}} \\\\\n" +
+" 		\n" +
+" 		\\cmidrule{3-4}\n" +
+" 		\n" +
+"		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{} &\n" +
+" 		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}"
+                     + "{\\begin{tabular}{c}\\Bold \\small Meta de \\\\ \\Bold \\small Inflación\\end{tabular}}"
+                     + " & \\cellcolor{color1!10!white} "+"Ago-15"
+                     + "& \\cellcolor{color1!10!white} "+"Sep-15"
+                     +"\\\\[0.04cm] \n" +
+" 		\n" +
+" 		\\hline\n" +
+" 		\\rowcolor{white}\n";
+             
+             
+             
+            
+             try {
+                br = new BufferedReader(new FileReader(f.getAbsolutePath()));
+                while ((line = br.readLine()) != null) {
+                    if(encabezado)
+                        encabezado=false;
+                    else{
+                        String[] valores = line.split(";");                        
+                        tabla += valores[0]+" & "+ valores[1].replaceAll("%", "\\%")+ " & " + valores[2]+" & "+valores[3]+ "\\\\" ;                        
+                    }
+            
+            
+            
+                }
+            
+             }
+            catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (br != null) {
+                        try {
+                            br.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                tabla += "\\bottomrule\n" +
+" 		" +
+" 	\\end{tabular} ";
+        
+        
+        
+        
+        
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-                 String tabla = "";
+                 
         
         escribirLinea(cajotaTabla("1_07", 
                 "Inflación en América Central",
