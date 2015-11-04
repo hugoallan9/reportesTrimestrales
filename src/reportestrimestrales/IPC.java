@@ -269,9 +269,10 @@ public class IPC extends Documento{
 "		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{} &\n" +
 " 		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}"
                      + "{\\begin{tabular}{c}\\Bold \\small Meta de \\\\ \\Bold \\small Inflación\\end{tabular}}"
-                     + " & \\cellcolor{color1!10!white} "+"Ago-15"
-                     + "& \\cellcolor{color1!10!white} "+"Sep-15"
-                     +"\\\\[0.04cm] \n" +
+                     + " & \\cellcolor{color1!10!white} " + getFormatoMesAnterior(getMes())
+                     + " & \\cellcolor{color1!10!white} " + getMes().substring(0,3) + "-"
+                     +getAnioPublicacion().substring(getAnioPublicacion().length()-2,getAnioPublicacion().length())
+                     +" \\\\[0.04cm] \n" +
 " 		\n" +
 " 		\\hline\n" +
 " 		\\rowcolor{white}\n";
@@ -329,7 +330,56 @@ public class IPC extends Documento{
     
     }
     
-    
+    private String getFormatoMesAnterior(String mesActual){
+        String anio = getAnioPublicacion();
+        String mes="";
+        mesActual= mesActual.toLowerCase();
+        switch (mesActual){
+            case "enero":
+                mes = "Dic-";
+                Integer an= Integer.parseInt(anio);
+                an = an-1;
+                anio = an.toString();                
+                break;
+            case "febrero":
+                mes = "Ene-";
+                break;
+            case "marzo":
+                mes = "Feb-";
+                break;
+            case "abril":
+                mes = "Mar-";
+                break;
+            case "mayo":
+                mes = "Abr-";
+                break;
+            case "junio":
+                mes = "May-";
+                break;
+            case "julio":
+                mes = "Jun-";
+                break;
+            case "agosto":
+                mes = "Jul-";
+                break;
+            case "septiembre":
+                mes = "Ago-";
+                break;
+            case "octubre":
+                mes = "Sep-";
+                break;
+            case "noviembre":
+                mes = "Oct-";
+                break;
+            case "diciembre":
+                mes = "Nov-";
+                break;                       
+            default:               
+                break;            
+        }
+        mes += anio.substring(anio.length()-2,anio.length());     
+        return mes;
+    }
     protected void capitulo2(){
         Mapa mapa = new Mapa(rutaCSV, getRuta());
         Mapa.descarga();
