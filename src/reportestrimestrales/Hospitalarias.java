@@ -159,16 +159,16 @@ public class Hospitalarias extends Documento{
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
-        seccion3.add("Faltas judiciales según sexo");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por sexo");
+        seccion3.add("Consulta externa por sexo del paciente");
+        seccion3.add("Distribución porcentual de atenciones según sexo");
+        seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         
         seccion3.add("1_06");
-        seccion3.add("Faltas judiciales por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Consulta externa por grupo étnico del paciente");
+        seccion3.add("Distribución porcentual de atenciones externas por grupo étnico");
+        seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         cap1.add(seccion3);
@@ -179,16 +179,16 @@ public class Hospitalarias extends Documento{
         ArrayList cap2 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
-        seccion1.add("Infractores menores de 18 años");
-        seccion1.add("Número de faltas judiciales");
+        seccion1.add("Consulta Interna");
+        seccion1.add("Número de atenciones por trimestre");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         
         seccion1.add("2_02");
-        seccion1.add("Infractores menores de edad por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Consulta interna por departamento");
+        seccion1.add("Número de atenciones por departamento de residencia del paciente");
+        seccion1.add(formatoTrimestre);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         cap2.add(seccion1);
@@ -196,16 +196,16 @@ public class Hospitalarias extends Documento{
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Infractores menores de edad por sexo");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por sexo");
+        seccion2.add("Consulta interna por grupos de edad");
+        seccion2.add("Distribución porcentual de atenciones según rangos de edad del paciente");
+        seccion2.add(formatoTrimestre);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         
         seccion2.add("2_04");
-        seccion2.add("Infractores menores de edad por edad");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edades simples");
+        seccion2.add("Consulta interna en pacientes menores de cinco años");
+        seccion2.add("Porcentaje de atenciones en menores de cinco años");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         cap2.add(seccion2);
@@ -213,16 +213,16 @@ public class Hospitalarias extends Documento{
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
-        seccion3.add("Infractores menores de edad por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Consulta interna por sexo del paciente");
+        seccion3.add("Distribución porcentual de atenciones por sexo");
+        seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         
         seccion3.add("2_06");
-        seccion3.add("Infractores menores de edad por nivel de educación");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por nivel de educación");
+        seccion3.add("Consulta interna por grupo étnico del paciente");
+        seccion3.add("Distribución orcentual de atenciones por grupo étnico");
+        seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         cap2.add(seccion3);
@@ -231,16 +231,16 @@ public class Hospitalarias extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
-        seccion4.add("Infractores menores de edad por tipo de falta cometida");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
+        seccion4.add("Consulta interna por tratamiento");
+        seccion4.add("Distribución porcentual de atenciones por tratamiento");
         seccion4.add("Distribución porcentual por tipo de falta cometida");
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         
         seccion4.add("2_07");
-        seccion4.add("Infractores menores de edad por tipo de falta cometida");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por tipo de falta cometida");
+        seccion4.add("Consulta interna por promedio de días de estancia del paciente");
+        seccion4.add("Promedio de días de estancia por trimestre");
+        seccion4.add(formatoTrimestre);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         cap2.add(seccion4);
@@ -248,9 +248,9 @@ public class Hospitalarias extends Documento{
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("2_07");
-        seccion5.add("Infractores menores de edad por tipo de falta cometida");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por tipo de falta cometida");
+        seccion5.add("Consulta interna por condición de egreso del paciente");
+        seccion5.add("Distribución porcentual por condición de egreso del paciente");
+        seccion5.add(formatoTrimestre);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion5.add("INE, Unidad de Estadísticas de Salud");
         cap2.add(seccion5);

@@ -71,7 +71,14 @@ public class Tabla {
         generarCSV2("A_10");
     }
     
-    
+    public void generarHospitalarias(){
+        generarCSV1("3_01");
+        generarCSV1("3_03");
+        
+        generarCSV2("3_02");
+        generarCSV2("3_04");
+        
+    }
     
     private void escribirTEX(String nombre, String texto,boolean compilar){
      File file = new File(nombre);
