@@ -288,7 +288,7 @@ public class IPC extends Documento{
                         encabezado=false;
                     else{
                         String[] valores = line.split(";");                        
-                        tabla += valores[0]+" & "+ valores[1].replaceAll("%", "\\%")+ " & " + valores[2]+" & "+valores[3]+ "\\\\" ;                        
+                        tabla += valores[0]+" & "+ valores[1].replace("%", "\\%")+ " & " + valores[2]+" & "+valores[3]+ "\\\\" ;                        
                     }
             
             
