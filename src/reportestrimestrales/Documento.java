@@ -688,15 +688,7 @@ public class Documento {
            "\n" +
            "\n" +
            "\\clearpage");
-           
-           buffer.write("$\\ $\n" +
-          "\\vspace{3.5cm}\n" +
-          "\n" +
-          "\\begin{center}\n" +
-          "	\\Bold \\LARGE REPÚBLICA DE GUATEMALA\\\\\n" +
-          "{\\MakeUppercase{\\titulodoc}}\n"+
-                   "\\end{center}\n" +
-          "\\cleardoublepage");
+
            buffer.close();
         } catch(IOException ex){
             System.out.println(ex);
