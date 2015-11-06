@@ -470,32 +470,39 @@ public class Vitales extends Documento{
     }
     
     protected void hacerPortada(){
-       String portada = "http://www.ine.gob.gt/ftparchivos/portadaVitales.pdf";
-       File file = new File(getRuta(),"portada.pdf");
-       URL url = null;
+        File source = new File("/home/ineservidor/Vitales/Caratula");
+        File dest = new File(getRuta());
         try {
-            url = new URL(portada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String contraPortada = "http://www.ine.gob.gt/ftparchivos/contraportadaVitales.pdf";
-        File file1 = new File(getRuta(),"contraPortada.pdf");
-        try {
-            url = new URL(contraPortada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file1);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//       String portada = "http://www.ine.gob.gt/ftparchivos/portadaVitales.pdf";
+//       File file = new File(getRuta(),"portada.pdf");
+//       URL url = null;
+//        try {
+//            url = new URL(portada);
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            FileUtils.copyURLToFile(url, file);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        
+//        String contraPortada = "http://www.ine.gob.gt/ftparchivos/contraportadaVitales.pdf";
+//        File file1 = new File(getRuta(),"contraPortada.pdf");
+//        try {
+//            url = new URL(contraPortada);
+//        } catch (MalformedURLException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//        try {
+//            FileUtils.copyURLToFile(url, file1);
+//        } catch (IOException ex) {
+//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
         try {
             File p1 = new File(getRuta(),"caratula.tex");
