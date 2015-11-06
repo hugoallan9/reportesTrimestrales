@@ -187,6 +187,7 @@ public class IPC extends Documento{
         section1_04();
         section1_05();
         section1_06();
+        section1_07();
     }
     
     private void section1_01() {
@@ -204,7 +205,7 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "1_02","Precio del pretróleo", 
                 "descripcion201",
-                "Precio Internacional del Petróleo",
+                "Precio internacional del petróleo",
                 "Precio medio por barril",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}",
                 "Bloomberg"));
@@ -238,7 +239,7 @@ public class IPC extends Documento{
                 "descripcion201",
                 "Variación interanual del IPC de Estados Unidos de América",
                 "Serie histórica mensual",
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}",
                 "U.S. Bureau of Labor Statistics "));
     }
     
@@ -249,7 +250,7 @@ public class IPC extends Documento{
                 "descripcion201",
                 "Variación interanual del IPC de México",
                 "Serie histórica mensual",
-                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}",
+                "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}",
                 "INEGI"));
     }
     
@@ -319,7 +320,7 @@ public class IPC extends Documento{
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
                  
         
-        escribirLinea(cajotaTabla("1_07", 
+        escribirLinea(seccion("1_07", 
                 "Inflación en América Central",
                 "",
                 "Tasa de variación del IPC de los países Centroamericanos",
