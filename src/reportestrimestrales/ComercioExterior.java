@@ -24,7 +24,7 @@ import org.rosuda.JRI.REXP;
  *
  * @author INE
  */
-public class FaltasJudiciales extends Documento{
+public class ComercioExterior extends Documento{
     private List capitulos;
     private List introCapitulos;
     private List contenidos;
@@ -39,7 +39,7 @@ public class FaltasJudiciales extends Documento{
     
     
     
-    public FaltasJudiciales(String titulo, String trimestre, String pYear, String rutaCSV) {
+    public ComercioExterior(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
         capitulos = new ArrayList();
         introCapitulos = new ArrayList();
@@ -57,24 +57,34 @@ public class FaltasJudiciales extends Documento{
     }
     
     protected void setCapitulos(){
-        capitulos.add("Faltas judiciales");
-        capitulos.add("Infractores menores de edad");
-        capitulos.add("Tipos de faltas");
+        capitulos.add("Comercio Total");
+        capitulos.add("Comercio Territorio Aduanero");
+        capitulos.add("Comercio Decreto 29-89");
+        capitulos.add("Comercio Zonas Francas");
+        capitulos.add("Cuadros Estadísticos");
         
     }
     
     protected void setIntroCapitulos(){
-        introCapitulos.add("Las faltas judiciales son acciones u omisiones voluntarias castigadas "
-                + "por la ley con pena leve. En la legislación guatemalteca están contenidas "
-                + "en el Libro Tercero del Código Penal.");
-        introCapitulos.add("Comprende a todas las edades de las personas antes de cumplir 18 " 
-                + "años que han cometido acciones u omisiones voluntarias castigadas por " 
-                + "la Ley con pena leve.");
-        introCapitulos.add("En derecho Penal, son acciones u omisiones voluntarias castigadas " 
-                + "por la ley con pena leve.  Contenidas en el libro tercero de las faltas, " 
-                + "título único del Código Penal, el artículo 480 en el inciso 6º. Indica: “Se " 
-                + "sancionará como falta solamente los hechos que,conforme a este Código " 
-                + "(Código Penal), no constituya delito”.");
+        introCapitulos.add("Es el total de las operaciones de comercio exterior. "
+                + "Incluye el régimen general de territorio aduanero, el comercio "
+                + "de zonas francas y los regímenes "
+                + "bajo la aplicación de la ley de Fomento y Desarrollo de la Actividad "
+                + "Exportadora y de Maquila (Decreto 29-89).");
+        introCapitulos.add("Son las operaciones de comercio exterior que se realizan "
+                + "dentro del territorio en el que la aduana ejerce su jurisdicción y "
+                + "en el que son plenamente aplicables las disposiciones de la "
+                + "legislación arancelaria y aduanera nacional.");
+        introCapitulos.add("Regímenes bajo la aplicación de la ley de Fomento y "
+                + "Desarrollo de la Actividad Exportadora y de Maquila.");
+        introCapitulos.add("Son las operaciones que se realizan en el área de terreno "
+                + "físicamente delimitada, planificada y diseñada, sujeta a un "
+                + "Régimen Aduanero Especial, en la que personas individuales o "
+                + "jurídicas se dediquen indistintamente a la producción o "
+                + "comercialización de bienes para la exportación o "
+                + "reexportación, así como a la prestación de servicios vinculados "
+                + "con el comercio internacional. La zona franca estará custodiada "
+                + "y controlada por la autoridad aduanera.");
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
@@ -133,29 +143,29 @@ public class FaltasJudiciales extends Documento{
         ArrayList cap1 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("1_01");
-        seccion1.add("Faltas judiciales");
-        seccion1.add("Número de faltas judiciales");
+        seccion1.add("Exportaciones totales");
+        seccion1.add("Comercio Total: exportaciones trimestrales en millones de US$");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, con datos del BANGUAT");
         seccion1.add(true);
         seccion1.add("1_02");
-        seccion1.add("Faltas judiciales por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Variación interanual de las exportaciones");
+        seccion1.add("Porcentaje de variación interanual de las exportaciones");
+        seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, con datos del BANGUAT");
         seccion1.add(true);
         cap1.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
-        seccion2.add("Faltas judiciales por área geográfica");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por área geográfica");
+        seccion2.add("Importaciones totales");
+        seccion2.add("Comercio total: importaciones trimestrales en millones de US$");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, con datos del BANGUAT");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Faltas judiciales por edad del infractor");
@@ -241,14 +251,13 @@ public class FaltasJudiciales extends Documento{
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion1.add(true);
+        
         seccion1.add("2_02");
         seccion1.add("Infractores menores de edad por departamento");
         seccion1.add("Faltas judiciales ocurridas en el año 2014");
         seccion1.add("Distribución porcentual por departamento");
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion1.add(true);
         cap2.add(seccion1);
         
         
@@ -259,14 +268,13 @@ public class FaltasJudiciales extends Documento{
         seccion2.add("Distribución porcentual por sexo");
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion2.add(true);
+        
         seccion2.add("2_04");
         seccion2.add("Infractores menores de edad por edad");
         seccion2.add("Faltas judiciales ocurridas en el año 2014");
         seccion2.add("Distribución porcentual por edades simples");
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion2.add(true);
         cap2.add(seccion2);
         
         
@@ -277,14 +285,13 @@ public class FaltasJudiciales extends Documento{
         seccion3.add("Distribución porcentual por grupo étnico");
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion3.add(true);
+        
         seccion3.add("2_06");
         seccion3.add("Infractores menores de edad por nivel de educación");
         seccion3.add("Faltas judiciales ocurridas en el año 2014");
         seccion3.add("Distribución porcentual por nivel de educación");
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion3.add(true);
         cap2.add(seccion3);
         
         
@@ -296,7 +303,6 @@ public class FaltasJudiciales extends Documento{
         seccion4.add("Distribución porcentual por tipo de falta cometida");
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion4.add(true);
         cap2.add(seccion4);
         
         
@@ -314,14 +320,13 @@ public class FaltasJudiciales extends Documento{
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion1.add(true);
+        
         seccion1.add("3_02");
         seccion1.add("Faltas contra la propiedad");
         seccion1.add("Número de faltas judiciales contra la propiedad");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion1.add(true);
         cap3.add(seccion1);
         
         
@@ -332,14 +337,13 @@ public class FaltasJudiciales extends Documento{
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion2.add(true);
+        
         seccion2.add("3_04");
         seccion2.add("Faltas contra el orden público");
         seccion2.add("Número de faltas judiciales contra el orden público");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion2.add(true);
         cap3.add(seccion2);
         
         
@@ -350,7 +354,7 @@ public class FaltasJudiciales extends Documento{
         seccion3.add("Distribución porcentual por grupo étnico");
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion3.add(true);
+        
         cap3.add(seccion3);
         
         

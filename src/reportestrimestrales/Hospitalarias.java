@@ -73,7 +73,7 @@ public class Hospitalarias extends Documento{
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
-         contenidos.add(cargarCapitulo3());
+         cargarCapitulo3();
          System.out.println("cargados los contenidos");
     }
     
@@ -95,11 +95,14 @@ public class Hospitalarias extends Documento{
                 
                 columna1 = columna(tmp.get(0).toString(),tmp.get(1).toString(),"",
                         "",tmp.get(2).toString(),tmp.get(3).toString(),
-                        tmp.get(4).toString(),tmp.get(5).toString(),"",true);
-                if(j<(finSeccion-1)){
-                columna2 = columna(tmp.get(6).toString(),tmp.get(7).toString(),"",
-                        "",tmp.get(8).toString(),tmp.get(9).toString(),
-                        tmp.get(10).toString(),tmp.get(11).toString(),"",true);
+                        tmp.get(4).toString(),tmp.get(5).toString(),"",(Boolean)tmp.get(6));
+                
+                try{
+                columna2 = columna(tmp.get(7).toString(),tmp.get(8).toString(),"",
+                        "",tmp.get(9).toString(),tmp.get(10).toString(),
+                        tmp.get(11).toString(),tmp.get(12).toString(),"",(Boolean)tmp.get(13));    
+                }catch (Exception e){
+                    System.out.println(e.toString());                    
                 }
                 escribirLinea(hojaTrimestral(columna1, columna2));
                 hoja++;
@@ -130,13 +133,14 @@ public class Hospitalarias extends Documento{
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Consulta externa por departamento");
         seccion1.add("Número de Atenciones por departamento de residencia del paciente");
         seccion1.add(formatoTrimestre);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
+        seccion1.add(true);
         cap1.add(seccion1);
         
         
@@ -147,13 +151,14 @@ public class Hospitalarias extends Documento{
         seccion2.add(formatoTrimestre);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Consulta externa en pacientes menores de cinco años");
         seccion2.add("Porcentaje de atenciones en menores de cinco años");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
+        seccion2.add(true);
         cap1.add(seccion2);
         
         
@@ -164,13 +169,14 @@ public class Hospitalarias extends Documento{
         seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion3.add(true);
         seccion3.add("1_06");
         seccion3.add("Consulta externa por grupo étnico del paciente");
         seccion3.add("Distribución porcentual de atenciones externas por grupo étnico");
         seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
+        seccion3.add(true);
         cap1.add(seccion3);
         
         return cap1;        
@@ -184,13 +190,14 @@ public class Hospitalarias extends Documento{
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Consulta interna por departamento");
         seccion1.add("Número de atenciones por departamento de residencia del paciente");
         seccion1.add(formatoTrimestre);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
+        seccion1.add(true);
         cap2.add(seccion1);
         
         
@@ -201,13 +208,14 @@ public class Hospitalarias extends Documento{
         seccion2.add(formatoTrimestre);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Consulta interna en pacientes menores de cinco años");
         seccion2.add("Porcentaje de atenciones en menores de cinco años");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
+        seccion2.add(true);
         cap2.add(seccion2);
         
         
@@ -218,13 +226,14 @@ public class Hospitalarias extends Documento{
         seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Consulta interna por grupo étnico del paciente");
         seccion3.add("Distribución orcentual de atenciones por grupo étnico");
         seccion3.add(formatoTrimestre);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
+        seccion3.add(true);
         cap2.add(seccion3);
         
         
@@ -236,13 +245,14 @@ public class Hospitalarias extends Documento{
         seccion4.add("Distribución porcentual por tipo de falta cometida");
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
-        
+        seccion4.add(true);
         seccion4.add("2_07");
         seccion4.add("Consulta interna por promedio de días de estancia del paciente");
         seccion4.add("Promedio de días de estancia por trimestre");
         seccion4.add(formatoTrimestre);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
+        seccion4.add(true);
         cap2.add(seccion4);
         
         
@@ -253,6 +263,7 @@ public class Hospitalarias extends Documento{
         seccion5.add(formatoTrimestre);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion5.add("INE, Unidad de Estadísticas de Salud");
+        seccion5.add(true);
         cap2.add(seccion5);
         
         
@@ -260,55 +271,44 @@ public class Hospitalarias extends Documento{
     }
     
     
+    private void t3_01_02(){
+        String columna1 = tablaApendice("3_01",
+                "Consulta externa por trimestre de ocurrencia, según departamento de residencia del paciente",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, Unidad de Estadísticas de Salud",
+                "");
+        
+        String columna2 = tablaApendice("3_02",
+                "Análisis de variación de consulta externa",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, Unidad de Estadísticas de Salud",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
-    protected ArrayList cargarCapitulo3(){
-        ArrayList cap3 = new ArrayList();
-        ArrayList seccion1 = new ArrayList();
-        seccion1.add("3_01");
-        seccion1.add("Faltas contra las personas");
-        seccion1.add("Número de faltas judiciales contra las personas");
-        seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+    
+    private void t3_03_04(){
+        String columna1 = tablaApendice("3_01",
+                "Consulta interna por trimestre de ocurrencia, según departamento de residencia del paciente",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, Unidad de Estadísticas de Salud",
+                "");
         
-        seccion1.add("3_02");
-        seccion1.add("Faltas contra la propiedad");
-        seccion1.add("Número de faltas judiciales contra la propiedad");
-        seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        cap3.add(seccion1);
-        
-        
-        ArrayList seccion2 = new ArrayList();
-        seccion2.add("3_03");
-        seccion2.add("Faltas contra las buenas costumbres");
-        seccion2.add("Número de faltas judiciales contra las buenas costumbres");
-        seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
-        seccion2.add("3_04");
-        seccion2.add("Faltas contra el orden público");
-        seccion2.add("Número de faltas judiciales contra el orden público");
-        seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        cap3.add(seccion2);
-        
-        
-        ArrayList seccion3 = new ArrayList();
-        seccion3.add("3_05");
-        seccion3.add("Otras faltas");
-        seccion3.add("Número de faltas judiciales (Clasificadas como \"Otras\")");
-        seccion3.add("Distribución porcentual por grupo étnico");
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
-        cap3.add(seccion3);
-        
-        
-        return cap3;        
+        String columna2 = tablaApendice("3_02",
+                "Análisis de variación de consulta interna",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, Unidad de Estadísticas de Salud",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    protected void cargarCapitulo3(){
+       t3_01_02();
+       t3_03_04();           
     }
     
     
