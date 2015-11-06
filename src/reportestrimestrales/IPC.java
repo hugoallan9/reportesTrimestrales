@@ -261,19 +261,22 @@ public class IPC extends Documento{
         boolean encabezado = true;
              String tabla = "\\begin{tabular}{lcrr}\n" +
 " 		\n" +
-" 		\\hline \\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]\n" +
+"\\hline \\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]\n" +
 "		\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\n" +
 " 		\\multicolumn{2}{c}{\\cellcolor{color1!10!white} \\Bold{\\small Inflación interanual a}} \\\\\n" +
+" 		\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.4cm]" +
 " 		\n" +
 " 		\\cmidrule{3-4}\n" +
-" 		\n" +
+" 		\n"
+                     +
+"\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}&\\cellcolor{color1!10!white}\\\\[-0.45cm]" +
 "		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{} &\n" +
 " 		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}"
                      + "{\\begin{tabular}{c}\\Bold \\small Meta de \\\\ \\Bold \\small Inflación\\end{tabular}}"
-                     + " & \\cellcolor{color1!10!white} " + getFormatoMesAnterior(getMes())
-                     + " & \\cellcolor{color1!10!white} " + getMes().substring(0,3) + "-"
+                     + " & \\cellcolor{color1!10!white} \\Bold \\small" + getFormatoMesAnterior(getMes())
+                     + " & \\cellcolor{color1!10!white} \\Bold \\small" + getMes().substring(0,3) + "-"
                      +getAnioPublicacion().substring(getAnioPublicacion().length()-2,getAnioPublicacion().length())
-                     +" \\\\[0.04cm] \n" +
+                     +" \\\\[0.02cm] \n" +
 " 		\n" +
 " 		\\hline\n" +
 " 		\\rowcolor{white}\n";
