@@ -491,8 +491,7 @@ public class Documento {
                 "\n" +
                 "\n" +
                 "\n" +
-                "$\\ $\\\\[0.5cm]\n" +
-                "\\thispagestyle{empty}\n" +
+                "$\\ $\\\\[0.5cm]\n"  +
                 "\\noindent {\\Bold \\huge Presentación}\n" +
                 "\n" +
                 "\n" +
@@ -535,74 +534,12 @@ public class Documento {
     
     
     protected void preambulo(){
-       File file = null; 
-       URL url = null;
+       File source = new File("/home/ineservidor/Oficio");
+        File dest = new File(getRuta());
         try {
-            file = new  File(ruta,"preambulo.tex");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/preambulo.tex");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            file = new  File(ruta,"cabezae.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/cabezae.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        try {
-            file = new  File(ruta,"cabezao.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/cabezao.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            file = new  File(ruta,"capitulo3.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/capitulo3.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        try {
-            file = new  File(ruta,"pie.png");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Oficio/pie.png");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         
         
