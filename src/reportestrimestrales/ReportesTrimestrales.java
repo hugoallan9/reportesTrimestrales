@@ -152,7 +152,7 @@ public class ReportesTrimestrales {
             docu.capitulo5();
             docu.apendices(vitalesTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
-            docu.getRr().get().end();
+            //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
                 docu.generarGraficas("trimestral");

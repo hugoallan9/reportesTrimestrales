@@ -37,7 +37,6 @@ public class Vitales extends Documento{
     
     
     
-    
     public Vitales(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
         capitulos = new ArrayList();
@@ -147,6 +146,7 @@ public class Vitales extends Documento{
         
     }
     protected void apendices(String rutaTEX){
+        System.out.println("Generando tablas de apendices");
         escribirLinea("\n \\appendixa \n" +
         "\n" +
         "\n" +
@@ -156,7 +156,11 @@ public class Vitales extends Documento{
         apendice3();
         apendice4();
         apendice5();
+        System.out.println(rutaTEX);
+        System.out.println(trimestres());
+        System.out.println(rr);
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        System.out.println("Seteando ruta de ap");
         ap.setRuta("/var/www/html/Vitales/Entradas/CSV");
         ap.generar();
         
@@ -457,7 +461,7 @@ public class Vitales extends Documento{
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             " \\node (inelogo) at (0.3,0.85){\\includegraphics[scale=0.38]{logoINE.pdf}}; \n"+
             "\\end{scope}\n" +

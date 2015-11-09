@@ -42,6 +42,7 @@ public class Tabla {
     
    
     public Tabla(String rutaTEX, List listado,SesionR rr){
+        System.out.println("Iniciando el constructor de tabla");
         NumberFormat nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
         df =  (DecimalFormat) nf;
         df.applyPattern("#.##");
@@ -51,6 +52,7 @@ public class Tabla {
         this.trimestres = listado;
         this.rutaTex = rutaTEX;
         this.r = rr;
+        System.out.println("Finalizando el contructor de tabla");
     }
     
     public void setRuta(String ruta){
@@ -118,7 +120,7 @@ public class Tabla {
         File f = new File(ruta, csv + ".csv");
     BufferedReader br = null;
     String line = "";
-        boolean encabezado = false;
+        boolean encabezado = true;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
         listaPlantilla.add("\\input{../../pre2}");
@@ -184,14 +186,8 @@ public class Tabla {
             }
         }
     }
-        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla1").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);
         escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
-                   try{
-             String comando = "pdfcrop plantillaTabla1.pdf " +csv+ ".pdf" ;
-             Process p = Runtime.getRuntime().exec (comando); 
-         }catch (Exception e){
-             e.printStackTrace();
-         }
+        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla1").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);
       
          
         
@@ -202,7 +198,7 @@ public class Tabla {
         File f = new File(ruta,csv + ".csv");
     BufferedReader br = null;
     String line = "";
-        boolean encabezado = false;
+        boolean encabezado = true;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
 
@@ -285,16 +281,12 @@ public class Tabla {
             }
         }
     }
-        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla2").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);        
         escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
+        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla2").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);        
         
         
-         try{
-             String comando = "pdfcrop plantillaTabla2.pdf " +csv+ ".pdf" ;
-             Process p = Runtime.getRuntime().exec (comando); 
-         }catch (Exception e){
-             e.printStackTrace();
-         }
+        
+         
          
         
   }
