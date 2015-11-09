@@ -356,7 +356,58 @@ public class FaltasJudiciales extends Documento{
         
         return cap3;        
     }
+    private void apendice1(){
+        String columna1 = tablaApendice("A_01",
+                "Faltas judiciales: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "");
+        
+        String columna2 = tablaApendice("A_02",
+                "Faltas contra las personas: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
+    
+    
+    private void apendice2(){
+        String columna1 = tablaApendice("A_03",
+                "Faltas contra la propiedad: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_04",
+                "Faltas contra el orden público: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice3(){
+        String columna1 = tablaApendice("A_05",
+                "Defunciones fetales por trimestre de ocurrencia, según departamento de residencia de la madre",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_06",
+                "Análisis de variación de defunciones fetales",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
     
     

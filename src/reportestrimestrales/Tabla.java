@@ -220,7 +220,7 @@ public class Tabla {
             lista.add("&\\multirow{2}{*}{\\Bold{Periodo}} ");//aqui va el texto en latex del archivo info.tex
             lista.add("&\\multirow{2}{*}{\\Bold{Numero de nacimientos}}");
             lista.add("&\\multirow{2}{2.5cm}{\\Bold{Variación entre periodos}} ");
-            lista.add("&\\multirow{2}{3.5cm}{\\Bold{Variación respecto al mismo periodo año anterior}}\\\\");
+            lista.add("&\\multirow{2}{3.9cm}{\\Bold{Variación respecto al mismo periodo año anterior}}\\\\");
             lista.add("&&&&\\\\[0.2cm]");
             lista.add("\\hline \\\\[-0.2cm]");
             lista.add("\\multirow{13}{*}{\\rotatebox[origin = c]{90}{\\Bold{Mensual}}} ");
