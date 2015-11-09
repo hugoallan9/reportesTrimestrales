@@ -967,7 +967,69 @@ public class Documento {
     
     
     
+    protected String sectionTabla(String codigo, String nombreSeccion, String descripcion, 
+            String tituloGrafica, String tipoGrafica,
+            String grafica, String fuente) {
     
+        File f = new File(tex.getParent(), codigo);
+        if( !f.exists() ){
+            System.out.println("La carpeta no existe: " + f.getAbsolutePath());
+            f.mkdir();
+        }
+        
+        File titulo = new File(f, "titulo.tex");
+        File primeraDescripcion = new File(f, "descripcion.tex");
+        File titleGrafica = new File(f,"tituloGrafica.tex");
+        File desGrafica = new File(f, "desGrafica.tex");
+        File desFuente = new File(f, "fuente.tex");
+        
+        FileWriter escritora;
+        try {
+            escritora = new FileWriter(titulo);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(nombreSeccion);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(titleGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tituloGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desGrafica);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(tipoGrafica);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(desFuente);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(fuente);
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+        return("\n \\cajitatabla{%\n"
+                + nombreSeccion+ "}%\n{"
+                + "%\n \\input{" + (codigo + "/descripcion.tex").replaceAll("\\\\", "/") + "}}%\n"
+                + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
+                + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
+                + "{%\n " + grafica + "}%\n"
+                + "{%\n \\input{" + (codigo + "/fuente.tex").replaceAll("\\\\","/") + "}} %\n ");
+        
+    }
     
     protected String seccion(String codigo, String nombreSeccion, String descripcion, 
             String tituloGrafica, String tipoGrafica,
@@ -994,18 +1056,6 @@ public class Documento {
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-//        try {
-//            escritora = new FileWriter(primeraDescripcion);
-//            BufferedWriter buffer = new BufferedWriter(escritora);
-//            buffer.write(descripcion);
-//            buffer.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-        
-        
         
         try {
             escritora = new FileWriter(titleGrafica);
@@ -1071,19 +1121,7 @@ public class Documento {
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-//        try {
-//            escritora = new FileWriter(primeraDescripcion);
-//            BufferedWriter buffer = new BufferedWriter(escritora);
-//            buffer.write(descripcion);
-//            buffer.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-        
-        
-        
+                
         try {
             escritora = new FileWriter(titleGrafica);
             BufferedWriter buffer = new BufferedWriter(escritora);
@@ -1147,17 +1185,6 @@ public class Documento {
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-//        try {
-//            escritora = new FileWriter(primeraDescripcion);
-//            BufferedWriter buffer = new BufferedWriter(escritora);
-//            buffer.write(descripcion);
-//            buffer.close();
-//        } catch (IOException ex) {
-//            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-        
         
         
         try {

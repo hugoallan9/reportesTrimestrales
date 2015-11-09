@@ -323,7 +323,7 @@ public class IPC extends Documento{
          escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
                  
         
-        escribirLinea(seccion("1_07", 
+        escribirLinea(sectionTabla("1_07", 
                 "Inflación en América Central",
                 "",
                 "Tasa de variación del IPC de los países Centroamericanos",
