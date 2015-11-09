@@ -461,24 +461,22 @@ public class Hospitalarias extends Documento{
                 "\n" +
                 "$\\ $\\\\\n" +
                 "\\indent El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
-                + "demográfica y siendo el ente rector de la política estadística nacional "
+                + "de salud y siendo el ente rector de la política estadística nacional "
                 + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
-                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Vitales}"
+                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Hospitalarias del sector privado}"
                 + ", con información correspondiente al {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}, información esencial para la planificación del desarrollo humano.\n" +
+                + getAnioPublicacion() +"}, información esencial para la planificación de la salud.\n" +
                 "\n" +
                 "La información presentada a continuación fue recolectada a través "
-                + "del Registro Nacional de las Personas  -RENAP- y consiste en "
-                + "los hechos ocurridos sobre nacimientos, defunciones, defunciones fetales, "
-                + "matrimonios y divorcios registrados "
-                + "en el "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion() +" .  "
-                + "Sin embargo, los datos para el período {\\Bold son preliminares}, "
-                + "sujetos a la adición de registros ingresados tardíamente.\n" +
-                "\n" +
+                + "de los distintos hospitales, sanatorios, casas de salud, hospitales privados "
+                + "de día de la República de Guatemal en el " + getAnioPublicacion() + ". \\\\ \\\\"
+                + "{\\Bold Las cifras del  "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion()
+                + "son preliminares} y serán ajustadas con el ingreso de los registros tardíos.\\\\ \\\\"+
+                
                 "Por lo tanto, el INE se complace en presentar este informe, con "
                 + "el propósito de brindar una herramienta más de análisis a la "
-                + "población guatemalteca, y a la vez agradece el aporte y colaboración "
-                + "del Registro Nacional de las Personas, al cual se insta  a "
+                + "población guatemalteca. A la vez agradece el aporte y colaboración "
+                + "a todos los centros hospitalarios privados del país, a quienes se insta  a "
                 + "continuar con el apoyo a este proceso.\n" +
                 "\n" +
                 "\\thispagestyle{empty}\n" +

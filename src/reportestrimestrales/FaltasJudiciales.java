@@ -356,7 +356,58 @@ public class FaltasJudiciales extends Documento{
         
         return cap3;        
     }
+    private void apendice1(){
+        String columna1 = tablaApendice("A_01",
+                "Faltas judiciales: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "");
+        
+        String columna2 = tablaApendice("A_02",
+                "Faltas contra las personas: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
+    
+    
+    private void apendice2(){
+        String columna1 = tablaApendice("A_03",
+                "Faltas contra la propiedad: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_04",
+                "Faltas contra el orden público: análisis de variación",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice3(){
+        String columna1 = tablaApendice("A_05",
+                "Defunciones fetales por trimestre de ocurrencia, según departamento de residencia de la madre",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE, con datos del RENAP",
+                "");
+        
+        String columna2 = tablaApendice("A_06",
+                "Análisis de variación de defunciones fetales",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del RENAP",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
     
     
@@ -496,26 +547,25 @@ public class FaltasJudiciales extends Documento{
                 "\n" +
                 "\n" +
                 "$\\ $\\\\\n" +
-                "\\indent El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
-                + "demográfica y siendo el ente rector de la política estadística nacional "
-                + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
-                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Vitales}"
-                + ", con información correspondiente al {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}, información esencial para la planificación del desarrollo humano.\n" +
+                "\\indent El Instituto Nacional de Estadística -INE- en cumplimiento a su Ley Orgánica, "
+                + "Decreto Ley 3-85, "
+                + "presenta datos sobre las {\\Bold Faltas Judiciales del "
+                + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
+                + getAnioPublicacion() +"}, las cuales son los delitos menores, contemplados en el "
+                + "código penal en el artículo 480, correspondiente al Libro Tercero de las Faltas, "
+                + "Título Único.\n" +
                 "\n" +
-                "La información presentada a continuación fue recolectada a través "
-                + "del Registro Nacional de las Personas  -RENAP- y consiste en "
-                + "los hechos ocurridos sobre nacimientos, defunciones, defunciones fetales, "
-                + "matrimonios y divorcios registrados "
-                + "en el "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion() +" .  "
-                + "Sin embargo, los datos para el período {\\Bold son preliminares}, "
-                + "sujetos a la adición de registros ingresados tardíamente.\n" +
+                "Los datos son recolectados a través de la boleta 42 B, que registras las características "
+                + "y datos generales de las personas que cometieron las faltas, proporcionados por los "
+                + "Juzgados de Paz y Juzgados de Paz Móviles de todo el país, la cual es {\\Bold información "
+                + " preliminar} y será ajustada con el ingreso de registros tardíos.\n" +
                 "\n" +
-                "Por lo tanto, el INE se complace en presentar este informe, con "
-                + "el propósito de brindar una herramienta más de análisis a la "
-                + "población guatemalteca, y a la vez agradece el aporte y colaboración "
-                + "del Registro Nacional de las Personas, al cual se insta  a "
-                + "continuar con el apoyo a este proceso.\n" +
+                "Se pone a disposición el presente informe de Faltas Judiciales del "
+                + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
+                + getAnioPublicacion() 
+                + " con el fin de apoyar la elaboración de programas, planes, en materia de "
+                + "seguridad nacional. A su vez se agradece el aporte y colaboración de los "
+                + "Juzgados y se les insta a continuar el apoyo a este proceso.\n" +
                 "\n" +
                 "\\thispagestyle{empty}\n" +
                 "\n" +
