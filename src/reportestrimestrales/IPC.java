@@ -273,8 +273,8 @@ public class IPC extends Documento{
 "		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}{} &\n" +
 " 		\\cellcolor{color1!10!white} \\multirow{-2}[0]{*}"
                      + "{\\begin{tabular}{c}\\Bold \\small Meta de \\\\ \\Bold \\small Inflación\\end{tabular}}"
-                     + " & \\cellcolor{color1!10!white} \\Bold \\small" + getFormatoMesAnterior(getMes())
-                     + " & \\cellcolor{color1!10!white} \\Bold \\small" + getMes().substring(0,3) + "-"
+                     + " & \\cellcolor{color1!10!white} \\Bold \\small " + getFormatoMesAnterior(getMes())
+                     + " & \\cellcolor{color1!10!white} \\Bold \\small " + getMes().substring(0,3) + "-"
                      +getAnioPublicacion().substring(getAnioPublicacion().length()-2,getAnioPublicacion().length())
                      +" \\\\[0.02cm] \n" +
 " 		\n" +
