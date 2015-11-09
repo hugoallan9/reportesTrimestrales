@@ -35,66 +35,6 @@ public class Vitales extends Documento{
         return rr;
     }
     
-<<<<<<< HEAD
-    private List trimestres(){
-        String trm = super.getTrimestre();
-        int anio =Integer.parseInt(super.getYearServidor());
-        List lista= new ArrayList();
-        
-        switch (trm.toLowerCase()) {
-            case "primero":
-                lista.add("T1-"+(anio-2));
-                lista.add("T2-"+(anio-2));
-                lista.add("T3-"+(anio-2));
-                lista.add("T4-"+(anio-2));
-                lista.add("T1-"+(anio-1));
-                lista.add("T2-"+(anio-1));
-                lista.add("T3-"+(anio-1));
-                lista.add("T4-"+(anio-1));
-                lista.add("T1-"+(anio));                
-                break;
-            case "segundo":
-                lista.add("T2-"+(anio-2));
-                lista.add("T3-"+(anio-2));
-                lista.add("T4-"+(anio-2));
-                lista.add("T1-"+(anio-1));
-                lista.add("T2-"+(anio-1));
-                lista.add("T3-"+(anio-1));
-                lista.add("T4-"+(anio-1));
-                lista.add("T1-"+(anio));
-                lista.add("T2-"+(anio));                
-                break;
-            case "tercero":
-                lista.add("T3-"+(anio-2));
-                lista.add("T4-"+(anio-2));
-                lista.add("T1-"+(anio-1));
-                lista.add("T2-"+(anio-1));
-                lista.add("T3-"+(anio-1));
-                lista.add("T4-"+(anio-1));
-                lista.add("T1-"+(anio));
-                lista.add("T2-"+(anio));
-                lista.add("T3-"+(anio));                                
-                break;
-            case "cuarto":
-                lista.add("T4-"+(anio-2));
-                lista.add("T1-"+(anio-1));
-                lista.add("T2-"+(anio-1));
-                lista.add("T3-"+(anio-1));
-                lista.add("T4-"+(anio-1));
-                lista.add("T1-"+(anio));
-                lista.add("T2-"+(anio));
-                lista.add("T3-"+(anio));
-                lista.add("T4-"+(anio));                
-                break;
-            default:
-                throw new AssertionError();
-        }
-        return lista;
-        
-    }
-=======
-    
->>>>>>> 2ab83a3fc0584b3232e73f233cbf3b507d617a42
     
     
     public Vitales(String titulo, String trimestre, String pYear, String rutaCSV) {
@@ -521,7 +461,7 @@ public class Vitales extends Documento{
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             " \\node (inelogo) at (0.3,0.85){\\includegraphics[scale=0.38]{logoINE.pdf}}; \n"+
             "\\end{scope}\n" +

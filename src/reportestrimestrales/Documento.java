@@ -247,7 +247,7 @@ public class Documento {
         try {
             FileWriter escritora = new FileWriter(tex,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
-            buffer.write("\n \\includepdf{contraPortada.pdf} \n");
+            buffer.write("\n \\includepdf{contraPortadaVitales.pdf} \n");
             buffer.write("\n \\end{document}\n");
             buffer.close();
         } catch (IOException ex) {
@@ -1254,9 +1254,10 @@ public class Documento {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     protected List trimestres(){
         String trm = getTrimestre();
-        int anio =Integer.parseInt(getYear());
+        int anio =Integer.parseInt(getYearServidor());
         List lista= new ArrayList();
         
         switch (trm.toLowerCase()) {
