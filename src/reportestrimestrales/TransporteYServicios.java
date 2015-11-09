@@ -24,7 +24,7 @@ import org.rosuda.JRI.REXP;
  *
  * @author INE
  */
-public class ComercioExterior extends Documento{
+public class TransporteYServicios extends Documento{
     private List capitulos;
     private List introCapitulos;
     private List contenidos;
@@ -39,7 +39,7 @@ public class ComercioExterior extends Documento{
     
     
     
-    public ComercioExterior(String titulo, String trimestre, String pYear, String rutaCSV) {
+    public TransporteYServicios(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
         capitulos = new ArrayList();
         introCapitulos = new ArrayList();
@@ -57,11 +57,10 @@ public class ComercioExterior extends Documento{
     }
     
     protected void setCapitulos(){
-        capitulos.add("Comercio Total");
-        capitulos.add("Comercio Territorio Aduanero");
-        capitulos.add("Comercio Decreto 29-89");
-        capitulos.add("Comercio Zonas Francas");
-        capitulos.add("Cuadros Estadísticos");
+        capitulos.add("Tráfico aéreo");
+        capitulos.add("Tráfico postal");
+        capitulos.add("Movimiento marítimo");
+        capitulos.add("Parque vehicular");
         
     }
     
@@ -830,24 +829,25 @@ public class ComercioExterior extends Documento{
                 "\n" +
                 "$\\ $\\\\\n" +
                 "\\indent El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
-                + "económica y siendo el ente rector de la política estadística nacional "
+                + "demográfica y siendo el ente rector de la política estadística nacional "
                 + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
-                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas de Comercio Exterior}"
+                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Vitales}"
                 + ", con información correspondiente al {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}, la cual es \\Bold{preliminar} y será ajustada con el ingreso de registros tardíos.\n" +
+                + getAnioPublicacion() +"}, información esencial para la planificación del desarrollo humano.\n" +
                 "\n" +
-                "Se detallan 3 tipos de comercio: Territorio Aduanero, Decreto 29-89 y Zonas Francas. "
-                + "Se incorpora, además, el Comercio Total, que integra los tres tipos de comercio.\n"+
+                "La información presentada a continuación fue recolectada a través "
+                + "del Registro Nacional de las Personas  -RENAP- y consiste en "
+                + "los hechos ocurridos sobre nacimientos, defunciones, defunciones fetales, "
+                + "matrimonios y divorcios registrados "
+                + "en el "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion() +" .  "
+                + "Sin embargo, los datos para el período {\\Bold son preliminares}, "
+                + "sujetos a la adición de registros ingresados tardíamente.\n" +
                 "\n" +
-                "Se detallan los datos en valores de US$ y peso en kilogramos. Estos datos son registrados "
-                + "a través de las aduanas del país por medio de las vías aérea, marítima y terrestre \n"+
-                "\n" +
-                "Las variables se clasifican de acuerdo al Sistema Arancelario Centroamericano -SAC-, "
-                + "el cual se integra en secciones, capítulos, partidas, sub-partidas e incisos, "
-                + "determinados por combinaciones de números (códigos).\n"+
-                "\n" +
-                
-                "Se agradece al Banco de Guatemala (Banguat) por su valiosa colaboración al facilitar los datos.\n" +
+                "Por lo tanto, el INE se complace en presentar este informe, con "
+                + "el propósito de brindar una herramienta más de análisis a la "
+                + "población guatemalteca, y a la vez agradece el aporte y colaboración "
+                + "del Registro Nacional de las Personas, al cual se insta  a "
+                + "continuar con el apoyo a este proceso.\n" +
                 "\n" +
                 "\\thispagestyle{empty}\n" +
                 "\n" +
