@@ -73,7 +73,6 @@ public class Hospitalarias extends Documento{
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
-         cargarCapitulo3();
          System.out.println("cargados los contenidos");
     }
     
@@ -246,22 +245,22 @@ public class Hospitalarias extends Documento{
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         seccion4.add(true);
-        seccion4.add("2_07");
+        seccion4.add("2_08");
         seccion4.add("Consulta interna por promedio de días de estancia del paciente");
         seccion4.add("Promedio de días de estancia por trimestre");
         seccion4.add(formatoTrimestre);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         seccion4.add(true);
         cap2.add(seccion4);
         
         
         ArrayList seccion5 = new ArrayList();
-        seccion5.add("2_07");
+        seccion5.add("2_09");
         seccion5.add("Consulta interna por condición de egreso del paciente");
         seccion5.add("Distribución porcentual por condición de egreso del paciente");
         seccion5.add(formatoTrimestre);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
         seccion5.add("INE, Unidad de Estadísticas de Salud");
         seccion5.add(true);
         cap2.add(seccion5);
@@ -310,7 +309,18 @@ public class Hospitalarias extends Documento{
        t3_01_02();
        t3_03_04();           
     }
+    protected void apendices(String rutaTEX){
+    escribirLinea("\n \\appendixa \n" +
+    "\n" +
+    "\n" +
+    "\n" );
+    cargarCapitulo3();
+    Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+    ap.setRuta("/var/www/html/Hospitalarias/Entradas/CSV");
+    ap.generarHospitalarias();
     
+    
+    }
     
     
     

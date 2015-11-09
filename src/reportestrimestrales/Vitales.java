@@ -35,6 +35,7 @@ public class Vitales extends Documento{
         return rr;
     }
     
+<<<<<<< HEAD
     private List trimestres(){
         String trm = super.getTrimestre();
         int anio =Integer.parseInt(super.getYearServidor());
@@ -91,6 +92,9 @@ public class Vitales extends Documento{
         return lista;
         
     }
+=======
+    
+>>>>>>> 2ab83a3fc0584b3232e73f233cbf3b507d617a42
     
     
     public Vitales(String titulo, String trimestre, String pYear, String rutaCSV) {

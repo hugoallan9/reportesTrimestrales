@@ -81,6 +81,10 @@ public class Tabla {
         generarCSV2("3_04");
         
     }
+    public void generarComercioExterior(){
+        generarCSV2("A_01");
+        generarCSV2("A_02");
+    }
     
     private void escribirTEX(String nombre, String texto,boolean compilar){
      File file = new File(nombre);

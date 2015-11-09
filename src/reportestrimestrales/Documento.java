@@ -1254,6 +1254,62 @@ public class Documento {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    protected List trimestres(){
+        String trm = getTrimestre();
+        int anio =Integer.parseInt(getYear());
+        List lista= new ArrayList();
+        
+        switch (trm.toLowerCase()) {
+            case "primero":
+                lista.add("T1-"+(anio-2));
+                lista.add("T2-"+(anio-2));
+                lista.add("T3-"+(anio-2));
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));                
+                break;
+            case "segundo":
+                lista.add("T2-"+(anio-2));
+                lista.add("T3-"+(anio-2));
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));
+                lista.add("T2-"+(anio));                
+                break;
+            case "tercero":
+                lista.add("T3-"+(anio-2));
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));
+                lista.add("T2-"+(anio));
+                lista.add("T3-"+(anio));                                
+                break;
+            case "cuarto":
+                lista.add("T4-"+(anio-2));
+                lista.add("T1-"+(anio-1));
+                lista.add("T2-"+(anio-1));
+                lista.add("T3-"+(anio-1));
+                lista.add("T4-"+(anio-1));
+                lista.add("T1-"+(anio));
+                lista.add("T2-"+(anio));
+                lista.add("T3-"+(anio));
+                lista.add("T4-"+(anio));                
+                break;
+            default:
+                throw new AssertionError();
+        }
+        return lista;
+        
+    }
     
     
     protected String corregirTrimestre(String trimestre){

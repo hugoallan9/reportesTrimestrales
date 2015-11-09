@@ -168,29 +168,29 @@ public class ComercioExterior extends Documento{
         seccion2.add("INE, con datos del BANGUAT");
         seccion2.add(true);
         seccion2.add("1_04");
-        seccion2.add("Faltas judiciales por edad del infractor");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edad del infractor");
+        seccion2.add("Variación Interanual de las importaciones");
+        seccion2.add("Porcentaje de variación interanual de las importaciones");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, con datos del BANGUAT");
         seccion2.add(true);
         cap1.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
-        seccion3.add("Faltas judiciales según sexo");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por sexo");
+        seccion3.add("Balanza comercial general");
+        seccion3.add("Balanza comercial general trimestral en millones de US$");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion3.add("INE, con datos del BANGUAT");
         seccion3.add(true);
         seccion3.add("1_06");
-        seccion3.add("Faltas judiciales por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Balanza comercial relativa");
+        seccion3.add("Balanza comercial relativa adimensional");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion3.add("INE, con datos del BANGUAT");
         seccion3.add(true);
         cap1.add(seccion3);
         
@@ -198,112 +198,202 @@ public class ComercioExterior extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
-        seccion4.add("Faltas judiciales por analfabetismo");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por condición de analfabetismo");
+        seccion4.add("Balanza comercial por continente");
+        seccion4.add("Balanca comercial de Guatemala por continente en millones de US$");
+        seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion4.add("INE, con datos del BANGUAT");
         seccion4.add(true);
         seccion4.add("1_08");
-        seccion4.add("Faltas judiciales por nivel de educación");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por nivel de educación");
+        seccion4.add("Balanza comercial con Centroamérica");
+        seccion4.add("Balanza comercial de Guatemala con el mercado común centroamericano en millones de US$");
+        seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion4.add("INE, con datos del BANGUAT");
         seccion4.add(true);
         cap1.add(seccion4);
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("1_09");
-        seccion5.add("Faltas judiciales por condición de ebriedad");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por condición de ebriedad");
+        seccion5.add("Principales productos de exportación");
+        seccion5.add("Principales productos de exportación en millones de US$");
+        seccion5.add(getFormatoTrimestre());
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion5.add("INE, con datos del BANGUAT");
         seccion5.add(true);
         seccion5.add("1_10");
-        seccion5.add("Faltas judiciales por tipo de falta");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por tipo de falta");
+        seccion5.add("Exportaciones según los principales países de destino");
+        seccion5.add("Principales destinos de exportaciones guatemaltecas en millones de US$");
+        seccion5.add(getFormatoTrimestre());
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion5.add("INE, con datos del BANGUAT");
         seccion5.add(true);
         cap1.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
         seccion6.add("1_11");
-        seccion6.add("Faltas judiciales por sexo del infractor según tipo de"
-        + " falta cometida");
-        seccion6.add("Faltas judiciales ocurridas en el año 2014");
-        seccion6.add("Distribución porcentual por tipo de falta cometida");
+        seccion6.add("Principales exportaciones según secciones SAC");
+        seccion6.add("Exportaciones según las principales secciones del SAC en millones de US$");
+        seccion6.add(getFormatoTrimestre());
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        seccion6.add("1_12");
+        seccion6.add("Principales productos de importación");
+        seccion6.add("Principales productos de importación en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_12.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
         cap1.add(seccion6);
+        
+        
+        ArrayList seccion7 = new ArrayList();
+        seccion7.add("1_13");
+        seccion7.add("Importaciones según los principales países de origen");
+        seccion7.add("Importación a los principales 10 países en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_13.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        seccion7.add("1_14");
+        seccion7.add("Principales importaciones según secciones del SAC");
+        seccion7.add("Importaciones según las principales secciones del SAC en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_14.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        cap1.add(seccion7);
+        
         return cap1;        
+        
     }
     protected ArrayList cargarCapitulo2(){
         ArrayList cap2 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
-        seccion1.add("Infractores menores de 18 años");
-        seccion1.add("Número de faltas judiciales");
+        seccion1.add("Exportaciones territorio aduanero");
+        seccion1.add("Comercio territorio aduanero: exportaciones trimestrales en millones de US$");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
         seccion1.add("2_02");
-        seccion1.add("Infractores menores de edad por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Variación interanual de las exportaciones");
+        seccion1.add("Porcentaje de variación interanual de las exportaciones por territorio aduanero");
+        seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
         cap2.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Infractores menores de edad por sexo");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por sexo");
+        seccion2.add("Importaciones territorio aduanero");
+        seccion2.add("Importaciones trimestrales comercio territorio aduanero en millones de US$");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
         seccion2.add("2_04");
-        seccion2.add("Infractores menores de edad por edad");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edades simples");
+        seccion2.add("Variación Interanual de las importaciones");
+        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio territorio aduanero");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
         cap2.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
-        seccion3.add("Infractores menores de edad por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Balanza comercial del territorio aduanero");
+        seccion3.add("Balanza comercial trimestral del territorio aduanero en millones de US$");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
         seccion3.add("2_06");
-        seccion3.add("Infractores menores de edad por nivel de educación");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por nivel de educación");
+        seccion3.add("Balanza comercial relativa del territorio aduanero");
+        seccion3.add("Balanza comercial relativa del territorio aduanero adimensional");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
         cap2.add(seccion3);
         
         
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
-        seccion4.add("Infractores menores de edad por tipo de falta cometida");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por tipo de falta cometida");
+        seccion4.add("Balanza comercial por continente");
+        seccion4.add("Balanca comercial comercio territorio aduanero por continente en millones de US$");
+        seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        seccion4.add("2_08");
+        seccion4.add("Balanza comercial con Centroamérica");
+        seccion4.add("Balanza comercial del territorio aduanero con el mercado común centroamericano en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
         cap2.add(seccion4);
+        
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("2_09");
+        seccion5.add("Principales productos de exportación");
+        seccion5.add("Principales productos de exportación por territorio aduanero en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        seccion5.add("2_10");
+        seccion5.add("Exportaciones según los principales países de destino");
+        seccion5.add("Principales países de exportaciones guatemaltecas por territorio aduanero en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        cap2.add(seccion5);
+        
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("2_11");
+        seccion6.add("Principales exportaciones según secciones SAC");
+        seccion6.add("Exportaciones por territorio aduanero según las principales secciones del SAC en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        seccion6.add("2_12");
+        seccion6.add("Principales productos de importación");
+        seccion6.add("Principales productos de importación por territorio aduanero en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        cap2.add(seccion6);
+        
+        
+        ArrayList seccion7 = new ArrayList();
+        seccion7.add("2_13");
+        seccion7.add("Importaciones según los principales países de origen");
+        seccion7.add("Importación por territorio aduanero a los principales países en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        seccion7.add("2_14");
+        seccion7.add("Principales importaciones según secciones del SAC");
+        seccion7.add("Importaciones por territorio aduanero según las principales secciones del SAC en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_14.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        cap2.add(seccion7);
         
         
         return cap2;        
@@ -315,54 +405,293 @@ public class ComercioExterior extends Documento{
         ArrayList cap3 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("3_01");
-        seccion1.add("Faltas contra las personas");
-        seccion1.add("Número de faltas judiciales contra las personas");
+        seccion1.add("Exportaciones decreto 29-89");
+        seccion1.add("Comercio decreto 29-89: exportaciones trimestrales en millones de US$");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
         seccion1.add("3_02");
-        seccion1.add("Faltas contra la propiedad");
-        seccion1.add("Número de faltas judiciales contra la propiedad");
+        seccion1.add("Variación interanual de las exportaciones");
+        seccion1.add("Porcentaje de variación interanual de las exportaciones por comercio decreto 29-89");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
         cap3.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
-        seccion2.add("Faltas contra las buenas costumbres");
-        seccion2.add("Número de faltas judiciales contra las buenas costumbres");
+        seccion2.add("Importaciones decreto 29-89");
+        seccion2.add("Importaciones trimestrales comercio decreto 29-89 en millones de US$");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
         seccion2.add("3_04");
-        seccion2.add("Faltas contra el orden público");
-        seccion2.add("Número de faltas judiciales contra el orden público");
+        seccion2.add("Variación Interanual de las importaciones");
+        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio decreto 29-89");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
         cap3.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("3_05");
-        seccion3.add("Otras faltas");
-        seccion3.add("Número de faltas judiciales (Clasificadas como \"Otras\")");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Balanza comercial del decreto 29-89");
+        seccion3.add("Balanza comercial trimestral del decreto 29-89 en millones de US$");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
+        seccion3.add("3_06");
+        seccion3.add("Balanza comercial relativa del decreto 29-89");
+        seccion3.add("Balanza comercial relativa del decreto 29-89 adimensional");
+        seccion3.add(formatoSerie);
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
         cap3.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("3_07");
+        seccion4.add("Balanza comercial por continente");
+        seccion4.add("Balanca comercial comercio decreto 29-89 por continente en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        seccion4.add("3_08");
+        seccion4.add("Balanza comercial con Centroamérica");
+        seccion4.add("Balanza comercial del decreto 29-89 con el mercado común centroamericano en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_08.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        cap3.add(seccion4);
+        
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("3_09");
+        seccion5.add("Principales productos de exportación");
+        seccion5.add("Principales productos de exportación por decreto 29-89 en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        seccion5.add("3_10");
+        seccion5.add("Exportaciones según los principales países de destino");
+        seccion5.add("Principales países de exportaciones guatemaltecas por decreto 29-89 en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_10.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        cap3.add(seccion5);
+        
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("3_11");
+        seccion6.add("Principales exportaciones según secciones SAC");
+        seccion6.add("Exportaciones por decreto 29-89 según las principales secciones del SAC en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_11.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        seccion6.add("3_12");
+        seccion6.add("Principales productos de importación");
+        seccion6.add("Principales productos de importación por decreto 29-89 en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_12.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        cap3.add(seccion6);
+        
+        
+        ArrayList seccion7 = new ArrayList();
+        seccion7.add("3_13");
+        seccion7.add("Importaciones según los principales países de origen");
+        seccion7.add("Importación por decreto 29-89 a los principales países en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_13.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        seccion7.add("3_14");
+        seccion7.add("Principales importaciones según secciones del SAC");
+        seccion7.add("Importaciones por decreto 29-89 según las principales secciones del SAC en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_14.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        cap3.add(seccion7);
         
         
         return cap3;        
     }
     
     
-    
+    protected ArrayList cargarCapitulo4(){
+        ArrayList cap4 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("4_01");
+        seccion1.add("Exportaciones zonas francas");
+        seccion1.add("Comercio zonas francas: exportaciones trimestrales en millones de US$");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
+        seccion1.add("4_02");
+        seccion1.add("Variación interanual de las exportaciones");
+        seccion1.add("Porcentaje de variación interanual de las exportaciones por comercio zonas francas");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
+        cap4.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("4_03");
+        seccion2.add("Importaciones zonas francas");
+        seccion2.add("Importaciones trimestrales comercio zonas francas en millones de US$");
+        seccion2.add(formatoSerie);
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
+        seccion2.add("4_04");
+        seccion2.add("Variación Interanual de las importaciones");
+        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio zonas francas");
+        seccion2.add(formatoSerie);
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
+        cap4.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("4_05");
+        seccion3.add("Balanza comercial de zonas francas");
+        seccion3.add("Balanza comercial trimestral de zonas francas en millones de US$");
+        seccion3.add(formatoSerie);
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
+        seccion3.add("4_06");
+        seccion3.add("Balanza comercial relativa de zonas francas");
+        seccion3.add("Balanza comercial relativa de zonas francas adimensional");
+        seccion3.add(formatoSerie);
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
+        cap4.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("4_07");
+        seccion4.add("Balanza comercial por continente");
+        seccion4.add("Balanca comercial zonas francas por continente en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        seccion4.add("4_08");
+        seccion4.add("Balanza comercial con Centroamérica");
+        seccion4.add("Balanza comercial de zonas francas con el mercado común centroamericano en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_08.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        cap4.add(seccion4);
+        
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("4_09");
+        seccion5.add("Principales productos de exportación");
+        seccion5.add("Principales productos de exportación por zonas francas en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        seccion5.add("4_10");
+        seccion5.add("Exportaciones según los principales países de destino");
+        seccion5.add("Principales países de exportaciones guatemaltecas por zonas francas en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_10.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        cap4.add(seccion5);
+        
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("4_11");
+        seccion6.add("Principales exportaciones según secciones SAC");
+        seccion6.add("Exportaciones por zonas francas según las principales secciones del SAC en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_11.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        seccion6.add("4_12");
+        seccion6.add("Principales productos de importación");
+        seccion6.add("Principales productos de importación por zonas francas en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_12.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        cap4.add(seccion6);
+        
+        
+        ArrayList seccion7 = new ArrayList();
+        seccion7.add("4_13");
+        seccion7.add("Importaciones según los principales países de origen");
+        seccion7.add("Importación por zonas francas a los principales países en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_13.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        seccion7.add("4_14");
+        seccion7.add("Principales importaciones según secciones del SAC");
+        seccion7.add("Importaciones por zonas francas según las principales secciones del SAC en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_14.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        cap4.add(seccion7);
+        
+        
+        return cap4;        
+    }
+        protected void apendices(String rutaTEX){
+        escribirLinea("\n \\appendixa \n" +
+        "\n" +
+        "\n" +
+        "\n" );
+        apendice1();
+        Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        ap.setRuta("/var/www/html/Comercio/Entradas/CSV");
+        ap.generarComercioExterior();
+        
+        
+        
+    }
+    private void apendice1(){
+        String columna1 = tablaApendice("A_01",
+                "Comercio total: análisis de variación de las exportaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        
+        String columna2 = tablaApendice("A_02",
+                "Comercio total: análisis de variación de las importaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
