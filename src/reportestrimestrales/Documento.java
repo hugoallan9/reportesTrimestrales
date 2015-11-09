@@ -247,7 +247,7 @@ public class Documento {
         try {
             FileWriter escritora = new FileWriter(tex,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
-            buffer.write("\n \\includepdf{contraPortadaVitales.pdf} \n");
+            buffer.write("\n \\includepdf{contraPortada.pdf} \n");
             buffer.write("\n \\end{document}\n");
             buffer.close();
         } catch (IOException ex) {
