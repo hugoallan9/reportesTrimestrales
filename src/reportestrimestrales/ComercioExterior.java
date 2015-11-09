@@ -424,7 +424,7 @@ public class ComercioExterior extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
         seccion2.add("Importaciones decreto 29-89");
-        seccion2.add("Importaciones trimestrales comercio cdecreto 29-89 en millones de US$");
+        seccion2.add("Importaciones trimestrales comercio decreto 29-89 en millones de US$");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
         seccion2.add("INE, con datos del BANGUAT");
@@ -533,7 +533,165 @@ public class ComercioExterior extends Documento{
     }
     
     
-    
+    protected ArrayList cargarCapitulo4(){
+        ArrayList cap4 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("4_01");
+        seccion1.add("Exportaciones zonas francas");
+        seccion1.add("Comercio zonas francas: exportaciones trimestrales en millones de US$");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
+        seccion1.add("4_02");
+        seccion1.add("Variación interanual de las exportaciones");
+        seccion1.add("Porcentaje de variación interanual de las exportaciones por comercio zonas francas");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add(true);
+        cap4.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("4_03");
+        seccion2.add("Importaciones zonas francas");
+        seccion2.add("Importaciones trimestrales comercio zonas francas en millones de US$");
+        seccion2.add(formatoSerie);
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
+        seccion2.add("4_04");
+        seccion2.add("Variación Interanual de las importaciones");
+        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio zonas francas");
+        seccion2.add(formatoSerie);
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add(true);
+        cap4.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("4_05");
+        seccion3.add("Balanza comercial de zonas francas");
+        seccion3.add("Balanza comercial trimestral de zonas francas en millones de US$");
+        seccion3.add(formatoSerie);
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
+        seccion3.add("4_06");
+        seccion3.add("Balanza comercial relativa de zonas francas");
+        seccion3.add("Balanza comercial relativa de zonas francas adimensional");
+        seccion3.add(formatoSerie);
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add(true);
+        cap4.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("4_07");
+        seccion4.add("Balanza comercial por continente");
+        seccion4.add("Balanca comercial zonas francas por continente en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        seccion4.add("4_08");
+        seccion4.add("Balanza comercial con Centroamérica");
+        seccion4.add("Balanza comercial de zonas francas con el mercado común centroamericano en millones de US$");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_08.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add(true);
+        cap4.add(seccion4);
+        
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("4_09");
+        seccion5.add("Principales productos de exportación");
+        seccion5.add("Principales productos de exportación por zonas francas en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        seccion5.add("4_10");
+        seccion5.add("Exportaciones según los principales países de destino");
+        seccion5.add("Principales países de exportaciones guatemaltecas por zonas francas en millones de US$");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_10.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add(true);
+        cap4.add(seccion5);
+        
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("4_11");
+        seccion6.add("Principales exportaciones según secciones SAC");
+        seccion6.add("Exportaciones por zonas francas según las principales secciones del SAC en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_11.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        seccion6.add("4_12");
+        seccion6.add("Principales productos de importación");
+        seccion6.add("Principales productos de importación por zonas francas en millones de US$");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_12.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add(true);
+        cap4.add(seccion6);
+        
+        
+        ArrayList seccion7 = new ArrayList();
+        seccion7.add("4_13");
+        seccion7.add("Importaciones según los principales países de origen");
+        seccion7.add("Importación por zonas francas a los principales países en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_13.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        seccion7.add("4_14");
+        seccion7.add("Principales importaciones según secciones del SAC");
+        seccion7.add("Importaciones por zonas francas según las principales secciones del SAC en millones de US$");
+        seccion7.add(getFormatoTrimestre());
+        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_14.tex}  \\end{tikzpicture}");
+        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add(true);
+        cap4.add(seccion7);
+        
+        
+        return cap4;        
+    }
+        protected void apendices(String rutaTEX){
+        escribirLinea("\n \\appendixa \n" +
+        "\n" +
+        "\n" +
+        "\n" );
+        apendice1();
+        Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        ap.setRuta("/var/www/html/Comercio/Entradas/CSV");
+        ap.generarComercioExterior();
+        
+        
+        
+    }
+    private void apendice1(){
+        String columna1 = tablaApendice("A_01",
+                "Comercio total: análisis de variación de las exportaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        
+        String columna2 = tablaApendice("A_02",
+                "Comercio total: análisis de variación de las importaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");

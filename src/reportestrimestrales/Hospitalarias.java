@@ -316,7 +316,7 @@ public class Hospitalarias extends Documento{
     "\n" );
     cargarCapitulo3();
     Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
-    ap.setRuta("/var/www/html/Vitales/Entradas/CSV");
+    ap.setRuta("/var/www/html/Hospitalarias/Entradas/CSV");
     ap.generarHospitalarias();
     
     
