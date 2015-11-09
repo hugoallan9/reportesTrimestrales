@@ -37,7 +37,7 @@ public class Vitales extends Documento{
     
     private List trimestres(){
         String trm = super.getTrimestre();
-        int anio =Integer.parseInt(super.getYear());
+        int anio =Integer.parseInt(super.getYearServidor());
         List lista= new ArrayList();
         
         switch (trm.toLowerCase()) {
@@ -202,6 +202,7 @@ public class Vitales extends Documento{
         
     }
     protected void apendices(String rutaTEX){
+        System.out.println("Generando tablas de apendices");
         escribirLinea("\n \\appendixa \n" +
         "\n" +
         "\n" +
@@ -211,7 +212,11 @@ public class Vitales extends Documento{
         apendice3();
         apendice4();
         apendice5();
+        System.out.println(rutaTEX);
+        System.out.println(trimestres());
+        System.out.println(rr);
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        System.out.println("Seteando ruta de ap");
         ap.setRuta("/var/www/html/Vitales/Entradas/CSV");
         ap.generar();
         
