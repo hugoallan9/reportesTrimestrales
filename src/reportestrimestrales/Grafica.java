@@ -44,7 +44,7 @@ public class Grafica extends Thread {
             //r.eval("sink(file = '/var/www/html/IPC/sync.txt')" );
             System.out.println(r.eval("getListIpc()"));
             System.out.println("Iniciando Gráficas");
-            /* r.eval("capitulo1()");
+            r.eval("capitulo1()");
             r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");
@@ -54,12 +54,10 @@ public class Grafica extends Thread {
             r.eval("capitulo8()");
             r.eval("capitulo9()");
             r.eval("capitulo10()");
-                    */
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
-            System.out.println("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado IPC', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(ruta)) + ".pdf"+ "')");
-            r.eval("mandarCorreo('<hugoallangm@gmail.com>', 'Reporte Finalizado IPC', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(".")) + ".pdf"+ "')"); 
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado IPC', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta.substring(0, ruta.lastIndexOf(".")) + ".pdf"+ "')")); 
             //r.eval("");
             //r.eval("sink()");
             

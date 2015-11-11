@@ -236,6 +236,7 @@ public class Documento {
             "\\newcommand{\\varacu}{"+ varAcumulada   +"}\n\n");
             buffer.write("\n\n\n  %#########INICIO DE DOCUMENTO#################\n");
             buffer.write("\\begin{document}\n");
+            buffer.write("\\pagestyle{soloarriba} \n");
             buffer.write("\\includepdf{caratula.pdf}");
             buffer.close();
         } catch (IOException ex) {
@@ -378,6 +379,7 @@ public class Documento {
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write("\n" +
             "	$\\ $\n" +
+                    "\\pagestyle{soloarriba} \n"+
             "	\\vspace{0.0cm}\n" +
             "	\n" +
             "	\\begin{center}\n" +
@@ -471,7 +473,7 @@ public class Documento {
                 "	\n" +
                 "	\n" +
                 "	\n" +
-                "\\end{center}\\setcounter{page}{0}\\cleardoublepage\n" +
+                "\\end{center}\\cleardoublepage\n" +
                 "\n" +
                 "\n" +
                 "\n" +
@@ -480,8 +482,6 @@ public class Documento {
                 "\\tableofcontents\n" +
                 "\n" +
                 "\\cleardoublepage\n" +
-                "\\pagestyle{estandar}\n" +
-                "\\setcounter{page}{1}\n" +
                 "\\setlength{\\arrayrulewidth}{1.0pt}\n" +
                 "\n" +
                 "\n" +
@@ -492,6 +492,7 @@ public class Documento {
                 "\n" +
                 "\n" +
                 "$\\ $\\\\[0.5cm]\n"  +
+                "\\pagestyle{soloarriba}"+
                 "\\noindent {\\Bold \\huge Presentación}\n" +
                 "\n" +
                 "\n" +
@@ -520,11 +521,13 @@ public class Documento {
                 + " de cálculo para la obtención de los diferentes índices y variaciones."
                 + ""
                 + "\n" +
-                "$\\ $"
-                +"\\thispagestyle{empty}\n" +
+                "$\\ $"+
                 "\n" +
                 "\n" +
-                "\\cleardoublepage");
+                "\\cleardoublepage \n"+
+                "\\pagestyle{estandar}\n"+
+                " \\setcounter{page}{1}"
+                );
     }
     
     
@@ -554,103 +557,14 @@ public class Documento {
         }
     }
     
-    protected void preambuloAnual(){
-       File file = null; 
-       URL url = null;
-        try {
-            file = new  File(ruta,"Carta3.tex");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/Carta3.tex");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            file = new  File(ruta,"encabezado.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/encabezado.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        
-        try {
-            file = new  File(ruta,"encabezadopar.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/encabezadopar.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            file = new  File(ruta,"fondo-capitulo.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/fondo-capitulo.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-        try {
-            file = new  File(ruta,"fondo-capitulo-no-descripcion.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/fondo-capitulo-no-descripcion.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            file = new  File(ruta,"topeven3.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/topeven3.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            file = new  File(ruta,"topodd3.pdf");
-            url = new URL("http://www.ine.gob.gt/ftparchivos/Carta/topodd3.pdf");
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        protected void preambuloAnual(){
+           File source = new File("/home/ineservidor/Carta");
+            File dest = new File(getRuta());
+            try {
+                FileUtils.copyDirectory(source, dest);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         
         
         try {
@@ -673,6 +587,7 @@ public class Documento {
            FileWriter escritora = new FileWriter(tex,true);
            BufferedWriter buffer = new BufferedWriter(escritora);
            buffer.write("$\\ $\n" +
+           "\\thispagestyle{empty}"+       
            "\\vspace{4.5cm}\n" +
            "\n" +
            "\\noindent\\begin{tabular}{p{0.1cm}p{6.8cm}}\n" +
@@ -716,14 +631,7 @@ public class Documento {
            "\n" +
            "\n" +
            "\\clearpage");
-           
-           buffer.write("$\\ $\n" +
-          "\\vspace{7cm}\n" +
-          "\n" +
-          "\\begin{center}\n" +
-          "	\\Bold \\LARGE {\\MakeUppercase{\\titulodoc}} \\\\\n" +
-                   "\\end{center}\n" +
-          "\\cleardoublepage");
+
            buffer.close();
         } catch(IOException ex){
             System.out.println(ex);
