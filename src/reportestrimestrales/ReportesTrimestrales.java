@@ -200,6 +200,46 @@ public class ReportesTrimestrales {
         }
 
         
+        if ( args[0].equalsIgnoreCase("hospitalarias") ){
+            String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("hospitalarias <- leerLibro('/var/www/html/Hospitalarias/Entradas/hospitalarias.xlsx')"));
+            System.out.println(r.get().eval("hospitalarias <- convertirFechas(hospitalarias)"));
+            r.get().eval("escribirCSV(hospitalarias, '/var/www/html/Hospitalarias/Entradas/CSV')");
+            File hospitalarias = new File(rutaHospitalarias, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !hospitalarias.exists() ){
+                hospitalarias.setReadable(true, false);
+                hospitalarias.setExecutable(true, false);
+                hospitalarias.setWritable(true, false);
+                hospitalarias.mkdir();
+            }
+            System.out.println("Arg 3: " + args[3]);
+            Hospitalarias docu;
+            docu= new Hospitalarias("Estadísticas Hospitalarias",getTrimestreCadena(Integer.parseInt(args[2])),args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
+            docu.setRuta(hospitalarias.getAbsolutePath()+"/");
+            docu.setTex("hospitalarias");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.terminarDocumento();
+            docu.getRr().get().end();
+            System.out.println("Antes ");
+            Generador descripciones = new Generador("/var/www/html/Hospitalarias/Entradas/CSV", rutaHospitalarias);
+            descripciones.run();
+            System.out.println("Despues");
+            
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
+        
      
       
   }
