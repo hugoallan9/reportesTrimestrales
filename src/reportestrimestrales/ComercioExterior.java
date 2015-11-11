@@ -199,7 +199,7 @@ public class ComercioExterior extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
         seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial de Guatemala por continente en millones de US$");
+        seccion4.add("Balanza comercial de Guatemala por continente en millones de US$");
         seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, con datos del BANGUAT");
@@ -328,7 +328,7 @@ public class ComercioExterior extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
         seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial comercio territorio aduanero por continente en millones de US$");
+        seccion4.add("Balanza comercial comercio territorio aduanero por continente en millones de US$");
         seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, con datos del BANGUAT");
@@ -461,7 +461,7 @@ public class ComercioExterior extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("3_07");
         seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial comercio decreto 29-89 por continente en millones de US$");
+        seccion4.add("Balanza comercial comercio decreto 29-89 por continente en millones de US$");
         seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, con datos del BANGUAT");
@@ -593,7 +593,7 @@ public class ComercioExterior extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("4_07");
         seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial zonas francas por continente en millones de US$");
+        seccion4.add("Balanza comercial zonas francas por continente en millones de US$");
         seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_07.tex}  \\end{tikzpicture}");
         seccion4.add("INE, con datos del BANGUAT");

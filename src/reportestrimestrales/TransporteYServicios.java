@@ -65,25 +65,18 @@ public class TransporteYServicios extends Documento{
     }
     
     protected void setIntroCapitulos(){
-        introCapitulos.add("Es el total de las operaciones de comercio exterior. "
-                + "Incluye el régimen general de territorio aduanero, el comercio "
-                + "de zonas francas y los regímenes "
-                + "bajo la aplicación de la ley de Fomento y Desarrollo de la Actividad "
-                + "Exportadora y de Maquila (Decreto 29-89).");
-        introCapitulos.add("Son las operaciones de comercio exterior que se realizan "
-                + "dentro del territorio en el que la aduana ejerce su jurisdicción y "
-                + "en el que son plenamente aplicables las disposiciones de la "
-                + "legislación arancelaria y aduanera nacional.");
-        introCapitulos.add("Regímenes bajo la aplicación de la ley de Fomento y "
-                + "Desarrollo de la Actividad Exportadora y de Maquila.");
-        introCapitulos.add("Son las operaciones que se realizan en el área de terreno "
-                + "físicamente delimitada, planificada y diseñada, sujeta a un "
-                + "Régimen Aduanero Especial, en la que personas individuales o "
-                + "jurídicas se dediquen indistintamente a la producción o "
-                + "comercialización de bienes para la exportación o "
-                + "reexportación, así como a la prestación de servicios vinculados "
-                + "con el comercio internacional. La zona franca estará custodiada "
-                + "y controlada por la autoridad aduanera.");
+        introCapitulos.add("Es el servicio de trasladar de un lugar a otro a los "
+                + "pasajeros o cargamento, mediante la utilización de aeronaves.");
+        introCapitulos.add("Es el servicio de mensajería de correspondencia, "
+                + "paquetes y otros a través de avión.");
+        introCapitulos.add("Es el servicio de llevar carga por mar de un punto "
+                + "geográfico a otro a través de buques, siendo el modo más "
+                + "utilizado para el comercio internacional y el que soporta "
+                + "mayor movimiento de mercancías, tanto en contenedores como "
+                + "graneles secos o líquidos.");
+        introCapitulos.add("Es la cantidad de vehículos registrados en la "
+                + "ciudad de Guatemala a través de la Superintendencia de "
+                + "Administración Tributaria.");
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
@@ -142,54 +135,60 @@ public class TransporteYServicios extends Documento{
         ArrayList cap1 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("1_01");
-        seccion1.add("Exportaciones totales");
-        seccion1.add("Comercio Total: exportaciones trimestrales en millones de US$");
+        seccion1.add("Exportación aérea");
+        seccion1.add("Volumen de carga exportada a través del "
+                + "aereopuerto internacional La Aurora en miles de Kilogramos.");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion1.add(true);
         seccion1.add("1_02");
-        seccion1.add("Variación interanual de las exportaciones");
-        seccion1.add("Porcentaje de variación interanual de las exportaciones");
+        seccion1.add("Importación aérea");
+        seccion1.add("Volumen de carga importada a través del "
+                + "aereopuerto internacional La Aurora en miles de Kilogramos");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion1.add(true);
         cap1.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
-        seccion2.add("Importaciones totales");
-        seccion2.add("Comercio total: importaciones trimestrales en millones de US$");
+        seccion2.add("Alimentos exportados vía aérea");
+        seccion2.add("Carga de alimentos exportados a través del "
+                + "aereopuerto internacional La Aurora en Kilogramos");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion2.add(true);
         seccion2.add("1_04");
-        seccion2.add("Variación Interanual de las importaciones");
-        seccion2.add("Porcentaje de variación interanual de las importaciones");
+        seccion2.add("Artículos exportados vía aérea");
+        seccion2.add("Carga de artículos exportados a través del "
+                + "aereopuerto internacional La Aurora en Kilogramos");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion2.add(true);
         cap1.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
-        seccion3.add("Balanza comercial general");
-        seccion3.add("Balanza comercial general trimestral en millones de US$");
+        seccion3.add("Plantas exportadoras vía aérea");
+        seccion3.add("Carga de plantas exportadas a través del "
+                + "aereopuerto internacional La Aurora en miles de Kilogramos");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion3.add(true);
         seccion3.add("1_06");
-        seccion3.add("Balanza comercial relativa");
-        seccion3.add("Balanza comercial relativa adimensional");
+        seccion3.add("Animales exportados vía aérea");
+        seccion3.add("Carga de animales exportados a través del "
+                + "aeropuerto internacional La Aurora en Kilogramos");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion3.add(true);
         cap1.add(seccion3);
         
@@ -197,72 +196,56 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
-        seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial de Guatemala por continente en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Aeropuerto La Aurora: vuelos nacionales");
+        seccion4.add("Despegues de vuelos nacionales en aeropuerto internacional"
+                + "La Aurora");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion4.add(true);
         seccion4.add("1_08");
-        seccion4.add("Balanza comercial con Centroamérica");
-        seccion4.add("Balanza comercial de Guatemala con el mercado común centroamericano en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Aeropuerto La Aurora: vuelos internacionales");
+        seccion4.add("Despegues de vuelos internacionales en aeropuerto "
+                + "internacional La Aurora");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion4.add(true);
         cap1.add(seccion4);
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("1_09");
-        seccion5.add("Principales productos de exportación");
-        seccion5.add("Principales productos de exportación en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Aeropuerto La Aurora: pasajeros que arriban");
+        seccion5.add("Pasajeros que arriban en el aeropuerto internacional La Aurora");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
         seccion5.add("1_10");
-        seccion5.add("Exportaciones según los principales países de destino");
-        seccion5.add("Principales destinos de exportaciones guatemaltecas en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Aeropuerto La Aurora: pasajeros que salen");
+        seccion5.add("Pasajeros que salen del aeropuerto internacional La Aurora");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
         cap1.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
         seccion6.add("1_11");
-        seccion6.add("Principales exportaciones según secciones SAC");
-        seccion6.add("Exportaciones según las principales secciones del SAC en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Aeropuerto Mundo Maya: pasajeros que arriban");
+        seccion6.add("Pasajeros que arriban en el aeropuerto internacional Mundo Maya");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
         seccion6.add("1_12");
-        seccion6.add("Principales productos de importación");
-        seccion6.add("Principales productos de importación en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Aeropuerto Mundo Maya: pasajeros que salen");
+        seccion6.add("Pasajeros que salen del aeropuerto internacional Mundo Maya");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_12.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
         cap1.add(seccion6);
-        
-        
-        ArrayList seccion7 = new ArrayList();
-        seccion7.add("1_13");
-        seccion7.add("Importaciones según los principales países de origen");
-        seccion7.add("Importación a los principales 10 países en millones de US$");
-        seccion7.add(getFormatoTrimestre());
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_13.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
-        seccion7.add(true);
-        seccion7.add("1_14");
-        seccion7.add("Principales importaciones según secciones del SAC");
-        seccion7.add("Importaciones según las principales secciones del SAC en millones de US$");
-        seccion7.add(getFormatoTrimestre());
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_14.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
-        seccion7.add(true);
-        cap1.add(seccion7);
         
         return cap1;        
         
@@ -271,54 +254,55 @@ public class TransporteYServicios extends Documento{
         ArrayList cap2 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
-        seccion1.add("Exportaciones territorio aduanero");
-        seccion1.add("Comercio territorio aduanero: exportaciones trimestrales en millones de US$");
+        seccion1.add("Envío de correspondencia vía aérea");
+        seccion1.add("Envío de correspondencia vía aérea");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion1.add(true);
         seccion1.add("2_02");
-        seccion1.add("Variación interanual de las exportaciones");
-        seccion1.add("Porcentaje de variación interanual de las exportaciones por territorio aduanero");
+        seccion1.add("Peso de la correspondencia vía aérea");
+        seccion1.add("Peso de la correspondencia enviada por vía aérea en Kilogramos");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion1.add(true);
         cap2.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Importaciones territorio aduanero");
-        seccion2.add("Importaciones trimestrales comercio territorio aduanero en millones de US$");
-        seccion2.add(formatoSerie);
+        seccion2.add("Envío de correspondencia por continente");
+        seccion2.add("Envío de correspondencia vía aérea");
+        seccion2.add("Distribución porcentual según continente");
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
         seccion2.add("2_04");
-        seccion2.add("Variación Interanual de las importaciones");
-        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio territorio aduanero");
-        seccion2.add(formatoSerie);
+        seccion2.add("Principales países de destino de correspondencia");
+        seccion2.add("Principales países de destino de la correspondencia enviada desde Guatemala");
+        seccion2.add("Número de envíos");
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
         cap2.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
-        seccion3.add("Balanza comercial del territorio aduanero");
-        seccion3.add("Balanza comercial trimestral del territorio aduanero en millones de US$");
+        seccion3.add("Correspondencia a Centroamérica y Panamá");
+        seccion3.add("Envío de correspondencia vía aérea a América Central y Panamá");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion3.add(true);
         seccion3.add("2_06");
-        seccion3.add("Balanza comercial relativa del territorio aduanero");
-        seccion3.add("Balanza comercial relativa del territorio aduanero adimensional");
+        seccion3.add("Peso de la correspondencia enviada a Centroamérica y Panamá");
+        seccion3.add("Peso de la correspondencia enviada por vía aérea a "
+                + "América Central y Panamá en Kilogramos");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion3.add(true);
         cap2.add(seccion3);
         
@@ -326,51 +310,52 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
-        seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial comercio territorio aduanero por continente en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Correspondencia a Norteamérica");
+        seccion4.add("Envío de correspondencia vía aérea a América del Norte");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion4.add(true);
         seccion4.add("2_08");
-        seccion4.add("Balanza comercial con Centroamérica");
-        seccion4.add("Balanza comercial del territorio aduanero con el mercado común centroamericano en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Peso de la correspondencia enviada a Norteamérica");
+        seccion4.add("Peso de la correspondencia enviada por vía aérea a Norteamérica en Kilogramos");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion4.add(true);
         cap2.add(seccion4);
         
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("2_09");
-        seccion5.add("Principales productos de exportación");
-        seccion5.add("Principales productos de exportación por territorio aduanero en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Correspondencia a Sudamérica");
+        seccion5.add("Envío de correspondencia vía aérea a América del Sur");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion5.add(true);
         seccion5.add("2_10");
-        seccion5.add("Exportaciones según los principales países de destino");
-        seccion5.add("Principales países de exportaciones guatemaltecas por territorio aduanero en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Peso de la correspondencia enviada a Sudamérica");
+        seccion5.add("Peso de la correspondencia enviada por vía aérea a "
+                + "América del Sur en Kilogramos");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion5.add(true);
         cap2.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
         seccion6.add("2_11");
-        seccion6.add("Principales exportaciones según secciones SAC");
-        seccion6.add("Exportaciones por territorio aduanero según las principales secciones del SAC en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Correspondencia a Europa");
+        seccion6.add("Envío de correspondencia vía aérea a Europa");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion6.add(true);
         seccion6.add("2_12");
-        seccion6.add("Principales productos de importación");
-        seccion6.add("Principales productos de importación por territorio aduanero en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Peso de la correspondencia enviada a Europa");
+        seccion6.add("Peso de la correspondencia enviada por vía aérea a Europa en Kilogramos");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
@@ -379,20 +364,152 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion7 = new ArrayList();
         seccion7.add("2_13");
-        seccion7.add("Importaciones según los principales países de origen");
-        seccion7.add("Importación por territorio aduanero a los principales países en millones de US$");
-        seccion7.add(getFormatoTrimestre());
+        seccion7.add("Correspondencia a Asia, África y Oceanía");
+        seccion7.add("Envío de correspondencia vía aérea a Asia, África y Oceanía");
+        seccion7.add(formatoSerie);
         seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion7.add(true);
         seccion7.add("2_14");
-        seccion7.add("Principales importaciones según secciones del SAC");
-        seccion7.add("Importaciones por territorio aduanero según las principales secciones del SAC en millones de US$");
-        seccion7.add(getFormatoTrimestre());
+        seccion7.add("Peso de la correspondencia enviada a Asia, África y Oceanía");
+        seccion7.add("Peso de la correspondencia enviada por vía aérea a Asia, África "
+                + "y Oceanía en Kilogramos");
+        seccion7.add(formatoSerie);
         seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_14.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion7.add(true);
         cap2.add(seccion7);
+        
+        ArrayList seccion8 = new ArrayList();
+        seccion8.add("2_15");
+        seccion8.add("Envío de encomiendas vía aérea");
+        seccion8.add("Cantidad de encomiendas enviadas por vía aérea");
+        seccion8.add(formatoSerie);
+        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_15.tex}  \\end{tikzpicture}");
+        seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion8.add(true);
+        seccion8.add("2_16");
+        seccion8.add("Peso de las encomiendas vía aérea");
+        seccion8.add("Peso total de las encomiendas enviadas por vía aérea en Kilogramos");
+        seccion8.add(formatoSerie);
+        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_16.tex}  \\end{tikzpicture}");
+        seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion8.add(true);
+        cap2.add(seccion8);
+        
+        
+        
+        
+        ArrayList seccion9 = new ArrayList();
+        seccion9.add("2_17");
+        seccion9.add("Encomiendas a Centroamérica y Panamá");
+        seccion9.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "América Central y Panamá");
+        seccion9.add(formatoSerie);
+        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_17.tex}  \\end{tikzpicture}");
+        seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion9.add(true);
+        seccion9.add("2_18");
+        seccion9.add("Peso de las encomiendas a Centroamérica y Panamá");
+        seccion9.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a América Central y Panamá en Kilogramos");
+        seccion9.add(formatoSerie);
+        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_18.tex}  \\end{tikzpicture}");
+        seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion9.add(true);
+        cap2.add(seccion9);
+        
+        
+        
+        
+        ArrayList seccion10 = new ArrayList();
+        seccion10.add("2_19");
+        seccion10.add("Encomiendas a Norteamérica");
+        seccion10.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "América del Norte");
+        seccion10.add(formatoSerie);
+        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_19.tex}  \\end{tikzpicture}");
+        seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion10.add(true);
+        seccion10.add("2_20");
+        seccion10.add("Peso de las encomiendas a Norteamérica");
+        seccion10.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a América del Norte en Kilogramos");
+        seccion10.add(formatoSerie);
+        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_20.tex}  \\end{tikzpicture}");
+        seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion10.add(true);
+        cap2.add(seccion10);
+        
+        ArrayList seccion11 = new ArrayList();
+        seccion11.add("2_21");
+        seccion11.add("Encomiendas a Sudamérica");
+        seccion11.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "América del Sur");
+        seccion11.add(formatoSerie);
+        seccion11.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_21.tex}  \\end{tikzpicture}");
+        seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion11.add(true);
+        seccion11.add("2_22");
+        seccion11.add("Peso de las encomiendas a Sudamérica");
+        seccion11.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a América del Sur en Kilogramos");
+        seccion11.add(formatoSerie);
+        seccion11.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_22.tex}  \\end{tikzpicture}");
+        seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion11.add(true);
+        cap2.add(seccion11);
+        
+        
+        
+        ArrayList seccion12 = new ArrayList();
+        seccion12.add("2_23");
+        seccion12.add("Encomiendas a Europa");
+        seccion12.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "Europa");
+        seccion12.add(formatoSerie);
+        seccion12.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_23.tex}  \\end{tikzpicture}");
+        seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion12.add(true);
+        seccion12.add("2_24");
+        seccion12.add("Peso de las encomiendas a Europa");
+        seccion12.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a Europa en Kilogramos");
+        seccion12.add(formatoSerie);
+        seccion12.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_24.tex}  \\end{tikzpicture}");
+        seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion12.add(true);
+        cap2.add(seccion12);
+        
+        
+        
+        ArrayList seccion13 = new ArrayList();
+        seccion13.add("2_25");
+        seccion13.add("Encomiendas a Asia, África y Oceanía");
+        seccion13.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "Asia, África y Oceanía");
+        seccion13.add(formatoSerie);
+        seccion13.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_25.tex}  \\end{tikzpicture}");
+        seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion13.add(true);
+        seccion13.add("2_26");
+        seccion13.add("Peso de las encomiendas a Asia, África y Oceanía");
+        seccion13.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a Asia, África y Oceanía en Kilogramos");
+        seccion13.add(formatoSerie);
+        seccion13.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_26.tex}  \\end{tikzpicture}");
+        seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion13.add(true);
+        cap2.add(seccion13);
+        
+        ArrayList seccion14 = new ArrayList();
+        seccion14.add("2_27");
+        seccion14.add("Principales destinos de las encomiendas");
+        seccion14.add("Principales países de destino de las encomiendas");
+        seccion14.add(getFormatoTrimestre());
+        seccion14.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_27.tex}  \\end{tikzpicture}");
+        seccion14.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        
         
         
         return cap2;        
@@ -828,26 +945,21 @@ public class TransporteYServicios extends Documento{
                 "\n" +
                 "\n" +
                 "$\\ $\\\\\n" +
-                "\\indent El Instituto Nacional de Estadística -INE-, consciente de la demanda de información "
-                + "demográfica y siendo el ente rector de la política estadística nacional "
-                + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
-                + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas Vitales}"
-                + ", con información correspondiente al {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}, información esencial para la planificación del desarrollo humano.\n" +
+                "\\indent El Instituto Nacional de Estadística -INE-, a través de la Unidad de Transportes "
+                + "y Servicios, elaboró la edición del {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
+                + getAnioPublicacion() +"} sobre {\\Bold Estadísticas de Transportes y Servicios}, que contiene "
+                + "los capítulos de transporte aéreo, tráfico postal, movimiento marítimo "
+                + "y paque vehícular. \n" +
                 "\n" +
-                "La información presentada a continuación fue recolectada a través "
-                + "del Registro Nacional de las Personas  -RENAP- y consiste en "
-                + "los hechos ocurridos sobre nacimientos, defunciones, defunciones fetales, "
-                + "matrimonios y divorcios registrados "
-                + "en el "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion() +" .  "
-                + "Sin embargo, los datos para el período {\\Bold son preliminares}, "
-                + "sujetos a la adición de registros ingresados tardíamente.\n" +
+                "El documento contiene la información que proporciona la Dirección de Aeronáutica "
+                + "Civil, Dirección General de Correos y Telégrafos, Comisión Portuaria Nacional y "
+                + "Superintendecia de Administración Tributaria. {\\Bold Los datos presentados son "
+                + "preliminares} y serán ajustados con el ingreso de los registros tardíos.\n" +
                 "\n" +
-                "Por lo tanto, el INE se complace en presentar este informe, con "
-                + "el propósito de brindar una herramienta más de análisis a la "
-                + "población guatemalteca, y a la vez agradece el aporte y colaboración "
-                + "del Registro Nacional de las Personas, al cual se insta  a "
-                + "continuar con el apoyo a este proceso.\n" +
+                "El INE agradece el apoyo brindado por las fuentes de información, esperando "
+                + "que esta nueva edición sea de utilidad tanto a investigadores y público en "
+                + "general como para la elaboración de programas, políticas, planes en materia "
+                + "de servicios y transportes para el país.\n" +
                 "\n" +
                 "\\thispagestyle{empty}\n" +
                 "\n" +

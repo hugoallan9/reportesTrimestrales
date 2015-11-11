@@ -380,32 +380,27 @@ public class FaltasJudiciales extends Documento{
                 "Faltas contra la propiedad: análisis de variación",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos del RENAP",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
                 "");
         
         String columna2 = tablaApendice("A_04",
                 "Faltas contra el orden público: análisis de variación",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos del RENAP",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
                 "");
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
     private void apendice3(){
         String columna1 = tablaApendice("A_05",
-                "Defunciones fetales por trimestre de ocurrencia, según departamento de residencia de la madre",
-                "1",
-                "plantillaTabla1.pdf",
-                "INE, con datos del RENAP",
-                "");
-        
-        String columna2 = tablaApendice("A_06",
-                "Análisis de variación de defunciones fetales",
+                "Faltas contra las buenas costumbres: análisis de variación",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos del RENAP",
+                "INE, con datos de los juzgados de paz del Organismo Judicial",
                 "");
+        
+        String columna2 = "";
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
