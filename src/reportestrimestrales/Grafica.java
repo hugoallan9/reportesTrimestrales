@@ -64,6 +64,20 @@ public class Grafica extends Thread {
 
             
         }
+        else if(lista.equalsIgnoreCase("hospitalarias")){
+            /*hospitalarias
+                    graficas aqui
+            */
+            r.eval("compilar('" + ruta  + "/hospitalarias.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/hospitalarias.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionHospitalarias.tex', mostrar = F)");
+            
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
+            //System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
+            
+        }
+        
+        
         
     }
 }

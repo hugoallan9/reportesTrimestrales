@@ -132,8 +132,8 @@ public class ComercioExterior extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"')");
-                REXP nombres = rr.get().eval("names(vitales)");
+                REXP listadoCSV = rr.get().eval("comercio <- cargaMasiva('" +  ruta +"')");
+                REXP nombres = rr.get().eval("names(comercio)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
             }
@@ -695,8 +695,8 @@ public class ComercioExterior extends Documento{
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
-        Grafica vitales = new Grafica("vitales", getRuta(), rr.get(), modalidad);
-        vitales.start();
+        Grafica comercio = new Grafica("comercio", getRuta(), rr.get(), modalidad);
+        comercio.start();
     }
     
     protected void hacerPortada(){
