@@ -298,10 +298,11 @@ public class TransporteYServicios extends Documento{
         seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Peso de la correspondencia enviada a Centroamérica y Panamá");
-        seccion3.add("Balanza comercial relativa del territorio aduanero adimensional");
+        seccion3.add("Peso de la correspondencia enviada por vía aérea a "
+                + "América Central y Panamá en Kilogramos");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion3.add(true);
         cap2.add(seccion3);
         
@@ -309,51 +310,52 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
-        seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial comercio territorio aduanero por continente en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Correspondencia a Norteamérica");
+        seccion4.add("Envío de correspondencia vía aérea a América del Norte");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion4.add(true);
         seccion4.add("2_08");
-        seccion4.add("Balanza comercial con Centroamérica");
-        seccion4.add("Balanza comercial del territorio aduanero con el mercado común centroamericano en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Peso de la correspondencia enviada a Norteamérica");
+        seccion4.add("Peso de la correspondencia enviada por vía aérea a Norteamérica en Kilogramos");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion4.add(true);
         cap2.add(seccion4);
         
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("2_09");
-        seccion5.add("Principales productos de exportación");
-        seccion5.add("Principales productos de exportación por territorio aduanero en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Correspondencia a Sudamérica");
+        seccion5.add("Envío de correspondencia vía aérea a América del Sur");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion5.add(true);
         seccion5.add("2_10");
-        seccion5.add("Exportaciones según los principales países de destino");
-        seccion5.add("Principales países de exportaciones guatemaltecas por territorio aduanero en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Peso de la correspondencia enviada a Sudamérica");
+        seccion5.add("Peso de la correspondencia enviada por vía aérea a "
+                + "América del Sur en Kilogramos");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion5.add(true);
         cap2.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
         seccion6.add("2_11");
-        seccion6.add("Principales exportaciones según secciones SAC");
-        seccion6.add("Exportaciones por territorio aduanero según las principales secciones del SAC en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Correspondencia a Europa");
+        seccion6.add("Envío de correspondencia vía aérea a Europa");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion6.add(true);
         seccion6.add("2_12");
-        seccion6.add("Principales productos de importación");
-        seccion6.add("Principales productos de importación por territorio aduanero en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Peso de la correspondencia enviada a Europa");
+        seccion6.add("Peso de la correspondencia enviada por vía aérea a Europa en Kilogramos");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
@@ -362,20 +364,152 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion7 = new ArrayList();
         seccion7.add("2_13");
-        seccion7.add("Importaciones según los principales países de origen");
-        seccion7.add("Importación por territorio aduanero a los principales países en millones de US$");
-        seccion7.add(getFormatoTrimestre());
+        seccion7.add("Correspondencia a Asia, África y Oceanía");
+        seccion7.add("Envío de correspondencia vía aérea a Asia, África y Oceanía");
+        seccion7.add(formatoSerie);
         seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion7.add(true);
         seccion7.add("2_14");
-        seccion7.add("Principales importaciones según secciones del SAC");
-        seccion7.add("Importaciones por territorio aduanero según las principales secciones del SAC en millones de US$");
-        seccion7.add(getFormatoTrimestre());
+        seccion7.add("Peso de la correspondencia enviada a Asia, África y Oceanía");
+        seccion7.add("Peso de la correspondencia enviada por vía aérea a Asia, África "
+                + "y Oceanía en Kilogramos");
+        seccion7.add(formatoSerie);
         seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_14.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion7.add(true);
         cap2.add(seccion7);
+        
+        ArrayList seccion8 = new ArrayList();
+        seccion8.add("2_15");
+        seccion8.add("Envío de encomiendas vía aérea");
+        seccion8.add("Cantidad de encomiendas enviadas por vía aérea");
+        seccion8.add(formatoSerie);
+        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_15.tex}  \\end{tikzpicture}");
+        seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion8.add(true);
+        seccion8.add("2_16");
+        seccion8.add("Peso de las encomiendas vía aérea");
+        seccion8.add("Peso total de las encomiendas enviadas por vía aérea en Kilogramos");
+        seccion8.add(formatoSerie);
+        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_16.tex}  \\end{tikzpicture}");
+        seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion8.add(true);
+        cap2.add(seccion8);
+        
+        
+        
+        
+        ArrayList seccion9 = new ArrayList();
+        seccion9.add("2_17");
+        seccion9.add("Encomiendas a Centroamérica y Panamá");
+        seccion9.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "América Central y Panamá");
+        seccion9.add(formatoSerie);
+        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_17.tex}  \\end{tikzpicture}");
+        seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion9.add(true);
+        seccion9.add("2_18");
+        seccion9.add("Peso de las encomiendas a Centroamérica y Panamá");
+        seccion9.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a América Central y Panamá en Kilogramos");
+        seccion9.add(formatoSerie);
+        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_18.tex}  \\end{tikzpicture}");
+        seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion9.add(true);
+        cap2.add(seccion9);
+        
+        
+        
+        
+        ArrayList seccion10 = new ArrayList();
+        seccion10.add("2_19");
+        seccion10.add("Encomiendas a Norteamérica");
+        seccion10.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "América del Norte");
+        seccion10.add(formatoSerie);
+        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_19.tex}  \\end{tikzpicture}");
+        seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion10.add(true);
+        seccion10.add("2_20");
+        seccion10.add("Peso de las encomiendas a Norteamérica");
+        seccion10.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a América del Norte en Kilogramos");
+        seccion10.add(formatoSerie);
+        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_20.tex}  \\end{tikzpicture}");
+        seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion10.add(true);
+        cap2.add(seccion10);
+        
+        ArrayList seccion11 = new ArrayList();
+        seccion11.add("2_21");
+        seccion11.add("Encomiendas a Sudamérica");
+        seccion11.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "América del Sur");
+        seccion11.add(formatoSerie);
+        seccion11.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_21.tex}  \\end{tikzpicture}");
+        seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion11.add(true);
+        seccion11.add("2_22");
+        seccion11.add("Peso de las encomiendas a Sudamérica");
+        seccion11.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a América del Sur en Kilogramos");
+        seccion11.add(formatoSerie);
+        seccion11.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_22.tex}  \\end{tikzpicture}");
+        seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion11.add(true);
+        cap2.add(seccion11);
+        
+        
+        
+        ArrayList seccion12 = new ArrayList();
+        seccion12.add("2_23");
+        seccion12.add("Encomiendas a Europa");
+        seccion12.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "Europa");
+        seccion12.add(formatoSerie);
+        seccion12.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_23.tex}  \\end{tikzpicture}");
+        seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion12.add(true);
+        seccion12.add("2_24");
+        seccion12.add("Peso de las encomiendas a Europa");
+        seccion12.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a Europa en Kilogramos");
+        seccion12.add(formatoSerie);
+        seccion12.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_24.tex}  \\end{tikzpicture}");
+        seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion12.add(true);
+        cap2.add(seccion12);
+        
+        
+        
+        ArrayList seccion13 = new ArrayList();
+        seccion13.add("2_25");
+        seccion13.add("Encomiendas a Asia, África y Oceanía");
+        seccion13.add("Cantidad de encomiendas enviadas por vía aérea a "
+                + "Asia, África y Oceanía");
+        seccion13.add(formatoSerie);
+        seccion13.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_25.tex}  \\end{tikzpicture}");
+        seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion13.add(true);
+        seccion13.add("2_26");
+        seccion13.add("Peso de las encomiendas a Asia, África y Oceanía");
+        seccion13.add("Peso total de las encomiendas enviadas por vía aérea "
+                + "a Asia, África y Oceanía en Kilogramos");
+        seccion13.add(formatoSerie);
+        seccion13.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_26.tex}  \\end{tikzpicture}");
+        seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        seccion13.add(true);
+        cap2.add(seccion13);
+        
+        ArrayList seccion14 = new ArrayList();
+        seccion14.add("2_27");
+        seccion14.add("Principales destinos de las encomiendas");
+        seccion14.add("Principales países de destino de las encomiendas");
+        seccion14.add(getFormatoTrimestre());
+        seccion14.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_27.tex}  \\end{tikzpicture}");
+        seccion14.add("INE, con datos de Dirección General de Correos y Telégrafos");
+        
         
         
         return cap2;        
