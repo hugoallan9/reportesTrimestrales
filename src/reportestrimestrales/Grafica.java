@@ -68,6 +68,11 @@ public class Grafica extends Thread {
             /*hospitalarias
                     graficas aqui
             */
+            
+             r.eval("graficasHospitalarias("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasHospitalarias("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasHospitalarias("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta  + "/hospitalarias.tex', mostrar = F)");
             r.eval("compilar('" + ruta + "/hospitalarias.tex', mostrar = F)");
             r.eval("compilar('" + ruta  + "/presentacionHospitalarias.tex', mostrar = F)");
