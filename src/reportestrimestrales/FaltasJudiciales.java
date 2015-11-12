@@ -122,8 +122,8 @@ public class FaltasJudiciales extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"')");
-                REXP nombres = rr.get().eval("names(vitales)");
+                REXP listadoCSV = rr.get().eval("faltas <- cargaMasiva('" +  ruta +"')");
+                REXP nombres = rr.get().eval("names(faltas)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
             }
@@ -568,43 +568,7 @@ public class FaltasJudiciales extends Documento{
                 "\\cleardoublepage");
     }
     
-    private String asistencia(String valor){
-        String retorno = "";
-        System.out.println(valor);
-        if(comparador.compare(valor,"medica") == 0){
-            retorno = "recibieron asistencia médica";
-        }else if(comparador.compare(valor, "comadrona") == 0){
-            retorno = "fueron asistidos por una comadrona";
-        }else if(comparador.compare(valor,"ninguna") == 0){
-            retorno = "no recibieron ningún tipo de asistencia";
-        }else if(comparador.compare(valor,"paramedica") == 0){
-            retorno = "recibieron asistencia paramédica";
-        }else if(comparador.compare(valor, "empirica") == 0){
-            retorno = "recibieron asistencia empírica";
-        }
-        return retorno;
-    }
 
-    private String sitio(String valor){
-        String retorno = "";
-        System.out.println(valor);
-        if(comparador.compare(valor, "Domicilio") == 0){
-            retorno = "el domicilio del fallecido";
-        }else if(comparador.compare(valor, "Hospital público") == 0){
-            retorno = "un hospital público";
-        }else if(comparador.compare(valor, "Seguro Social") == 0){
-            retorno = "el IGSS";
-        }else if(comparador.compare(valor, "Hospital privado") == 0){
-            retorno = "un hospital privado";
-        }else if(comparador.compare(valor,"Centro de salud") == 0){
-            retorno = "un centro de salud";
-        }else if(comparador.compare(valor, "Lugar de trabajo") == 0){
-            retorno = " el lugar de trabajo del fallecido ";
-        }else if(comparador.compare(valor, "Vía pública") == 0){
-            retorno = " la vía pública";
-        }
-        return retorno;
-    }
     
    
 

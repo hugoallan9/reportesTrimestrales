@@ -69,20 +69,55 @@ public class Grafica extends Thread {
                     graficas aqui
             */
             
-             r.eval("graficasHospitalarias("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            r.eval("graficasHospitalarias("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             System.out.println("graficasHospitalarias("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             r.eval("graficasHospitalarias("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta  + "/hospitalarias.tex', mostrar = F)");
             r.eval("compilar('" + ruta + "/hospitalarias.tex', mostrar = F)");
             r.eval("compilar('" + ruta  + "/presentacionHospitalarias.tex', mostrar = F)");
-            
-            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "hospitalarias.pdf','" + ruta+ "presentacionHospitalarias.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "hospitalarias.pdf','" + ruta+ "presentacionHospitalarias.pdf'))"));
             //System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
             
         }
+        else if(lista.equalsIgnoreCase("faltas")){
+            r.eval("graficasFaltas("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/faltas.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/faltas.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionFaltas.tex', mostrar = F)");
+            //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))"));
+        }
         
-        
+        else if(lista.equalsIgnoreCase("trasporte")){
+            r.eval("graficasTransporte("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasTransporte("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasTransporte("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/tranporte.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/tranpsorte.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionTransporte.tex', mostrar = F)");
+            //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transporte.pdf','" + ruta+ "presentacionTransporte.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transporte.pdf','" + ruta+ "presentacionTransporte.pdf'))"));
+        }
+        else if(lista.equalsIgnoreCase("comercio")){
+            r.eval("graficasComercio("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasComercio("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasComercio("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/comercio.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/comercio.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionComercio.tex', mostrar = F)");
+            //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "comercio.pdf','" + ruta+ "presentacionComercio.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "comercio.pdf','" + ruta+ "presentacionComercio.pdf'))"));
+        }
         
     }
 }
