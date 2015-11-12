@@ -62,7 +62,7 @@ public class Grafica extends Thread {
             //r.eval("sink()");
             
 
-            
+                
         }
         else if(lista.equalsIgnoreCase("hospitalarias")){
             /*hospitalarias

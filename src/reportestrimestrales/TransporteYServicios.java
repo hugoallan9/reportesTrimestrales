@@ -521,54 +521,57 @@ public class TransporteYServicios extends Documento{
         ArrayList cap3 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("3_01");
-        seccion1.add("Exportaciones decreto 29-89");
-        seccion1.add("Comercio decreto 29-89: exportaciones trimestrales en millones de US$");
+        seccion1.add("Buques");
+        seccion1.add("Buques que arribaron a Guatemala");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion1.add(true);
         seccion1.add("3_02");
-        seccion1.add("Variación interanual de las exportaciones");
-        seccion1.add("Porcentaje de variación interanual de las exportaciones por comercio decreto 29-89");
+        seccion1.add("Carga total exportada");
+        seccion1.add("Exportaciones en el sistema portuario nacional en miles de toneladas métricas");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion1.add(true);
         cap3.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
-        seccion2.add("Importaciones decreto 29-89");
-        seccion2.add("Importaciones trimestrales comercio decreto 29-89 en millones de US$");
+        seccion2.add("Carga total importada");
+        seccion2.add("Importaciones en el sistema portuario nacional en miles de toneladas métricas");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion2.add(true);
         seccion2.add("3_04");
-        seccion2.add("Variación Interanual de las importaciones");
-        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio decreto 29-89");
+        seccion2.add("Tipo de carga: general");
+        seccion2.add("Exportaciones e importaciones en el sistema portuario nacional, "
+                + "de carga tipo general en miles de toneladas métricas");
         seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion2.add(true);
         cap3.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("3_05");
-        seccion3.add("Balanza comercial del decreto 29-89");
-        seccion3.add("Balanza comercial trimestral del decreto 29-89 en millones de US$");
+        seccion3.add("Tipo de cargar: contenerizada");
+        seccion3.add("Exportaciones e importaciones en el sistema portuario nacional, "
+                + "carga en contendores en miles de toneladas métricas");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion3.add(true);
         seccion3.add("3_06");
-        seccion3.add("Balanza comercial relativa del decreto 29-89");
-        seccion3.add("Balanza comercial relativa del decreto 29-89 adimensional");
+        seccion3.add("Tipo de carga: líquida a granel");
+        seccion3.add("Exportacones e importaciones en el sistema portuario nacional, "
+                + "carga líquida a granel en miles de toneladas métricas");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion3.add(true);
         cap3.add(seccion3);
         
@@ -576,51 +579,55 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("3_07");
-        seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial comercio decreto 29-89 por continente en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Tipo de carga: sólida a granel");
+        seccion4.add("Exportaciones e importaciones en el sistema portuario nacional, "
+                + "carga sólida a granel en miles de toneladas métricas");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion4.add(true);
         seccion4.add("3_08");
-        seccion4.add("Balanza comercial con Centroamérica");
-        seccion4.add("Balanza comercial del decreto 29-89 con el mercado común centroamericano en millones de US$");
+        seccion4.add("Relación de las exportaciones respecto al total de carga según el tipo");
+        seccion4.add("Porcentaje de exportaciones en relación al total de carga manejada "
+                + "en el sistema portuario nacional, según el tipo de carga");
         seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion4.add(true);
         cap3.add(seccion4);
         
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("3_09");
-        seccion5.add("Principales productos de exportación");
-        seccion5.add("Principales productos de exportación por decreto 29-89 en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Puerto Santo Tomás de Castilla: buques");
+        seccion5.add("Buques que arribanron al puerto Santo Tomás de Castilla");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion5.add(true);
         seccion5.add("3_10");
-        seccion5.add("Exportaciones según los principales países de destino");
-        seccion5.add("Principales países de exportaciones guatemaltecas por decreto 29-89 en millones de US$");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Puerto Santo Tomás de Castilla: carga exportada");
+        seccion5.add("Exportaciones en el puerto Santo Tomás de Castilla en miles "
+                + "de toneladas métricas");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
+        seccion5.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion5.add(true);
         cap3.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
         seccion6.add("3_11");
-        seccion6.add("Principales exportaciones según secciones SAC");
-        seccion6.add("Exportaciones por decreto 29-89 según las principales secciones del SAC en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Puerto Santo Tomás de Castilla: carga importada");
+        seccion6.add("Importaciones a través del puerto Santo Tomás de Castilla en miles de "
+                + "toneladas métricas");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
+        seccion6.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion6.add(true);
         seccion6.add("3_12");
-        seccion6.add("Principales productos de importación");
-        seccion6.add("Principales productos de importación por decreto 29-89 en millones de US$");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add("Puerto Barrios: Buques");
+        seccion6.add("Buques que arribaron a Puerto Barrios");
+        seccion6.add(formatoSerie);
         seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_12.tex}  \\end{tikzpicture}");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
@@ -629,20 +636,77 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion7 = new ArrayList();
         seccion7.add("3_13");
-        seccion7.add("Importaciones según los principales países de origen");
-        seccion7.add("Importación por decreto 29-89 a los principales países en millones de US$");
-        seccion7.add(getFormatoTrimestre());
+        seccion7.add("Puerto Barrios: carga exportada");
+        seccion7.add("Exportaciones en Puerto Barrios en miles de toneladas métricas");
+        seccion7.add(formatoSerie);
         seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_13.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion7.add(true);
         seccion7.add("3_14");
-        seccion7.add("Principales importaciones según secciones del SAC");
-        seccion7.add("Importaciones por decreto 29-89 según las principales secciones del SAC en millones de US$");
-        seccion7.add(getFormatoTrimestre());
+        seccion7.add("Puerto Barrios: carga importada");
+        seccion7.add("Importaciones a través de Puerto Barrios en miles de toneladas métricas");
+        seccion7.add(formatoSerie);
         seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_14.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
+        seccion7.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion7.add(true);
         cap3.add(seccion7);
+        
+        ArrayList seccion8 = new ArrayList();
+        seccion8.add("3_15");
+        seccion8.add("Puerto San José: buques");
+        seccion8.add("Buques que arribaron al puerto San José");
+        seccion8.add(formatoSerie);
+        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_15.tex}  \\end{tikzpicture}");
+        seccion8.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
+        seccion8.add(true);
+        seccion8.add("3_16");
+        seccion8.add("Puerto San José: carga exportada");
+        seccion8.add("Exportaciones en el puerto San José en miles de toneladas métricas");
+        seccion8.add(formatoSerie);
+        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_16.tex}  \\end{tikzpicture}");
+        seccion8.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
+        seccion8.add(true);
+        cap3.add(seccion8);
+        
+        
+        
+        
+        ArrayList seccion9 = new ArrayList();
+        seccion9.add("3_17");
+        seccion9.add("Puerto San José: carga importada");
+        seccion9.add("Importaciones a través de puerto San José en miles de toneladas métricas");
+        seccion9.add(formatoSerie);
+        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_17.tex}  \\end{tikzpicture}");
+        seccion9.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
+        seccion9.add(true);
+        seccion9.add("3_18");
+        seccion9.add("Puerto Quetzal: buques");
+        seccion9.add("Buques que arribaron al Puerto Quetzal");
+        seccion9.add(formatoSerie);
+        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_18.tex}  \\end{tikzpicture}");
+        seccion9.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
+        seccion9.add(true);
+        cap3.add(seccion9);
+        
+        
+        
+        
+        ArrayList seccion10 = new ArrayList();
+        seccion10.add("3_19");
+        seccion10.add("Puerto Quetzal: carga exportada");
+        seccion10.add("Exportacoines en el Puerto Quetzal en miles de toneladas métricas");
+        seccion10.add(formatoSerie);
+        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_19.tex}  \\end{tikzpicture}");
+        seccion10.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
+        seccion10.add(true);
+        seccion10.add("3_20");
+        seccion10.add("Puerto Quetzal: carga importada");
+        seccion10.add("Importaciones a través de Puerto Quetzal en miles de tonelas métricas");
+        seccion10.add(formatoSerie);
+        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_20.tex}  \\end{tikzpicture}");
+        seccion10.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
+        seccion10.add(true);
+        cap3.add(seccion10);
         
         
         return cap3;        
@@ -653,54 +717,54 @@ public class TransporteYServicios extends Documento{
         ArrayList cap4 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("4_01");
-        seccion1.add("Exportaciones zonas francas");
-        seccion1.add("Comercio zonas francas: exportaciones trimestrales en millones de US$");
+        seccion1.add("Parque vehicular");
+        seccion1.add("Parque vehicular");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
         seccion1.add("4_02");
-        seccion1.add("Variación interanual de las exportaciones");
-        seccion1.add("Porcentaje de variación interanual de las exportaciones por comercio zonas francas");
-        seccion1.add(formatoSerie);
+        seccion1.add("Parque vehicular por modelo");
+        seccion1.add("Distribución porcentual del parque vehicular por modelo");
+        seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos del BANGUAT");
+        seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
         cap4.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("4_03");
-        seccion2.add("Importaciones zonas francas");
-        seccion2.add("Importaciones trimestrales comercio zonas francas en millones de US$");
-        seccion2.add(formatoSerie);
+        seccion2.add("Parque vehicular por departamento");
+        seccion2.add("Distribución porcuentual del parque vehicular por departamento");
+        seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion2.add(true);
         seccion2.add("4_04");
-        seccion2.add("Variación Interanual de las importaciones");
-        seccion2.add("Porcentaje de variación interanual de las importaciones por comercio zonas francas");
-        seccion2.add(formatoSerie);
+        seccion2.add("Parque vehicular por tipo");
+        seccion2.add("Distribución porcentual del parque vehicular según tipo de vehículo");
+        seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos del BANGUAT");
+        seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion2.add(true);
         cap4.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("4_05");
-        seccion3.add("Balanza comercial de zonas francas");
-        seccion3.add("Balanza comercial trimestral de zonas francas en millones de US$");
-        seccion3.add(formatoSerie);
+        seccion3.add("Parque vehicular por tipo de combustible");
+        seccion3.add("Porcentaje de parque vehicular por tipo de combustible");
+        seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion3.add(true);
         seccion3.add("4_06");
-        seccion3.add("Balanza comercial relativa de zonas francas");
-        seccion3.add("Balanza comercial relativa de zonas francas adimensional");
+        seccion3.add("Importación de vehículos nuevos");
+        seccion3.add("Importación de vehículos nuevos");
         seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos del BANGUAT");
+        seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion3.add(true);
         cap4.add(seccion3);
         
@@ -708,75 +772,13 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("4_07");
-        seccion4.add("Balanza comercial por continente");
-        seccion4.add("Balanca comercial zonas francas por continente en millones de US$");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Importacion de vehículos usados");
+        seccion4.add("Importación de vehículos usados");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
-        seccion4.add(true);
-        seccion4.add("4_08");
-        seccion4.add("Balanza comercial con Centroamérica");
-        seccion4.add("Balanza comercial de zonas francas con el mercado común centroamericano en millones de US$");
-        seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos del BANGUAT");
+        seccion4.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion4.add(true);
         cap4.add(seccion4);
-        
-        
-        ArrayList seccion5 = new ArrayList();
-        seccion5.add("4_09");
-        seccion5.add("Principales productos de exportación");
-        seccion5.add("Principales productos de exportación por zonas francas en millones de US$");
-        seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
-        seccion5.add(true);
-        seccion5.add("4_10");
-        seccion5.add("Exportaciones según los principales países de destino");
-        seccion5.add("Principales países de exportaciones guatemaltecas por zonas francas en millones de US$");
-        seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos del BANGUAT");
-        seccion5.add(true);
-        cap4.add(seccion5);
-        
-        ArrayList seccion6 = new ArrayList();
-        seccion6.add("4_11");
-        seccion6.add("Principales exportaciones según secciones SAC");
-        seccion6.add("Exportaciones por zonas francas según las principales secciones del SAC en millones de US$");
-        seccion6.add(getFormatoTrimestre());
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
-        seccion6.add(true);
-        seccion6.add("4_12");
-        seccion6.add("Principales productos de importación");
-        seccion6.add("Principales productos de importación por zonas francas en millones de US$");
-        seccion6.add(getFormatoTrimestre());
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_12.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos del BANGUAT");
-        seccion6.add(true);
-        cap4.add(seccion6);
-        
-        
-        ArrayList seccion7 = new ArrayList();
-        seccion7.add("4_13");
-        seccion7.add("Importaciones según los principales países de origen");
-        seccion7.add("Importación por zonas francas a los principales países en millones de US$");
-        seccion7.add(getFormatoTrimestre());
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_13.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
-        seccion7.add(true);
-        seccion7.add("4_14");
-        seccion7.add("Principales importaciones según secciones del SAC");
-        seccion7.add("Importaciones por zonas francas según las principales secciones del SAC en millones de US$");
-        seccion7.add(getFormatoTrimestre());
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_14.tex}  \\end{tikzpicture}");
-        seccion7.add("INE, con datos del BANGUAT");
-        seccion7.add(true);
-        cap4.add(seccion7);
-        
-        
         return cap4;        
     }
         protected void apendices(String rutaTEX){

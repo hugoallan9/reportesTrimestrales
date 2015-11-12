@@ -2,11 +2,9 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-<<<<<<< HEAD
-        <group/>
-=======
         <group>
             <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/FaltasJudiciales.java</file>
+            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Grafica.java</file>
             <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/ComercioExterior.java</file>
             <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Hospitalarias.java</file>
             <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/TransporteYServicios.java</file>
@@ -15,6 +13,5 @@
             <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/ReportesTrimestrales.java</file>
             <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Tabla.java</file>
         </group>
->>>>>>> 783d7929423d8e7e4984d2e1487514716fcd71c2
     </open-files>
 </project-private>
