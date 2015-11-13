@@ -94,7 +94,7 @@ public class Hospitalarias extends Documento{
                 
                 columna1 = columna(tmp.get(0).toString(),tmp.get(1).toString(),"",
                         "",tmp.get(2).toString(),tmp.get(3).toString(),
-                        tmp.get(4).toString(),tmp.get(5).toString(),"",(Boolean)tmp.get(6));
+                        tmp.get(4).toString(),tmp.get(5).toString(),"",(Boolean)tmp.get(6)  );
                 
                 try{
                 columna2 = columna(tmp.get(7).toString(),tmp.get(8).toString(),"",
@@ -116,8 +116,8 @@ public class Hospitalarias extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("vitales <- cargaMasiva('" +  ruta +"')");
-                REXP nombres = rr.get().eval("names(vitales)");
+                REXP listadoCSV = rr.get().eval("hospitalarias <- cargaMasiva('" +  ruta +"')");
+                REXP nombres = rr.get().eval("names(hospitalarias)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
             }
@@ -326,8 +326,8 @@ public class Hospitalarias extends Documento{
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
-        Grafica vitales = new Grafica("vitales", getRuta(), rr.get(), modalidad);
-        vitales.start();
+        Grafica hospitalarias = new Grafica("hospitalarias", getRuta(), rr.get(), modalidad);
+        hospitalarias.start();
     }
     
     protected void hacerPortada(){

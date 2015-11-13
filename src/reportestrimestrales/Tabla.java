@@ -86,6 +86,17 @@ public class Tabla {
         generarCSV2("A_02");
     }
     
+    public void generarAgropecuarias(){
+        generarCSV2("A_01");
+        generarCSV2("A_02");
+        generarCSV2("A_03");
+        generarCSV2("A_04");
+        generarCSV2("A_05");
+        generarCSV2("A_06");
+        generarCSV2("A_07");
+        generarCSV2("A_08");
+    }
+    
     private void escribirTEX(String nombre, String texto,boolean compilar){
      File file = new File(nombre);
      file.getParentFile().setReadable(true, false);

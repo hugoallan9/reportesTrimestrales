@@ -118,7 +118,7 @@ public class ReportesTrimestrales {
 
    
         }//ipc
-        if ( args[0].equalsIgnoreCase("vitales") ){
+        else if ( args[0].equalsIgnoreCase("vitales") ){
             String rutaVitales = "/home/ineservidor/Vitales";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -133,7 +133,7 @@ public class ReportesTrimestrales {
                 vitalesTrimestre.setWritable(true, false);
                 vitalesTrimestre.mkdir();
             }
-            System.out.println("Arg 3: " + args[3]);
+            //System.out.println("Arg 3: " + args[3]);
             Vitales docu;
             docu= new Vitales("Estadísticas Vitales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Vitales/Entradas/CSV");
             docu.setRuta(vitalesTrimestre.getAbsolutePath()+"/");
@@ -159,7 +159,7 @@ public class ReportesTrimestrales {
             //}
         }
         
-        if ( args[0].equalsIgnoreCase("faltas") ){
+        else if ( args[0].equalsIgnoreCase("faltas") ){
             String rutaFaltas = "/home/ineservidor/FaltasJudiciales";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -174,6 +174,10 @@ public class ReportesTrimestrales {
                 faltasTrimestre.setWritable(true, false);
                 faltasTrimestre.mkdir();
             }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 3f3b2c069548eda3d66eed38936db38621110010
             FaltasJudiciales docu;
             docu= new FaltasJudiciales("Faltas Judiciales", args[2], args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
@@ -185,6 +189,7 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
+            docu.apendices(faltasTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             docu.getRr().get().end();
             System.out.println("Antes ");
@@ -199,8 +204,12 @@ public class ReportesTrimestrales {
         }
 
         
+<<<<<<< HEAD
         if ( args[0].equalsIgnoreCase("hospitalarias") ){
             System.out.println("Generando reporte de estadísticas hospitalarias.");
+=======
+        else if ( args[0].equalsIgnoreCase("hospitalarias") ){
+>>>>>>> 3f3b2c069548eda3d66eed38936db38621110010
             String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -215,6 +224,10 @@ public class ReportesTrimestrales {
                 hospitalarias.setWritable(true, false);
                 hospitalarias.mkdir();
             }
+<<<<<<< HEAD
+=======
+            
+>>>>>>> 3f3b2c069548eda3d66eed38936db38621110010
             Hospitalarias docu;
             docu= new Hospitalarias("Estadísticas Hospitalarias",args[2],args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
             docu.setRuta(hospitalarias.getAbsolutePath()+"/");
@@ -226,13 +239,120 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
+            docu.apendices(hospitalarias.getAbsolutePath()+"/");
             docu.terminarDocumento();
             docu.getRr().get().end();
+            
             System.out.println("Antes ");
             descriptorhospitalarias.Generador descripciones = new descriptorhospitalarias.Generador("/var/www/html/Hospitalarias/Entradas/CSV", hospitalarias.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
             descripciones.run();
             System.out.println("Despues");
             
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
+        else if ( args[0].equalsIgnoreCase("comercio") ){
+            String rutaComercio = "/home/ineservidor/Comercio";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("comercio <- leerLibro('/var/www/html/Comercio/Entradas/comercio.xlsx')"));
+            System.out.println(r.get().eval("comercio <- convertirFechas(comercio)"));
+            r.get().eval("escribirCSV(comercio, '/var/www/html/Comercio/Entradas/CSV')");
+            File comercioTrimestre = new File(rutaComercio, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !comercioTrimestre.exists() ){
+                comercioTrimestre.setReadable(true, false);
+                comercioTrimestre.setExecutable(true, false);
+                comercioTrimestre.setWritable(true, false);
+                comercioTrimestre.mkdir();
+            }
+            ComercioExterior docu;
+            docu= new ComercioExterior("Estadísticas de Comercio Exterior", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Comercio/Entradas/CSV");
+            docu.setRuta(comercioTrimestre.getAbsolutePath()+"/");
+            docu.setTex("comercio");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.apendices(comercioTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            //docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
+        else if ( args[0].equalsIgnoreCase("transporte") ){
+            String rutaTransporte = "/home/ineservidor/Transporte";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transporte/Entradas/transporte.xlsx')"));
+            System.out.println(r.get().eval("transporte <- convertirFechas(transporte)"));
+            r.get().eval("escribirCSV(transporte, '/var/www/html/Transporte/Entradas/CSV')");
+            File transporteTrimestre = new File(rutaTransporte, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !transporteTrimestre.exists() ){
+                transporteTrimestre.setReadable(true, false);
+                transporteTrimestre.setExecutable(true, false);
+                transporteTrimestre.setWritable(true, false);
+                transporteTrimestre.mkdir();
+            }
+            TransporteYServicios docu;
+            docu= new TransporteYServicios("Transportes y Servicios", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Transporte/Entradas/CSV");
+            docu.setRuta(transporteTrimestre.getAbsolutePath()+"/");
+            docu.setTex("transporte");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            //docu.apendices(transporteTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            //docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
+        else if ( args[0].equalsIgnoreCase("agropecuarias") ){
+            String rutaAgropecuarias = "/home/ineservidor/Agropecuarias";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("agropecuarias <- leerLibro('/var/www/html/Agropecuarias/Entradas/agropecuarias.xlsx')"));
+            System.out.println(r.get().eval("agropecuarias <- convertirFechas(agropecuarias)"));
+            r.get().eval("escribirCSV(agropecuarias, '/var/www/html/Agropecuarias/Entradas/CSV')");
+            File agropecuariasTrimestre = new File(rutaAgropecuarias, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !agropecuariasTrimestre.exists() ){
+                agropecuariasTrimestre.setReadable(true, false);
+                agropecuariasTrimestre.setExecutable(true, false);
+                agropecuariasTrimestre.setWritable(true, false);
+                agropecuariasTrimestre.mkdir();
+            }
+            ComercioExterior docu;
+            docu= new ComercioExterior("Estadísticas Agropecuarias", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
+            docu.setRuta(agropecuariasTrimestre.getAbsolutePath()+"/");
+            docu.setTex("agropecuarias");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.apendices(agropecuariasTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
                 docu.generarGraficas("trimestral");
