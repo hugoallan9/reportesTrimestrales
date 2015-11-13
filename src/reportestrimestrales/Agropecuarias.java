@@ -24,7 +24,7 @@ import org.rosuda.JRI.REXP;
  *
  * @author INE
  */
-public class FaltasJudiciales extends Documento{
+public class Agropecuarias extends Documento{
     private List capitulos;
     private List introCapitulos;
     private List contenidos;
@@ -39,7 +39,7 @@ public class FaltasJudiciales extends Documento{
     
     
     
-    public FaltasJudiciales(String titulo, String trimestre, String pYear, String rutaCSV) {
+    public Agropecuarias(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
         capitulos = new ArrayList();
         introCapitulos = new ArrayList();
@@ -57,29 +57,25 @@ public class FaltasJudiciales extends Documento{
     }
     
     protected void setCapitulos(){
-        capitulos.add("Faltas judiciales");
-        capitulos.add("Infractores menores de edad");
-        capitulos.add("Tipos de faltas");
-        
+        capitulos.add("Productos de origen vegetal");
+        capitulos.add("Productos de origen animal");                
     }
     
     protected void setIntroCapitulos(){
-        introCapitulos.add("Las faltas judiciales son acciones u omisiones voluntarias castigadas "
-                + "por la ley con pena leve. En la legislación guatemalteca están contenidas "
-                + "en el Libro Tercero del Código Penal.");
-        introCapitulos.add("Comprende a todas las edades de las personas antes de cumplir 18 " 
-                + "años que han cometido acciones u omisiones voluntarias castigadas por " 
-                + "la Ley con pena leve.");
-        introCapitulos.add("En derecho Penal, son acciones u omisiones voluntarias castigadas " 
-                + "por la ley con pena leve.  Contenidas en el libro tercero de las faltas, " 
-                + "título único del Código Penal, el artículo 480 en el inciso 6º. Indica: “Se " 
-                + "sancionará como falta solamente los hechos que,conforme a este Código " 
-                + "(Código Penal), no constituya delito”.");
+        introCapitulos.add("Son productos de origen vegetal los frutos que ofrece la naturaleza, "
+                + "los cuales son ricos en sustancias nutritivas y ayudan a mantener el bienestar "
+                + "de todo el organismo de las personas. Este capítulo presenta las estadísticas "
+                + "más relevantes que están disponibles, como: azúcar, trigo y banano. De éstos "
+                + "se investigan las variables: producción, productos y subproductos.");
+        introCapitulos.add("Los productos de origen animal provienen directamente de los animales, "
+                + "son fuentes de proteínas, entre otros, importantes para el buen funcionamiento "
+                + "del organismo humano. \\\\ Este capítulo presenta las estadísticas más relevantes "
+                + "que están disponibles. Las variables que se investigan son: número de cabezas de "
+                + "ganado mayor y menor (bovino, porcino, ovino y caprino), para consumo interno.");        
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
-         contenidos.add(cargarCapitulo3());
          System.out.println("cargados los contenidos");
     }
     
@@ -92,9 +88,12 @@ public class FaltasJudiciales extends Documento{
                 ," ", introCapitulos.get(i).toString());
             int finSeccion = tmpSeccion.size();
             for (int j=0; j<finSeccion;j++){
-                
+                String parrafo2="";
                 String columna1="";
                 String columna2="";
+                if(i==0 &&j==3) parrafo2 = "En el "+ getFormatoTrimestre() + ", de la molienda se "
+                        + "obtuvieron dos productos principales, harina y sémola";
+                    
                 escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
                 System.out.println("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
                 ArrayList tmp = (ArrayList)tmpSeccion.get(j);
@@ -104,7 +103,7 @@ public class FaltasJudiciales extends Documento{
                         tmp.get(4).toString(),tmp.get(5).toString(),"",(Boolean)tmp.get(6));
                 try{
                 columna2 = columna(tmp.get(7).toString(),tmp.get(8).toString(),"",
-                        "",tmp.get(9).toString(),tmp.get(10).toString(),
+                        parrafo2,tmp.get(9).toString(),tmp.get(10).toString(),
                         tmp.get(11).toString(),tmp.get(12).toString(),"",(Boolean)tmp.get(13));    
                 }catch (Exception e){
                     System.out.println(e.toString());                    
@@ -122,8 +121,8 @@ public class FaltasJudiciales extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("faltas <- cargaMasiva('" +  ruta +"')");
-                REXP nombres = rr.get().eval("names(faltas)");
+                REXP listadoCSV = rr.get().eval("agropecuarias <- cargaMasiva('" +  ruta +"')");
+                REXP nombres = rr.get().eval("names(agropecuarias)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
             }
@@ -133,54 +132,57 @@ public class FaltasJudiciales extends Documento{
         ArrayList cap1 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("1_01");
-        seccion1.add("Faltas judiciales");
-        seccion1.add("Número de faltas judiciales");
+        seccion1.add("Producción de azúcar");
+        seccion1.add("Producción de azúcar en los ingenios de la república "
+                + "en millones de quintales");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, Estadísticas Agropecuarias");
         seccion1.add(true);
         seccion1.add("1_02");
-        seccion1.add("Faltas judiciales por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Producción de azúcar blanca");
+        seccion1.add("Producción de azúcar blanca en los ingenios de la república "
+                + "en millones de quintales");
+        seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, Estadísticas Agropecuarias");
         seccion1.add(true);
         cap1.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
-        seccion2.add("Faltas judiciales por área geográfica");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por área geográfica");
+        seccion2.add("Producción de azúcar cruda");
+        seccion2.add("Producción de azúcar cruda en los ingenios de la república "
+                + "en millones de quintales");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, Estadísticas Agropecuarias");
         seccion2.add(true);
         seccion2.add("1_04");
-        seccion2.add("Faltas judiciales por edad del infractor");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edad del infractor");
+        seccion2.add("Trigo");
+        seccion2.add("Producción de productos y subproductos de trigo en miles de quintales");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, Estadísticas Agropecuarias");
         seccion2.add(true);
         cap1.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
-        seccion3.add("Faltas judiciales según sexo");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por sexo");
+        seccion3.add("Harina de trigo");
+        seccion3.add("Producto del trigo: harina en miles de quintales");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion3.add("INE, Estadísticas Agropecuarias");
         seccion3.add(true);
         seccion3.add("1_06");
-        seccion3.add("Faltas judiciales por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Sémola de trigo");
+        seccion3.add("Subproducto de trigo: sémola en miles de quintales");
+        seccion3.add(formatoSerie);
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion3.add("INE, Estadísticas Agropecuarias");
         seccion3.add(true);
         cap1.add(seccion3);
         
@@ -188,187 +190,96 @@ public class FaltasJudiciales extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
-        seccion4.add("Faltas judiciales por analfabetismo");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por condición de analfabetismo");
+        seccion4.add("Afrecho");
+        seccion4.add("Subproducto de trigo: afrecho en miles de quintales");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion4.add("INE, Estadísticas Agropecuarias");
         seccion4.add(true);
         seccion4.add("1_08");
-        seccion4.add("Faltas judiciales por nivel de educación");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por nivel de educación");
+        seccion4.add("Granillo de trigo");
+        seccion4.add("Subproducto de trigo: granillo en miles de quintales");
+        seccion4.add(formatoSerie);
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion4.add("INE, Estadísticas Agropecuarias");
         seccion4.add(true);
         cap1.add(seccion4);
         
         ArrayList seccion5 = new ArrayList();
         seccion5.add("1_09");
-        seccion5.add("Faltas judiciales por condición de ebriedad");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por condición de ebriedad");
+        seccion5.add("Germen de trigo");
+        seccion5.add("Subproducto de trigo: germen en quintales");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion5.add("INE, Estadísticas Agropecuarias");
         seccion5.add(true);
         seccion5.add("1_10");
-        seccion5.add("Faltas judiciales por tipo de falta");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por tipo de falta");
+        seccion5.add("Banano");
+        seccion5.add("Producción de banano de las compañías exportadoras en miles de quintales");
+        seccion5.add(formatoSerie);
         seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
-        seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion5.add("INE, Estadísticas Agropecuarias");
         seccion5.add(true);
         cap1.add(seccion5);
         
-        ArrayList seccion6 = new ArrayList();
-        seccion6.add("1_11");
-        seccion6.add("Faltas judiciales por sexo del infractor según tipo de"
-        + " falta cometida");
-        seccion6.add("Faltas judiciales ocurridas en el año 2014");
-        seccion6.add("Distribución porcentual por tipo de falta cometida");
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_11.tex}  \\end{tikzpicture}");
-        seccion6.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion6.add(true);
-        cap1.add(seccion6);
         return cap1;        
     }
     protected ArrayList cargarCapitulo2(){
         ArrayList cap2 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
-        seccion1.add("Infractores menores de 18 años");
-        seccion1.add("Número de faltas judiciales");
+        seccion1.add("Ganado bovino");
+        seccion1.add("Destace de ganado bovino en número de cabezas");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion1.add(true);
         seccion1.add("2_02");
-        seccion1.add("Infractores menores de edad por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Ganado porcino");
+        seccion1.add("Destace de ganado porcino en número de cabezas");
+        seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion1.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion1.add(true);
         cap2.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Infractores menores de edad por sexo");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por sexo");
+        seccion2.add("Ganado ovino");
+        seccion2.add("Destace de ganado ovino en número de cabezas");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion2.add(true);
         seccion2.add("2_04");
-        seccion2.add("Infractores menores de edad por edad");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edades simples");
+        seccion2.add("Ganado caprino");
+        seccion2.add("Destace de ganado caprino para consumo interno en número de cabezas");
+        seccion2.add(formatoSerie);
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
+        seccion2.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion2.add(true);
         cap2.add(seccion2);
-        
-        
-        ArrayList seccion3 = new ArrayList();
-        seccion3.add("2_05");
-        seccion3.add("Infractores menores de edad por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion3.add(true);
-        seccion3.add("2_06");
-        seccion3.add("Infractores menores de edad por nivel de educación");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por nivel de educación");
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion3.add(true);
-        cap2.add(seccion3);
-        
-        
-        
-        ArrayList seccion4 = new ArrayList();
-        seccion4.add("2_07");
-        seccion4.add("Infractores menores de edad por tipo de falta cometida");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por tipo de falta cometida");
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion4.add(true);
-        cap2.add(seccion4);
-        
         
         return cap2;        
     }
     
     
     
-    protected ArrayList cargarCapitulo3(){
-        ArrayList cap3 = new ArrayList();
-        ArrayList seccion1 = new ArrayList();
-        seccion1.add("3_01");
-        seccion1.add("Faltas contra las personas");
-        seccion1.add("Número de faltas judiciales contra las personas");
-        seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion1.add(true);
-        seccion1.add("3_02");
-        seccion1.add("Faltas contra la propiedad");
-        seccion1.add("Número de faltas judiciales contra la propiedad");
-        seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion1.add(true);
-        cap3.add(seccion1);
-        
-        
-        ArrayList seccion2 = new ArrayList();
-        seccion2.add("3_03");
-        seccion2.add("Faltas contra las buenas costumbres");
-        seccion2.add("Número de faltas judiciales contra las buenas costumbres");
-        seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion2.add(true);
-        seccion2.add("3_04");
-        seccion2.add("Faltas contra el orden público");
-        seccion2.add("Número de faltas judiciales contra el orden público");
-        seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion2.add(true);
-        cap3.add(seccion2);
-        
-        
-        ArrayList seccion3 = new ArrayList();
-        seccion3.add("3_05");
-        seccion3.add("Otras faltas");
-        seccion3.add("Número de faltas judiciales (Clasificadas como \"Otras\")");
-        seccion3.add("Distribución porcentual por grupo étnico");
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion3.add(true);
-        cap3.add(seccion3);
-        
-        
-        return cap3;        
-    }
+    
     private void apendice1(){
         String columna1 = tablaApendice("A_01",
-                "Faltas judiciales: análisis de variación",
+                "Análisis de variación de la producción de azúcar blanca",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "INE, Estadísticas Agropecuarias",
                 "");
         
         String columna2 = tablaApendice("A_02",
-                "Faltas contra las personas: análisis de variación",
+                "Análisis de variación de la producción de azúcar cruda",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "INE, Estadísticas Agropecuarias",
                 "");
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
@@ -377,53 +288,59 @@ public class FaltasJudiciales extends Documento{
     
     private void apendice2(){
         String columna1 = tablaApendice("A_03",
-                "Faltas contra la propiedad: análisis de variación",
+                "Análisis de variación del procesamiento de trigo",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "INE, Estadísticas Agropecuarias",
                 "");
         
         String columna2 = tablaApendice("A_04",
-                "Faltas contra el orden público: análisis de variación",
+                "Análisis de variación de la producción de banano",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "INE, Estadísticas Agropecuarias",
                 "");
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
     private void apendice3(){
         String columna1 = tablaApendice("A_05",
-                "Faltas contra las buenas costumbres: análisis de variación",
+                "Análisis de variación del destace de ganado bovino",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE, con datos de los juzgados de paz del Organismo Judicial",
+                "INE, con información de las municipalidades y empresas procesadoras de carne",
                 "");
         
-        String columna2 = "";
+        String columna2 = tablaApendice("A_06",
+                "Análisis de variación del destace de ganado porcino",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con información de las municipalidades y empresas procesadoras de carne",
+                "");;
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
-    protected void apendices(String rutaTEX){
-        escribirLinea("\n \\appendixa \n" +
-        "\n" +
-        "\n" +
-        "\n" );
-        apendice1();
-        apendice2();
-        apendice3();
-        Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
-        ap.setRuta("/var/www/html/FaltasJudiciales/Entradas/CSV");
-        ap.generarComercioExterior();
+    private void apendice4(){
+        String columna1 = tablaApendice("A_07",
+                "Análisis de variación del destace de ganado ovino",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con información de las municipalidades y empresas procesadoras de carne",
+                "");
         
-        
-        
+        String columna2 = tablaApendice("A_08",
+                "Análisis de variación del destace de ganado caprino",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con información de las municipalidades y empresas procesadoras de carne",
+                "");;
+        escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
-        Grafica vitales = new Grafica("vitales", getRuta(), rr.get(), modalidad);
-        vitales.start();
+        Grafica agropecuarias = new Grafica("agropecuarias", getRuta(), rr.get(), modalidad);
+        agropecuarias.start();
     }
     
     protected void hacerPortada(){
@@ -499,7 +416,27 @@ public class FaltasJudiciales extends Documento{
         }
         compilar(rr, getRuta() + "/caratula.tex","F");
     }
-    
+        protected void apendices(String rutaTEX){
+        System.out.println("Generando tablas de apendices");
+        escribirLinea("\n \\appendixa \n" +
+        "\n" +
+        "\n" +
+        "\n" );
+        apendice1();
+        apendice2();
+        apendice3();
+        apendice4();
+        System.out.println(rutaTEX);
+        System.out.println(trimestres());
+        System.out.println(rr);
+        Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        System.out.println("Seteando ruta de ap");
+        ap.setRuta("/var/www/html/Agropecuarias/Entradas/CSV");
+        ap.generar();
+        
+        
+        
+    }
     protected void equipoYPresentacion(){
         
         
@@ -516,14 +453,12 @@ public class FaltasJudiciales extends Documento{
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Flor de María Hernández Soto\\\\\n" +
-                "	Cristian Miguel Cabrera Ayala\\\\\n" +
-                "	Blanca Angelica Ramirez González\\\\\n" +
-                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "	Pedro Leonel Calvillo Flores\\\\\n" +
+                "	Haydee Azucena Barrientos Osorio\\\\\n" +
+                "	Fabiola Beatriz Ramírez Pinto\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
-                "	Fabiola Beatriz Ramírez Pinto\\\\\n" +
                 "	José Carlos Bonilla Aldana\\\\[0.8cm]\n" +
                 "	\n" +
                 "	\n" +
@@ -556,25 +491,35 @@ public class FaltasJudiciales extends Documento{
                 "\n" +
                 "\n" +
                 "$\\ $\\\\\n" +
-                "\\indent El Instituto Nacional de Estadística -INE- en cumplimiento a su Ley Orgánica, "
+                "\\indent El Instituto Nacional de Estadística -INE-,"
+                + "consciente de la demanda de información económica y siendo el ente rector de la "
+                + "política estadística nacional en Guatemala,"
+                + " en cumplimiento a su Ley Orgánica, "
                 + "Decreto Ley 3-85, "
-                + "presenta datos sobre las {\\Bold Faltas Judiciales del "
+                + "presenta el siguiente informe, que contiene las {\\Bold Estadísticas Agropecuarias}, "
+                + "con información correspondiente al {\\Bold "
                 + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}, las cuales son los delitos menores, contemplados en el "
-                + "código penal en el artículo 480, correspondiente al Libro Tercero de las Faltas, "
-                + "Título Único.\n" +
+                + getAnioPublicacion() +"}, la cual es {\\Bold preliminar} y será ajustada con el "
+                + "ingreso de registros tardíos.\n" +
                 "\n" +
-                "Los datos son recolectados a través de la boleta 42 B, que registras las características "
-                + "y datos generales de las personas que cometieron las faltas, proporcionados por los "
-                + "Juzgados de Paz y Juzgados de Paz Móviles de todo el país, la cual es {\\Bold información "
-                + " preliminar} y será ajustada con el ingreso de registros tardíos.\n" +
-                "\n" +
-                "Se pone a disposición el presente informe de Faltas Judiciales del "
-                + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() 
-                + " con el fin de apoyar la elaboración de programas, planes, en materia de "
-                + "seguridad nacional. A su vez se agradece el aporte y colaboración de los "
-                + "Juzgados y se les insta a continuar el apoyo a este proceso.\n" +
+                "El presente informe contiene información de: \n"
+                + "\n"
+                    
+                + "\\begin{itemize}\n" +
+"		\\item Productos de origen vegetal\n" +
+"		\\item Productos de origen animal\n" +
+"	\\end{itemize} \n"
+                + "Esta edición se suma a las diferentes publicaciones del Instituto Nacional de Estadística, "
+                + "que busca ofrecer a entidades oficiales, particulares y al público en general, "
+                + "información confiable y oportuna que contribuya a facilitar la correcta toma de decisiones "
+                + "por parte de las instituciones tanto públicas como privadas. \n"
+                + "\n"
+                + "Se deja constancia del agradecimiento a las Instituciones Nacionales, Empresas Privadas y "
+                + "Personas Particulares que una vez más contribuyen para el logro de la presente publicación. \n"
+                + "\n"
+                + "Los comentarios y cualquier sugerencia que resulten del estudio de las cifras que hoy "
+                + "se presentea, serán recibidos con interés por ser ésta la forma de lograr el mejoramiento "
+                + "de toda publicación.\n" +
                 "\n" +
                 "\\thispagestyle{empty}\n" +
                 "\n" +
