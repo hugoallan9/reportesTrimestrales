@@ -7,7 +7,6 @@ package reportestrimestrales;
 import com.rabbitmq.client.*;
 import com.rabbitmq.client.ConnectionFactory;
 import consultor.*;
-import descripciones_faltas_judiciales.Generador;
 import java.io.File;
 import java.io.IOException;
 import java.sql.SQLException;
@@ -49,6 +48,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("ipc <- leerLibro('/var/www/archivos/ipc_csv.xlsx')"));
+            System.out.println(r.get().eval("ipc <- convertirFechasIPC(ipc)"));
             //cambié vitales por ipc en la siguiente instruccion. creé la carpeta CSV
             r.get().eval("escribirCSV(ipc, '/var/www/archivos/CSV')");
             //r.get().end();
@@ -167,16 +167,15 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("faltas <- leerLibro('/var/www/html/FaltasJudiciales/Entradas/faltasJudiciales.xlsx')"));
             System.out.println(r.get().eval("faltas <- convertirFechas(faltas)"));
             r.get().eval("escribirCSV(faltas, '/var/www/html/FaltasJudiciales/Entradas/CSV')");
-            File faltasTrimestre = new File(rutaFaltas, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File faltasTrimestre = new File(rutaFaltas, args[2] + args[1]);
             if ( !faltasTrimestre.exists() ){
                 faltasTrimestre.setReadable(true, false);
                 faltasTrimestre.setExecutable(true, false);
                 faltasTrimestre.setWritable(true, false);
                 faltasTrimestre.mkdir();
             }
-            System.out.println("Arg 3: " + args[3]);
             FaltasJudiciales docu;
-            docu= new FaltasJudiciales("Faltas Judiciales", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
+            docu= new FaltasJudiciales("Faltas Judiciales", args[2], args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
             docu.setTex("faltasJudiciales");
             docu.hacerPortada();
@@ -189,7 +188,7 @@ public class ReportesTrimestrales {
             docu.terminarDocumento();
             docu.getRr().get().end();
             System.out.println("Antes ");
-            Generador descripciones = new Generador("/var/www/html/FaltasJudiciales/Entradas/CSV", rutaFaltas);
+            descripciones_faltas_judiciales.Generador descripciones = new descripciones_faltas_judiciales.Generador("/var/www/html/FaltasJudiciales/Entradas/CSV", faltasTrimestre.getAbsolutePath());
             descripciones.run();
             System.out.println("Despues");
             
@@ -201,6 +200,7 @@ public class ReportesTrimestrales {
 
         
         if ( args[0].equalsIgnoreCase("hospitalarias") ){
+            System.out.println("Generando reporte de estadísticas hospitalarias.");
             String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -208,16 +208,15 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("hospitalarias <- leerLibro('/var/www/html/Hospitalarias/Entradas/hospitalarias.xlsx')"));
             System.out.println(r.get().eval("hospitalarias <- convertirFechas(hospitalarias)"));
             r.get().eval("escribirCSV(hospitalarias, '/var/www/html/Hospitalarias/Entradas/CSV')");
-            File hospitalarias = new File(rutaHospitalarias, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File hospitalarias = new File(rutaHospitalarias, args[2] + args[1]);
             if ( !hospitalarias.exists() ){
                 hospitalarias.setReadable(true, false);
                 hospitalarias.setExecutable(true, false);
                 hospitalarias.setWritable(true, false);
                 hospitalarias.mkdir();
             }
-            System.out.println("Arg 3: " + args[3]);
             Hospitalarias docu;
-            docu= new Hospitalarias("Estadísticas Hospitalarias",getTrimestreCadena(Integer.parseInt(args[2])),args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
+            docu= new Hospitalarias("Estadísticas Hospitalarias",args[2],args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
             docu.setRuta(hospitalarias.getAbsolutePath()+"/");
             docu.setTex("hospitalarias");
             docu.hacerPortada();
@@ -230,7 +229,7 @@ public class ReportesTrimestrales {
             docu.terminarDocumento();
             docu.getRr().get().end();
             System.out.println("Antes ");
-            Generador descripciones = new Generador("/var/www/html/Hospitalarias/Entradas/CSV", rutaHospitalarias);
+            descriptorhospitalarias.Generador descripciones = new descriptorhospitalarias.Generador("/var/www/html/Hospitalarias/Entradas/CSV", hospitalarias.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
             descripciones.run();
             System.out.println("Despues");
             
