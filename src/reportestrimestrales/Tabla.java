@@ -96,7 +96,13 @@ public class Tabla {
         generarCSV2("A_07");
         generarCSV2("A_08");
     }
-    
+    public void generarVIF(){
+        generarCSV1("A_01");
+        
+        generarCSV2("A_02");
+        generarCSV2("A_03");
+        generarCSV2("A_04");
+    }
     private void escribirTEX(String nombre, String texto,boolean compilar){
      File file = new File(nombre);
      file.getParentFile().setReadable(true, false);

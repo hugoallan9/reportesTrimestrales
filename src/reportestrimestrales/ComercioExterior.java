@@ -840,7 +840,7 @@ public class ComercioExterior extends Documento{
                 + "Se incorpora, además, el Comercio Total, que integra los tres tipos de comercio.\n"+
                 "\n" +
                 "Se detallan los datos en valores de US$ y peso en kilogramos. Estos datos son registrados "
-                + "a través de las aduanas del país por medio de las vías aérea, marítima y terrestre \n"+
+                + "a través de las aduanas del país por medio de las vías aérea, marítima y terrestre. \n"+
                 "\n" +
                 "Las variables se clasifican de acuerdo al Sistema Arancelario Centroamericano -SAC-, "
                 + "el cual se integra en secciones, capítulos, partidas, sub-partidas e incisos, "
