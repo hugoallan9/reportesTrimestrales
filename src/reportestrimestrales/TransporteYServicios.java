@@ -559,7 +559,7 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("3_05");
-        seccion3.add("Tipo de cargar: contenerizada");
+        seccion3.add("Tipo de carga: contenerizada");
         seccion3.add("Exportaciones e importaciones en el sistema portuario nacional, "
                 + "carga en contendores en miles de toneladas métricas");
         seccion3.add(formatoSerie);

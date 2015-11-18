@@ -142,6 +142,18 @@ public class Grafica extends Thread {
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado VIF', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vif.pdf','" + ruta+ "presentacionVif.pdf'))");
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado VIF', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vif.pdf','" + ruta+ "presentacionVif.pdf'))"));
         }
+        else if(lista.equalsIgnoreCase("transito")){
+            r.eval("graficasTransito("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasTransito("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasTransito("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/transito.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/transito.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionTransito.tex', mostrar = F)");
+            //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Eventos de Tránsito', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transito.pdf','" + ruta+ "presentacionTransito.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Eventos de Tránsito', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transito.pdf','" + ruta+ "presentacionTransito.pdf'))"));
+        }
         
     }
 }
