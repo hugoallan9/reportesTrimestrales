@@ -382,7 +382,41 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-        
+        else if ( args[0].equalsIgnoreCase("transito") ){
+            String rutaTransito = "/home/ineservidor/Transito";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("transito <- leerLibro('/var/www/html/Transito/Entradas/transito.xlsx')"));
+            System.out.println(r.get().eval("transito <- convertirFechas(transito)"));
+            r.get().eval("escribirCSV(transito, '/var/www/html/Transito/Entradas/CSV')");
+            File transitoTrimestre = new File(rutaTransito, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !transitoTrimestre.exists() ){
+                transitoTrimestre.setReadable(true, false);
+                transitoTrimestre.setExecutable(true, false);
+                transitoTrimestre.setWritable(true, false);
+                transitoTrimestre.mkdir();
+            }
+            Transito docu;
+            docu= new Transito("Estadísticas de Accidentes de Tránsito", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/VIF/Entradas/CSV");
+            docu.setRuta(transitoTrimestre.getAbsolutePath()+"/");
+            docu.setTex("transito");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.apendices(transitoTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            //docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
      
       
   }
