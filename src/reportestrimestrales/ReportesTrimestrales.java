@@ -174,7 +174,11 @@ public class ReportesTrimestrales {
                 faltasTrimestre.setWritable(true, false);
                 faltasTrimestre.mkdir();
             }
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 9cbe9254e82d8f27047c34c8090db783b5c29503
             FaltasJudiciales docu;
             docu= new FaltasJudiciales("Faltas Judiciales", args[2], args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
@@ -199,11 +203,16 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
+<<<<<<< HEAD
 
         
 
         if ( args[0].equalsIgnoreCase("hospitalarias") ){
             System.out.println("Generando reporte de estadísticas hospitalarias.");
+=======
+        else if ( args[0].equalsIgnoreCase("hospitalarias") ){
+
+>>>>>>> 9cbe9254e82d8f27047c34c8090db783b5c29503
             String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -218,7 +227,10 @@ public class ReportesTrimestrales {
                 hospitalarias.setWritable(true, false);
                 hospitalarias.mkdir();
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 9cbe9254e82d8f27047c34c8090db783b5c29503
             Hospitalarias docu;
             docu= new Hospitalarias("Estadísticas Hospitalarias",args[2],args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
             docu.setRuta(hospitalarias.getAbsolutePath()+"/");
@@ -342,6 +354,41 @@ public class ReportesTrimestrales {
             docu.equipoYPresentacion();
             docu.rellenar();
             docu.apendices(agropecuariasTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            //docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
+        else if ( args[0].equalsIgnoreCase("vif") ){
+            String rutaVif = "/home/ineservidor/VIF";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("vif <- leerLibro('/var/www/html/VIF/Entradas/vif.xlsx')"));
+            System.out.println(r.get().eval("vif <- convertirFechas(vif)"));
+            r.get().eval("escribirCSV(vif, '/var/www/html/VIF/Entradas/CSV')");
+            File vifTrimestre = new File(rutaVif, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !vifTrimestre.exists() ){
+                vifTrimestre.setReadable(true, false);
+                vifTrimestre.setExecutable(true, false);
+                vifTrimestre.setWritable(true, false);
+                vifTrimestre.mkdir();
+            }
+            VIF docu;
+            docu= new VIF("Estadísticas de Violencia Intrafamiliar", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/VIF/Entradas/CSV");
+            docu.setRuta(vifTrimestre.getAbsolutePath()+"/");
+            docu.setTex("vif");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.apendices(vifTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
