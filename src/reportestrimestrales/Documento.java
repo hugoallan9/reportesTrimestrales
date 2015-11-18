@@ -555,6 +555,15 @@ public class Documento {
         } catch (IOException ex) {
             Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+         try {
+            FileWriter escritora = new FileWriter(cuerpoPresentacion,false);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("%Inicio del cuerpo \n \n ");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
         protected void preambuloAnual(){
@@ -676,6 +685,18 @@ public class Documento {
         FileWriter escritora;
         try {
             escritora = new FileWriter(tex,true);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write(" \n \\INEchapter{" + nombreIndice + " }{" + nombre1 + "}{"
+                   + nombre2 + "}{" + contenido + "}%\n");
+            buffer.close();
+            
+            
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            escritora = new FileWriter(cuerpoPresentacion,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write(" \n \\INEchapter{" + nombreIndice + " }{" + nombre1 + "}{"
                    + nombre2 + "}{" + contenido + "}%\n");

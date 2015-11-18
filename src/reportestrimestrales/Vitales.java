@@ -123,8 +123,17 @@ public class Vitales extends Documento{
         
         // ALGUNAS VARIABLES UTILES
         //INTRODUCCION
+        escribirLineaPresentacion("\\primeradiapositiva{"
+                + "Estadísticas Vitales}"
+                + "{" +getFormatoTrimestre() + "}"
+                + "{Instituto Nacional de Estadística}"
+                + "{}");
+        
+        
         escribirCapitulo(capitulos.get(0).toString(), capitulos.get(0).toString()
                 ," ", introCapitulos.get(0).toString());
+        
+        
         
         //PRIMERA HOJA
         section1_01();
