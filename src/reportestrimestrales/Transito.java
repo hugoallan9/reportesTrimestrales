@@ -66,9 +66,14 @@ public class Transito extends Documento{
     protected void setIntroCapitulos(){
         introCapitulos.add("Los vehículos se entiende que es cualquier medio de transporte que "
                 + "circule en la vía pública para el transporte de personas, cargas o estén "
-                + "destinados a actividades especiales.");
-        introCapitulos.add("Es el número de personas víctimas que están involucradas en un "
-                + "evento de tránsito, las cuales se registraron como fallecidas o lesionadas.");
+                + "destinados a actividades especiales. \n \n Un evento de tránsito es "
+                + "un suceos donde uno o varios vehículos ocasionan perjuico a una persona, "
+                + "bien público o privado, por acción negligente de conductores, pasajeros "
+                + "o peatones (como factores humanos), factores mecánicos o climatológicos.");
+        introCapitulos.add("Es el recuento de las personas que sufrieron un daño o perjuicio, "
+                + "provocado en un evento de tránsito, ya sea por imprudencia propia o "
+                + "factores externos del tipo ambiental o humano. \n Los daños que se "
+                + "registran en las personas son del tipo físico.");
         introCapitulos.add("Un atropello es la acción en la que uno o varios peatones son "
                 + "arrollados por un vehículo en movimiento y a las víctimas de este hecho se "
                 + "les denomina atropellados.");        
