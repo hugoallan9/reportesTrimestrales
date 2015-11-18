@@ -45,7 +45,7 @@ public class Grafica extends Thread {
             System.out.println(r.eval("getListIpc()"));
             System.out.println("Iniciando Gráficas");
             r.eval("capitulo1()");
-            r.eval("capitulo2()");
+            /*r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");
             r.eval("capitulo5()");
@@ -53,7 +53,7 @@ public class Grafica extends Thread {
             r.eval("capitulo7()");
             r.eval("capitulo8()");
             r.eval("capitulo9()");
-            r.eval("capitulo10()");
+            r.eval("capitulo10()");*/
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");

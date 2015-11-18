@@ -174,10 +174,7 @@ public class ReportesTrimestrales {
                 faltasTrimestre.setWritable(true, false);
                 faltasTrimestre.mkdir();
             }
-<<<<<<< HEAD
-=======
             
->>>>>>> 3f3b2c069548eda3d66eed38936db38621110010
             FaltasJudiciales docu;
             docu= new FaltasJudiciales("Faltas Judiciales", args[2], args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
@@ -204,12 +201,9 @@ public class ReportesTrimestrales {
         }
 
         
-<<<<<<< HEAD
+
         if ( args[0].equalsIgnoreCase("hospitalarias") ){
             System.out.println("Generando reporte de estadísticas hospitalarias.");
-=======
-        else if ( args[0].equalsIgnoreCase("hospitalarias") ){
->>>>>>> 3f3b2c069548eda3d66eed38936db38621110010
             String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -224,10 +218,7 @@ public class ReportesTrimestrales {
                 hospitalarias.setWritable(true, false);
                 hospitalarias.mkdir();
             }
-<<<<<<< HEAD
-=======
-            
->>>>>>> 3f3b2c069548eda3d66eed38936db38621110010
+
             Hospitalarias docu;
             docu= new Hospitalarias("Estadísticas Hospitalarias",args[2],args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
             docu.setRuta(hospitalarias.getAbsolutePath()+"/");
@@ -364,6 +355,7 @@ public class ReportesTrimestrales {
   }
     
     public static String TASK_QUEUE_NAME = "ipc";
+    
     public static void main(String[] args) throws Exception {
             
     ConnectionFactory factory = new ConnectionFactory();
