@@ -174,7 +174,6 @@ public class ReportesTrimestrales {
                 faltasTrimestre.setWritable(true, false);
                 faltasTrimestre.mkdir();
             }
-
             FaltasJudiciales docu;
             docu= new FaltasJudiciales("Faltas Judiciales", args[2], args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
@@ -199,8 +198,10 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-        else if ( args[0].equalsIgnoreCase("hospitalarias") ){
 
+
+       
+        else if ( args[0].equalsIgnoreCase("hospitalarias") ){
             String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -215,6 +216,7 @@ public class ReportesTrimestrales {
                 hospitalarias.setWritable(true, false);
                 hospitalarias.mkdir();
             }
+
             Hospitalarias docu;
             docu= new Hospitalarias("Estadísticas Hospitalarias",args[2],args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
             docu.setRuta(hospitalarias.getAbsolutePath()+"/");
@@ -420,6 +422,7 @@ public class ReportesTrimestrales {
   }
     
     public static String TASK_QUEUE_NAME = "ipc";
+    
     public static void main(String[] args) throws Exception {
             
     ConnectionFactory factory = new ConnectionFactory();
