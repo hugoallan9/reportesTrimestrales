@@ -174,11 +174,6 @@ public class ReportesTrimestrales {
                 faltasTrimestre.setWritable(true, false);
                 faltasTrimestre.mkdir();
             }
-<<<<<<< HEAD
-            
-=======
-
->>>>>>> 9cbe9254e82d8f27047c34c8090db783b5c29503
             FaltasJudiciales docu;
             docu= new FaltasJudiciales("Faltas Judiciales", args[2], args[1],"/var/www/html/FaltasJudiciales/Entradas/CSV");
             docu.setRuta(faltasTrimestre.getAbsolutePath()+"/");
@@ -203,16 +198,10 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-<<<<<<< HEAD
 
-        
 
-        if ( args[0].equalsIgnoreCase("hospitalarias") ){
-            System.out.println("Generando reporte de estadísticas hospitalarias.");
-=======
+       
         else if ( args[0].equalsIgnoreCase("hospitalarias") ){
-
->>>>>>> 9cbe9254e82d8f27047c34c8090db783b5c29503
             String rutaHospitalarias = "/home/ineservidor/Hospitalarias";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
@@ -227,10 +216,7 @@ public class ReportesTrimestrales {
                 hospitalarias.setWritable(true, false);
                 hospitalarias.mkdir();
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 9cbe9254e82d8f27047c34c8090db783b5c29503
             Hospitalarias docu;
             docu= new Hospitalarias("Estadísticas Hospitalarias",args[2],args[1],"/var/www/html/Hospitalarias/Entradas/CSV");
             docu.setRuta(hospitalarias.getAbsolutePath()+"/");
