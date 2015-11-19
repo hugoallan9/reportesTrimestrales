@@ -154,6 +154,18 @@ public class Grafica extends Thread {
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Eventos de Tránsito', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transito.pdf','" + ruta+ "presentacionTransito.pdf'))");
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Eventos de Tránsito', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transito.pdf','" + ruta+ "presentacionTransito.pdf'))"));
         }
+        else if(lista.equalsIgnoreCase("delictivos")){
+            r.eval("graficasDelictivos("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println("graficasDelictivos("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            r.eval("graficasDelictivos("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/delictivos.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/delictivos.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/presentacionDelictivos.tex', mostrar = F)");
+            //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Hechos Delictivos', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "delictivos.pdf','" + ruta+ "presentacionDelictivos.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Hechos Delictivos', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "delictivos.pdf','" + ruta+ "presentacionDelictivos.pdf'))"));
+        }
         
     }
 }

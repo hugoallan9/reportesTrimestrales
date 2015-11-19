@@ -417,7 +417,41 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-     
+     else if ( args[0].equalsIgnoreCase("delictivos") ){
+            String rutaDelictivos = "/home/ineservidor/Delictivos";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            System.out.println(r.get().eval("delictivos <- leerLibro('/var/www/html/Delictivos/Entradas/delictivos.xlsx')"));
+            System.out.println(r.get().eval("delictivos <- convertirFechas(delictivos)"));
+            r.get().eval("escribirCSV(delictivos, '/var/www/html/Delictivos/Entradas/CSV')");
+            File delictivosTrimestre = new File(rutaDelictivos, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !delictivosTrimestre.exists() ){
+                delictivosTrimestre.setReadable(true, false);
+                delictivosTrimestre.setExecutable(true, false);
+                delictivosTrimestre.setWritable(true, false);
+                delictivosTrimestre.mkdir();
+            }
+            HechosDelictivos docu;
+            docu= new HechosDelictivos("Estadísticas de Hechos Delictivos", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Delictivos/Entradas/CSV");
+            docu.setRuta(delictivosTrimestre.getAbsolutePath()+"/");
+            docu.setTex("delictivos");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.apendices(delictivosTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            //docu.getRr().get().end();
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
       
   }
     

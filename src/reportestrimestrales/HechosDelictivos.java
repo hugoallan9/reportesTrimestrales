@@ -22,7 +22,7 @@ import org.rosuda.JRI.REXP;
 
 /**
  *
- * @author INE
+ * @author INE, con datos de la Policía Nacional Civil
  */
 public class HechosDelictivos extends Documento{
     private List capitulos;
@@ -57,40 +57,56 @@ public class HechosDelictivos extends Documento{
     }
     
     protected void setCapitulos(){
-        capitulos.add("Hechos registrados");
-        capitulos.add("Características de las mujeres víctimas");
-        capitulos.add("Características de los hombres víctimas");
-        capitulos.add("Características de los hombres agresores");
-        capitulos.add("Características de las mujeres agresoras");
-        
+        capitulos.add("Víctimas de hechos delictivos");
+        capitulos.add("Detenidos");
+        capitulos.add("Sindicados");
+        capitulos.add("Evaluaciones médico legal");
+        capitulos.add("Necropsias");
+        capitulos.add("Sentenciados");        
     }
     
     protected void setIntroCapitulos(){
-        introCapitulos.add("Corresponde a los hechos registrados a través de "
-                + "la boleta única de registro estadístico de violencia intrafamiliar, "
-                + "recopilada de las seis instituciones nombradas en la Ley (Decreto "
-                + "97-96).");
-        introCapitulos.add("En este apartado se encuentran las mujeres que fueron "
-                + "víctimas de violencia intrafamiliar y que en general se puede "
-                + "decir que aproximadamente en 9 de cada 10 denuncias de violencia "
-                + "intrafamiliar, la víctima es mujer.");
-        introCapitulos.add("En este apartado se encuentran la información de los "
-                + "hombres que denunciaron haber sido víctimas de algún pariente y "
-                + "por algún tipo de violencia. Como dato general se puede decir "
-                + "que históricamente, de cada 10 denuncias por violencia intrafamiliar, "
-                + "en 1 de ellas la víctima es hombre.");
-        introCapitulos.add("Respecto a los agresores, la información estadística "
-                + "muestra que de cada 10 agresores 9 son hombres. Por lo que es "
-                + "importante caracterizar este tipo de agresores.");
-        introCapitulos.add("En relación a las mujeres agresoras, en este espacio se "
-                + "observa la información sobre características como edad, nivel "
-                + "de escolaridad, empleo, etc. que identifican claramente a este "
-                + "grupo.");
+        introCapitulos.add("Sujeto pasivo del delito y de la persecución indebida que "
+                + "sufre violencia injusta en su persona o ataque a sus derechos.");
+        introCapitulos.add("El(la) capturado(a) por cometer un delito encontrándose "
+                + "en calidad infraganti, o por anteriores investigaciones realizadas, "
+                + "le hayan encontrado pruebas en contra que lo(a) transforman en "
+                + "acusado(a) o sindicado(a).");
+        introCapitulos.add("El(la) acusado(a) de infringir las leyes penales.");
+        introCapitulos.add("Criterio médico legal registrado en un documento oficial "
+                + "que expresa el análisis científico, de las consecuencias del hecho "
+                + "lesivo sobre el individuo, el que es de interés para la persona u "
+                + "organismos, los tipos de informes médico legal pueden ser "
+                + "certificados por lesiones, toxicológico, psicofisiológico, "
+                + "ginecológico, andrológico, proctológico, de edad clínica, de "
+                + "defunción; dictamen o protocolo, constancia, comprobante, receta "
+                + "médica, responsiva médica, informe, acta médica, certificado de "
+                + "defunción y muerte fetal, e historia clínica.");
+        introCapitulos.add("Su etimología proviene de las voces griegas \"necros\" "
+                + "que significa cadáver y \"opsis\" que significa cortar, es decir, "
+                + "cortar un cadáver. También llamada autopsia, es el estudio que "
+                + "realiza un médico especialista en patología, al exhumar un cuerpo "
+                + "humano que se encuentra enterrado, se analiza el exterior del cadáver, "
+                + "se practica una incisión para observar los órganos internos, se "
+                + "anota su posición del cuerpo y se extraen las partes para su "
+                + "análisis visual con ayuda del microscopio.");
+        introCapitulos.add("Persona en la que recae una resolución judicial de una "
+                + "causa y fallo en la cuestión principal de un proceso. La sentencia "
+                + "puede ser absolutoria o condenatoria. Es sentencia absolutoria al "
+                + "no probrase los hechos en que una parte apoya su pretensión o por "
+                + "no contar con fundamentos jurídicos, la que desestima la petición "
+                + "del actor o no hace lugar a la acusación formulada. Sentencia "
+                + "condenatoria es la que acepta en todo o en parte las pretensiones "
+                + "del actor, manifestadas en la demanda, o las del acusador expuestas "
+                + "en la querella.");
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
          contenidos.add(cargarCapitulo3());
+         contenidos.add(cargarCapitulo4());
+         contenidos.add(cargarCapitulo5());
+         contenidos.add(cargarCapitulo6());
          System.out.println("cargados los contenidos");
     }
     
@@ -132,9 +148,9 @@ public class HechosDelictivos extends Documento{
             {
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
-                rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("vif <- cargaMasiva('" +  ruta +"')");
-                REXP nombres = rr.get().eval("names(vif)");
+                rr.get().eval("library(funcionesINE, con datos de la Policía Nacional Civil)");
+                REXP listadoCSV = rr.get().eval("delictivos <- cargaMasiva('" +  ruta +"')");
+                REXP nombres = rr.get().eval("names(delictivos)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
             }
@@ -144,51 +160,92 @@ public class HechosDelictivos extends Documento{
         ArrayList cap1 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("1_01");
-        seccion1.add("Hechos de violencia intrafamiliar");
-        seccion1.add("Casos de violencia intrafamiliar registrados");
+        seccion1.add("Víctimas");
+        seccion1.add("Víctimas de hechos delictivos");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("1_02");
-        seccion1.add("Denuncias por departamento de ocurrencia");
-        seccion1.add("Número de denuncias por departamento de ocurrencia");
+        seccion1.add("Víctimas según causa");
+        seccion1.add("Distribución porcentual de víctimas de hechos delictivos por "
+                + "tipo de causas");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         cap1.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
-        seccion2.add("Tipo de violencia");
-        seccion2.add("Distribución de denuncias por tipo de violencia");
+        seccion2.add("Víctimas según departamento");
+        seccion2.add("Distribución porcentual de víctimas de hechos delictivos "
+                + "por departamento");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("1_04");
-        seccion2.add("Institución que recibió la denuncia");
-        seccion2.add("Distribución porcentual de denuncias de violencia intrafamiliar "
-                + "según la institución que recibió la denuncia");
+        seccion2.add("Víctimas por área geográfica");
+        seccion2.add("Distribución porcentual de víctimas de hechos delictivos "
+                + "por área geográfica");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         cap1.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
-        seccion3.add("Denuncias por ley aplicada");
-        seccion3.add("Distribución porcentual de denuncias de violencia intrafamiliar "
-                + "reportadas por el Organismo Judicial, por ley aplicada");
+        seccion3.add("Víctimas según grupos de edad y sexo");
+        seccion3.add("Víctimas según grupos de edad y sexo en unidades");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos de la Policía Nacional Civil");
+        seccion3.add(true);
+        seccion3.add("1_06");
+        seccion3.add("Víctimas de homicidio por tipo");
+        seccion3.add("Víctimas de homicidio por tipo en unidades");
+        seccion3.add(getFormatoTrimestre());
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         cap1.add(seccion3);
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("1_07");
+        seccion4.add("Víctimas de delitos contra el patrimonio");
+        seccion4.add("Víctimas de hechos delictivos contra el patrimonio según "
+                + "tipo en unidades");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos de la Policía Nacional Civil");
+        seccion4.add(true);
+        seccion4.add("1_08");
+        seccion4.add("Víctimas de extorsiones por departamento");
+        seccion4.add("Distribución porcentual de víctimas de extorsiones por departamento");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos de la Policía Nacional Civil");
+        seccion4.add(true);
+        cap1.add(seccion4);
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("1_09");
+        seccion4.add("Víctimas de extorsiones por sexo");
+        seccion4.add("Distribución porcentual de víctimas de extorsiones por sexo");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos de la Policía Nacional Civil");
+        seccion5.add(true);
+        seccion5.add("1_10");
+        seccion5.add("Víctimas de extorsiones por grupos de edad y sexo");
+        seccion5.add("Víctimas de extorsiones por grupos de edad y sexo en unidades");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos de la Policía Nacional Civil");
+        seccion5.add(true);
+        cap1.add(seccion5);
         return cap1;        
         
     }
@@ -196,58 +253,57 @@ public class HechosDelictivos extends Documento{
         ArrayList cap2 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
-        seccion1.add("Mujeres víctimas");
-        seccion1.add("Porcentaje de denuncias de mujeres víctimas de violencia intrafamiliar");
+        seccion1.add("Detenidos");
+        seccion1.add("Detenidos(as) por cometer hechos delictivos en unidades");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("2_02");
-        seccion1.add("Mujeres víctimas según pueblo de pertenencia");
-        seccion1.add("Porcentaje de mujeres víctimas de violencia intrafamiliar por pueblo de "
-                + "pertenencia");
+        seccion1.add("Detenidos según tipos de causa");
+        seccion1.add("Detenidos(as) por cometer hechos delictivos según los principales "
+                + "tipos de causa en unidades");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         cap2.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Mujeres víctimas por grupos de edad");
-        seccion2.add("Porcentaje de mujeres víctimas de violencia intrafamiliar, por grupos de edad");
+        seccion2.add("Detenidos según departamento");
+        seccion2.add("Distribución porcentual de detenidos por cometer hechos delictivos según"
+                + "departamento");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("2_04");
-        seccion2.add("Mujeres víctimas por condición de empleo");
-        seccion2.add("Distribución de mujeres víctimas de violencia intrafamiliar de 7 años y más, "
-                + "según condición de empleo");
+        seccion2.add("Detenidos según área geográfica");
+        seccion2.add("Distribución porcentual de detenidos por cometer hechos delictivos según "
+                + "área geográfica");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         cap2.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
-        seccion3.add("Mujeres víctimas por condición de alfabetismo");
-        seccion3.add("Distribución porcentual de mujeres vícitmas de violencia intrafamiliar, "
-                + "según condición de alfabetismo");
+        seccion3.add("Detenidos según edad y sexo");
+        seccion3.add("Detenidos por cometer hechos delictivos según edad y sexo en unidades");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         seccion3.add("2_06");
-        seccion3.add("Mujeres víctimas por tipo de agresión sufrida");
-        seccion3.add("Distribución de mujeres víctimas de violencia intrafamiliar, por"
-                + "tipo de agresión sufrida");
+        seccion3.add("Detenidos por cometer homicidio según tipo");
+        seccion3.add("Detenidos por cometer homicidios según el tipo de arma utilizada en unidades");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         cap2.add(seccion3);
         
@@ -255,15 +311,39 @@ public class HechosDelictivos extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
-        seccion4.add("Mujeres víctimas según su relación con el agresor(a)");
-        seccion4.add("Distribución porcentual de mujeres víctimas de violencia intrafamiliar, "
-                + "por relación con el agresor(a)");
+        seccion4.add("Detenidos por cometer delitos contra el patrimonio");
+        seccion4.add("Detenidos por cometer delitos contra el patrimonio según las principales "
+                + "causas en unidades");
         seccion4.add(getFormatoTrimestre());
         seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
-        seccion4.add("INE");
+        seccion4.add("INE, con datos de la Policía Nacional Civil");
+        seccion4.add(true);
+        seccion4.add("2_08");
+        seccion4.add("Detenidos por extorsiones según departamento");
+        seccion4.add("Distribucipon porcentual de detenidos por cometer extorsiones "
+                + "según departamento");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");       
+        seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         cap2.add(seccion4);
-               
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("2_09");
+        seccion5.add("Detenidos por extorsiones según sexo");
+        seccion5.add("Distribución porcentual de detenidos por cometer extorsiones "
+                + "segpun sexo");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos de la Policía Nacional Civil");
+        seccion5.add(true);
+        seccion5.add("2_10");
+        seccion5.add("Detenidos por extorsiones según grupos de edad y sexo");
+        seccion5.add("Detenidos por cometer extorsiones según edad y sexo en unidades");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");       
+        seccion5.add("INE, con datos de la Policía Nacional Civil");
+        seccion5.add(true);
+        cap2.add(seccion5);
         return cap2;        
     }
     
@@ -273,60 +353,59 @@ public class HechosDelictivos extends Documento{
         ArrayList cap3 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("3_01");
-        seccion1.add("Hombres víctimas por grupos de edad");
-        seccion1.add("Distribucion de hombres victimas de violencia intrafamiliar segun grupos "
-                + "de edad");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Sindicados");
+        seccion1.add("Sindicados por cometer hechos delictivos en unidades");
+        seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos del Ministerio Público");
         seccion1.add(true);
         seccion1.add("3_02");
-        seccion1.add("Hombres víctimas de 60 años o más, por relación con el agresor(a)");
-        seccion1.add("Distribución de hombres víctimas de 60 años y más, por relación con "
-                + "el agresor(a)");
+        seccion1.add("Sindicados por tipo de delito");
+        seccion1.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+                + "según el tipo de delito");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos del Ministerio Público");
         seccion1.add(true);
         cap3.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
-        seccion2.add("Hombres víctimas y su relación con el agresor(a)");
-        seccion2.add("Porcentaje de hombres víctimas de violencia intrafamiliar según su "
-                + "relación con el agresor(a)");
+        seccion2.add("Sindicados según departamento");
+        seccion2.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+                + "por departamento");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
         seccion2.add("3_04");
-        seccion2.add("Hombres víctimas por condición de alfabetismo");
-        seccion2.add("Distribución de hombres víctimas de violencia intrafamiliar, por"
-                + "condición de alfabetismo");
+        seccion2.add("Sindicados según mes");
+        seccion2.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+                + "según mes");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
         cap3.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("3_05");
-        seccion3.add("Hombres víctimas por condición de empleo");
-        seccion3.add("Distribución de hombres víctimas de violencia intrafamiliar por condición "
-                + "de empleo");
+        seccion3.add("Sindicados según sexo");
+        seccion3.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+                + "según sexo");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos del Ministerio Público");
         seccion3.add(true);
         seccion3.add("3_06");
-        seccion3.add("Hombres víctimas por tipo de agresión sufrida");
-        seccion3.add("Porcentaje de hombres víctimas de violencia intrafamiliar, por tipo de "
-                + "agresión sufrida");
+        seccion3.add("Sinidcados según sexo y grupo de edad");
+        seccion3.add("Sindicados por cometer hechos delictivos según sexo y grupo de edad "
+                + "en unidades");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos del Ministerio Público");
         seccion3.add(true);
         cap3.add(seccion3);
         
@@ -338,61 +417,49 @@ public class HechosDelictivos extends Documento{
         ArrayList cap4 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("4_01");
-        seccion1.add("Hombres Agresores");
-        seccion1.add("Porcentaje de denuncias de violencia intrafamiliar donde el agresor es "
-                + "hombre, según trimestre de registro");
+        seccion1.add("Evaluaciones médico legal");
+        seccion1.add("Evaluciones médico legal en unidades");
         seccion1.add(formatoSerie);
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         seccion1.add("4_02");
-        seccion1.add("Hombres agresores según grupos de edad");
-        seccion1.add("Distribución porcentual de hombres agresores de violencia intrafamiliar "
-                + "por grupos de edad");
+        seccion1.add("Evaluaciones médico legal por tipo de dictamen");
+        seccion1.add("Distribución porcentual de evaluaciones médico legal según tipo de dictamen");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         cap4.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("4_03");
-        seccion2.add("Hombres agresores según el nivel educativo");
-        seccion2.add("Porcentaje de hombres agresores de violencia intrafamiliar, según "
-                + "el nivel educativo");
+        seccion2.add("Evaluaciones médico legal por departamento");
+        seccion2.add("Distribución porcentual de evaluaciones médico legal según departamento");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         seccion2.add("4_04");
-        seccion2.add("Hombres agresores por condición de empleo");
-        seccion2.add("Distribución porcentual de hombres agresores de violencia intrafamilar "
-                + "por condición de empleo");
+        seccion2.add("Evaluaciones médico legal por sexo");
+        seccion2.add("Distribución porcentual de evaluaciones médico legal según sexo");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         cap4.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("4_05");
-        seccion3.add("Hombres agresores por pueblo de pertenencia");
-        seccion3.add("Distribucion porcentual de hombres agresores de violencia intrafamiliar "
-                + "por pueblo de pertenencia");
+        seccion3.add("Evaluaciones médico legal por grupos de edad");
+        seccion3.add("Evaluaciones médico legal según grupo de edad en unidades");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion3.add(true);
-        seccion3.add("4_06");
-        seccion3.add("Hombres agresores por tipo de agresión");
-        seccion3.add("Distribución porcentual de hombres agresores de violencia intrafamiliar, "
-                + "por tipo de agresión ejercida");
-        seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_06.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
-        seccion3.add(true);
+        
         cap4.add(seccion3);
         
         return cap4;        
@@ -401,57 +468,183 @@ public class HechosDelictivos extends Documento{
         ArrayList cap5 = new ArrayList();
         ArrayList seccion1 = new ArrayList();
         seccion1.add("5_01");
-        seccion1.add("Mujeres agresoras por grupos de edad");
-        seccion1.add("Distribución porcentual de mujeres agresoras de violencia "
-                + "intrafamiliar por grupos de edad");
+        seccion1.add("Necropsias");
+        seccion1.add("Número de necropsias en unidades");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_01.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         seccion1.add("5_02");
-        seccion1.add("Mujeres agresoras según nivel de escolaridad");
-        seccion1.add("Distribución porcentual de mujeres agresoras de violencia intrafamiliar "
-                + "por nivel de escolaridad");
+        seccion1.add("Necropsias por tipo de dictamen");
+        seccion1.add("Distribución porcentual de necropsias según tipo de dictamen");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_02.tex}  \\end{tikzpicture}");
-        seccion1.add("INE");
+        seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         cap5.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("5_03");
-        seccion2.add("Mujeres agresoras por condición de empleo");
-        seccion2.add("Porcentaje de mujeres agresoras de violencia intrafamiliar, por "
-                + "condición de empleo");
+        seccion2.add("Necropsias por departamento");
+        seccion2.add("Distribución porcentual de necropcias según departamento");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_03.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         seccion2.add("5_04");
-        seccion2.add("Mujeres agresoras por pueblo de pertenencia");
-        seccion2.add("Distribución porcentual de mujeres agresoras de violencia intrafamiliar "
-                + "por pueblo de pertenencia");
+        seccion2.add("Necropsias por sexo");
+        seccion2.add("Distribución porcentual de necropcias según sexo");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_04.tex}  \\end{tikzpicture}");
-        seccion2.add("INE");
+        seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         cap5.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("5_05");
-        seccion3.add("Mujeres agresoras por tipo de agresión");
-        seccion3.add("Distribucion porcentual de mujeres agresoras de violencia intrafamiliar "
-                + "por tipo de agresión ejercida");
+        seccion3.add("Necropsias por grupos de edad");
+        seccion3.add("Necropsias según grupo de edad en unidades");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_05.tex}  \\end{tikzpicture}");
-        seccion3.add("INE");
+        seccion3.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion3.add(true);
         cap5.add(seccion3);
         
         return cap5;        
     }
+    
+    protected ArrayList cargarCapitulo6(){
+        ArrayList cap6 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("6_01");
+        seccion1.add("Sentencias");
+        seccion1.add("Sentenciados por el Organismo Judicial, por cometer hechos delictivos");
+        seccion1.add(formatoSerie);
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_01.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos del Organismo Judicial");
+        seccion1.add(true);
+        seccion1.add("6_02");
+        seccion1.add("Sentencias por tipo");
+        seccion1.add("Sentenciados por el Organismo Judicial, por cometer hechos delictivos "
+                + "según el tipo de sentencia en unidades");
+        seccion1.add(getFormatoTrimestre());
+        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_02.tex}  \\end{tikzpicture}");
+        seccion1.add("INE, con datos del Organismo Judicial");
+        seccion1.add(true);
+        cap6.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("6_03");
+        seccion2.add("Sentencias condenatorias por departamento");
+        seccion2.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos, con sentencia condenatoria, por departamento");
+        seccion2.add(getFormatoTrimestre());
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_03.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos del Organismo Judicial");
+        seccion2.add(true);
+        seccion2.add("6_04");
+        seccion2.add("Setnencias condenatorias por sexo");
+        seccion2.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos, con sentencia condenatoria, según sexo");
+        seccion2.add(getFormatoTrimestre());
+        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_04.tex}  \\end{tikzpicture}");
+        seccion2.add("INE, con datos del Organismo Judicial");
+        seccion2.add(true);
+        cap6.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("6_05");
+        seccion3.add("Sentencias condenatorias por edad y sexo");
+        seccion3.add("Personas procesadas por el Organismo Judicial por cometer hechos delictivos, "
+                + "con sentencia condenatoria, según edad y sexo");
+        seccion3.add(getFormatoTrimestre());
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_05.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del Organismo Judicial");
+        seccion3.add(true);
+        seccion3.add("6_06");
+        seccion3.add("Sentencias condenatorias por tipo de ley");
+        seccion3.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos, con sentencia condenatoria, según ley aplicada");
+        seccion3.add(getFormatoTrimestre());
+        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_06.tex}  \\end{tikzpicture}");
+        seccion3.add("INE, con datos del Organismo Judicial");
+        seccion3.add(true);
+        cap6.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("6_07");
+        seccion4.add("Sentencias condenatorias por tipo de delito en el Ramo Penal");
+        seccion4.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos del ramo penal, con sentencia condenatoria, "
+                + "según delitos");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_07.tex}  \\end{tikzpicture}");
+        seccion4.add("INE, con datos del Organismo Judicial");
+        seccion4.add(true);
+        seccion4.add("6_08");
+        seccion4.add("Sentencias aboslutorias por departamento");
+        seccion4.add("Distribucipon porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos, con sentencia absolutoria, por departamento");
+        seccion4.add(getFormatoTrimestre());
+        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_08.tex}  \\end{tikzpicture}");       
+        seccion4.add("INE, con datos del Organismo Judicial");
+        seccion4.add(true);
+        cap6.add(seccion4);
+        
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("6_09");
+        seccion5.add("Sentencias absolutorias por sexo");
+        seccion5.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos, con sentencia absolutoria, según sexo");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_09.tex}  \\end{tikzpicture}");
+        seccion5.add("INE, con datos del Organismo Judicial");
+        seccion5.add(true);
+        seccion5.add("6_10");
+        seccion5.add("Sentencias absolutorias por edad y sexo");
+        seccion5.add("Personas procesadas por el Organismo Judicial por cometer hechos delictivos, "
+                + "con sentencia absolutoria, según edad y sexo");
+        seccion5.add(getFormatoTrimestre());
+        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_10.tex}  \\end{tikzpicture}");       
+        seccion5.add("INE, con datos del Organismo Judicial");
+        seccion5.add(true);
+        cap6.add(seccion5);
+        
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("6_11");
+        seccion6.add("Sentencias absolutorias por tipo de ley");
+        seccion6.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos, con sentencia absolutoria, "
+                + "según ley aplicada");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_11.tex}  \\end{tikzpicture}");
+        seccion6.add("INE, con datos del Organismo Judicial");
+        seccion6.add(true);
+        seccion6.add("6_12");
+        seccion6.add("Sentencias aboslutorias por tipo de delito en el Ramo Penal");
+        seccion6.add("Distribucipon porcentual de personas procesadas por el Organismo Judicial "
+                + "por cometer hechos delictivos contemplados en el ramo penal,"
+                + " con sentencia absolutoria, según delitos");
+        seccion6.add(getFormatoTrimestre());
+        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_12.tex}  \\end{tikzpicture}");       
+        seccion6.add("INE, con datos del Organismo Judicial");
+        seccion6.add(true);
+        cap6.add(seccion6);
+        
+        
+        
+        return cap6;        
+    }
+    
+    
+    
         protected void apendices(String rutaTEX){
         escribirLinea("\n \\appendixa \n" +
         "\n" +
@@ -459,6 +652,7 @@ public class HechosDelictivos extends Documento{
         "\n" );
         apendice1();
         apendice2();
+        apendice3();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/VIF/Entradas/CSV");
         ap.generarComercioExterior();
@@ -468,41 +662,51 @@ public class HechosDelictivos extends Documento{
     }
     private void apendice1(){
         String columna1 = tablaApendice("A_01",
-                "Hechos de violencia intrafamiliar por trimestre de registro según "
-                        + "departamento de ocurrencia",
-                "1",
-                "plantillaTabla1.pdf",
-                "INE",
+                "Análisis de variación de los detenidos",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos de la Policía Nacional Civil",
                 "");
         
         String columna2 = tablaApendice("A_02",
-                "Análisis de variación de mujeres víctimas",
+                "Análisis de variación de las víctimas",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE",
+                "INE, con datos de la Policía Nacional Civil",
                 "");
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     private void apendice2(){
         String columna1 = tablaApendice("A_03",
-                "Análisis de variación de hombres víctimas",
+                "Análisis de variación de los sindicados",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE",
+                "INE, con datos del Ministerio Público",
                 "");
         
         String columna2 = tablaApendice("A_04",
-                "Análisis de variación de hombres agresores",
+                "Análisis de variación de las evaluaciones médico legales",
                 "2",
                 "plantillaTabla2.pdf",
-                "INE",
+                "INE, con datos del Instituto Nacional de Ciencias Forenses",
                 "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice3(){
+        String columna1 = tablaApendice("A_05",
+                "Análisis de variación de las necropsias",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del Instituo Nacional de Ciencias Forenses",
+                "");
+        
+        String columna2 = "";
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
-        Grafica vif = new Grafica("vif", getRuta(), rr.get(), modalidad);
+        Grafica vif = new Grafica("delictivos", getRuta(), rr.get(), modalidad);
         vif.start();
     }
     
@@ -636,30 +840,22 @@ public class HechosDelictivos extends Documento{
                 "\n" +
                 "\n" +
                 "$\\ $\\\\\n" +
-                "\\indent El Instituto Nacional de Estadística -INE-, en cumplimiento de sus funciones "
-                + "como órgano central de información de divulgar datos estadísticos de los delitos "
-                + "contemplados en la Ley para prevenir, sancionar y erradicar la violencia "
-                + "intrafamiliar, emite el presente informe de {\\Bold Estadísticas de Violencia "
-                + "Intrafamiliar} que corresponde al período del "
+                "\\indent El Instituto Nacional de Estadística -INE-, a través de la Unidad de "
+                + "Estadísticas Socioculturales y de Seguridad, elabora la edición del "
                 + " {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}.\n" +
+                + getAnioPublicacion() +"} sobre {\\Bold Estadísticas de Hechos "
+                + "Delictivos} que comprende el área de sguridad y justicia del país.\n" +
                 "\n" +
-                "El documento incluye datos preliminares del perído , "
-                + "sobre los hechos de violencia intrafamiliar registrados, "
-                + "las características de las mujeres y los hombres víctimas, "
-                + "las características de las mujeres y los hombres agresores, "
-                + "así como cuadros estadísticos donde se analiza la variación "
-                + "entre períodos de estos hechos.\n"+
+                "El documento contiene la información de los hechos delictivos desde el momento "
+                + "en que se comete (reconocimiento) por medio de la Policía Nacional Civil. "
+                + "Luego la invetigación realizada por el Ministerio Público y el Instituto "
+                + "Nacional de Ciencias Forenses. {\\Bold La información presentada es preliminar}"
+                + " y será ajustada con el ingreso de los registros tardíos.\n"+
                 "\n" +
-                "Las fuentes para el presente son: Ministeripo Público (MP), "
-                + "Procuraduría General de la Nación (PGN), Policía Nacional Civil "
-                + "(PNC), Organismo Judicial a través de los juzgados de Paz y "
-                + "Familia (OJ), Bufetes Populares (BP) y la Procuraduría de los "
-                + "Derechos Humanos (PDH). \n"+
-                "\n" +
-                "Con esta publicación el instituto persigue contribuir significativamente "
-                + "a las crecientes demandas de información de las y los usuarios de "
-                + "estadísticas de violencia intrafamiliar.\n"+
+                "El INE agradeceel apoyo brindado por las fuentes de información, esperando "
+                + "que esta nueva edición sea de utilidad tanto a investigadores y público "
+                + "en general como para la elaboración de programas, políticas, planes en "
+                + "materia de seguridad para el país.\n"+
                 "\n" +
                 "\\thispagestyle{empty}\n" +
                 "\n" +
