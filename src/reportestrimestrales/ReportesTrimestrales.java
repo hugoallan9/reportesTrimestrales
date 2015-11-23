@@ -250,7 +250,7 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("comercio <- leerLibro('/var/www/html/Comercio/Entradas/comercio.xlsx')"));
             System.out.println(r.get().eval("comercio <- convertirFechas(comercio)"));
             r.get().eval("escribirCSV(comercio, '/var/www/html/Comercio/Entradas/CSV')");
-            File comercioTrimestre = new File(rutaComercio, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File comercioTrimestre = new File(rutaComercio, args[2] + args[1]);
             if ( !comercioTrimestre.exists() ){
                 comercioTrimestre.setReadable(true, false);
                 comercioTrimestre.setExecutable(true, false);
@@ -271,7 +271,13 @@ public class ReportesTrimestrales {
             docu.rellenar();
             docu.apendices(comercioTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
-            //docu.getRr().get().end();
+            docu.getRr().get().end();
+            
+            System.out.println("Antes ");
+            descriptorcomercio.Generador descripciones = new descriptorcomercio.Generador("/var/www/html/Comercio/Entradas/CSV", comercioTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
+            System.out.println("Despues");
+            
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
                 docu.generarGraficas("trimestral");
