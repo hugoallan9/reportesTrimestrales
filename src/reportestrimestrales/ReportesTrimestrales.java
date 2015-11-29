@@ -353,24 +353,24 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-        else if ( args[0].equalsIgnoreCase("vif") ){
-            String rutaVif = "/home/ineservidor/VIF";
+        else if ( args[0].equalsIgnoreCase("violencia") ){
+            String rutaViolencia = "/home/ineservidor/Violencia";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
-            System.out.println(r.get().eval("vif <- leerLibro('/var/www/html/VIF/Entradas/vif.xlsx')"));
-            System.out.println(r.get().eval("vif <- convertirFechas(vif)"));
-            r.get().eval("escribirCSV(vif, '/var/www/html/VIF/Entradas/CSV')");
-            File vifTrimestre = new File(rutaVif, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
-            if ( !vifTrimestre.exists() ){
-                vifTrimestre.setReadable(true, false);
-                vifTrimestre.setExecutable(true, false);
-                vifTrimestre.setWritable(true, false);
-                vifTrimestre.mkdir();
+            System.out.println(r.get().eval("violencia <- leerLibro('/var/www/html/Violencia/Entradas/violencia.xlsx')"));
+            System.out.println(r.get().eval("violencia <- convertirFechas(violencia)"));
+            r.get().eval("escribirCSV(violencia, '/var/www/html/Violencia/Entradas/CSV')");
+            File violenciaTrimestre = new File(rutaViolencia, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            if ( !violenciaTrimestre.exists() ){
+                violenciaTrimestre.setReadable(true, false);
+                violenciaTrimestre.setExecutable(true, false);
+                violenciaTrimestre.setWritable(true, false);
+                violenciaTrimestre.mkdir();
             }
             VIF docu;
             docu= new VIF("Estadísticas de Violencia Intrafamiliar", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/VIF/Entradas/CSV");
-            docu.setRuta(vifTrimestre.getAbsolutePath()+"/");
+            docu.setRuta(violenciaTrimestre.getAbsolutePath()+"/");
             docu.setTex("vif");
             docu.hacerPortada();
             docu.preambulo();
@@ -380,7 +380,7 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
-            docu.apendices(vifTrimestre.getAbsolutePath()+"/");
+            docu.apendices(violenciaTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
