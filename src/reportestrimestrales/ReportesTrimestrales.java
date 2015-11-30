@@ -362,7 +362,7 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("violencia <- leerLibro('/var/www/html/Violencia/Entradas/violencia.xlsx')"));
             System.out.println(r.get().eval("violencia <- convertirFechas(violencia)"));
             r.get().eval("escribirCSV(violencia, '/var/www/html/Violencia/Entradas/CSV')");
-            File violenciaTrimestre = new File(rutaViolencia, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File violenciaTrimestre = new File(rutaViolencia, args[2] + args[1]);
             if ( !violenciaTrimestre.exists() ){
                 violenciaTrimestre.setReadable(true, false);
                 violenciaTrimestre.setExecutable(true, false);
@@ -370,7 +370,7 @@ public class ReportesTrimestrales {
                 violenciaTrimestre.mkdir();
             }
             VIF docu;
-            docu= new VIF("Estadísticas de Violencia Intrafamiliar", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/VIF/Entradas/CSV");
+            docu= new VIF("Estadísticas de Violencia Intrafamiliar", args[2], args[1],"/var/www/html/Violencia/Entradas/CSV");
             docu.setRuta(violenciaTrimestre.getAbsolutePath()+"/");
             docu.setTex("vif");
             docu.hacerPortada();
@@ -381,8 +381,14 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
+            //descripciones
+            descriptorviolencia.Generador descripciones = new descriptorviolencia.Generador("/var/www/html/Violencia/Entradas/CSV", violenciaTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
+            
             docu.apendices(violenciaTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
+            
+            
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
