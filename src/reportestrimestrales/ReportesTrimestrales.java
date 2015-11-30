@@ -354,6 +354,7 @@ public class ReportesTrimestrales {
             //}
         }
         else if ( args[0].equalsIgnoreCase("violencia") ){
+            System.err.println("Generando reporte de Violencia Intrafamiliar");
             String rutaViolencia = "/home/ineservidor/Violencia";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
