@@ -1244,11 +1244,11 @@ public class Documento {
     
     protected String corregirTrimestre(String trimestre){
         String trim = null;
-        if(trimestre.equalsIgnoreCase("primero")){
+        if(trimestre.equalsIgnoreCase("primer")){
             trim = "Primer";
         }else if(trimestre.equalsIgnoreCase("segundo")){
             trim = "Segundo";
-        }else if(trimestre.equalsIgnoreCase("tercero")){
+        }else if(trimestre.equalsIgnoreCase("tercer")){
             trim = "Tercer";
         }else{
             trim = "Cuarto";
