@@ -234,7 +234,7 @@ public class AnualHospitalaria extends Documento{
                 "",
                 "Atenciones externas en hospitales privados según residencia del paciente",
                 "Número de atenciones por departamento",
-                "\\includegraphics[width=52\\cuadri]{2_04.pdf}",
+                "\\includegraphics[width=52\\cuadri]{2_04.90¿pdf}",
                 "Instituto Nacional de Estadística"));
                
     }
