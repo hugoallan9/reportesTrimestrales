@@ -91,6 +91,8 @@ public class VIF extends Documento{
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
          contenidos.add(cargarCapitulo3());
+         contenidos.add(cargarCapitulo4());
+         contenidos.add(cargarCapitulo5());
          System.out.println("cargados los contenidos");
     }
     
