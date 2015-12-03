@@ -274,8 +274,8 @@ public class ReportesTrimestrales {
             docu.getRr().get().end();
             
             System.out.println("Antes ");
-            descriptorcomercio.Generador descripciones = new descriptorcomercio.Generador("/var/www/html/Comercio/Entradas/CSV", comercioTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
-            descripciones.run();
+            //descriptorcomercio.Generador descripciones = new descriptorcomercio.Generador("/var/www/html/Comercio/Entradas/CSV", comercioTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            //descripciones.run();
             System.out.println("Despues");
             
             //if (args[3].equalsIgnoreCase("true")){
@@ -382,8 +382,8 @@ public class ReportesTrimestrales {
             docu.equipoYPresentacion();
             docu.rellenar();
             //descripciones
-            descriptorviolencia.Generador descripciones = new descriptorviolencia.Generador("/var/www/html/Violencia/Entradas/CSV", violenciaTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
-            descripciones.run();
+            //descriptorviolencia.Generador descripciones = new descriptorviolencia.Generador("/var/www/html/Violencia/Entradas/CSV", violenciaTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            //descripciones.run();
             
             docu.apendices(violenciaTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();

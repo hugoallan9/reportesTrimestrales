@@ -106,7 +106,7 @@ public class IPC extends Documento{
                     "		\\\\\n" +
             getMes()+ " " +getYear()+
             "		\\\\\n" + " };" +
-            "\\node[inner sep =0, scale =2, color = white]at(0.54,0.05){Guatemala, "+ getMesServidor()  +" de " +  getYearServidor()+"};\n "+
+            "\\node[inner sep =0, scale =2, color = white]at(0.54,0.05){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "+
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
             "\n" +
