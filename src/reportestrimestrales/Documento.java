@@ -119,6 +119,11 @@ public class Documento {
             df3.applyPattern("###,###.###");
             return(df3);
     }
+    
+    public DecimalFormat getDfCeros(){
+            df3.applyPattern("###,##0.00");
+            return(df3);
+    }
 
     public String getAnioPublicacion() {
         return anioPublicacion;
@@ -508,9 +513,9 @@ public class Documento {
                 + "del país, tomando como base los precios observados en el mes de referencia. \\\\ \\\\"+
                 "\n" +
                 "Las variaciones del Índice de Precios al Consumidor más importantes a " + getMes()+ " de " +getYear()  + "  son las siguientes: " +
-                "se registró una variación intermensual de " + String.valueOf(getDf2().format(mensual)) +"\\%, una variación "
-                + "interanual de " +  String.valueOf(getDf2().format(anual)) + "\\% y una variación acumulada de "+ 
-                String.valueOf(getDf2().format(acumulada))+"\\%. \\\\ \\\\" +
+                "se registró una variación intermensual de " + getDfCeros().format(mensual) +"\\%, una variación "
+                + "interanual de " +  getDfCeros().format(anual) + "\\% y una variación acumulada de "+ 
+                getDfCeros().format(acumulada)+"\\%. \\\\ \\\\" +
                 "Para profundizar en los resultados, el informe "
                 + "contiene diez capítulos; en el primero se presenta información "
                 + "sobre variables que influyen en el nivel de precios internos, "

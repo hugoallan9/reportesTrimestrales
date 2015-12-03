@@ -54,6 +54,7 @@ public class Grafica extends Thread {
             r.eval("capitulo8()");
             r.eval("capitulo9()");
             r.eval("capitulo10()");
+            
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");

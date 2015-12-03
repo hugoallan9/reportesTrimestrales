@@ -490,7 +490,7 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_03","IPC por división de gasto", 
                 "descripcion203",
-                "IPC por divisiòn de gasto, base diciembre del 2010",
+                "IPC por división de gasto, base diciembre del 2010",
                 getMes() + " " + getYear(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -568,7 +568,7 @@ public class IPC extends Documento{
     
     private void section2_09() {
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion( "2_09","Bienes con mayor disminuciòn mensual", 
+        escribirLinea(seccion( "2_09","Bienes con mayor disminución mensual", 
                 "descripcion209",
                 "Principales variaciones intermensuales negativas del IPC, " + getMes() + " " + getYear(),
                 "Por gasto básico, en porcentaje",
@@ -1037,7 +1037,7 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 2 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_03","IPC región " + getRomano(region) + " por división de gasto", 
                 "descripcion203",
-                "IPC " + getRomano(region) + " por divisiòn de gasto, base diciembre del 2010",
+                "IPC " + getRomano(region) + " por división de gasto, base diciembre del 2010",
                 getMes() + " " + getYear(),
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_03.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
@@ -1104,7 +1104,7 @@ public class IPC extends Documento{
     
     private void sectionR_08(int region) {
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 5 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        escribirLinea(seccion((region + 2)+"_08","Bienes con mayor disminuciòn mensual", 
+        escribirLinea(seccion((region + 2)+"_08","Bienes con mayor disminución mensual", 
                 "descripcion209",
                 "Principales variaciones intermensuales negativas del IPC, " + getMes() + " " + getYear(),
                 "Por gasto básico, en porcentaje",
