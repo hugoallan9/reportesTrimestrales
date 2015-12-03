@@ -44,35 +44,7 @@ public class IPC extends Documento{
     
     
     protected void hacerPortada(){
-       String portada = "http://www.ine.gob.gt/ftparchivos/portadaIPC.pdf";
-       System.out.println(getRuta());
-       File file = new File(getRuta(),"portada.pdf");
-       URL url = null;
-        try {
-            url = new URL(portada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String contraPortada = "http://www.ine.gob.gt/ftparchivos/contraportadaIPC.pdf";
-        File file1 = new File(getRuta(),"contraPortada.pdf");
-        try {
-            url = new URL(contraPortada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file1);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        try {
+       try {
             File p1 = new File(getRuta(),"caratula.tex");
             FileWriter escritora = new FileWriter(p1.getAbsolutePath(),false);
             BufferedWriter buffer = new BufferedWriter(escritora);
@@ -329,7 +301,7 @@ public class IPC extends Documento{
                 "Tasa de variación del IPC de los países Centroamericanos",
                 "En porcentaje" ,
                 tabla,
-                "Instituto Nacional de Estadística"));
+                "Banco de Guatemala"));
     
     
     }

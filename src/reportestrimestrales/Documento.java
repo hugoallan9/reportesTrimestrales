@@ -508,8 +508,9 @@ public class Documento {
                 + "del país, tomando como base los precios observados en el mes de referencia. \\\\ \\\\"+
                 "\n" +
                 "Las variaciones del Índice de Precios al Consumidor más importantes a " + getMes()+ " de " +getYear()  + "  son las siguientes: " +
-                "se registró una variación intermensual de " + String.valueOf(mensual) +"\\%, una variación "
-                + "interanual de " +  String.valueOf(anual) + "\\% y una variación acumulada de "+  String.valueOf(acumulada)+"\\%. \\\\ \\\\" +
+                "se registró una variación intermensual de " + String.valueOf(getDf2().format(mensual)) +"\\%, una variación "
+                + "interanual de " +  String.valueOf(getDf2().format(anual)) + "\\% y una variación acumulada de "+ 
+                String.valueOf(getDf2().format(acumulada))+"\\%. \\\\ \\\\" +
                 "Para profundizar en los resultados, el informe "
                 + "contiene diez capítulos; en el primero se presenta información "
                 + "sobre variables que influyen en el nivel de precios internos, "
