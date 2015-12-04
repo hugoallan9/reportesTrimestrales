@@ -253,6 +253,7 @@ public class Documento {
         try {
             FileWriter escritora = new FileWriter(tex,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\n \\appendix \n");
             buffer.write("\n \\input{glosario.tex} \n");
             buffer.write("\n \\includepdf{contraPortada.pdf} \n");
             buffer.write("\n \\end{document}\n");
@@ -574,16 +575,7 @@ public class Documento {
     }
     
         protected void preambuloAnual(){
-           File source = new File("/home/ineservidor/Carta");
-            File dest = new File(getRuta());
-            try {
-                FileUtils.copyDirectory(source, dest);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        
-        
-        try {
+         try {
             FileWriter escritora = new FileWriter(tex,false);
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write("\\input{Carta3}\n");
