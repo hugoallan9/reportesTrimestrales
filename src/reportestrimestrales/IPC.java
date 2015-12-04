@@ -1045,7 +1045,7 @@ public class IPC extends Documento{
     
     private void sectionR_04(int region){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 3 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = "\\begin{tabular}{l@{1}rrrrrrrrrrrrrr@{}}\n" +
+        String tabla = "\\begin{tabular}{lrrrrrrrrrrrrrr@{}}\n" +
         "          \\rowcolor{color1!10!white}\n" +
         "          \\hline\n" +
         "          &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
@@ -1180,14 +1180,14 @@ public class IPC extends Documento{
     
     private void sectionR_23(int region){
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 13 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
-        String tabla = "\\begin{tabular}{l@{1}rrrrrrrrrrrrrr@{}}\n" +
+        String tabla = "\\begin{tabular}{lrrrrrrrrrrrrrr@{}}\n" +
 "          \\rowcolor{color1!10!white}\n" +
 "          \\hline\n" +
 "          &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
 "          &  & &  \\phantom{abc} &  \\multicolumn{10}{c}{\\Bold División del Gasto}\\\\\n" +
 "         \\cmidrule{3-14}\n" +
 "         &&&&&&&&&&&&&\\\\[-0.35cm]\n" +
-"         \\multirow{-7}[0]{*}{\\Bold Región}&\\multirow{-7}[0]{*}{\\begin{tabular}{c}\\Bold Variación\\\\ \\Bold Mensual\\end{tabular}} & \\begin{sideways}\\small \\Bold Alimentos\\end{sideways} &  \\begin{sideways} \\small \\Bold Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}\\small \\Bold Vestuario\\end{sideways} &  \\begin{sideways}\\small \\Bold Vivienda\\end{sideways} &  \\begin{sideways}\\small \\Bold Muebles\\end{sideways} &  \\begin{sideways}\\small \\Bold Salud\\end{sideways} &  \\begin{sideways}\\small \\Bold Transporte\\end{sideways} &  \\begin{sideways}\\small \\Bold Comunicaciones\\end{sideways} &  \\begin{sideways}\\small \\Bold Recreación\\end{sideways} &  \\begin{sideways}\\small \\Bold Educación\\end{sideways} &  \\begin{sideways}\\small \\Bold Restaurantes\\end{sideways} &  \\begin{sideways}\\small \\Bold Bienes diversos \\end{sideways}\\\\\n" +
+"         \\multirow{-7}[0]{*}{\\Bold Período}&\\multirow{-7}[0]{*}{\\begin{tabular}{c}\\Bold Variación\\\\ \\Bold Mensual\\end{tabular}} & \\begin{sideways}\\small \\Bold Alimentos\\end{sideways} &  \\begin{sideways} \\small \\Bold Bebidas alcohólicas\\end{sideways} &  \\begin{sideways}\\small \\Bold Vestuario\\end{sideways} &  \\begin{sideways}\\small \\Bold Vivienda\\end{sideways} &  \\begin{sideways}\\small \\Bold Muebles\\end{sideways} &  \\begin{sideways}\\small \\Bold Salud\\end{sideways} &  \\begin{sideways}\\small \\Bold Transporte\\end{sideways} &  \\begin{sideways}\\small \\Bold Comunicaciones\\end{sideways} &  \\begin{sideways}\\small \\Bold Recreación\\end{sideways} &  \\begin{sideways}\\small \\Bold Educación\\end{sideways} &  \\begin{sideways}\\small \\Bold Restaurantes\\end{sideways} &  \\begin{sideways}\\small \\Bold Bienes diversos \\end{sideways}\\\\\n" +
 "         &&&&&&&&&&&&&\\\\[-0.4cm]\n" +
 "\n" +
 "         \\hline\n" +
