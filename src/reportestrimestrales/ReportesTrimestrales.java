@@ -283,14 +283,21 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-        else if ( args[0].equalsIgnoreCase("transporte") ){
-            String rutaTransporte = "/home/ineservidor/Transporte";
+        else if ( args[0].equalsIgnoreCase("transportes") ){
+            String rutaTransporte = "/home/ineservidor/Transportes";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
+<<<<<<< HEAD
+            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transporte/Entradas/transportes.xlsx')"));
+            System.out.println(r.get().eval("transporte <- convertirFechas(transporte)"));
+            r.get().eval("escribirCSV(transporte, '/var/www/html/Transportes/Entradas/CSV')");
+            File transporteTrimestre = new File(rutaTransporte, args[2] + args[1]);
+=======
             System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transporte/Entradas/transporte.xlsx')"));
             r.get().eval("escribirCSV(transporte, '/var/www/html/Transporte/Entradas/CSV')");
             File transporteTrimestre = new File(rutaTransporte, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+>>>>>>> 9e16899bd21ddab79f1f79275a495c868b45d55b
             if ( !transporteTrimestre.exists() ){
                 transporteTrimestre.setReadable(true, false);
                 transporteTrimestre.setExecutable(true, false);
@@ -298,7 +305,7 @@ public class ReportesTrimestrales {
                 transporteTrimestre.mkdir();
             }
             TransporteYServicios docu;
-            docu= new TransporteYServicios("Transportes y Servicios", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Transporte/Entradas/CSV");
+            docu= new TransporteYServicios("Transportes y Servicios", args[2], args[1],"/var/www/html/Transportes/Entradas/CSV");
             docu.setRuta(transporteTrimestre.getAbsolutePath()+"/");
             docu.setTex("transporte");
             docu.hacerPortada();
