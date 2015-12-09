@@ -288,16 +288,9 @@ public class ReportesTrimestrales {
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
-<<<<<<< HEAD
-            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transporte/Entradas/transportes.xlsx')"));
-            System.out.println(r.get().eval("transporte <- convertirFechas(transporte)"));
+            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transportes/Entradas/transportes.xlsx')"));
             r.get().eval("escribirCSV(transporte, '/var/www/html/Transportes/Entradas/CSV')");
             File transporteTrimestre = new File(rutaTransporte, args[2] + args[1]);
-=======
-            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transporte/Entradas/transporte.xlsx')"));
-            r.get().eval("escribirCSV(transporte, '/var/www/html/Transporte/Entradas/CSV')");
-            File transporteTrimestre = new File(rutaTransporte, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
->>>>>>> 9e16899bd21ddab79f1f79275a495c868b45d55b
             if ( !transporteTrimestre.exists() ){
                 transporteTrimestre.setReadable(true, false);
                 transporteTrimestre.setExecutable(true, false);

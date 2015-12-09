@@ -94,11 +94,12 @@ public class Grafica extends Thread {
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))");
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))"));
         }
-        
-        else if(lista.equalsIgnoreCase("trasporte")){
-            r.eval("graficasTransporte("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+        else if(lista.equalsIgnoreCase("transporte")){
+            System.out.println("Entre a transportes");
             System.out.println("graficasTransporte("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
-            r.eval("graficasTransporte("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println(r.eval("names(transporte)"));
+            r.eval("graficasTransportes("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            r.eval("graficasTransportes("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta  + "/tranporte.tex', mostrar = F)");
             r.eval("compilar('" + ruta + "/tranpsorte.tex', mostrar = F)");
