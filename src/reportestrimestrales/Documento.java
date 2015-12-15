@@ -735,7 +735,7 @@ public class Documento {
         }
         
         File titulo = new File(f, "titulo.tex");
-        File primeraDescripcion = new File(f, "parrafo1.tex");
+        File primeraDescripcion = new File(f, "descripcion.tex");
         File segundaDescripcion = new File(f,"parrafo2.tex");
         File titleGrafica = new File(f,"tituloGrafica.tex");
         File desGrafica = new File(f, "desGrafica.tex");
@@ -820,7 +820,7 @@ public class Documento {
         
         String retorno =  "\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + (codigo + "/parrafo1.tex").replaceAll("\\\\", "/") + "}}%\n"
+                + "%\n \\input{" + (codigo + "/descripcion.tex").replaceAll("\\\\", "/") + "}}%\n"
                 + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
                 + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
                 + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"

@@ -167,7 +167,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "1_01","Precio internacional de los alimentos", 
                 "descripcion201",
                 "Índice de precios de los alimentos de la FAO",
-                "Índice base 2002-2004",
+                "Indicador internacional, serie histórica, adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}",
                 "FAO"));
     }
@@ -177,8 +177,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "1_02","Precio del pretróleo", 
                 "descripcion201",
-                "Precio internacional del petróleo",
-                "Precio medio por barril",
+                "Precio promedio mensual del barril del petróleo",
+                "Indicador internacional, serie histórica, en dólares por barril",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}",
                 "Bloomberg"));
     }
@@ -188,7 +188,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "1_03","Cambio del quetzal", 
                 "descripcion201",
                 "Tipo de cambio nominal promedio",
-                "Quetzal por dólar estadounidense",
+                "República de Guatemala, serie histórica, en quetzales por dólar estadounidense",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}",
                 "Banco de Guatemala"));
     }
@@ -199,7 +199,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "1_04","Tasa de interés", 
                 "descripcion201",
                 "Tasas de interés activa bancaria",
-                "Tasa promedio ponderada",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}",
                 "Banco de Guatemala"));
     }
@@ -210,7 +210,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "1_05","Índice de precios al consumidor de EE.UU.", 
                 "descripcion201",
                 "Variación interanual del IPC de Estados Unidos de América",
-                "Serie histórica mensual",
+                "Estados Unidos de América, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}",
                 "U.S. Bureau of Labor Statistics "));
     }
@@ -221,7 +221,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "1_06","Índice de precios al consumidor de México", 
                 "descripcion201",
                 "Variación interanual del IPC de México",
-                "Serie histórica mensual",
+                "Estados Unidos Mexicanos, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}",
                 "INEGI"));
     }
@@ -299,7 +299,7 @@ public class IPC extends Documento{
                 "Inflación en América Central",
                 "",
                 "Tasa de variación del IPC de los países Centroamericanos",
-                "En porcentaje" ,
+                "Centro América, meses seleccionados, en porcentaje" ,
                 tabla,
                 "Banco de Guatemala"));
     
@@ -471,7 +471,7 @@ public class IPC extends Documento{
                 "IPC y sus variaciones",
                 "",
                 "Comportamiento del IPC a nivel de república y sus variaciones",
-                getMes() + " " + getYear() ,
+                " República de Guatemala,  " + getMes() + " " + getYear()  + ",  adimensional y en porcentaje " ,
                 tabla,
                 "Instituto Nacional de Estadística"));
     }
@@ -480,8 +480,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 12%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_02","Evolución del IPC", 
                 "descripcion201",
-                "IPC nacional, base diciembre del 2010",
-                "Serie histórica mensual",
+                "IPC, base diciembre del 2010",
+                "República de Guatemala, Serie histórica años " + getSerie()      + "adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -491,7 +491,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_03","IPC por división de gasto", 
                 "descripcion203",
                 "IPC por división de gasto, base diciembre del 2010",
-                getMes() + " " + getYear(),
+                "República de Guatemala, " + getMes() + " " + getYear()+  "adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -500,8 +500,8 @@ public class IPC extends Documento{
         escribirLinea(cajotaMapa("2_04", 
                 "Índice de precios al consumidor por regiones", 
                 "",
-                "IPC por regiones",
-                getMes() + " " + getYear(),
+                "IPC",
+                " República de Guatemala, " + getMes() + " " + getYear() + "adimensional",
                 "\\includegraphics[width=52\\cuadri]{2_04.pdf}",
                 "Instituto Nacional de Estadística"));
         
@@ -531,7 +531,7 @@ public class IPC extends Documento{
                 "Cambio mensual del IPC, por región y tipo de gasto",
                 "",
                 "Variación mensual del IPC por división de gasto y región",
-                getMes() + " " + getYear() ,
+                " República de Guatemala " + getMes() + " " + getYear() + ", en porcentaje y adimensional" ,
                 tabla,
                 "Instituto Nacional de Estadística"));
     }
@@ -540,8 +540,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_06","Evolución del cambio mensual del IPC", 
                 "descripcion206",
-                "Variación intermensual del IPC nacional ",
-                "Serie histórica mensual",
+                "Variación intermensual del IPC",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -550,8 +550,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 15%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_07","Cambio mensual del IPC por gasto", 
                 "descripcion207",
-                "Variación intermensual del IPC nacional por división de gastos",
-                getMes() + " " + getYear(),
+                "Variación intermensual del IPC por división de gastos",
+                "República de Guatemala, "+ getMes() + " " + getYear()+ ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -560,8 +560,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_08","Bienes con mayor incremento mensual", 
                 "descripcion208",
-                "Principales variaciones intermensuales positivas del IPC,  " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones intermensuales positivas del IPC,  " ,
+                "República de Guatemala," + getMes() + " " + getYear() +", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -570,8 +570,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 16%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_09","Bienes con mayor disminución mensual", 
                 "descripcion209",
-                "Principales variaciones intermensuales negativas del IPC, " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones intermensuales negativas del IPC, ",
+                "República de Guatemala," + getMes() + " " + getYear() +", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -580,8 +580,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_10","Cambio mensual del IPC de alimentos", 
                 "descripcion210",
-                "Variación intermensual nacional del IPC de alimentos y bebidas no alcohólicas",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual del IPC de alimentos y bebidas no alcohólicas",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -590,8 +590,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 17%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_11","Cambio mensual del IPC de \\ bebidas alcohólicas", 
                 "descripcion211",
-                "Variación intermensual nacional del IPC de \\ bebidas alcohólicas y tabaco",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual del IPC de \\ bebidas alcohólicas y tabaco",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -600,8 +600,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_12","Cambio mensual del IPC de vestuario", 
                 "descripcion212",
-                "Variación intermensual nacional del IPC de \\ prendas de vestir y calzado",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de \\ prendas de vestir y calzado",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -610,8 +610,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 18%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_13","Cambio mensual del IPC de  viviendas", 
                 "descripcion213",
-                "Variación intermensual nacional del IPC de vivienda, \\ agua, electricidad y gas",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de vivienda, \\ agua, electricidad y gas",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -620,8 +620,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_14","Cambio mensual del IPC de muebles", 
                 "descripcion214",
-                "Variación intermensual nacional del IPC de muebles y artículos para el hogar",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de muebles y artículos para el hogar",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_14.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -630,8 +630,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 19%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_15","Cambio mensual del IPC de salud", 
                 "descripcion215",
-                "Variación intermensual nacional del IPC de salud",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de salud",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_15.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -640,8 +640,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_16","Cambio mensual del IPC de transporte", 
                 "descripcion216",
-                "Variación intermensual nacional del IPC de transporte",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de transporte",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_16.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -650,8 +650,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 20%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_17","Cambio mensual del IPC de comunicaciones", 
                 "descripcion217",
-                "Variación intermensual nacional del IPC de \\ comunicaciones",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de \\ comunicaciones",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_17.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -660,8 +660,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_18","Cambio mensual del IPC de recreación", 
                 "descripcion218",
-                "Variación intermensual nacional del IPC de \\ recreación y cultura",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de \\ recreación y cultura",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_18.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -670,8 +670,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 21%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_19","Cambio mensual del IPC de educación", 
                 "descripcion219",
-                "Variación intermensual nacional del IPC de \\ educación",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de \\ educación",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_19.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -680,8 +680,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_20","Cambio mensual del IPC de restaurantes", 
                 "descripcion220",
-                "Variación intermensual nacional del IPC de \\ restaurantes y hoteles",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de \\ restaurantes y hoteles",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_20.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -690,8 +690,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_21","Cambio mensual del IPC de bienes diversos", 
                 "descripcion221",
-                "Variación intermensual nacional del IPC de bienes y \\ servicios diversos",
-                "Serie histórica, en porcentaje",
+                "Variación intermensual  del IPC de bienes y \\ servicios diversos",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_21.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -700,8 +700,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 24%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_23","Impacto del tipo de gasto en la variación mensual ", 
                 "descripcion223",
-                "Incidencia de las divisiones de gasto en la variación intermensual del IPC nacional",
-                getMes() + " " + getYear(),
+                "Incidencia de las divisiones de gasto en la variación intermensual del IPC",
+                "República de Guatemala, "+ getMes() + " " + getYear() + ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_23.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -710,8 +710,8 @@ public class IPC extends Documento{
         escribirLinea(cajotaMapa("2_22", 
                 "Cambio mensual del IPC por región", 
                 "",
-                "Variaciones intermensuales del IPC de las regiones",
-                getMes() + " " + getYear(),
+                "Variaciones intermensuales del IPC por regiones",
+                " República de Guatemala, " +getMes() + " " + getYear() + ", en porcentaje  ",
                 "\\includegraphics[width=52\\cuadri]{2_22.pdf}",
                 "Instituto Nacional de Estadística"));
         
@@ -722,7 +722,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_24","Bienes con mayor impacto en el cambio mensual", 
                 "descripcion224",
                 "Gastos básicos con mayor incidencia positiva  y negativa absoluta en la variación intermensual del IPC",
-                getMes() + " " + getYear(),
+                "República de Guatemala, " +getMes() + " " + getYear() + ", en porcentaje  ",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_24.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -732,7 +732,7 @@ public class IPC extends Documento{
                 "Impacto de las regiones en el cambio mensual", 
                 "",
                 "Incidencias de las regiones en la variación intermensual del IPC",
-                getMes() + " " + getYear(),
+                 "República de Guatemala " + getMes() + " " + getYear() + ", adimensional",
                 "\\includegraphics[width=52\\cuadri]{2_25.pdf}",
                 "Instituto Nacional de Estadística"));
         
@@ -762,7 +762,7 @@ public class IPC extends Documento{
                 "Cambio anual del IPC, por región y tipo de gasto",
                 "",
                 "Variación interanual del IPC por división de gasto y región",
-                getMes() + " " + getYear() ,
+                "República de Guatemala, " + getMes() + " " + getYear() + ", en porcentaje y adimensional" ,
                 tabla,
                 "Instituto Nacional de Estadística"));
     }
@@ -771,8 +771,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 27%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_27","Evolución del cambio anual del IPC  ", 
                 "descripcion227",
-                "Variación interanual del IPC nacional",
-                "Serie histórica mensual",
+                "Variación interanual del IPC",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_27.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -781,8 +781,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 27%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_28","Cambio anual del IPC por tipo de gasto ", 
                 "descripcion228",
-                "Variación interanual del IPC nacional por división de gasto",
-                getMes() + " " + getYear(),
+                "Variación interanual del IPC  por división de gasto",
+                "República de Guatemala, " + getMes() + " " + getYear() + ", en porcentaje y adimensional" ,
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_28.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -791,8 +791,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 28%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_29","Bienes con mayor aumento anual  ", 
                 "descripcion229",
-                "Principales variaciones interanuales positivas del IPC, " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones interanuales positivas del IPC, " ,
+                "República de Guatemala, " +  getMes() + " " + getYear() + ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_29.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -802,7 +802,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_30","Bienes con mayor disminución anual", 
                 "descripcion230",
                 "Principales variaciones interanuales negativas del IPC, \\ " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "República de Guatemala, " +  getMes() + " " + getYear() + ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_30.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }    
@@ -811,8 +811,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 29%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_31","Cambio anual de IPC de alimentos  ", 
                 "descripcion231",
-                "Variación interanual nacional del IPC de alimentos \\ y bebidas no alcohólicas",
-                "Serie histórica mensual, en porcentaje",
+                "Variación interanual  del IPC de alimentos \\ y bebidas no alcohólicas",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_31.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -822,7 +822,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_32","Cambio anual del IPC de bebidas alcohólicas ", 
                 "descripcion232",
                 "Variación interanual del IPC de \\ bebidas alcohólicas y tabaco",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_32.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -831,8 +831,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 30%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_33","Cambio anual de IPC de vestuario  ", 
                 "descripcion233",
-                "Variación interanual nacional del IPC de \\ prendas de vestir y calzado",
-                "Serie histórica mensual, en porcentaje",
+                "Variación interanual del IPC de \\ prendas de vestir y calzado",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_33.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -842,7 +842,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_34","Cambio anual del IPC de vivienda ", 
                 "descripcion234",
                 "Variación interanual del IPC de vivienda",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_34.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -851,8 +851,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 31%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_35","Cambio anual de IPC de muebles  ", 
                 "descripcion235",
-                "Variación interanual nacional del IPC de muebles \\ y artículos para el hogar",
-                "Serie histórica mensual, en porcentaje",
+                "Variación interanual del  IPC de muebles \\ y artículos para el hogar",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_35.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -862,7 +862,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_36","Cambio anual del IPC de salud ", 
                 "descripcion236",
                 "Variación interanual del IPC de salud",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_36.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -872,7 +872,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_37","Cambio anual de IPC de transporte  ", 
                 "descripcion237",
                 "Variación interanual nacional del IPC de transporte",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_37.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -882,7 +882,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_38","Cambio anual del IPC de comunicaciones ", 
                 "descripcion238",
                 "Variación interanual del IPC de \\ comunicaciones",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_38.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     } 
@@ -891,8 +891,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 33%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_39","Cambio anual de IPC de \\ recreación  ", 
                 "descripcion237",
-                "Variación interanual nacional del IPC de recreación y cultura",
-                "Serie histórica mensual, en porcentaje",
+                "Variación interanual  del IPC de recreación y cultura",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_39.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -902,7 +902,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_40","Cambio anual del IPC de \\ educación ", 
                 "descripcion238",
                 "Variación interanual del IPC de educación",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_40.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -912,7 +912,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_41","Cambio anual de IPC de restaurantes  ", 
                 "descripcion237",
                 "Variación interanual nacional del IPC de \\ los servicios en restaurantes y hoteles",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_41.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -922,7 +922,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_42","Cambio anual del IPC de bienes diversos ", 
                 "descripcion238",
                 "Variación interanual del IPC de bienes y \\ servicios diversos",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_42.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -932,7 +932,7 @@ public class IPC extends Documento{
                 "Cambio anual del IPC por región", 
                 "",
                 "Variaciones interanuales del IPC de las regiones",
-                getMes() + " " + getYear(),
+                "República de Guatemala, " + getMes() + " " + getYear() + ", en porcentaje",
                 "\\includegraphics[width=52\\cuadri]{2_43.pdf}",
                 "Instituto Nacional de Estadística"));
         
@@ -942,8 +942,8 @@ public class IPC extends Documento{
            escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 36%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion( "2_44","Impacto del tipo de gasto en la variación anual", 
                 "descripcion203",
-                "Incidencia de las divisiones de gasto en la variación interanual del IPC nacional",
-                getMes() + " " + getYear(),
+                "Incidencia de las divisiones de gasto en la variación interanual del IPC",
+                "República de Guatemala, "+getMes() + " " + getYear()+ ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_44.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -953,7 +953,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_45","Bienes con mayor impacto en el cambio anual IPC ", 
                 "descripcion203",
                 "Gastos básicos con mayor incidencia positiva y negativa absoluta en la variación interanual del IPC",
-                getMes() + " " + getYear(),
+                "República de Guatemala, " + getMes() + " " + getYear()+ ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_45.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -964,7 +964,7 @@ public class IPC extends Documento{
                 "Impacto de las regiones en el cambio anual", 
                 "",
                 "Incidencias de las regiones en la variación interanual del IPC",
-                getMes() + " " + getYear(),
+                "República de Guatemala, " + getMes() + " " + getYear()+ ", adimensional",
                 "\\includegraphics[width=52\\cuadri]{2_46.pdf}",
                 "Instituto Nacional de Estadística"));
         
@@ -976,7 +976,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_47","Valor del dinero", 
                 "descripcion238",
                 "Poder adquisitivo del quetzal",
-                "Serie histórica mensual, en porcentaje",
+                "República de Guatemala, serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_47.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     } 
@@ -1340,6 +1340,14 @@ public class IPC extends Documento{
         } catch(IOException ex){
             System.out.println(ex);
         }
+    }
+
+    private String getSerie() {
+        System.out.println(getYear());
+        int anio = Integer.parseInt(getYear()) -2;
+        System.out.println(String.valueOf(anio)  + "-" + getYear());
+        return( String.valueOf(anio)  + "-" + getYear() );
+        
     }
 
     

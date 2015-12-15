@@ -109,7 +109,7 @@ public class ReportesTrimestrales {
             docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
             docu.capitulo1();
             docu.capitulo2();
-            docu.capitulosRegionales();
+            //docu.capitulosRegionales();
             docu.generarGraficas("anual");
             docu.terminarDocumento();
             } catch (SQLException ex) {
@@ -309,6 +309,8 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
+            descriptortransporte.Generador descripciones = new descriptortransporte.Generador("/var/www/html/Transportes/Entradas/CSV", transporteTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             //docu.apendices(transporteTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             //docu.getRr().get().end();
