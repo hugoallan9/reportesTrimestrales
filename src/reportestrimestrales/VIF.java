@@ -472,10 +472,9 @@ public class VIF extends Documento{
     }
     private void apendice1(){
         String columna1 = tablaApendice("A_01",
-                "Hechos de violencia intrafamiliar por trimestre de registro según "
-                        + "departamento de ocurrencia",
-                "1",
-                "plantillaTabla1.pdf",
+                "Análisis de variación de la cantidad de denuncias",
+                "2",
+                "plantillaTabla2.pdf",
                 "INE",
                 "");
         

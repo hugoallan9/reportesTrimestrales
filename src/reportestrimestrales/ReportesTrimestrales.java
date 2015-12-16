@@ -413,7 +413,7 @@ public class ReportesTrimestrales {
                 transitoTrimestre.mkdir();
             }
             Transito docu;
-            docu= new Transito("Estadísticas de Accidentes de Tránsito", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/VIF/Entradas/CSV");
+            docu= new Transito("Estadísticas de Accidentes de Tránsito", args[2], args[1],"/var/www/html/VIF/Entradas/CSV");
             docu.setRuta(transitoTrimestre.getAbsolutePath()+"/");
             docu.setTex("transito");
             docu.hacerPortada();
@@ -440,7 +440,7 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("delictivos <- leerLibro('/var/www/html/Delictivos/Entradas/delictivos.xlsx')"));
             System.out.println(r.get().eval("delictivos <- convertirFechas(delictivos)"));
             r.get().eval("escribirCSV(delictivos, '/var/www/html/Delictivos/Entradas/CSV')");
-            File delictivosTrimestre = new File(rutaDelictivos, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File delictivosTrimestre = new File(rutaDelictivos, args[2] + args[1]);
             if ( !delictivosTrimestre.exists() ){
                 delictivosTrimestre.setReadable(true, false);
                 delictivosTrimestre.setExecutable(true, false);
@@ -448,7 +448,7 @@ public class ReportesTrimestrales {
                 delictivosTrimestre.mkdir();
             }
             HechosDelictivos docu;
-            docu= new HechosDelictivos("Estadísticas de Hechos Delictivos", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Delictivos/Entradas/CSV");
+            docu= new HechosDelictivos("Estadísticas de Hechos Delictivos", args[2], args[1],"/var/www/html/Delictivos/Entradas/CSV");
             docu.setRuta(delictivosTrimestre.getAbsolutePath()+"/");
             docu.setTex("delictivos");
             docu.hacerPortada();
