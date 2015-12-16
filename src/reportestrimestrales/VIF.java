@@ -58,11 +58,11 @@ public class VIF extends Documento{
     }
     
     protected void setCapitulos(){
-        capitulos.add("Hechos registrados");
-        capitulos.add("Características de las \\newline mujeres víctimas");
-        capitulos.add("Características de los hombres víctimas");
-        capitulos.add("Características de los hombres agresores");
-        capitulos.add("Características de las mujeres agresoras");
+        capitulos.add("Hechos registrados,");
+        capitulos.add("Características de las,mujeres víctimas");
+        capitulos.add("Características de los,hombres víctimas");
+        capitulos.add("Características de los,hombres agresores");
+        capitulos.add("Características de las,mujeres agresoras");
         
     }
     
@@ -102,8 +102,9 @@ public class VIF extends Documento{
         int finContenido = contenidos.size();
         for (int i=0; i<finContenido;i++){
             ArrayList tmpSeccion = (ArrayList)contenidos.get(i);
-            escribirCapitulo(capitulos.get(i).toString(), capitulos.get(i).toString()
-                ," ", introCapitulos.get(i).toString());
+            String[] tmpTitle =contenidos.get(i).toString().split(",");
+            escribirCapitulo(tmpTitle[0] +" " + tmpTitle[1], tmpTitle[0]
+                ,tmpTitle[1], introCapitulos.get(i).toString());
             int finSeccion = tmpSeccion.size();
             for (int j=0; j<finSeccion;j++){
                 
@@ -570,7 +571,7 @@ public class VIF extends Documento{
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
