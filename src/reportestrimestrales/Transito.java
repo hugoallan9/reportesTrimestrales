@@ -493,7 +493,7 @@ public class Transito extends Documento{
         apendice3();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/Transito/Entradas/CSV");
-        ap.generarComercioExterior();
+        ap.generar ();
         
         
         
