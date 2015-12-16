@@ -140,7 +140,7 @@ public class TransporteYServicios extends Documento{
         seccion1.add("Volumen de carga exportada a través del "
                 + "aereopuerto internacional La Aurora en miles de Kilogramos.");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("1_01.tex");
         seccion1.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion1.add(true);
         seccion1.add("1_02");
@@ -148,7 +148,7 @@ public class TransporteYServicios extends Documento{
         seccion1.add("Volumen de carga importada a través del "
                 + "aereopuerto internacional La Aurora en miles de Kilogramos");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("1_02.tex");
         seccion1.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion1.add(true);
         cap1.add(seccion1);
@@ -160,7 +160,7 @@ public class TransporteYServicios extends Documento{
         seccion2.add("Carga de alimentos exportados a través del "
                 + "aereopuerto internacional La Aurora en Kilogramos");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("1_03.tex");
         seccion2.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion2.add(true);
         seccion2.add("1_04");
@@ -168,7 +168,7 @@ public class TransporteYServicios extends Documento{
         seccion2.add("Carga de artículos exportados a través del "
                 + "aereopuerto internacional La Aurora en Kilogramos");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("1_04.tex");
         seccion2.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion2.add(true);
         cap1.add(seccion2);
@@ -180,7 +180,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Carga de plantas exportadas a través del "
                 + "aereopuerto internacional La Aurora en miles de Kilogramos");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("1_05.tex");
         seccion3.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion3.add(true);
         seccion3.add("1_06");
@@ -188,7 +188,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Carga de animales exportados a través del "
                 + "aeropuerto internacional La Aurora en Kilogramos");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("1_06.tex");
         seccion3.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion3.add(true);
         cap1.add(seccion3);
@@ -201,7 +201,7 @@ public class TransporteYServicios extends Documento{
         seccion4.add("Despegues de vuelos nacionales en aeropuerto internacional"
                 + "La Aurora");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
+        seccion4.add("1_07.tex");
         seccion4.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion4.add(true);
         seccion4.add("1_08");
@@ -209,7 +209,7 @@ public class TransporteYServicios extends Documento{
         seccion4.add("Despegues de vuelos internacionales en aeropuerto "
                 + "internacional La Aurora");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
+        seccion4.add("1_08.tex");
         seccion4.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion4.add(true);
         cap1.add(seccion4);
@@ -219,14 +219,14 @@ public class TransporteYServicios extends Documento{
         seccion5.add("Aeropuerto La Aurora: pasajeros que arriban");
         seccion5.add("Pasajeros que arriban en el aeropuerto internacional La Aurora");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
+        seccion5.add("1_09.tex");
         seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
         seccion5.add("1_10");
         seccion5.add("Aeropuerto La Aurora: pasajeros que salen");
         seccion5.add("Pasajeros que salen del aeropuerto internacional La Aurora");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
+        seccion5.add("1_10.tex");
         seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
         cap1.add(seccion5);
@@ -236,14 +236,14 @@ public class TransporteYServicios extends Documento{
         seccion6.add("Aeropuerto Mundo Maya: pasajeros que arriban");
         seccion6.add("Pasajeros que arriban en el aeropuerto internacional Mundo Maya");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_11.tex}  \\end{tikzpicture}");
+        seccion6.add("1_11.tex");
         seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
         seccion6.add("1_12");
         seccion6.add("Aeropuerto Mundo Maya: pasajeros que salen");
         seccion6.add("Pasajeros que salen del aeropuerto internacional Mundo Maya");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_12.tex}  \\end{tikzpicture}");
+        seccion6.add("1_12.tex");
         seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
         cap1.add(seccion6);
@@ -258,14 +258,14 @@ public class TransporteYServicios extends Documento{
         seccion1.add("Envío de correspondencia vía aérea");
         seccion1.add("Envío de correspondencia vía aérea");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("2_01.tex");
         seccion1.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Peso de la correspondencia vía aérea");
         seccion1.add("Peso de la correspondencia enviada por vía aérea en Kilogramos");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion1.add(true);
         cap2.add(seccion1);
@@ -276,14 +276,14 @@ public class TransporteYServicios extends Documento{
         seccion2.add("Envío de correspondencia por continente");
         seccion2.add("Envío de correspondencia vía aérea");
         seccion2.add("Distribución porcentual según continente");
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Principales países de destino de correspondencia");
         seccion2.add("Principales países de destino de la correspondencia enviada desde Guatemala");
         seccion2.add("Número de envíos");
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
         cap2.add(seccion2);
@@ -294,7 +294,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Correspondencia a Centroamérica y Panamá");
         seccion3.add("Envío de correspondencia vía aérea a América Central y Panamá");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
+        seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion3.add(true);
         seccion3.add("2_06");
@@ -302,7 +302,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Peso de la correspondencia enviada por vía aérea a "
                 + "América Central y Panamá en Kilogramos");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
+        seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion3.add(true);
         cap2.add(seccion3);
@@ -314,14 +314,14 @@ public class TransporteYServicios extends Documento{
         seccion4.add("Correspondencia a Norteamérica");
         seccion4.add("Envío de correspondencia vía aérea a América del Norte");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("2_07.tex");
         seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion4.add(true);
         seccion4.add("2_08");
         seccion4.add("Peso de la correspondencia enviada a Norteamérica");
         seccion4.add("Peso de la correspondencia enviada por vía aérea a Norteamérica en Kilogramos");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
+        seccion4.add("2_08.tex");
         seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion4.add(true);
         cap2.add(seccion4);
@@ -332,7 +332,7 @@ public class TransporteYServicios extends Documento{
         seccion5.add("Correspondencia a Sudamérica");
         seccion5.add("Envío de correspondencia vía aérea a América del Sur");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
+        seccion5.add("2_09.tex");
         seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion5.add(true);
         seccion5.add("2_10");
@@ -340,7 +340,7 @@ public class TransporteYServicios extends Documento{
         seccion5.add("Peso de la correspondencia enviada por vía aérea a "
                 + "América del Sur en Kilogramos");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");
+        seccion5.add("2_10.tex");
         seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion5.add(true);
         cap2.add(seccion5);
@@ -350,14 +350,14 @@ public class TransporteYServicios extends Documento{
         seccion6.add("Correspondencia a Europa");
         seccion6.add("Envío de correspondencia vía aérea a Europa");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_11.tex}  \\end{tikzpicture}");
+        seccion6.add("2_11.tex");
         seccion6.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion6.add(true);
         seccion6.add("2_12");
         seccion6.add("Peso de la correspondencia enviada a Europa");
         seccion6.add("Peso de la correspondencia enviada por vía aérea a Europa en Kilogramos");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_12.tex}  \\end{tikzpicture}");
+        seccion6.add("2_12.tex");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
         cap2.add(seccion6);
@@ -368,7 +368,7 @@ public class TransporteYServicios extends Documento{
         seccion7.add("Correspondencia a Asia, África y Oceanía");
         seccion7.add("Envío de correspondencia vía aérea a Asia, África y Oceanía");
         seccion7.add(formatoSerie);
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_13.tex}  \\end{tikzpicture}");
+        seccion7.add("2_13.tex");
         seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion7.add(true);
         seccion7.add("2_14");
@@ -376,7 +376,7 @@ public class TransporteYServicios extends Documento{
         seccion7.add("Peso de la correspondencia enviada por vía aérea a Asia, África "
                 + "y Oceanía en Kilogramos");
         seccion7.add(formatoSerie);
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_14.tex}  \\end{tikzpicture}");
+        seccion7.add("2_14.tex");
         seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion7.add(true);
         cap2.add(seccion7);
@@ -386,14 +386,14 @@ public class TransporteYServicios extends Documento{
         seccion8.add("Envío de encomiendas vía aérea");
         seccion8.add("Cantidad de encomiendas enviadas por vía aérea");
         seccion8.add(formatoSerie);
-        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_15.tex}  \\end{tikzpicture}");
+        seccion8.add("2_15.tex");
         seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion8.add(true);
         seccion8.add("2_16");
         seccion8.add("Peso de las encomiendas vía aérea");
         seccion8.add("Peso total de las encomiendas enviadas por vía aérea en Kilogramos");
         seccion8.add(formatoSerie);
-        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_16.tex}  \\end{tikzpicture}");
+        seccion8.add("2_16.tex");
         seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion8.add(true);
         cap2.add(seccion8);
@@ -407,7 +407,7 @@ public class TransporteYServicios extends Documento{
         seccion9.add("Cantidad de encomiendas enviadas por vía aérea a "
                 + "América Central y Panamá");
         seccion9.add(formatoSerie);
-        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_17.tex}  \\end{tikzpicture}");
+        seccion9.add("2_17.tex");
         seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion9.add(true);
         seccion9.add("2_18");
@@ -415,7 +415,7 @@ public class TransporteYServicios extends Documento{
         seccion9.add("Peso total de las encomiendas enviadas por vía aérea "
                 + "a América Central y Panamá en Kilogramos");
         seccion9.add(formatoSerie);
-        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_18.tex}  \\end{tikzpicture}");
+        seccion9.add("2_18.tex");
         seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion9.add(true);
         cap2.add(seccion9);
@@ -429,7 +429,7 @@ public class TransporteYServicios extends Documento{
         seccion10.add("Cantidad de encomiendas enviadas por vía aérea a "
                 + "América del Norte");
         seccion10.add(formatoSerie);
-        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_19.tex}  \\end{tikzpicture}");
+        seccion10.add("2_19.tex");
         seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion10.add(true);
         seccion10.add("2_20");
@@ -437,7 +437,7 @@ public class TransporteYServicios extends Documento{
         seccion10.add("Peso total de las encomiendas enviadas por vía aérea "
                 + "a América del Norte en Kilogramos");
         seccion10.add(formatoSerie);
-        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_20.tex}  \\end{tikzpicture}");
+        seccion10.add("2_20.tex");
         seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion10.add(true);
         cap2.add(seccion10);
@@ -448,7 +448,7 @@ public class TransporteYServicios extends Documento{
         seccion11.add("Cantidad de encomiendas enviadas por vía aérea a "
                 + "América del Sur");
         seccion11.add(formatoSerie);
-        seccion11.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_21.tex}  \\end{tikzpicture}");
+        seccion11.add("2_21.tex");
         seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion11.add(true);
         seccion11.add("2_22");
@@ -456,7 +456,7 @@ public class TransporteYServicios extends Documento{
         seccion11.add("Peso total de las encomiendas enviadas por vía aérea "
                 + "a América del Sur en Kilogramos");
         seccion11.add(formatoSerie);
-        seccion11.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_22.tex}  \\end{tikzpicture}");
+        seccion11.add("2_22.tex");
         seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion11.add(true);
         cap2.add(seccion11);
@@ -469,7 +469,7 @@ public class TransporteYServicios extends Documento{
         seccion12.add("Cantidad de encomiendas enviadas por vía aérea a "
                 + "Europa");
         seccion12.add(formatoSerie);
-        seccion12.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_23.tex}  \\end{tikzpicture}");
+        seccion12.add("2_23.tex");
         seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion12.add(true);
         seccion12.add("2_24");
@@ -477,7 +477,7 @@ public class TransporteYServicios extends Documento{
         seccion12.add("Peso total de las encomiendas enviadas por vía aérea "
                 + "a Europa en Kilogramos");
         seccion12.add(formatoSerie);
-        seccion12.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_24.tex}  \\end{tikzpicture}");
+        seccion12.add("2_24.tex");
         seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion12.add(true);
         cap2.add(seccion12);
@@ -490,7 +490,7 @@ public class TransporteYServicios extends Documento{
         seccion13.add("Cantidad de encomiendas enviadas por vía aérea a "
                 + "Asia, África y Oceanía");
         seccion13.add(formatoSerie);
-        seccion13.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_25.tex}  \\end{tikzpicture}");
+        seccion13.add("2_25.tex");
         seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion13.add(true);
         seccion13.add("2_26");
@@ -498,7 +498,7 @@ public class TransporteYServicios extends Documento{
         seccion13.add("Peso total de las encomiendas enviadas por vía aérea "
                 + "a Asia, África y Oceanía en Kilogramos");
         seccion13.add(formatoSerie);
-        seccion13.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_26.tex}  \\end{tikzpicture}");
+        seccion13.add("2_26.tex");
         seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion13.add(true);
         cap2.add(seccion13);
@@ -508,7 +508,7 @@ public class TransporteYServicios extends Documento{
         seccion14.add("Principales destinos de las encomiendas");
         seccion14.add("Principales países de destino de las encomiendas");
         seccion14.add(getFormatoTrimestre());
-        seccion14.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_27.tex}  \\end{tikzpicture}");
+        seccion14.add("2_27.tex");
         seccion14.add("INE, con datos de Dirección General de Correos y Telégrafos");
         
         
@@ -525,14 +525,14 @@ public class TransporteYServicios extends Documento{
         seccion1.add("Buques");
         seccion1.add("Buques que arribaron a Guatemala");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
+        seccion1.add("3_01.tex");
         seccion1.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion1.add(true);
         seccion1.add("3_02");
         seccion1.add("Carga total exportada");
         seccion1.add("Exportaciones en el sistema portuario nacional en miles de toneladas métricas");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
+        seccion1.add("3_02.tex");
         seccion1.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion1.add(true);
         cap3.add(seccion1);
@@ -543,7 +543,7 @@ public class TransporteYServicios extends Documento{
         seccion2.add("Carga total importada");
         seccion2.add("Importaciones en el sistema portuario nacional en miles de toneladas métricas");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
+        seccion2.add("3_03.tex");
         seccion2.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion2.add(true);
         seccion2.add("3_04");
@@ -551,7 +551,7 @@ public class TransporteYServicios extends Documento{
         seccion2.add("Exportaciones e importaciones en el sistema portuario nacional, "
                 + "de carga tipo general en miles de toneladas métricas");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
+        seccion2.add("3_04.tex");
         seccion2.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion2.add(true);
         cap3.add(seccion2);
@@ -563,7 +563,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Exportaciones e importaciones en el sistema portuario nacional, "
                 + "carga en contendores en miles de toneladas métricas");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
+        seccion3.add("3_05.tex");
         seccion3.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion3.add(true);
         seccion3.add("3_06");
@@ -571,7 +571,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Exportacones e importaciones en el sistema portuario nacional, "
                 + "carga líquida a granel en miles de toneladas métricas");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
+        seccion3.add("3_06.tex");
         seccion3.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion3.add(true);
         cap3.add(seccion3);
@@ -584,7 +584,7 @@ public class TransporteYServicios extends Documento{
         seccion4.add("Exportaciones e importaciones en el sistema portuario nacional, "
                 + "carga sólida a granel en miles de toneladas métricas");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_07.tex}  \\end{tikzpicture}");
+        seccion4.add("3_07.tex");
         seccion4.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion4.add(true);
         seccion4.add("3_08");
@@ -592,7 +592,7 @@ public class TransporteYServicios extends Documento{
         seccion4.add("Porcentaje de exportaciones en relación al total de carga manejada "
                 + "en el sistema portuario nacional, según el tipo de carga");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_08.tex}  \\end{tikzpicture}");
+        seccion4.add("3_08.tex");
         seccion4.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion4.add(true);
         cap3.add(seccion4);
@@ -603,7 +603,7 @@ public class TransporteYServicios extends Documento{
         seccion5.add("Puerto Santo Tomás de Castilla: buques");
         seccion5.add("Buques que arribanron al puerto Santo Tomás de Castilla");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_09.tex}  \\end{tikzpicture}");
+        seccion5.add("3_09.tex");
         seccion5.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion5.add(true);
         seccion5.add("3_10");
@@ -611,7 +611,7 @@ public class TransporteYServicios extends Documento{
         seccion5.add("Exportaciones en el puerto Santo Tomás de Castilla en miles "
                 + "de toneladas métricas");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_10.tex}  \\end{tikzpicture}");
+        seccion5.add("3_10.tex");
         seccion5.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion5.add(true);
         cap3.add(seccion5);
@@ -622,14 +622,14 @@ public class TransporteYServicios extends Documento{
         seccion6.add("Importaciones a través del puerto Santo Tomás de Castilla en miles de "
                 + "toneladas métricas");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_11.tex}  \\end{tikzpicture}");
+        seccion6.add("3_11.tex");
         seccion6.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion6.add(true);
         seccion6.add("3_12");
         seccion6.add("Puerto Barrios: Buques");
         seccion6.add("Buques que arribaron a Puerto Barrios");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_12.tex}  \\end{tikzpicture}");
+        seccion6.add("3_12.tex");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
         cap3.add(seccion6);
@@ -640,14 +640,14 @@ public class TransporteYServicios extends Documento{
         seccion7.add("Puerto Barrios: carga exportada");
         seccion7.add("Exportaciones en Puerto Barrios en miles de toneladas métricas");
         seccion7.add(formatoSerie);
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_13.tex}  \\end{tikzpicture}");
+        seccion7.add("3_13.tex");
         seccion7.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion7.add(true);
         seccion7.add("3_14");
         seccion7.add("Puerto Barrios: carga importada");
         seccion7.add("Importaciones a través de Puerto Barrios en miles de toneladas métricas");
         seccion7.add(formatoSerie);
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_14.tex}  \\end{tikzpicture}");
+        seccion7.add("3_14.tex");
         seccion7.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion7.add(true);
         cap3.add(seccion7);
@@ -657,14 +657,14 @@ public class TransporteYServicios extends Documento{
         seccion8.add("Puerto San José: buques");
         seccion8.add("Buques que arribaron al puerto San José");
         seccion8.add(formatoSerie);
-        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_15.tex}  \\end{tikzpicture}");
+        seccion8.add("3_15.tex");
         seccion8.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion8.add(true);
         seccion8.add("3_16");
         seccion8.add("Puerto San José: carga exportada");
         seccion8.add("Exportaciones en el puerto San José en miles de toneladas métricas");
         seccion8.add(formatoSerie);
-        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_16.tex}  \\end{tikzpicture}");
+        seccion8.add("3_16.tex");
         seccion8.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion8.add(true);
         cap3.add(seccion8);
@@ -677,14 +677,14 @@ public class TransporteYServicios extends Documento{
         seccion9.add("Puerto San José: carga importada");
         seccion9.add("Importaciones a través de puerto San José en miles de toneladas métricas");
         seccion9.add(formatoSerie);
-        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_17.tex}  \\end{tikzpicture}");
+        seccion9.add("3_17.tex");
         seccion9.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion9.add(true);
         seccion9.add("3_18");
         seccion9.add("Puerto Quetzal: buques");
         seccion9.add("Buques que arribaron al Puerto Quetzal");
         seccion9.add(formatoSerie);
-        seccion9.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_18.tex}  \\end{tikzpicture}");
+        seccion9.add("3_18.tex");
         seccion9.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion9.add(true);
         cap3.add(seccion9);
@@ -697,14 +697,14 @@ public class TransporteYServicios extends Documento{
         seccion10.add("Puerto Quetzal: carga exportada");
         seccion10.add("Exportacoines en el Puerto Quetzal en miles de toneladas métricas");
         seccion10.add(formatoSerie);
-        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_19.tex}  \\end{tikzpicture}");
+        seccion10.add("3_19.tex");
         seccion10.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion10.add(true);
         seccion10.add("3_20");
         seccion10.add("Puerto Quetzal: carga importada");
         seccion10.add("Importaciones a través de Puerto Quetzal en miles de tonelas métricas");
         seccion10.add(formatoSerie);
-        seccion10.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_20.tex}  \\end{tikzpicture}");
+        seccion10.add("3_20.tex");
         seccion10.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion10.add(true);
         cap3.add(seccion10);
@@ -721,14 +721,14 @@ public class TransporteYServicios extends Documento{
         seccion1.add("Parque vehicular");
         seccion1.add("Parque vehicular");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
+        seccion1.add("4_01.tex");
         seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
         seccion1.add("4_02");
         seccion1.add("Parque vehicular por modelo");
         seccion1.add("Distribución porcentual del parque vehicular por modelo");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
+        seccion1.add("4_02.tex");
         seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
         cap4.add(seccion1);
@@ -739,14 +739,14 @@ public class TransporteYServicios extends Documento{
         seccion2.add("Parque vehicular por departamento");
         seccion2.add("Distribución porcuentual del parque vehicular por departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
+        seccion2.add("4_03.tex");
         seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion2.add(true);
         seccion2.add("4_04");
         seccion2.add("Parque vehicular por tipo");
         seccion2.add("Distribución porcentual del parque vehicular según tipo de vehículo");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
+        seccion2.add("4_04.tex");
         seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion2.add(true);
         cap4.add(seccion2);
@@ -757,14 +757,14 @@ public class TransporteYServicios extends Documento{
         seccion3.add("Parque vehicular por tipo de combustible");
         seccion3.add("Porcentaje de parque vehicular por tipo de combustible");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
+        seccion3.add("4_05.tex");
         seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion3.add(true);
         seccion3.add("4_06");
         seccion3.add("Importación de vehículos nuevos");
         seccion3.add("Importación de vehículos nuevos");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_06.tex}  \\end{tikzpicture}");
+        seccion3.add("4_06.tex");
         seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion3.add(true);
         cap4.add(seccion3);
@@ -776,7 +776,7 @@ public class TransporteYServicios extends Documento{
         seccion4.add("Importacion de vehículos usados");
         seccion4.add("Importación de vehículos usados");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_07.tex}  \\end{tikzpicture}");
+        seccion4.add("4_07.tex");
         seccion4.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion4.add(true);
         cap4.add(seccion4);
@@ -790,31 +790,12 @@ public class TransporteYServicios extends Documento{
     }
     
     protected void hacerPortada(){
-       String portada = "http://www.ine.gob.gt/ftparchivos/portadaVitales.pdf";
-       File file = new File(getRuta(),"portada.pdf");
-       URL url = null;
+       File source = new File("/home/ineservidor/Transportes/Caratula");
+        File dest = new File(getRuta());
         try {
-            url = new URL(portada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        String contraPortada = "http://www.ine.gob.gt/ftparchivos/contraportadaVitales.pdf";
-        File file1 = new File(getRuta(),"contraPortada.pdf");
-        try {
-            url = new URL(contraPortada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file1);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         
         try {
@@ -850,7 +831,7 @@ public class TransporteYServicios extends Documento{
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()  +" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
@@ -939,6 +920,17 @@ public class TransporteYServicios extends Documento{
                 "\n" +
                 "\n" +
                 "\\cleardoublepage");
+    }
+    
+      @Override
+    protected void preambuloPresentacion(){
+        File source = new File("/home/ineservidor/Vitales/Presentacion");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     
    

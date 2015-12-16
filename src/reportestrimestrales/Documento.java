@@ -249,12 +249,27 @@ public class Documento {
         }
     }
     
-    protected void terminarDocumento(){
+    
+    
+    protected void terminarDocumentoApendice(){
         try {
             FileWriter escritora = new FileWriter(tex,true);
             BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write("\n \\appendix \n");
             buffer.write("\n \\input{glosario.tex} \n");
+            buffer.write("\n \\includepdf{contraPortada.pdf} \n");
+            buffer.write("\n \\end{document}\n");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    protected void terminarDocumento(){
+        try {
+            FileWriter escritora = new FileWriter(tex,true);
+            BufferedWriter buffer = new BufferedWriter(escritora);
             buffer.write("\n \\includepdf{contraPortada.pdf} \n");
             buffer.write("\n \\end{document}\n");
             buffer.close();
@@ -735,7 +750,7 @@ public class Documento {
         }
         
         File titulo = new File(f, "titulo.tex");
-        File primeraDescripcion = new File(f, "parrafo1.tex");
+        File primeraDescripcion = new File(f, "descripcion.tex");
         File segundaDescripcion = new File(f,"parrafo2.tex");
         File titleGrafica = new File(f,"tituloGrafica.tex");
         File desGrafica = new File(f, "desGrafica.tex");
@@ -820,7 +835,7 @@ public class Documento {
         
         String retorno =  "\n \\columna{%\n"
                 + nombreSeccion+ "}%\n{"
-                + "%\n \\input{" + (codigo + "/parrafo1.tex").replaceAll("\\\\", "/") + "}}%\n"
+                + "%\n \\input{" + (codigo + "/descripcion.tex").replaceAll("\\\\", "/") + "}}%\n"
                 + "{%\n \\input{" + (codigo + "/parrafo2.tex").replaceAll("\\\\","/") + "}} %\n"
                 + "{%\n \\input{" + (codigo + "/tituloGrafica.tex").replaceAll("\\\\", "/") +   "}} %\n"
                 + "{%\n \\input{" + (codigo + "/desGrafica.tex").replaceAll("\\\\","/") +   "}} %\n"
@@ -1185,11 +1200,12 @@ public class Documento {
     
     protected List trimestres(){
         String trm = getTrimestre();
+        System.out.println("trm = "+ trm);
         int anio =Integer.parseInt(getYearServidor());
         List lista= new ArrayList();
         
         switch (trm.toLowerCase()) {
-            case "primero":
+            case "primer":
                 lista.add("T1-"+(anio-2));
                 lista.add("T2-"+(anio-2));
                 lista.add("T3-"+(anio-2));
@@ -1211,7 +1227,7 @@ public class Documento {
                 lista.add("T1-"+(anio));
                 lista.add("T2-"+(anio));                
                 break;
-            case "tercero":
+            case "tercer":
                 lista.add("T3-"+(anio-2));
                 lista.add("T4-"+(anio-2));
                 lista.add("T1-"+(anio-1));

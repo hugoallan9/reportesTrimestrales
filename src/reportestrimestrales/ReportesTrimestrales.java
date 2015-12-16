@@ -151,7 +151,7 @@ public class ReportesTrimestrales {
             docu.capitulo4();
             docu.capitulo5();
             docu.apendices(vitalesTrimestre.getAbsolutePath()+"/");
-            docu.terminarDocumento();
+            docu.terminarDocumentoApendice();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
@@ -248,7 +248,6 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("comercio <- leerLibro('/var/www/html/Comercio/Entradas/comercio.xlsx')"));
-            System.out.println(r.get().eval("comercio <- convertirFechas(comercio)"));
             r.get().eval("escribirCSV(comercio, '/var/www/html/Comercio/Entradas/CSV')");
             File comercioTrimestre = new File(rutaComercio, args[2] + args[1]);
             if ( !comercioTrimestre.exists() ){
@@ -257,8 +256,10 @@ public class ReportesTrimestrales {
                 comercioTrimestre.setWritable(true, false);
                 comercioTrimestre.mkdir();
             }
+            System.out.println("Antes de Entrar al constructor");
             ComercioExterior docu;
-            docu= new ComercioExterior("Estadísticas de Comercio Exterior", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Comercio/Entradas/CSV");
+            docu= new ComercioExterior("Estadísticas de Comercio Exterior", args[2], args[1],"/var/www/html/Comercio/Entradas/CSV");
+            System.out.println("Sali del constructor");
             docu.setRuta(comercioTrimestre.getAbsolutePath()+"/");
             docu.setTex("comercio");
             docu.hacerPortada();
@@ -274,8 +275,8 @@ public class ReportesTrimestrales {
             docu.getRr().get().end();
             
             System.out.println("Antes ");
-            //descriptorcomercio.Generador descripciones = new descriptorcomercio.Generador("/var/www/html/Comercio/Entradas/CSV", comercioTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
-            //descripciones.run();
+            descriptorcomercio.Generador descripciones = new descriptorcomercio.Generador("/var/www/html/Comercio/Entradas/CSV", comercioTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             System.out.println("Despues");
             
             //if (args[3].equalsIgnoreCase("true")){
@@ -283,15 +284,14 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
-        else if ( args[0].equalsIgnoreCase("transporte") ){
-            String rutaTransporte = "/home/ineservidor/Transporte";
+        else if ( args[0].equalsIgnoreCase("transportes") ){
+            String rutaTransporte = "/home/ineservidor/Transportes";
             SesionR r = new SesionR();
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
-            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transporte/Entradas/transporte.xlsx')"));
-            System.out.println(r.get().eval("transporte <- convertirFechas(transporte)"));
-            r.get().eval("escribirCSV(transporte, '/var/www/html/Transporte/Entradas/CSV')");
-            File transporteTrimestre = new File(rutaTransporte, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transportes/Entradas/transportes.xlsx')"));
+            r.get().eval("escribirCSV(transporte, '/var/www/html/Transportes/Entradas/CSV')");
+            File transporteTrimestre = new File(rutaTransporte, args[2] + args[1]);
             if ( !transporteTrimestre.exists() ){
                 transporteTrimestre.setReadable(true, false);
                 transporteTrimestre.setExecutable(true, false);
@@ -299,7 +299,7 @@ public class ReportesTrimestrales {
                 transporteTrimestre.mkdir();
             }
             TransporteYServicios docu;
-            docu= new TransporteYServicios("Transportes y Servicios", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Transporte/Entradas/CSV");
+            docu= new TransporteYServicios("Transportes y Servicios", args[2], args[1],"/var/www/html/Transportes/Entradas/CSV");
             docu.setRuta(transporteTrimestre.getAbsolutePath()+"/");
             docu.setTex("transporte");
             docu.hacerPortada();
@@ -310,6 +310,8 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
+            descriptortransporte.Generador descripciones = new descriptortransporte.Generador("/var/www/html/Transportes/Entradas/CSV", transporteTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             //docu.apendices(transporteTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             //docu.getRr().get().end();
@@ -334,7 +336,7 @@ public class ReportesTrimestrales {
                 agropecuariasTrimestre.mkdir();
             }
             ComercioExterior docu;
-            docu= new ComercioExterior("Estadísticas Agropecuarias", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
+            docu= new ComercioExterior("Estadísticas Agropecuarias", args[2], args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
             docu.setRuta(agropecuariasTrimestre.getAbsolutePath()+"/");
             docu.setTex("agropecuarias");
             docu.hacerPortada();
@@ -382,8 +384,8 @@ public class ReportesTrimestrales {
             docu.equipoYPresentacion();
             docu.rellenar();
             //descripciones
-            //descriptorviolencia.Generador descripciones = new descriptorviolencia.Generador("/var/www/html/Violencia/Entradas/CSV", violenciaTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
-            //descripciones.run();
+            descriptorviolencia.Generador descripciones = new descriptorviolencia.Generador("/var/www/html/Violencia/Entradas/CSV", violenciaTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             
             docu.apendices(violenciaTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
@@ -521,6 +523,7 @@ public class ReportesTrimestrales {
      }
      
      private static String getTrimestreCadena(int trimestre){
+         System.out.println(trimestre);
          if(trimestre==1) return "Primer";
          else if(trimestre==2) return "Segundo";
          else if(trimestre==3) return "Tercer";

@@ -44,7 +44,8 @@ public class Grafica extends Thread {
             //r.eval("sink(file = '/var/www/html/IPC/sync.txt')" );
             System.out.println(r.eval("getListIpc()"));
             System.out.println("Iniciando Gráficas");
-            r.eval("capitulo1()");
+            
+            /*r.eval("capitulo1()");
             r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");
@@ -54,7 +55,7 @@ public class Grafica extends Thread {
             r.eval("capitulo8()");
             r.eval("capitulo9()");
             r.eval("capitulo10()");
-            
+            */
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
@@ -94,18 +95,19 @@ public class Grafica extends Thread {
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))");
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))"));
         }
-        
-        else if(lista.equalsIgnoreCase("trasporte")){
-            r.eval("graficasTransporte("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+        else if(lista.equalsIgnoreCase("transporte")){
+            System.out.println("Entre a transportes");
             System.out.println("graficasTransporte("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
-            r.eval("graficasTransporte("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
-            System.out.println("compilar('" + ruta + "', mostrar = F)");
-            r.eval("compilar('" + ruta  + "/tranporte.tex', mostrar = F)");
-            r.eval("compilar('" + ruta + "/tranpsorte.tex', mostrar = F)");
+            System.out.println(r.eval("names(transporte)"));
+            r.eval("graficasTransportes("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            r.eval("graficasTransportes("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            System.out.println("compilar('" + ruta  + "/tranporte.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/transporte.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/transpsorte.tex', mostrar = F)");
             r.eval("compilar('" + ruta  + "/presentacionTransporte.tex', mostrar = F)");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
-            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Transportes y Servicios', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transporte.pdf','" + ruta+ "presentacionTransporte.pdf'))");
-            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Transportes y Servicios', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transporte.pdf','" + ruta+ "presentacionTransporte.pdf'))"));
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Transportes y Servicios', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transporte.pdf','" + ruta+ "presentacionTransporte.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Transportes y Servicios', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transporte.pdf','" + ruta+ "presentacionTransporte.pdf'))"));
         }
         else if(lista.equalsIgnoreCase("comercio")){
             r.eval("graficasComercio("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");

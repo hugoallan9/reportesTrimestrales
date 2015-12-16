@@ -271,14 +271,14 @@ public class Hospitalarias extends Documento{
     
     
     private void t3_01_02(){
-        String columna1 = tablaApendice("3_01",
+        String columna1 = tablaApendice("A_01",
                 "Consulta externa por trimestre de ocurrencia, según departamento de residencia del paciente",
                 "1",
                 "plantillaTabla1.pdf",
                 "INE, Unidad de Estadísticas de Salud",
                 "");
         
-        String columna2 = tablaApendice("3_02",
+        String columna2 = tablaApendice("A_02",
                 "Análisis de variación de consulta externa",
                 "2",
                 "plantillaTabla2.pdf",
@@ -289,14 +289,14 @@ public class Hospitalarias extends Documento{
     
     
     private void t3_03_04(){
-        String columna1 = tablaApendice("3_01",
+        String columna1 = tablaApendice("A_03",
                 "Consulta interna por trimestre de ocurrencia, según departamento de residencia del paciente",
                 "1",
                 "plantillaTabla1.pdf",
                 "INE, Unidad de Estadísticas de Salud",
                 "");
         
-        String columna2 = tablaApendice("3_02",
+        String columna2 = tablaApendice("A_04",
                 "Análisis de variación de consulta interna",
                 "2",
                 "plantillaTabla2.pdf",
