@@ -362,7 +362,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("violencia <- leerLibro('/var/www/html/Violencia/Entradas/violencia.xlsx')"));
-            System.out.println(r.get().eval("violencia <- convertirFechas(violencia)"));
+            System.out.println(r.get().eval("violencia <- convertirFechasTodos(violencia)"));
             r.get().eval("escribirCSV(violencia, '/var/www/html/Violencia/Entradas/CSV')");
             File violenciaTrimestre = new File(rutaViolencia, args[2] + args[1]);
             if ( !violenciaTrimestre.exists() ){
