@@ -151,14 +151,14 @@ public class VIF extends Documento{
         seccion1.add("Hechos de violencia intrafamiliar");
         seccion1.add("Casos de violencia intrafamiliar registrados");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("1_01.tex");
         seccion1.add("INE");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Denuncias por departamento de ocurrencia");
         seccion1.add("Número de denuncias por departamento de ocurrencia");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("1_02.tex");
         seccion1.add("INE");
         seccion1.add(true);
         cap1.add(seccion1);
@@ -169,7 +169,7 @@ public class VIF extends Documento{
         seccion2.add("Tipo de violencia");
         seccion2.add("Distribución de denuncias por tipo de violencia");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("1_03.tex");
         seccion2.add("INE");
         seccion2.add(true);
         seccion2.add("1_04");
@@ -177,7 +177,7 @@ public class VIF extends Documento{
         seccion2.add("Distribución porcentual de denuncias de violencia intrafamiliar "
                 + "según la institución que recibió la denuncia");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("1_04.tex");
         seccion2.add("INE");
         seccion2.add(true);
         cap1.add(seccion2);
@@ -189,7 +189,7 @@ public class VIF extends Documento{
         seccion3.add("Distribución porcentual de denuncias de violencia intrafamiliar "
                 + "reportadas por el Organismo Judicial, por ley aplicada");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("1_05.tex");
         seccion3.add("INE");
         seccion3.add(true);
         cap1.add(seccion3);
@@ -203,7 +203,7 @@ public class VIF extends Documento{
         seccion1.add("Mujeres víctimas");
         seccion1.add("Porcentaje de denuncias de mujeres víctimas de violencia intrafamiliar");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("2_01.tex");
         seccion1.add("INE");
         seccion1.add(true);
         seccion1.add("2_02");
@@ -211,7 +211,7 @@ public class VIF extends Documento{
         seccion1.add("Porcentaje de mujeres víctimas de violencia intrafamiliar por pueblo de "
                 + "pertenencia");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("2_02.tex");
         seccion1.add("INE");
         seccion1.add(true);
         cap2.add(seccion1);
@@ -222,7 +222,7 @@ public class VIF extends Documento{
         seccion2.add("Mujeres víctimas por grupos de edad");
         seccion2.add("Porcentaje de mujeres víctimas de violencia intrafamiliar, por grupos de edad");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("2_03.tex");
         seccion2.add("INE");
         seccion2.add(true);
         seccion2.add("2_04");
@@ -230,7 +230,7 @@ public class VIF extends Documento{
         seccion2.add("Distribución de mujeres víctimas de violencia intrafamiliar de 7 años y más, "
                 + "según condición de empleo");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("2_04.tex");
         seccion2.add("INE");
         seccion2.add(true);
         cap2.add(seccion2);
@@ -242,7 +242,7 @@ public class VIF extends Documento{
         seccion3.add("Distribución porcentual de mujeres vícitmas de violencia intrafamiliar, "
                 + "según condición de alfabetismo");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
+        seccion3.add("2_05.tex");
         seccion3.add("INE");
         seccion3.add(true);
         seccion3.add("2_06");
@@ -250,7 +250,7 @@ public class VIF extends Documento{
         seccion3.add("Distribución de mujeres víctimas de violencia intrafamiliar, por"
                 + "tipo de agresión sufrida");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
+        seccion3.add("2_06.tex");
         seccion3.add("INE");
         seccion3.add(true);
         cap2.add(seccion3);
@@ -263,7 +263,7 @@ public class VIF extends Documento{
         seccion4.add("Distribución porcentual de mujeres víctimas de violencia intrafamiliar, "
                 + "por relación con el agresor(a)");
         seccion4.add(getFormatoSubtituloG());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("2_07.tex");
         seccion4.add("INE");
         seccion4.add(true);
         cap2.add(seccion4);
@@ -281,7 +281,7 @@ public class VIF extends Documento{
         seccion1.add("Distribucion de hombres victimas de violencia intrafamiliar segun grupos "
                 + "de edad");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
+        seccion1.add("3_01.tex");
         seccion1.add("INE");
         seccion1.add(true);
         seccion1.add("3_02");
@@ -289,7 +289,7 @@ public class VIF extends Documento{
         seccion1.add("Distribución de hombres víctimas de 60 años y más, por relación con "
                 + "el agresor(a)");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
+        seccion1.add("3_02.tex");
         seccion1.add("INE");
         seccion1.add(true);
         cap3.add(seccion1);
@@ -301,7 +301,7 @@ public class VIF extends Documento{
         seccion2.add("Porcentaje de hombres víctimas de violencia intrafamiliar según su "
                 + "relación con el agresor(a)");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
+        seccion2.add("3_03.tex");
         seccion2.add("INE");
         seccion2.add(true);
         seccion2.add("3_04");
@@ -309,7 +309,7 @@ public class VIF extends Documento{
         seccion2.add("Distribución de hombres víctimas de violencia intrafamiliar, por"
                 + "condición de alfabetismo");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
+        seccion2.add("3_04.tex");
         seccion2.add("INE");
         seccion2.add(true);
         cap3.add(seccion2);
@@ -321,7 +321,7 @@ public class VIF extends Documento{
         seccion3.add("Distribución de hombres víctimas de violencia intrafamiliar por condición "
                 + "de empleo");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
+        seccion3.add("3_05.tex");
         seccion3.add("INE");
         seccion3.add(true);
         seccion3.add("3_06");
@@ -329,7 +329,7 @@ public class VIF extends Documento{
         seccion3.add("Porcentaje de hombres víctimas de violencia intrafamiliar, por tipo de "
                 + "agresión sufrida");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
+        seccion3.add("3_06.tex");
         seccion3.add("INE");
         seccion3.add(true);
         cap3.add(seccion3);
@@ -346,7 +346,7 @@ public class VIF extends Documento{
         seccion1.add("Porcentaje de denuncias de violencia intrafamiliar donde el agresor es "
                 + "hombre, según trimestre de registro");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
+        seccion1.add("4_01.tex");
         seccion1.add("INE");
         seccion1.add(true);
         seccion1.add("4_02");
@@ -354,7 +354,7 @@ public class VIF extends Documento{
         seccion1.add("Distribución porcentual de hombres agresores de violencia intrafamiliar "
                 + "por grupos de edad");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
+        seccion1.add("4_02.tex");
         seccion1.add("INE");
         seccion1.add(true);
         cap4.add(seccion1);
@@ -366,7 +366,7 @@ public class VIF extends Documento{
         seccion2.add("Porcentaje de hombres agresores de violencia intrafamiliar, según "
                 + "el nivel educativo");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
+        seccion2.add("4_03.tex");
         seccion2.add("INE");
         seccion2.add(true);
         seccion2.add("4_04");
@@ -374,7 +374,7 @@ public class VIF extends Documento{
         seccion2.add("Distribución porcentual de hombres agresores de violencia intrafamilar "
                 + "por condición de empleo");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
+        seccion2.add("4_04.tex");
         seccion2.add("INE");
         seccion2.add(true);
         cap4.add(seccion2);
@@ -386,7 +386,7 @@ public class VIF extends Documento{
         seccion3.add("Distribucion porcentual de hombres agresores de violencia intrafamiliar "
                 + "por pueblo de pertenencia");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
+        seccion3.add("4_05.tex");
         seccion3.add("INE");
         seccion3.add(true);
         seccion3.add("4_06");
@@ -394,7 +394,7 @@ public class VIF extends Documento{
         seccion3.add("Distribución porcentual de hombres agresores de violencia intrafamiliar, "
                 + "por tipo de agresión ejercida");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_06.tex}  \\end{tikzpicture}");
+        seccion3.add("4_06.tex");
         seccion3.add("INE");
         seccion3.add(true);
         cap4.add(seccion3);
@@ -409,7 +409,7 @@ public class VIF extends Documento{
         seccion1.add("Distribución porcentual de mujeres agresoras de violencia "
                 + "intrafamiliar por grupos de edad");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_01.tex}  \\end{tikzpicture}");
+        seccion1.add("5_01.tex");
         seccion1.add("INE");
         seccion1.add(true);
         seccion1.add("5_02");
@@ -417,7 +417,7 @@ public class VIF extends Documento{
         seccion1.add("Distribución porcentual de mujeres agresoras de violencia intrafamiliar "
                 + "por nivel de escolaridad");
         seccion1.add(getFormatoSubtituloG());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_02.tex}  \\end{tikzpicture}");
+        seccion1.add("5_02.tex");
         seccion1.add("INE");
         seccion1.add(true);
         cap5.add(seccion1);
@@ -429,7 +429,7 @@ public class VIF extends Documento{
         seccion2.add("Porcentaje de mujeres agresoras de violencia intrafamiliar, por "
                 + "condición de empleo");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_03.tex}  \\end{tikzpicture}");
+        seccion2.add("5_03.tex");
         seccion2.add("INE");
         seccion2.add(true);
         seccion2.add("5_04");
@@ -437,7 +437,7 @@ public class VIF extends Documento{
         seccion2.add("Distribución porcentual de mujeres agresoras de violencia intrafamiliar "
                 + "por pueblo de pertenencia");
         seccion2.add(getFormatoSubtituloG());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_04.tex}  \\end{tikzpicture}");
+        seccion2.add("5_04.tex");
         seccion2.add("INE");
         seccion2.add(true);
         cap5.add(seccion2);
@@ -449,7 +449,7 @@ public class VIF extends Documento{
         seccion3.add("Distribucion porcentual de mujeres agresoras de violencia intrafamiliar "
                 + "por tipo de agresión ejercida");
         seccion3.add(getFormatoSubtituloG());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_05.tex}  \\end{tikzpicture}");
+        seccion3.add("5_05.tex");
         seccion3.add("INE");
         seccion3.add(true);
         cap5.add(seccion3);

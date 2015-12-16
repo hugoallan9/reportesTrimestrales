@@ -215,7 +215,7 @@ public class Tabla {
         File f = new File(ruta,csv + ".csv");
     BufferedReader br = null;
     String line = "";
-        boolean encabezado = true;
+        boolean encabezado = false;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
 
