@@ -109,7 +109,7 @@ public class ReportesTrimestrales {
             docu.equipoYPresentacion(c.getVariacionAnual(), c.getVariacionMensual(),c.getVariacionAcumulada());
             docu.capitulo1();
             docu.capitulo2();
-            //docu.capitulosRegionales();
+            docu.capitulosRegionales();
             docu.generarGraficas("anual");
             docu.terminarDocumento();
             } catch (SQLException ex) {
@@ -151,7 +151,7 @@ public class ReportesTrimestrales {
             docu.capitulo4();
             docu.capitulo5();
             docu.apendices(vitalesTrimestre.getAbsolutePath()+"/");
-            docu.terminarDocumento();
+            docu.terminarDocumentoApendice();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
@@ -248,7 +248,6 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("comercio <- leerLibro('/var/www/html/Comercio/Entradas/comercio.xlsx')"));
-            System.out.println(r.get().eval("comercio <- convertirFechas(comercio)"));
             r.get().eval("escribirCSV(comercio, '/var/www/html/Comercio/Entradas/CSV')");
             File comercioTrimestre = new File(rutaComercio, args[2] + args[1]);
             if ( !comercioTrimestre.exists() ){
@@ -257,8 +256,10 @@ public class ReportesTrimestrales {
                 comercioTrimestre.setWritable(true, false);
                 comercioTrimestre.mkdir();
             }
+            System.out.println("Antes de Entrar al constructor");
             ComercioExterior docu;
-            docu= new ComercioExterior("Estadísticas de Comercio Exterior", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Comercio/Entradas/CSV");
+            docu= new ComercioExterior("Estadísticas de Comercio Exterior", args[2], args[1],"/var/www/html/Comercio/Entradas/CSV");
+            System.out.println("Sali del constructor");
             docu.setRuta(comercioTrimestre.getAbsolutePath()+"/");
             docu.setTex("comercio");
             docu.hacerPortada();
@@ -335,7 +336,7 @@ public class ReportesTrimestrales {
                 agropecuariasTrimestre.mkdir();
             }
             ComercioExterior docu;
-            docu= new ComercioExterior("Estadísticas Agropecuarias", getTrimestreCadena(Integer.parseInt(args[2])), args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
+            docu= new ComercioExterior("Estadísticas Agropecuarias", args[2], args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
             docu.setRuta(agropecuariasTrimestre.getAbsolutePath()+"/");
             docu.setTex("agropecuarias");
             docu.hacerPortada();
@@ -522,6 +523,7 @@ public class ReportesTrimestrales {
      }
      
      private static String getTrimestreCadena(int trimestre){
+         System.out.println(trimestre);
          if(trimestre==1) return "Primer";
          else if(trimestre==2) return "Segundo";
          else if(trimestre==3) return "Tercer";

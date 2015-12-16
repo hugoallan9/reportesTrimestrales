@@ -41,6 +41,7 @@ public class ComercioExterior extends Documento{
     
     public ComercioExterior(String titulo, String trimestre, String pYear, String rutaCSV) {
         super(titulo, trimestre, pYear);
+        System.out.println("Entrando a comercio");
         capitulos = new ArrayList();
         introCapitulos = new ArrayList();
         contenidos = new ArrayList();
@@ -48,12 +49,13 @@ public class ComercioExterior extends Documento{
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
         formatoSerie = "Serie histórica " +  (int)(Double.parseDouble(getAnioPublicacion()) -2) + "-" + getAnioPublicacion();
-                
+        
                 
         cargarCSV(rutaCSV);
         setCapitulos();
         setIntroCapitulos();
         setContenidos();
+        System.out.println("Saliendo de comercio");
     }
     
     protected void setCapitulos(){
@@ -134,8 +136,8 @@ public class ComercioExterior extends Documento{
                 rr.get().eval("library(funcionesINE)");
                 REXP listadoCSV = rr.get().eval("comercio <- cargaMasiva('" +  ruta +"')");
                 REXP nombres = rr.get().eval("names(comercio)");
-                System.out.println(listadoCSV);
-                System.out.println(nombres);
+                //System.out.println(listadoCSV);
+                //System.out.println(nombres);
             }
     }
     

@@ -1005,8 +1005,8 @@ public class IPC extends Documento{
         escribirLinea(cajotaTabla((region + 2) + "_01", 
                 "IPC y sus variaciones",
                 "",
-                "Comportamiento del IPC a nivel de república y sus variaciones",
-                getMes() + " " + getYear() ,
+                "Comportamiento del IPC  y sus variaciones",
+                "Región " + getRomano(region) + ", " +getMes() + " " + getYear() + ", adimensional y en porcentaje" ,
                 tabla,
                 "Instituto Nacional de Estadística"));
     }
@@ -1015,8 +1015,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 2 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_02","Evolución del IPC de la región " + getRomano(region), 
                 "descripcion201",
-                "IPC región " + getRomano(region) + ", base diciembre del 2010",
-                "Serie histórica mensual",
+                "IPC , base diciembre del 2010",
+                "Región " + getRomano(region) + ", serie histórica, adimensional ",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_02.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1037,8 +1037,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 2 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_03","IPC región " + getRomano(region) + " por división de gasto", 
                 "descripcion203",
-                "IPC " + getRomano(region) + " por división de gasto, base diciembre del 2010",
-                getMes() + " " + getYear(),
+                "IPC  por división de gasto, base diciembre del 2010",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear()+ ", adimensional ",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_03.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1066,8 +1066,8 @@ public class IPC extends Documento{
         escribirLinea(cajotaTabla((region + 2) + "_04", 
                 "Cambio mensual del IPC, por región y tipo de gasto, serie mensual",
                 "",
-                "Variación mensual del IPC de la región " + getRomano(region) + "por división de gasto",
-                getMes() + " " + getYear() ,
+                "Variación mensual del IPC por división de gasto",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear()+  ", en porcentaje y adimensional" ,
                 tabla,
                 "Instituto Nacional de Estadística"));
     }
@@ -1076,8 +1076,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 4 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_05","Evolución del cambio mensual del IPC región " + getRomano(region), 
                 "descripcion206",
-                "Variación intermensual del IPC región " + getRomano(region),
-                "Serie histórica mensual",
+                "Variación intermensual del IPC" ,
+                "Región " + getRomano(region)+ ", serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_05.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1086,8 +1086,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 4 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_06","Cambio mensual del IPC por gasto", 
                 "descripcion207",
-                "Variación intermensual del IPC región " + getRomano(region) + " por división de gasto",
-                getMes() + " " + getYear(),
+                "Variación intermensual del IPC  por división de gasto",
+                "Región " + getRomano(region) + ", "+getMes() + " " + getYear()+ ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_06.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1096,8 +1096,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 5 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2)+"_07","Bienes con mayor incremento mensual", 
                 "descripcion208",
-                "Principales variaciones intermensuales positivas del IPC,  " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones intermensuales positivas del IPC  " ,
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear() + ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_07.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1106,8 +1106,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 5 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2)+"_08","Bienes con mayor disminución mensual", 
                 "descripcion209",
-                "Principales variaciones intermensuales negativas del IPC, " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones intermensuales negativas del IPC",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear() + ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_08.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1152,8 +1152,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA " + (hoja) + " de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion(archivo,"Cambio mensual del IPC de " + getDivisionGastoAbreviacion(division) + " de la región " + getRomano(region), 
                 "descripcion210",
-                "Variación intermensual del IPC de " + getDivisionGasto(division) + " de la región " + getRomano(region),
-                "Serie histórica, en porcentaje",
+                "Variación intermensual del IPC de " + getDivisionGasto(division) ,
+                "Región " + getRomano(region)+", serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+archivo + ".tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1162,8 +1162,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 12 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_21","Impacto del tipo de gasto en la variación mensual ", 
                 "descripcion223",
-                "Incidencia de las divisiones de gasto en la variación intermensual del IPC de la región " + getRomano(region),
-                getMes() + " " + getYear(),
+                "Incidencia de las divisiones de gasto en la variación intermensual del IPC ",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear() +", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2) + "_21.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1172,8 +1172,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 12 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_22","Bienes con mayor impacto en el cambio mensual", 
                 "descripcion224",
-                "Gastos básicos con mayor incidencia positiva y negativa absoluta en la variación intermensual del IPC de la región " + getRomano(region),
-                getMes() + " " + getYear(),
+                "Gastos básicos con mayor incidencia positiva y negativa absoluta en la variación intermensual del IPC " ,
+                "Región " + getRomano(region) + ", " +getMes() + " " + getYear() + ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2) + "_22.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1202,7 +1202,7 @@ public class IPC extends Documento{
                 "Cambio anual del IPC, por región y tipo de gasto, serie mensual",
                 "",
                 "Variación interanual del IPC por división de gasto",
-                getMes() + " " + getYear() ,
+                "Región " + getRomano(region) + ", " +getMes() + " " + getYear() + ", en porcentaje y adimensional" ,
                 tabla,
                 "Instituto Nacional de Estadística"));
     }
@@ -1211,8 +1211,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 14 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2)+"_24","Evolución del cambio anual del IPC región " + getRomano(region), 
                 "descripcion227",
-                "Variación interanual del IPC región " + getRomano(region),
-                "Serie histórica mensual",
+                "Variación interanual del IPC" ,
+                "Región " + getRomano(region)+", serie histórica mensual, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_24.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1221,8 +1221,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 14 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2)+"_25","Cambio anual del IPC por tipo de gasto ", 
                 "descripcion228",
-                "Variación interanual del IPC región " + getRomano(region) + " por división de gasto",
-                getMes() + " " + getYear(),
+                "Variación interanual del IPC  por división de gasto",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear()+ ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_25.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1231,8 +1231,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 15 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2)+"_26","Bienes con mayor aumento anual  ", 
                 "descripcion229",
-                "Principales variaciones interanuales positivas del IPC de la región " + getRomano(region) + ", " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones interanuales positivas del IPC",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear() + ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_26.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1241,8 +1241,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 15 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2)+"_27","Bienes con mayor disminución anual", 
                 "descripcion230",
-                "Principales variaciones interanuales negativas del IPC, " + getMes() + " " + getYear(),
-                "Por gasto básico, en porcentaje",
+                "Principales variaciones interanuales negativas del IPC, " ,
+                "Región " + getRomano(region) + ", "  + getMes() + " " + getYear() + ", en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2)+"_27.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }    
@@ -1252,8 +1252,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA " + (hoja) + " de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_" + (division+27),"Cambio anual de IPC de " + getDivisionGastoAbreviacion(division) + " de la región " + getRomano(region), 
                 "descripcion231",
-                "Variación interanual del IPC de " + getDivisionGasto(division) + " de la región " + getRomano(region),
-                "Serie histórica, en porcentaje",
+                "Variación interanual del IPC de " + getDivisionGasto(division) ,
+                "Región " + getRomano(region) + ", serie histórica, en porcentaje",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2) + "_" + (division+27) + ".tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1262,8 +1262,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_40","Impacto del tipo de gasto en el cambio anual", 
                 "descripcion203",
-                "Incidencia de las divisiones de gasto en la variación interanual del IPC región " + getRomano(region),
-                getMes() + " " + getYear(),
+                "Incidencia de las divisiones de gasto en la variación interanual del IPC",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear() + ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2) +"_40.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1272,8 +1272,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 22 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_41","Bienes con mayor impacto en el cambio anual del anual del IPC ", 
                 "descripcion203",
-                "Gastos básicos con mayor incidencia positiva y negativa absoluta en la variación interanual del IPC de la región " + getRomano(region),
-                getMes() + " " + getYear(),
+                "Gastos básicos con mayor incidencia positiva y negativa absoluta en la variación interanual del IPC",
+                "Región " + getRomano(region) + ", " + getMes() + " " + getYear() +  ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2) +"_41.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -1282,8 +1282,8 @@ public class IPC extends Documento{
         escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%HOJA 23 de region " + region + "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
         escribirLinea(seccion((region + 2) + "_42","Valor del dinero", 
                 "descripcion238",
-                "Poder adquisitivo del quetzal en la región " + getRomano(region),
-                "Serie histórica mensual",
+                "Poder adquisitivo del quetzal",
+                "Región " + getRomano(region)+ ", serie histórica, adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{"+(region + 2) +"_42.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     } 
