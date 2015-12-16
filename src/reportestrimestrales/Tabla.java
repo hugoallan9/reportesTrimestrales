@@ -140,7 +140,7 @@ public class Tabla {
         boolean encabezado = true;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
-        listaPlantilla.add("\\input{../../pre2}");
+        listaPlantilla.add("\\input{../../../pre2}");
         listaPlantilla.add("\\begin{document}");
         listaPlantilla.add("	\\addtocounter{section}{1}");
         listaPlantilla.add("\\begin{center}");
@@ -219,7 +219,7 @@ public class Tabla {
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
 
-        listaPlantilla.add("\\input{../../pre2}");
+        listaPlantilla.add("\\input{../../../pre2}");
         listaPlantilla.add("\\begin{document}");
         listaPlantilla.add("\\addtocounter{section}{1}");
         listaPlantilla.add("\\begin{center}");
