@@ -465,7 +465,7 @@ public class VIF extends Documento{
         apendice2();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/VIF/Entradas/CSV");
-        ap.generarComercioExterior();
+        ap.generarVIF();
         
         
         

@@ -97,7 +97,7 @@ public class Tabla {
         generarCSV2("A_08");
     }
     public void generarVIF(){
-        generarCSV1("A_01");
+        generarCSV2("A_01");
         
         generarCSV2("A_02");
         generarCSV2("A_03");
