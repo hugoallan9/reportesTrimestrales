@@ -59,7 +59,7 @@ public class VIF extends Documento{
     
     protected void setCapitulos(){
         capitulos.add("Hechos registrados");
-        capitulos.add("Características de las mujeres víctimas");
+        capitulos.add("Características de las \\newline mujeres víctimas");
         capitulos.add("Características de los hombres víctimas");
         capitulos.add("Características de los hombres agresores");
         capitulos.add("Características de las mujeres agresoras");
