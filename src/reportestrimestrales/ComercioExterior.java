@@ -836,7 +836,7 @@ public class ComercioExterior extends Documento{
                 + "en Guatemala, en cumplimiento a su Ley Orgánica, Decreto Ley 3-85, se "
                 + "complace en presentar el siguiente informe, que contiene las {\\Bold Estadísticas de Comercio Exterior}"
                 + ", con información correspondiente al {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
-                + getAnioPublicacion() +"}, la cual es \\Bold{preliminar} y será ajustada con el ingreso de registros tardíos.\n" +
+                + getAnioPublicacion() +"}, la cual es {\\Bold preliminar} y será ajustada con el ingreso de registros tardíos.\n" +
                 "\n" +
                 "Se detallan 3 tipos de comercio: Territorio Aduanero, Decreto 29-89 y Zonas Francas. "
                 + "Se incorpora, además, el Comercio Total, que integra los tres tipos de comercio.\n"+
