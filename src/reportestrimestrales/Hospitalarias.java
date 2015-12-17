@@ -61,14 +61,13 @@ public class Hospitalarias extends Documento{
     protected void setCapitulos(){
         capitulos.add("Morbilidad ambulatoria");
         capitulos.add("Morbilidad hospitalaria");
-        capitulos.add("Cuadros estadísticos");
         
     }
     
     protected void setIntroCapitulos(){
         introCapitulos.add("Morbilidad ambulatoria (de consulta externa y urgencias), fuera de las áreas de hospitalización.");
         introCapitulos.add("Morbilidad hospitalaria (en pacientes internados), es decir que ocuparon camas censales.");
-        introCapitulos.add("");
+        
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
@@ -130,14 +129,14 @@ public class Hospitalarias extends Documento{
         seccion1.add("Consulta externa");
         seccion1.add("Número de atenciones por semestre");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("1_01.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Consulta externa por departamento");
         seccion1.add("Número de Atenciones por departamento de residencia del paciente");
         seccion1.add(formatoTrimestre);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("1_02.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
         cap1.add(seccion1);
@@ -148,14 +147,14 @@ public class Hospitalarias extends Documento{
         seccion2.add("Consulta externa por grupos de edad");
         seccion2.add("Distribución porcentual de atenciones según rango de edad del paciente");
         seccion2.add(formatoTrimestre);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("1_03.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Consulta externa en pacientes menores de cinco años");
         seccion2.add("Porcentaje de atenciones en menores de cinco años");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("1_04.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
         cap1.add(seccion2);
@@ -166,14 +165,14 @@ public class Hospitalarias extends Documento{
         seccion3.add("Consulta externa por sexo del paciente");
         seccion3.add("Distribución porcentual de atenciones según sexo");
         seccion3.add(formatoTrimestre);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("1_05.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
         seccion3.add("1_06");
         seccion3.add("Consulta externa por grupo étnico del paciente");
         seccion3.add("Distribución porcentual de atenciones externas por grupo étnico");
         seccion3.add(formatoTrimestre);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("1_06.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
         cap1.add(seccion3);
@@ -187,14 +186,14 @@ public class Hospitalarias extends Documento{
         seccion1.add("Consulta Interna");
         seccion1.add("Número de atenciones por trimestre");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("2_01.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Consulta interna por departamento");
         seccion1.add("Número de atenciones por departamento de residencia del paciente");
         seccion1.add(formatoTrimestre);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("2_02.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
         cap2.add(seccion1);
@@ -205,14 +204,14 @@ public class Hospitalarias extends Documento{
         seccion2.add("Consulta interna por grupos de edad");
         seccion2.add("Distribución porcentual de atenciones según rangos de edad del paciente");
         seccion2.add(formatoTrimestre);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("2_03.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Consulta interna en pacientes menores de cinco años");
         seccion2.add("Porcentaje de atenciones en menores de cinco años");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("2_04.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
         cap2.add(seccion2);
@@ -223,14 +222,14 @@ public class Hospitalarias extends Documento{
         seccion3.add("Consulta interna por sexo del paciente");
         seccion3.add("Distribución porcentual de atenciones por sexo");
         seccion3.add(formatoTrimestre);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
+        seccion3.add("2_05.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Consulta interna por grupo étnico del paciente");
         seccion3.add("Distribución orcentual de atenciones por grupo étnico");
         seccion3.add(formatoTrimestre);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
+        seccion3.add("2_06.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
         cap2.add(seccion3);
@@ -242,14 +241,14 @@ public class Hospitalarias extends Documento{
         seccion4.add("Consulta interna por tratamiento");
         seccion4.add("Distribución porcentual de atenciones por tratamiento");
         seccion4.add("Distribución porcentual por tipo de falta cometida");
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("2_07.tex");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         seccion4.add(true);
         seccion4.add("2_08");
         seccion4.add("Consulta interna por promedio de días de estancia del paciente");
         seccion4.add("Promedio de días de estancia por trimestre");
         seccion4.add(formatoTrimestre);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
+        seccion4.add("2_08.tex");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         seccion4.add(true);
         cap2.add(seccion4);
@@ -260,7 +259,7 @@ public class Hospitalarias extends Documento{
         seccion5.add("Consulta interna por condición de egreso del paciente");
         seccion5.add("Distribución porcentual por condición de egreso del paciente");
         seccion5.add(formatoTrimestre);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
+        seccion5.add("2_09.tex");
         seccion5.add("INE, Unidad de Estadísticas de Salud");
         seccion5.add(true);
         cap2.add(seccion5);
