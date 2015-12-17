@@ -327,7 +327,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("agropecuarias <- leerLibro('/var/www/html/Agropecuarias/Entradas/agropecuarias.xlsx')"));
-            System.out.println(r.get().eval("agropecuarias <- convertirFechas(agropecuarias)"));
+            System.out.println(r.get().eval("agropecuarias <- convertirFechasTodos(agropecuarias)"));
             r.get().eval("escribirCSV(agropecuarias, '/var/www/html/Agropecuarias/Entradas/CSV')");
             File agropecuariasTrimestre = new File(rutaAgropecuarias, args[2] + args[1]);
             if ( !agropecuariasTrimestre.exists() ){
