@@ -249,6 +249,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("comercio <- leerLibro('/var/www/html/Comercio/Entradas/comercio.xlsx')"));
+            System.out.println(r.get().eval("comercio <- convertirFechasTodos(comercio)"));
             r.get().eval("escribirCSV(comercio, '/var/www/html/Comercio/Entradas/CSV')");
             File comercioTrimestre = new File(rutaComercio, args[2] + args[1]);
             if ( !comercioTrimestre.exists() ){
@@ -291,6 +292,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transportes/Entradas/transportes.xlsx')"));
+            
             r.get().eval("escribirCSV(transporte, '/var/www/html/Transportes/Entradas/CSV')");
             File transporteTrimestre = new File(rutaTransporte, args[2] + args[1]);
             if ( !transporteTrimestre.exists() ){
