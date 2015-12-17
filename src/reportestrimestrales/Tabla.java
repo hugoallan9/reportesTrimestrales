@@ -93,8 +93,7 @@ public class Tabla {
         generarCSV2("A_04");
         generarCSV2("A_05");
         generarCSV2("A_06");
-        
-        
+        generarCSV2("A_07");
         
     }
     public void generarFaltasJudiciales(){

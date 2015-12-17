@@ -491,6 +491,7 @@ public class Transito extends Documento{
         apendice1();
         apendice2();
         apendice3();
+        apendice4();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/Transito/Entradas/CSV");
         ap.generarTransito();
@@ -535,20 +536,32 @@ public class Transito extends Documento{
     }
     private void apendice3(){
         String columna1 = tablaApendice("A_05",
-                "Análisis de variación del número de víctimas lesionadas "
-                        + "por atropello",
+                "Análisis de variación del número eventos de tránsito "
+                        + "con atropello",
                 "2",
                 "plantillaTabla2.pdf",
                 "INE, con datos de Policía Nacional Civil",
                 "");
         
         String columna2 = tablaApendice("A_06",
+                "Análisis de variación del número de víctimas lesionados "
+                        + "por atropello",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos de Policía Nacional Civil",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice4(){
+        String columna1 = tablaApendice("A_07",
                 "Análisis de variación del número de víctimas fallecidas "
                         + "por atropello",
                 "2",
                 "plantillaTabla2.pdf",
                 "INE, con datos de Policía Nacional Civil",
                 "");
+        
+        String columna2 = "";
         escribirLinea(hojaTrimestral(columna1, columna2));
     }
     
