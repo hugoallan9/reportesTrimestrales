@@ -336,8 +336,8 @@ public class ReportesTrimestrales {
                 agropecuariasTrimestre.setWritable(true, false);
                 agropecuariasTrimestre.mkdir();
             }
-            ComercioExterior docu;
-            docu= new ComercioExterior("Estadísticas Agropecuarias", args[2], args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
+            Agropecuarias docu;
+            docu= new Agropecuarias("Estadísticas Agropecuarias", args[2], args[1],"/var/www/html/Agropecuarias/Entradas/CSV");
             docu.setRuta(agropecuariasTrimestre.getAbsolutePath()+"/");
             docu.setTex("agropecuarias");
             docu.hacerPortada();
