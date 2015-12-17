@@ -74,11 +74,11 @@ public class Tabla {
     }
     
     public void generarHospitalarias(){
-        generarCSV1("3_01");
-        generarCSV1("3_03");
+        generarCSV1("A_01");
+        generarCSV1("A_03");
         
-        generarCSV2("3_02");
-        generarCSV2("3_04");
+        generarCSV2("A_02");
+        generarCSV2("A_04");
         
     }
     public void generarComercioExterior(){
