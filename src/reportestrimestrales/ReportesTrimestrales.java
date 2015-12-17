@@ -350,6 +350,9 @@ public class ReportesTrimestrales {
             docu.rellenar();
             docu.apendices(agropecuariasTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
+            //descripciones
+            descriptoragropecuarias.Generador descripciones = new descriptoragropecuarias.Generador("/var/www/html/Agropecuarias/Entradas/CSV", agropecuariasTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
@@ -414,7 +417,7 @@ public class ReportesTrimestrales {
                 transitoTrimestre.mkdir();
             }
             Transito docu;
-            docu= new Transito("Estadísticas de Accidentes de Tránsito", args[2], args[1],"/var/www/html/VIF/Entradas/CSV");
+            docu= new Transito("Estadísticas de Accidentes de Tránsito", args[2], args[1],"/var/www/html/Transito/Entradas/CSV");
             docu.setRuta(transitoTrimestre.getAbsolutePath()+"/");
             docu.setTex("transito");
             docu.hacerPortada();
@@ -427,6 +430,9 @@ public class ReportesTrimestrales {
             docu.rellenar();
             docu.apendices(transitoTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
+            //descripciones
+            descriptortransito.Generador descripciones = new descriptortransito.Generador("/var/www/html/Transito/Entradas/CSV", transitoTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
@@ -462,6 +468,9 @@ public class ReportesTrimestrales {
             docu.rellenar();
             docu.apendices(delictivosTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
+            //descripciones
+            descriptordelictivos.Generador descripciones = new descriptordelictivos.Generador("/var/www/html/Delictivos/Entradas/CSV", delictivosTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            descripciones.run();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
