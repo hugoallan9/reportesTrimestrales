@@ -103,6 +103,8 @@ public class VIF extends Documento{
         for (int i=0; i<finContenido;i++){
             ArrayList tmpSeccion = (ArrayList)contenidos.get(i);
             String[] tmpTitle =capitulos.get(i).toString().split(",");
+            System.out.println(tmpTitle[0]);
+            System.out.println(tmpTitle[1]);
             escribirCapitulo(tmpTitle[0] +" " + tmpTitle[1], tmpTitle[0]
                 ,tmpTitle[1], introCapitulos.get(i).toString());
             int finSeccion = tmpSeccion.size();
