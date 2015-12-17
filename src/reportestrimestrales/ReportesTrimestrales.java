@@ -165,7 +165,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("faltas <- leerLibro('/var/www/html/FaltasJudiciales/Entradas/faltasJudiciales.xlsx')"));
-            System.out.println(r.get().eval("faltas <- convertirFechas(faltas)"));
+            System.out.println(r.get().eval("faltas <- convertirFechasTodos(faltas)"));
             r.get().eval("escribirCSV(faltas, '/var/www/html/FaltasJudiciales/Entradas/CSV')");
             File faltasTrimestre = new File(rutaFaltas, args[2] + args[1]);
             if ( !faltasTrimestre.exists() ){
@@ -185,13 +185,14 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
-            docu.apendices(faltasTrimestre.getAbsolutePath()+"/");
-            docu.terminarDocumento();
-            docu.getRr().get().end();
             System.out.println("Antes ");
             descripciones_faltas_judiciales.Generador descripciones = new descripciones_faltas_judiciales.Generador("/var/www/html/FaltasJudiciales/Entradas/CSV", faltasTrimestre.getAbsolutePath());
             descripciones.run();
             System.out.println("Despues");
+            docu.apendices(faltasTrimestre.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            docu.getRr().get().end();
+            
             
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
@@ -328,7 +329,7 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("agropecuarias <- leerLibro('/var/www/html/Agropecuarias/Entradas/agropecuarias.xlsx')"));
             System.out.println(r.get().eval("agropecuarias <- convertirFechas(agropecuarias)"));
             r.get().eval("escribirCSV(agropecuarias, '/var/www/html/Agropecuarias/Entradas/CSV')");
-            File agropecuariasTrimestre = new File(rutaAgropecuarias, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File agropecuariasTrimestre = new File(rutaAgropecuarias, args[2] + args[1]);
             if ( !agropecuariasTrimestre.exists() ){
                 agropecuariasTrimestre.setReadable(true, false);
                 agropecuariasTrimestre.setExecutable(true, false);
@@ -405,7 +406,7 @@ public class ReportesTrimestrales {
             System.out.println(r.get().eval("transito <- leerLibro('/var/www/html/Transito/Entradas/transito.xlsx')"));
             System.out.println(r.get().eval("transito <- convertirFechas(transito)"));
             r.get().eval("escribirCSV(transito, '/var/www/html/Transito/Entradas/CSV')");
-            File transitoTrimestre = new File(rutaTransito, getTrimestreCadena(Integer.parseInt(args[2])) + args[1]);
+            File transitoTrimestre = new File(rutaTransito, args[2] + args[1]);
             if ( !transitoTrimestre.exists() ){
                 transitoTrimestre.setReadable(true, false);
                 transitoTrimestre.setExecutable(true, false);
