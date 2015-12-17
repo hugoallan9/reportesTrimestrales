@@ -138,14 +138,14 @@ public class Transito extends Documento{
         seccion1.add("Eventos registrados");
         seccion1.add("Número de eventos de tránsito");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("1_01.tex");
         seccion1.add("INE, con datos de Polícia Nacional Civil");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Eventos por departamento");
         seccion1.add("Distribución porcentual de eventos de tránsito según departamento");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("1_02.tex");
         seccion1.add("INE, con datos de Polícia Nacional Civil");
         seccion1.add(true);
         cap1.add(seccion1);
@@ -156,14 +156,14 @@ public class Transito extends Documento{
         seccion2.add("Eventos por día de la semana");
         seccion2.add("Distribución porcentual de eventos de tránsito según día de la semana");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("1_03.tex");
         seccion2.add("INE, con datos de Polícia Nacional Civil");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Tipo de evento");
         seccion2.add("Distribución porcentual de eventos de tránsito según tipo de evento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("1_04.tex");
         seccion2.add("INE, con datos de Polícia Nacional Civil");
         seccion2.add(true);
         cap1.add(seccion2);
@@ -174,7 +174,7 @@ public class Transito extends Documento{
         seccion3.add("Vehículos involucrados");
         seccion3.add("Número de vehículos involucrados en eventos de tránsito");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("1_05.tex");
         seccion3.add("INE, con datos de Polícia Nacional Civil");
         seccion3.add(true);
         seccion3.add("1_06");
@@ -182,7 +182,7 @@ public class Transito extends Documento{
         seccion3.add("Distribución porcentual de vehículos involucrados en eventos de "
                 + "tránsito según tipo de vehículo");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("1_06.tex");
         seccion3.add("INE, con datos de Polícia Nacional Civil");
         seccion3.add(true);
         cap1.add(seccion3);
@@ -195,7 +195,7 @@ public class Transito extends Documento{
         seccion4.add("Distribución porcentual de conductores involucrados en eventos de "
                 + "tránsito según sexo");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
+        seccion4.add("1_07.tex");
         seccion4.add("INE, con datos de Polícia Nacional Civil");
         seccion4.add(true);
         seccion4.add("1_08");
@@ -203,7 +203,7 @@ public class Transito extends Documento{
         seccion4.add("Distribución porcentual de conductores involucrados en eventos de "
                 + "tránsito según grupo de edad");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
+        seccion4.add("1_08.tex");
         seccion4.add("INE, con datos de Polícia Nacional Civil");
         seccion4.add(true);
         cap1.add(seccion4);
@@ -214,14 +214,14 @@ public class Transito extends Documento{
         seccion5.add("Distribución porcentual de conductores involucrados en eventos de "
                 + "tránsito según estado de ebriedad");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
+        seccion5.add("1_09.tex");
         seccion5.add("INE, con datos de Polícia Nacional Civil");
         seccion5.add(true);
         seccion5.add("1_10");
         seccion5.add("Conductores en estado de ebriedad");
         seccion5.add("Conductores en estado de briedad involucrados en eventos de tránsito");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
+        seccion5.add("1_10.tex");
         seccion5.add("INE, con datos de Polícia Nacional Civil");
         seccion5.add(true);
         cap1.add(seccion5);
@@ -236,14 +236,14 @@ public class Transito extends Documento{
         seccion1.add("Víctimas");
         seccion1.add("Víctimas lesionadas y fallecidas por eventos de tránsito");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("2_01.tex");
         seccion1.add("INE, con datos de Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Víctimas lesionadas y fallecidas");
         seccion1.add("Victimas fallecidas y lesionadas por eventos de tránsito según su tipo");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de Policía Nacional Civil");
         seccion1.add(true);
         cap2.add(seccion1);
@@ -254,14 +254,14 @@ public class Transito extends Documento{
         seccion2.add("Víctimas fallecidas");
         seccion2.add("Número de víctimas fallecidas por eventos de tránsito");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Víctimas fallecidas por departamento");
         seccion2.add("Distribución porcentual de víctimas fallecidas según departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de Policía Nacional Civil");
         seccion2.add(true);
         cap2.add(seccion2);
@@ -273,7 +273,7 @@ public class Transito extends Documento{
         seccion3.add("Distribución porcentual de víctimas fallecidas en eventos de tránsito "
                 + "según sexo");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
+        seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de Policía Nacional Civil");
         seccion3.add(true);
         seccion3.add("2_06");
@@ -281,7 +281,7 @@ public class Transito extends Documento{
         seccion3.add("Distribución porcentual de víctimas fallecidas en eventos de tránsito "
                 + "según grupo de edad");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
+        seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de Policía Nacional Civil");
         seccion3.add(true);
         cap2.add(seccion3);
@@ -293,7 +293,7 @@ public class Transito extends Documento{
         seccion4.add("Víctimas lesionadas");
         seccion4.add("Número de víctimas lesionadas por eventos de tránsito");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("2_07.tex");
         seccion4.add("INE, con datos de Policía Nacional Civil");
         seccion4.add(true);
         seccion4.add("2_08");
@@ -301,7 +301,7 @@ public class Transito extends Documento{
         seccion4.add("Distribución porcentual de víctimas lesionadas por eventos de tránsito "
                 + "según departamento");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");
+        seccion4.add("2_08.tex");
         seccion4.add("INE, con datos de Policía Nacional Civil");
         seccion4.add(true);
         cap2.add(seccion4);
@@ -313,7 +313,7 @@ public class Transito extends Documento{
         seccion5.add("Distribución porcentual de víctimas lesionadas por eventos de tránsito "
                 + "según sexo");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
+        seccion5.add("2_09.tex");
         seccion5.add("INE, con datos de Policía Nacional Civil");
         seccion5.add(true);
         seccion5.add("2_10");
@@ -321,7 +321,7 @@ public class Transito extends Documento{
         seccion5.add("Distribución porcentual de víctimas lesionadas por eventos de tránsito "
                 + "según grupo de edad");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");
+        seccion5.add("2_10.tex");
         seccion5.add("INE, con datos de Policía Nacional Civil");
         seccion5.add(true);
         cap2.add(seccion5);
@@ -338,14 +338,14 @@ public class Transito extends Documento{
         seccion1.add("Eventos de tránsito por atropello");
         seccion1.add("Atropellos en eventos de tŕansito");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
+        seccion1.add("3_01.tex");
         seccion1.add("INE, con datos de Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("3_02");
         seccion1.add("Eventos por atropello según departamento");
         seccion1.add("Distribución porcentual de eventos por atropello según departamento");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
+        seccion1.add("3_02.tex");
         seccion1.add("INE, con datos de Policía Nacional Civil");
         seccion1.add(true);
         cap3.add(seccion1);
@@ -356,7 +356,7 @@ public class Transito extends Documento{
         seccion2.add("Eventos por atropello según día de la semana");
         seccion2.add("Distribución porcentual de eventos por atropello según día de la semana");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
+        seccion2.add("3_03.tex");
         seccion2.add("INE, con datos de Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("3_04");
@@ -364,7 +364,7 @@ public class Transito extends Documento{
         seccion2.add("Distribución porcentual de vehículos involuctrados en atropello "
                 + "según tipo de vehículo");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
+        seccion2.add("3_04.tex");
         seccion2.add("INE, con datos de Policía Nacional Civil");
         seccion2.add(true);
         cap3.add(seccion2);
@@ -376,14 +376,14 @@ public class Transito extends Documento{
         seccion3.add("Distribución porcentual de conductores  involucrados en eventos por "
                 + "atropello según condición de ebriedad");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
+        seccion3.add("3_05.tex");
         seccion3.add("INE, con datos de Policía Nacional Civil");
         seccion3.add(true);
         seccion3.add("3_06");
         seccion3.add("Víctimas fallecidas por atropello");
         seccion3.add("Víctimas fallecidas por atropello");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
+        seccion3.add("3_06.tex");
         seccion3.add("INE, con datos de Policía Nacional Civil");
         seccion3.add(true);
         cap3.add(seccion3);
@@ -395,14 +395,14 @@ public class Transito extends Documento{
         seccion4.add("Fallecidos por atropello según departamento");
         seccion4.add("Distribución porcentual de víctimas fallecidas por atropello según departamento");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_07.tex}  \\end{tikzpicture}");
+        seccion4.add("3_07.tex");
         seccion4.add("INE, con datos de Policía Nacional Civil");
         seccion4.add(true);
         seccion4.add("3_08");
         seccion4.add("Fallecidos por atropello según sexo");
         seccion4.add("Distribución porcentual de víctimas fallecidas por atropello según sexo");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_08.tex}  \\end{tikzpicture}");
+        seccion4.add("3_08.tex");
         seccion4.add("INE, con datos de Policía Nacional Civil");
         seccion4.add(true);
         cap3.add(seccion4);
@@ -414,14 +414,14 @@ public class Transito extends Documento{
         seccion5.add("Distribución porcentual de víctimas fallecidas por atropello según "
                 + "grupo de edad");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_09.tex}  \\end{tikzpicture}");
+        seccion5.add("3_09.tex");
         seccion5.add("INE, con datos de Policía Nacional Civil");
         seccion5.add(true);
         seccion5.add("3_10");
         seccion5.add("Fallecidos por atropello según grupo de edad y sexo");
         seccion5.add("Víctimas fallecidas por atropello según grupo de edad y sexo");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_10.tex}  \\end{tikzpicture}");
+        seccion5.add("3_10.tex");
         seccion5.add("INE, con datos de Policía Nacional Civil");
         seccion5.add(true);
         cap3.add(seccion5);
@@ -431,7 +431,7 @@ public class Transito extends Documento{
         seccion6.add("Lesionados por atropello");
         seccion6.add("Víctimas atropelladas lesionadas");
         seccion6.add(formatoSerie);
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_11.tex}  \\end{tikzpicture}");
+        seccion6.add("3_11.tex");
         seccion6.add("INE, con datos de Policía Nacional Civil");
         seccion6.add(true);
         seccion6.add("3_12");
@@ -439,7 +439,7 @@ public class Transito extends Documento{
         seccion6.add("Distribución porcentual de víctimas lesionadas por atropello según "
                 + "departamento");
         seccion6.add(getFormatoTrimestre());
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_12.tex}  \\end{tikzpicture}");
+        seccion6.add("3_12.tex");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
         cap3.add(seccion6);
@@ -450,7 +450,7 @@ public class Transito extends Documento{
         seccion7.add("Lesionados por atropello según sexo");
         seccion7.add("Distribución porcentual de víctimas lesionadas por atropello según sexo");
         seccion7.add(getFormatoTrimestre());
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_13.tex}  \\end{tikzpicture}");
+        seccion7.add("3_13.tex");
         seccion7.add("INE, con datos de Policía Nacional Civil");
         seccion7.add(true);
         seccion7.add("3_14");
@@ -458,7 +458,7 @@ public class Transito extends Documento{
         seccion7.add("Distribución porcentual de víctimas lesionadas por atropello según grupo "
                 + "de edad");
         seccion7.add(getFormatoTrimestre());
-        seccion7.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_14.tex}  \\end{tikzpicture}");
+        seccion7.add("3_14.tex");
         seccion7.add("INE, con datos de Policía Nacional Civil");
         seccion7.add(true);
         cap3.add(seccion7);
@@ -468,7 +468,7 @@ public class Transito extends Documento{
         seccion8.add("Lesionados por atropello según grupo de edad y sexo");
         seccion8.add("Víctimas lesionadas por atropello según grupo de edad y sexo");
         seccion8.add(getFormatoTrimestre());
-        seccion8.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_15.tex}  \\end{tikzpicture}");
+        seccion8.add("3_15.tex");
         seccion8.add("INE, con datos de Policía Nacional Civil");
         seccion8.add(true);
         cap3.add(seccion8);
@@ -493,7 +493,7 @@ public class Transito extends Documento{
         apendice3();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/Transito/Entradas/CSV");
-        ap.generar ();
+        ap.generarTransito();
         
         
         

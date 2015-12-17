@@ -81,11 +81,38 @@ public class Tabla {
         generarCSV2("A_04");
         
     }
+    
     public void generarComercioExterior(){
         generarCSV2("A_01");
         generarCSV2("A_02");
     }
-    
+    public void generarTransito(){
+        generarCSV2("A_01");
+        generarCSV2("A_02");
+        generarCSV2("A_03");
+        generarCSV2("A_04");
+        generarCSV2("A_05");
+        generarCSV2("A_06");
+        
+        
+        
+    }
+    public void generarFaltasJudiciales(){
+        generarCSV2("A_01");
+        generarCSV2("A_02");
+        generarCSV2("A_03");
+        generarCSV2("A_04");
+        generarCSV2("A_05");
+        
+    }
+    public void generarHechosDelictivos(){
+        generarCSV2("A_01");
+        generarCSV2("A_02");
+        generarCSV2("A_03");
+        generarCSV2("A_04");
+        generarCSV2("A_05");
+        
+    }
     public void generarAgropecuarias(){
         generarCSV2("A_01");
         generarCSV2("A_02");

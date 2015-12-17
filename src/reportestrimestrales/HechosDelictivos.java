@@ -163,7 +163,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Víctimas");
         seccion1.add("Víctimas de hechos delictivos");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("1_01.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("1_02");
@@ -171,7 +171,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Distribución porcentual de víctimas de hechos delictivos por "
                 + "tipo de causas");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("1_02.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         cap1.add(seccion1);
@@ -183,7 +183,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de víctimas de hechos delictivos "
                 + "por departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("1_03.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("1_04");
@@ -191,7 +191,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de víctimas de hechos delictivos "
                 + "por área geográfica");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("1_04.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         cap1.add(seccion2);
@@ -202,14 +202,14 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Víctimas según grupos de edad y sexo");
         seccion3.add("Víctimas según grupos de edad y sexo en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("1_05.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         seccion3.add("1_06");
         seccion3.add("Víctimas de homicidio por tipo");
         seccion3.add("Víctimas de homicidio por tipo en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("1_06.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         cap1.add(seccion3);
@@ -219,14 +219,14 @@ public class HechosDelictivos extends Documento{
         seccion4.add("Víctimas de hechos delictivos contra el patrimonio según "
                 + "tipo en unidades");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
+        seccion4.add("1_07.tex");
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         seccion4.add("1_08");
         seccion4.add("Víctimas de extorsiones por departamento");
         seccion4.add("Distribución porcentual de víctimas de extorsiones por departamento");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
+        seccion4.add("1_08.tex");
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         cap1.add(seccion4);
@@ -235,14 +235,14 @@ public class HechosDelictivos extends Documento{
         seccion4.add("Víctimas de extorsiones por sexo");
         seccion4.add("Distribución porcentual de víctimas de extorsiones por sexo");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
+        seccion5.add("1_09.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
         seccion5.add("1_10");
         seccion5.add("Víctimas de extorsiones por grupos de edad y sexo");
         seccion5.add("Víctimas de extorsiones por grupos de edad y sexo en unidades");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
+        seccion5.add("1_10.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
         cap1.add(seccion5);
@@ -256,7 +256,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Detenidos");
         seccion1.add("Detenidos(as) por cometer hechos delictivos en unidades");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("2_01.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("2_02");
@@ -264,7 +264,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Detenidos(as) por cometer hechos delictivos según los principales "
                 + "tipos de causa en unidades");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         cap2.add(seccion1);
@@ -276,7 +276,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de detenidos por cometer hechos delictivos según"
                 + "departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("2_04");
@@ -284,7 +284,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de detenidos por cometer hechos delictivos según "
                 + "área geográfica");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         cap2.add(seccion2);
@@ -295,14 +295,14 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Detenidos según edad y sexo");
         seccion3.add("Detenidos por cometer hechos delictivos según edad y sexo en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_05.tex}  \\end{tikzpicture}");
+        seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Detenidos por cometer homicidio según tipo");
         seccion3.add("Detenidos por cometer homicidios según el tipo de arma utilizada en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_06.tex}  \\end{tikzpicture}");
+        seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         cap2.add(seccion3);
@@ -315,7 +315,7 @@ public class HechosDelictivos extends Documento{
         seccion4.add("Detenidos por cometer delitos contra el patrimonio según las principales "
                 + "causas en unidades");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_07.tex}  \\end{tikzpicture}");
+        seccion4.add("2_07.tex");
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         seccion4.add("2_08");
@@ -323,7 +323,7 @@ public class HechosDelictivos extends Documento{
         seccion4.add("Distribucipon porcentual de detenidos por cometer extorsiones "
                 + "según departamento");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_08.tex}  \\end{tikzpicture}");       
+        seccion4.add("2_08.tex");       
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         cap2.add(seccion4);
@@ -333,14 +333,14 @@ public class HechosDelictivos extends Documento{
         seccion5.add("Distribución porcentual de detenidos por cometer extorsiones "
                 + "segpun sexo");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_09.tex}  \\end{tikzpicture}");
+        seccion5.add("2_09.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
         seccion5.add("2_10");
         seccion5.add("Detenidos por extorsiones según grupos de edad y sexo");
         seccion5.add("Detenidos por cometer extorsiones según edad y sexo en unidades");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_10.tex}  \\end{tikzpicture}");       
+        seccion5.add("2_10.tex");       
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
         cap2.add(seccion5);
@@ -356,7 +356,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Sindicados");
         seccion1.add("Sindicados por cometer hechos delictivos en unidades");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_01.tex}  \\end{tikzpicture}");
+        seccion1.add("3_01.tex");
         seccion1.add("INE, con datos del Ministerio Público");
         seccion1.add(true);
         seccion1.add("3_02");
@@ -364,7 +364,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Distribución porcentual de sindicados por cometer hechos delictivos "
                 + "según el tipo de delito");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_02.tex}  \\end{tikzpicture}");
+        seccion1.add("3_02.tex");
         seccion1.add("INE, con datos del Ministerio Público");
         seccion1.add(true);
         cap3.add(seccion1);
@@ -376,7 +376,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de sindicados por cometer hechos delictivos "
                 + "por departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_03.tex}  \\end{tikzpicture}");
+        seccion2.add("3_03.tex");
         seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
         seccion2.add("3_04");
@@ -384,7 +384,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de sindicados por cometer hechos delictivos "
                 + "según mes");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_04.tex}  \\end{tikzpicture}");
+        seccion2.add("3_04.tex");
         seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
         cap3.add(seccion2);
@@ -396,7 +396,7 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Distribución porcentual de sindicados por cometer hechos delictivos "
                 + "según sexo");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_05.tex}  \\end{tikzpicture}");
+        seccion3.add("3_05.tex");
         seccion3.add("INE, con datos del Ministerio Público");
         seccion3.add(true);
         seccion3.add("3_06");
@@ -404,7 +404,7 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Sindicados por cometer hechos delictivos según sexo y grupo de edad "
                 + "en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{3_06.tex}  \\end{tikzpicture}");
+        seccion3.add("3_06.tex");
         seccion3.add("INE, con datos del Ministerio Público");
         seccion3.add(true);
         cap3.add(seccion3);
@@ -420,14 +420,14 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Evaluaciones médico legal");
         seccion1.add("Evaluciones médico legal en unidades");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_01.tex}  \\end{tikzpicture}");
+        seccion1.add("4_01.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         seccion1.add("4_02");
         seccion1.add("Evaluaciones médico legal por tipo de dictamen");
         seccion1.add("Distribución porcentual de evaluaciones médico legal según tipo de dictamen");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_02.tex}  \\end{tikzpicture}");
+        seccion1.add("4_02.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         cap4.add(seccion1);
@@ -438,14 +438,14 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Evaluaciones médico legal por departamento");
         seccion2.add("Distribución porcentual de evaluaciones médico legal según departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_03.tex}  \\end{tikzpicture}");
+        seccion2.add("4_03.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         seccion2.add("4_04");
         seccion2.add("Evaluaciones médico legal por sexo");
         seccion2.add("Distribución porcentual de evaluaciones médico legal según sexo");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_04.tex}  \\end{tikzpicture}");
+        seccion2.add("4_04.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         cap4.add(seccion2);
@@ -456,7 +456,7 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Evaluaciones médico legal por grupos de edad");
         seccion3.add("Evaluaciones médico legal según grupo de edad en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{4_05.tex}  \\end{tikzpicture}");
+        seccion3.add("4_05.tex");
         seccion3.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion3.add(true);
         
@@ -471,14 +471,14 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Necropsias");
         seccion1.add("Número de necropsias en unidades");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_01.tex}  \\end{tikzpicture}");
+        seccion1.add("5_01.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         seccion1.add("5_02");
         seccion1.add("Necropsias por tipo de dictamen");
         seccion1.add("Distribución porcentual de necropsias según tipo de dictamen");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_02.tex}  \\end{tikzpicture}");
+        seccion1.add("5_02.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         cap5.add(seccion1);
@@ -489,14 +489,14 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Necropsias por departamento");
         seccion2.add("Distribución porcentual de necropcias según departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_03.tex}  \\end{tikzpicture}");
+        seccion2.add("5_03.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         seccion2.add("5_04");
         seccion2.add("Necropsias por sexo");
         seccion2.add("Distribución porcentual de necropcias según sexo");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_04.tex}  \\end{tikzpicture}");
+        seccion2.add("5_04.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         cap5.add(seccion2);
@@ -507,7 +507,7 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Necropsias por grupos de edad");
         seccion3.add("Necropsias según grupo de edad en unidades");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{5_05.tex}  \\end{tikzpicture}");
+        seccion3.add("5_05.tex");
         seccion3.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion3.add(true);
         cap5.add(seccion3);
@@ -522,7 +522,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Sentencias");
         seccion1.add("Sentenciados por el Organismo Judicial, por cometer hechos delictivos");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_01.tex}  \\end{tikzpicture}");
+        seccion1.add("6_01.tex");
         seccion1.add("INE, con datos del Organismo Judicial");
         seccion1.add(true);
         seccion1.add("6_02");
@@ -530,7 +530,7 @@ public class HechosDelictivos extends Documento{
         seccion1.add("Sentenciados por el Organismo Judicial, por cometer hechos delictivos "
                 + "según el tipo de sentencia en unidades");
         seccion1.add(getFormatoTrimestre());
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_02.tex}  \\end{tikzpicture}");
+        seccion1.add("6_02.tex");
         seccion1.add("INE, con datos del Organismo Judicial");
         seccion1.add(true);
         cap6.add(seccion1);
@@ -542,7 +542,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia condenatoria, por departamento");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_03.tex}  \\end{tikzpicture}");
+        seccion2.add("6_03.tex");
         seccion2.add("INE, con datos del Organismo Judicial");
         seccion2.add(true);
         seccion2.add("6_04");
@@ -550,7 +550,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia condenatoria, según sexo");
         seccion2.add(getFormatoTrimestre());
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_04.tex}  \\end{tikzpicture}");
+        seccion2.add("6_04.tex");
         seccion2.add("INE, con datos del Organismo Judicial");
         seccion2.add(true);
         cap6.add(seccion2);
@@ -562,7 +562,7 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Personas procesadas por el Organismo Judicial por cometer hechos delictivos, "
                 + "con sentencia condenatoria, según edad y sexo");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_05.tex}  \\end{tikzpicture}");
+        seccion3.add("6_05.tex");
         seccion3.add("INE, con datos del Organismo Judicial");
         seccion3.add(true);
         seccion3.add("6_06");
@@ -570,7 +570,7 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia condenatoria, según ley aplicada");
         seccion3.add(getFormatoTrimestre());
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_06.tex}  \\end{tikzpicture}");
+        seccion3.add("6_06.tex");
         seccion3.add("INE, con datos del Organismo Judicial");
         seccion3.add(true);
         cap6.add(seccion3);
@@ -584,7 +584,7 @@ public class HechosDelictivos extends Documento{
                 + "por cometer hechos delictivos del ramo penal, con sentencia condenatoria, "
                 + "según delitos");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_07.tex}  \\end{tikzpicture}");
+        seccion4.add("6_07.tex");
         seccion4.add("INE, con datos del Organismo Judicial");
         seccion4.add(true);
         seccion4.add("6_08");
@@ -592,7 +592,7 @@ public class HechosDelictivos extends Documento{
         seccion4.add("Distribucipon porcentual de personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia absolutoria, por departamento");
         seccion4.add(getFormatoTrimestre());
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_08.tex}  \\end{tikzpicture}");       
+        seccion4.add("6_08.tex");       
         seccion4.add("INE, con datos del Organismo Judicial");
         seccion4.add(true);
         cap6.add(seccion4);
@@ -604,7 +604,7 @@ public class HechosDelictivos extends Documento{
         seccion5.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia absolutoria, según sexo");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_09.tex}  \\end{tikzpicture}");
+        seccion5.add("6_09.tex");
         seccion5.add("INE, con datos del Organismo Judicial");
         seccion5.add(true);
         seccion5.add("6_10");
@@ -612,7 +612,7 @@ public class HechosDelictivos extends Documento{
         seccion5.add("Personas procesadas por el Organismo Judicial por cometer hechos delictivos, "
                 + "con sentencia absolutoria, según edad y sexo");
         seccion5.add(getFormatoTrimestre());
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_10.tex}  \\end{tikzpicture}");       
+        seccion5.add("6_10.tex");       
         seccion5.add("INE, con datos del Organismo Judicial");
         seccion5.add(true);
         cap6.add(seccion5);
@@ -624,7 +624,7 @@ public class HechosDelictivos extends Documento{
                 + "por cometer hechos delictivos, con sentencia absolutoria, "
                 + "según ley aplicada");
         seccion6.add(getFormatoTrimestre());
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_11.tex}  \\end{tikzpicture}");
+        seccion6.add("6_11.tex");
         seccion6.add("INE, con datos del Organismo Judicial");
         seccion6.add(true);
         seccion6.add("6_12");
@@ -633,7 +633,7 @@ public class HechosDelictivos extends Documento{
                 + "por cometer hechos delictivos contemplados en el ramo penal,"
                 + " con sentencia absolutoria, según delitos");
         seccion6.add(getFormatoTrimestre());
-        seccion6.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{6_12.tex}  \\end{tikzpicture}");       
+        seccion6.add("6_12.tex");       
         seccion6.add("INE, con datos del Organismo Judicial");
         seccion6.add(true);
         cap6.add(seccion6);
@@ -655,7 +655,7 @@ public class HechosDelictivos extends Documento{
         apendice3();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/VIF/Entradas/CSV");
-        ap.generarComercioExterior();
+        ap.generarHechosDelictivos();
         
         
         

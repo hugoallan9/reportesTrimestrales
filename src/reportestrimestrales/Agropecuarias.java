@@ -136,7 +136,7 @@ public class Agropecuarias extends Documento{
         seccion1.add("Producción de azúcar en los ingenios de la república "
                 + "en millones de quintales");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_01.tex}  \\end{tikzpicture}");
+        seccion1.add("1_01.tex");
         seccion1.add("INE, Estadísticas Agropecuarias");
         seccion1.add(true);
         seccion1.add("1_02");
@@ -144,7 +144,7 @@ public class Agropecuarias extends Documento{
         seccion1.add("Producción de azúcar blanca en los ingenios de la república "
                 + "en millones de quintales");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_02.tex}  \\end{tikzpicture}");
+        seccion1.add("1_02.tex");
         seccion1.add("INE, Estadísticas Agropecuarias");
         seccion1.add(true);
         cap1.add(seccion1);
@@ -156,14 +156,14 @@ public class Agropecuarias extends Documento{
         seccion2.add("Producción de azúcar cruda en los ingenios de la república "
                 + "en millones de quintales");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_03.tex}  \\end{tikzpicture}");
+        seccion2.add("1_03.tex");
         seccion2.add("INE, Estadísticas Agropecuarias");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Trigo");
         seccion2.add("Producción de productos y subproductos de trigo en miles de quintales");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_04.tex}  \\end{tikzpicture}");
+        seccion2.add("1_04.tex");
         seccion2.add("INE, Estadísticas Agropecuarias");
         seccion2.add(true);
         cap1.add(seccion2);
@@ -174,14 +174,14 @@ public class Agropecuarias extends Documento{
         seccion3.add("Harina de trigo");
         seccion3.add("Producto del trigo: harina en miles de quintales");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_05.tex}  \\end{tikzpicture}");
+        seccion3.add("1_05.tex");
         seccion3.add("INE, Estadísticas Agropecuarias");
         seccion3.add(true);
         seccion3.add("1_06");
         seccion3.add("Sémola de trigo");
         seccion3.add("Subproducto de trigo: sémola en miles de quintales");
         seccion3.add(formatoSerie);
-        seccion3.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_06.tex}  \\end{tikzpicture}");
+        seccion3.add("1_06.tex");
         seccion3.add("INE, Estadísticas Agropecuarias");
         seccion3.add(true);
         cap1.add(seccion3);
@@ -193,14 +193,14 @@ public class Agropecuarias extends Documento{
         seccion4.add("Afrecho");
         seccion4.add("Subproducto de trigo: afrecho en miles de quintales");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_07.tex}  \\end{tikzpicture}");
+        seccion4.add("1_07.tex");
         seccion4.add("INE, Estadísticas Agropecuarias");
         seccion4.add(true);
         seccion4.add("1_08");
         seccion4.add("Granillo de trigo");
         seccion4.add("Subproducto de trigo: granillo en miles de quintales");
         seccion4.add(formatoSerie);
-        seccion4.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_08.tex}  \\end{tikzpicture}");
+        seccion4.add("1_08.tex");
         seccion4.add("INE, Estadísticas Agropecuarias");
         seccion4.add(true);
         cap1.add(seccion4);
@@ -210,14 +210,14 @@ public class Agropecuarias extends Documento{
         seccion5.add("Germen de trigo");
         seccion5.add("Subproducto de trigo: germen en quintales");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_09.tex}  \\end{tikzpicture}");
+        seccion5.add("1_09.tex");
         seccion5.add("INE, Estadísticas Agropecuarias");
         seccion5.add(true);
         seccion5.add("1_10");
         seccion5.add("Banano");
         seccion5.add("Producción de banano de las compañías exportadoras en miles de quintales");
         seccion5.add(formatoSerie);
-        seccion5.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{1_10.tex}  \\end{tikzpicture}");
+        seccion5.add("1_10.tex");
         seccion5.add("INE, Estadísticas Agropecuarias");
         seccion5.add(true);
         cap1.add(seccion5);
@@ -231,14 +231,14 @@ public class Agropecuarias extends Documento{
         seccion1.add("Ganado bovino");
         seccion1.add("Destace de ganado bovino en número de cabezas");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_01.tex}  \\end{tikzpicture}");
+        seccion1.add("2_01.tex");
         seccion1.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Ganado porcino");
         seccion1.add("Destace de ganado porcino en número de cabezas");
         seccion1.add(formatoSerie);
-        seccion1.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}");
+        seccion1.add("2_02.tex");
         seccion1.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion1.add(true);
         cap2.add(seccion1);
@@ -249,14 +249,14 @@ public class Agropecuarias extends Documento{
         seccion2.add("Ganado ovino");
         seccion2.add("Destace de ganado ovino en número de cabezas");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}");
+        seccion2.add("2_03.tex");
         seccion2.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Ganado caprino");
         seccion2.add("Destace de ganado caprino para consumo interno en número de cabezas");
         seccion2.add(formatoSerie);
-        seccion2.add("\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_04.tex}  \\end{tikzpicture}");
+        seccion2.add("2_04.tex");
         seccion2.add("INE, con información de las municipalidades y empresas procesadoras de carne");
         seccion2.add(true);
         cap2.add(seccion2);
@@ -432,7 +432,7 @@ public class Agropecuarias extends Documento{
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         System.out.println("Seteando ruta de ap");
         ap.setRuta("/var/www/html/Agropecuarias/Entradas/CSV");
-        ap.generar();
+        ap.generarAgropecuarias();
         
         
         
