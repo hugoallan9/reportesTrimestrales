@@ -92,7 +92,7 @@ public class Agropecuarias extends Documento{
                 String columna1="";
                 String columna2="";
                 if(i==0 &&j==1) parrafo2 = "En el "+ getFormatoTrimestre() + ", de la molienda se "
-                        + "obtuvieron dos productos principales, harina y sémola";
+                        + "obtuvieron dos productos principales: harina y sémola.";
                     
                 escribirLinea("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
                 System.out.println("\n \n %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%INICIO HOJA "+hoja+"%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% \n\n");
