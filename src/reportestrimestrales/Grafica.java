@@ -119,7 +119,7 @@ public class Grafica extends Thread {
             r.eval("compilar('" + ruta  + "/presentacionComercio.tex', mostrar = F)");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Comercio Exterior', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "comercio.pdf','" + ruta+ "presentacionComercio.pdf'))");
-            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Comercio Exterior', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "comercio.pdf','" + ruta+ "presentacionComercio.pdf'))"));
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Comercio Exterior', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "comercio.pdf','" + ruta+ "presentacionComercio.pdf'))"));
         }
         else if(lista.equalsIgnoreCase("agropecuarias")){
             r.eval("graficasAgropecuarias("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
