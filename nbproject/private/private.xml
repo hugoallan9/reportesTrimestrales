@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
-    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/IPC.java</file>
-            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/VIF.java</file>
-            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Hospitalarias.java</file>
-            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Documento.java</file>
-            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/ReportesTrimestrales.java</file>
-            <file>file:/home/carto/Documentos/reportesTrimestrales/src/reportestrimestrales/Tabla.java</file>
-=======
             <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/Grafica.java</file>
             <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/TransporteYServicios.java</file>
             <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/Vitales.java</file>
@@ -23,7 +14,6 @@
             <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/IPC.java</file>
             <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/FaltasJudiciales.java</file>
             <file>file:/home/hugo/Documents/reportesTrimestrales/src/reportestrimestrales/VIF.java</file>
->>>>>>> 417b39e0968307c6b6bca52c756dd79ccee8e983
         </group>
     </open-files>
 </project-private>
