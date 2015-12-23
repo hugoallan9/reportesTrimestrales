@@ -38,7 +38,7 @@ public class Tabla {
     SesionR r;
     DecimalFormat df;
     DecimalFormat dm;
-    
+    String encabezadoTabla;
     
    
     public Tabla(String rutaTEX, List listado,SesionR rr){
@@ -53,10 +53,14 @@ public class Tabla {
         this.rutaTex = rutaTEX;
         this.r = rr;
         System.out.println("Finalizando el contructor de tabla");
+        this.encabezadoTabla = "";
     }
     
     public void setRuta(String ruta){
         this.ruta = ruta;
+    }
+    private void setEncabezadoTabla(String encabezado){
+        this.encabezadoTabla = encabezado;
     }
     
     public void generar(){
@@ -65,68 +69,111 @@ public class Tabla {
         generarCSV1("A_05");
         generarCSV1("A_07");
         generarCSV1("A_09");
-        
+        setEncabezadoTabla("Número de nacimientos");
         generarCSV2("A_02");
+        setEncabezadoTabla("Número de defunciones");
         generarCSV2("A_04");
+        setEncabezadoTabla("Número de defunciones fetales");
         generarCSV2("A_06");
+        setEncabezadoTabla("Número de matrimonios");
         generarCSV2("A_08");
+        setEncabezadoTabla("Número de divorcios");
         generarCSV2("A_10");
     }
     
     public void generarHospitalarias(){
         generarCSV1("A_01");
         generarCSV1("A_03");
-        
+        setEncabezadoTabla("Número de consultas externas");
         generarCSV2("A_02");
+        setEncabezadoTabla("Número de consultas internas");
         generarCSV2("A_04");
         
     }
     
     public void generarComercioExterior(){
+        setEncabezadoTabla("Exportaciones en US\\$");
         generarCSV2("A_01");
+        generarCSV2("A_03");
+        generarCSV2("A_05");
+        generarCSV2("A_07");
+        
+        setEncabezadoTabla("Importaciones en US\\$");
         generarCSV2("A_02");
+        generarCSV2("A_04");
+        generarCSV2("A_06");
+        generarCSV2("A_08");
+        
     }
     public void generarTransito(){
+        setEncabezadoTabla("Número de eventos de tránsito");
         generarCSV2("A_01");
+        setEncabezadoTabla("Número de lesionados en accidentes de tránsito");
         generarCSV2("A_02");
+        setEncabezadoTabla("Número de víctimas fatales");
         generarCSV2("A_03");
+        setEncabezadoTabla("Número de vehículos involucrados en eventos de tránsito");
         generarCSV2("A_04");
+        setEncabezadoTabla("Número de eventos con atropello");
         generarCSV2("A_05");
+        setEncabezadoTabla("Número de atropellados lesionados en eventos de tránsito");
         generarCSV2("A_06");
+        setEncabezadoTabla("Número de atropellados fatales");
         generarCSV2("A_07");
         
     }
     public void generarFaltasJudiciales(){
+        setEncabezadoTabla("Número de faltas judiciales");
         generarCSV2("A_01");
+        setEncabezadoTabla("Número de faltas contra las personas");  
         generarCSV2("A_02");
+        setEncabezadoTabla("Número de faltas contra la propiedad");
         generarCSV2("A_03");
+        setEncabezadoTabla("Número de faltas contra el orden público");
         generarCSV2("A_04");
+        setEncabezadoTabla("Número de faltas contra las buenas costumbres");
         generarCSV2("A_05");
         
     }
     public void generarHechosDelictivos(){
+        setEncabezadoTabla("Número de detenidos");
         generarCSV2("A_01");
+        setEncabezadoTabla("Número de víctimas");
         generarCSV2("A_02");
+        setEncabezadoTabla("Número de sindicados");
         generarCSV2("A_03");
+        setEncabezadoTabla("Número de evaluaciones médico legales");
         generarCSV2("A_04");
+        setEncabezadoTabla("Número de necropsias");
         generarCSV2("A_05");
         
     }
     public void generarAgropecuarias(){
+        setEncabezadoTabla("Producción de azúcar blanca (en quintales)");
         generarCSV2("A_01");
+        setEncabezadoTabla("Producción de azúcar cruda (en quintales)");
         generarCSV2("A_02");
+        setEncabezadoTabla("Trigo procesado (en quintales)");
         generarCSV2("A_03");
+        setEncabezadoTabla("Producción de banano (en quintales)");
         generarCSV2("A_04");
+        setEncabezadoTabla("Destace ganado bovino (número de cabezas)");    
         generarCSV2("A_05");
+        setEncabezadoTabla("Destace ganado porcino (número de cabezas)");    
         generarCSV2("A_06");
+        setEncabezadoTabla("Destace ganado ovino (número de cabezas)");    
         generarCSV2("A_07");
+        setEncabezadoTabla("Destace ganado caprino (número de cabezas)");    
         generarCSV2("A_08");
     }
     public void generarVIF(){
+        setEncabezadoTabla("Número de denuncias VIF");    
         generarCSV2("A_01");
-        
+        setEncabezadoTabla("Número de mujeres víctimas de VIF");    
         generarCSV2("A_02");
+        setEncabezadoTabla("Número de hombres víctimas de VIF");    
         generarCSV2("A_03");
+        setEncabezadoTabla("Número de hombres agresores VIF");    
         generarCSV2("A_04");
     }
     private void escribirTEX(String nombre, String texto,boolean compilar){
@@ -163,7 +210,7 @@ public class Tabla {
         File f = new File(ruta, csv + ".csv");
     BufferedReader br = null;
     String line = "";
-        boolean encabezado = true;
+        boolean encabezado = false;
         List<String> listaPlantilla= new ArrayList();
         List<String> lista = new ArrayList();
         listaPlantilla.add("\\input{../../../pre2}");
@@ -261,7 +308,7 @@ public class Tabla {
         try {
             br = new BufferedReader(new FileReader(f.getAbsolutePath()));
             lista.add("&\\multirow{2}{*}{\\Bold{Periodo}} ");//aqui va el texto en latex del archivo info.tex
-            lista.add("&\\multirow{2}{*}{\\Bold{Numero de nacimientos}}");
+            lista.add("&\\multirow{2}{*}{\\Bold{"+ encabezadoTabla +"}}");
             lista.add("&\\multirow{2}{2.5cm}{\\Bold{Variación entre periodos}} ");
             lista.add("&\\multirow{2}{3.9cm}{\\Bold{Variación respecto al mismo periodo año anterior}}\\\\");
             lista.add("&&&&\\\\[0.2cm]");

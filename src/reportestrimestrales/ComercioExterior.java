@@ -672,6 +672,9 @@ public class ComercioExterior extends Documento{
         "\n" +
         "\n" );
         apendice1();
+        apendice2();
+        apendice3();
+        apendice4();
         Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
         ap.setRuta("/var/www/html/Comercio/Entradas/CSV");
         ap.generarComercioExterior();
@@ -689,6 +692,56 @@ public class ComercioExterior extends Documento{
         
         String columna2 = tablaApendice("A_02",
                 "Comercio total: análisis de variación de las importaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice2(){
+        String columna1 = tablaApendice("A_03",
+                "Territorio aduanero: análisis de variación de las exportaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        
+        String columna2 = tablaApendice("A_04",
+                "Territorio aduanero: análisis de variación de las importaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice3(){
+        String columna1 = tablaApendice("A_05",
+                "Decreto 29-89: análisis de variación de las exportaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        
+        String columna2 = tablaApendice("A_06",
+                "Decreto 29-89: análisis de variación de las importaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice4(){
+        String columna1 = tablaApendice("A_07",
+                "Zonas francas: análisis de variación de las exportaciones",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE, con datos del BANGUAT",
+                "");
+        
+        String columna2 = tablaApendice("A_08",
+                "Zonas francas: análisis de variación de las importaciones",
                 "2",
                 "plantillaTabla2.pdf",
                 "INE, con datos del BANGUAT",

@@ -1201,7 +1201,7 @@ public class Documento {
     protected List trimestres(){
         String trm = getTrimestre();
         System.out.println("trm = "+ trm);
-        int anio =Integer.parseInt(getYearServidor());
+        int anio =Integer.parseInt(getAnioPublicacion());
         List lista= new ArrayList();
         
         switch (trm.toLowerCase()) {
