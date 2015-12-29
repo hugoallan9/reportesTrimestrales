@@ -58,7 +58,7 @@ public class Transito extends Documento{
     
     protected void setCapitulos(){
         capitulos.add("Eventos de tránsito");
-        capitulos.add("Víctimas lesionadas y fallecidas");
+        capitulos.add("Víctimas lesionadas \\\\  y fallecidas");
         capitulos.add("Atropellados");
                 
     }
@@ -124,7 +124,7 @@ public class Transito extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("transito <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("transito <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(transito)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
@@ -483,6 +483,7 @@ public class Transito extends Documento{
     }
     
     
+    
     protected void apendices(String rutaTEX){
         escribirLinea("\n \\appendixa \n" +
         "\n" +
@@ -567,32 +568,14 @@ public class Transito extends Documento{
     
     
     protected void hacerPortada(){
-       String portada = "http://www.ine.gob.gt/ftparchivos/portadaVitales.pdf";
-       File file = new File(getRuta(),"portada.pdf");
-       URL url = null;
+       File source = new File("/home/ineservidor/Comercio/Caratula");
+        File dest = new File(getRuta());
         try {
-            url = new URL(portada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         
-        String contraPortada = "http://www.ine.gob.gt/ftparchivos/contraportadaVitales.pdf";
-        File file1 = new File(getRuta(),"contraPortada.pdf");
-        try {
-            url = new URL(contraPortada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file1);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         try {
             File p1 = new File(getRuta(),"caratula.tex");
@@ -621,13 +604,13 @@ public class Transito extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.44,0.595) {\n" +
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.55,0.595) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
@@ -711,7 +694,7 @@ public class Transito extends Documento{
                 + " {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
                 + getAnioPublicacion() +"} con el propósito de dar a conocer la caracterización "
                 + "de este fenómeno y de esta manera apoyar la elaboración de programas, políticas, "
-                + "planes para la seguridad vial. Dicha {\\información es preliminar} y será ajustado "
+                + "planes para la seguridad vial. Dicha {\\Bold información es preliminar} y será ajustado "
                 + "con el ingreso de registros tardíos.\n" 
                 + "\n" 
                 + "Se agradece el aporte y colaboración de la Policía Nacional Civil -PNC- y "
@@ -723,7 +706,16 @@ public class Transito extends Documento{
                 "\\cleardoublepage");
     }
     
-   
+            @Override
+    protected void preambuloPresentacion(){
+        File source = new File("/home/ineservidor/Vitales/Presentacion");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
         
 

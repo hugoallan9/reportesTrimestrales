@@ -409,7 +409,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("transito <- leerLibro('/var/www/html/Transito/Entradas/transito.xlsx')"));
-            System.out.println(r.get().eval("transito <- convertirFechas(transito)"));
+            System.out.println(r.get().eval("transito <- convertirFechasTodos(transito)"));
             r.get().eval("escribirCSV(transito, '/var/www/html/Transito/Entradas/CSV')");
             File transitoTrimestre = new File(rutaTransito, args[2] + args[1]);
             if ( !transitoTrimestre.exists() ){
@@ -437,7 +437,7 @@ public class ReportesTrimestrales {
             descripciones.run();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
-                System.out.println("entro a hacer graficas");
+                System.out.println("entro a hacer graficas jojo ");
                 docu.generarGraficas("trimestral");
             //}
         }
