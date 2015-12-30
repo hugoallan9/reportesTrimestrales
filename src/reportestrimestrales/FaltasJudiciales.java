@@ -456,7 +456,7 @@ public class FaltasJudiciales extends Documento{
     }
     
     protected void hacerPortada(){
-       File source = new File("/home/ineservidor/Vitales/Caratula");
+       File source = new File("/home/ineservidor/FaltasJudiciales/Caratula");
         File dest = new File(getRuta());
         try {
             FileUtils.copyDirectory(source, dest);
