@@ -29,6 +29,7 @@ public class FaltasJudiciales extends Documento{
     private List introCapitulos;
     private List contenidos;
     private String formatoSerie;
+    private String formatoTrimestre;
     Collator comparador = Collator.getInstance();
     private SesionR rr;
     private String rutaCSV;    
@@ -47,7 +48,9 @@ public class FaltasJudiciales extends Documento{
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
-        formatoSerie = "Serie histórica " +  (int)(Double.parseDouble(getAnioPublicacion()) -2) + "-" + getAnioPublicacion();
+        formatoSerie = "República de Guatemala, serie histórica trimestral, ";
+        formatoTrimestre = "República de Guatemala, "+corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre "
+                + getAnioPublicacion() +", ";
                 
                 
         cargarCSV(rutaCSV);
@@ -134,15 +137,16 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("1_01");
         seccion1.add("Faltas judiciales");
-        seccion1.add("Número de faltas judiciales");
-        seccion1.add(formatoSerie);
+        seccion1.add("Personas que cometieron faltas judiciales");
+        seccion1.add(formatoSerie+"en unidades");
         seccion1.add("1_01.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Faltas judiciales por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según departamento");
+        seccion1.add(formatoTrimestre +"en porcentaje");
         seccion1.add("1_02.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
@@ -152,15 +156,18 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
         seccion2.add("Faltas judiciales por área geográfica");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por área geográfica");
+        seccion2.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según área geográfica");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("1_03.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Faltas judiciales por edad del infractor");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edad del infractor");
+        seccion2.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según grupo de edad "
+                + "del infractor");
+        seccion2.add(formatoTrimestre+"en porcentaje");
         seccion2.add("1_04.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
@@ -170,15 +177,17 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
         seccion3.add("Faltas judiciales según sexo");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por sexo");
+        seccion3.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según sexo");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("1_05.tex");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
         seccion3.add("1_06");
         seccion3.add("Faltas judiciales por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según grupo étnico");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("1_06.tex");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
@@ -189,15 +198,19 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
         seccion4.add("Faltas judiciales por analfabetismo");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por condición de analfabetismo");
+        seccion4.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según condición de "
+                + "analfabetismo");
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("1_07.tex");
         seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion4.add(true);
         seccion4.add("1_08");
         seccion4.add("Faltas judiciales por nivel de educación");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por nivel de educación");
+        seccion4.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según nivel de "
+                + "educación");
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("1_08.tex");
         seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion4.add(true);
@@ -206,15 +219,18 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion5 = new ArrayList();
         seccion5.add("1_09");
         seccion5.add("Faltas judiciales por condición de ebriedad");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por condición de ebriedad");
+        seccion5.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según condición de ebriedad");
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("1_09.tex");
         seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion5.add(true);
         seccion5.add("1_10");
         seccion5.add("Faltas judiciales por tipo de falta");
-        seccion5.add("Faltas judiciales ocurridas en el año 2014");
-        seccion5.add("Distribución porcentual por tipo de falta");
+        seccion5.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según tipo de falta "
+                + "cometida");
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("1_10.tex");
         seccion5.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion5.add(true);
@@ -224,8 +240,10 @@ public class FaltasJudiciales extends Documento{
         seccion6.add("1_11");
         seccion6.add("Faltas judiciales por sexo del infractor según tipo de"
         + " falta cometida");
-        seccion6.add("Faltas judiciales ocurridas en el año 2014");
-        seccion6.add("Distribución porcentual por tipo de falta cometida");
+        seccion6.add("Distribución porcentual de las personas que "
+                + "cometieron faltas judiciales, según sexo y "
+                + "tipo de falta cometida");
+        seccion6.add(formatoTrimestre + "en porcentaje");
         seccion6.add("1_11.tex");
         seccion6.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion6.add(true);
@@ -237,15 +255,16 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
         seccion1.add("Infractores menores de 18 años");
-        seccion1.add("Número de faltas judiciales");
-        seccion1.add(formatoSerie);
+        seccion1.add("Personas menores de edad que cometieron faltas judiciales");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("2_01.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Infractores menores de edad por departamento");
-        seccion1.add("Faltas judiciales ocurridas en el año 2014");
-        seccion1.add("Distribución porcentual por departamento");
+        seccion1.add("Distribución porcentual de las personas menores de edad"
+                + " que cometieron faltas judiciales, según departamento");
+        seccion1.add(formatoTrimestre + "en porcentaje");
         seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
@@ -255,15 +274,17 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
         seccion2.add("Infractores menores de edad por sexo");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por sexo");
+        seccion2.add("Distribución porcentual de las personas menores de edad"
+                + " que cometieron faltas judiciales, según sexo");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Infractores menores de edad por edad");
-        seccion2.add("Faltas judiciales ocurridas en el año 2014");
-        seccion2.add("Distribución porcentual por edades simples");
+        seccion2.add("Distribución porcentual de las personas menores de edad"
+                + " que cometieron faltas judiciales, según edad simple");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
@@ -273,15 +294,17 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
         seccion3.add("Infractores menores de edad por grupo étnico");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Distribución porcentual de las personas menores de edad"
+                + " que cometieron faltas judiciales, según grupo étnico");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Infractores menores de edad por nivel de educación");
-        seccion3.add("Faltas judiciales ocurridas en el año 2014");
-        seccion3.add("Distribución porcentual por nivel de educación");
+        seccion3.add("Distribución porcentual de las personas menores de edad"
+                + " que cometieron faltas judiciales, según nivel de educación");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
@@ -292,8 +315,9 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
         seccion4.add("Infractores menores de edad por tipo de falta cometida");
-        seccion4.add("Faltas judiciales ocurridas en el año 2014");
-        seccion4.add("Distribución porcentual por tipo de falta cometida");
+        seccion4.add("Distribución porcentual de las personas menores de edad"
+                + " que cometieron faltas judiciales, según nivel de educación");
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("2_07.tex");
         seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion4.add(true);
@@ -310,15 +334,17 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("3_01");
         seccion1.add("Faltas contra las personas");
-        seccion1.add("Número de faltas judiciales contra las personas");
-        seccion1.add(formatoSerie);
+        seccion1.add("Personas que cometieron faltas judiciales del tipo "
+                + "contra las personas");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("3_01.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
         seccion1.add("3_02");
         seccion1.add("Faltas contra la propiedad");
-        seccion1.add("Número de faltas judiciales contra la propiedad");
-        seccion1.add(formatoSerie);
+        seccion1.add("Personas que cometieron faltas judiciales del tipo "
+                + "contra la propiedad");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("3_02.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
@@ -328,15 +354,17 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
         seccion2.add("Faltas contra las buenas costumbres");
-        seccion2.add("Número de faltas judiciales contra las buenas costumbres");
-        seccion2.add(formatoSerie);
+        seccion2.add("Personas que cometieron faltas judiciales del tipo "
+                + "contra las buenas costumbres");
+        seccion2.add(formatoSerie + "en unidades");
         seccion2.add("3_03.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
         seccion2.add("3_04");
         seccion2.add("Faltas contra el orden público");
-        seccion2.add("Número de faltas judiciales contra el orden público");
-        seccion2.add(formatoSerie);
+        seccion2.add("Personas que cometieron faltas judiciales del tipo "
+                + "contra el orden público");
+        seccion2.add(formatoSerie + "en unidades");
         seccion2.add("3_04.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
@@ -346,8 +374,9 @@ public class FaltasJudiciales extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("3_05");
         seccion3.add("Otras faltas");
-        seccion3.add("Número de faltas judiciales (Clasificadas como \"Otras\")");
-        seccion3.add("Distribución porcentual por grupo étnico");
+        seccion3.add("Personas que cometieron faltas judiciales de"
+                + "otro tipo no clasificado anteriormente");
+        seccion3.add(formatoSerie + "en unidades");
         seccion3.add("3_05.tex");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
