@@ -190,7 +190,7 @@ public class ReportesTrimestrales {
             descripciones_faltas_judiciales.Generador descripciones = new descripciones_faltas_judiciales.Generador("/var/www/html/FaltasJudiciales/Entradas/CSV", faltasTrimestre.getAbsolutePath());
             descripciones.run();
             System.out.println("Despues");
-            docu.apendices(faltasTrimestre.getAbsolutePath()+"/");
+            //docu.apendices(faltasTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             docu.getRr().get().end();
             
