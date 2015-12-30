@@ -115,7 +115,7 @@ public class Hospitalarias extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("hospitalarias <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("hospitalarias <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(hospitalarias)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
@@ -405,7 +405,7 @@ public class Hospitalarias extends Documento{
                 "	Flor de María Hernández Soto\\\\\n" +
                 "	Cristian Miguel Cabrera Ayala\\\\\n" +
                 "	Blanca Angelica Ramirez González\\\\\n" +
-                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "	Edgar Guillermo Solares\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
@@ -504,7 +504,15 @@ public class Hospitalarias extends Documento{
         }
         return retorno;
     }
-    
+        protected void preambuloPresentacion(){
+        File source = new File("/home/ineservidor/Vitales/Presentacion");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
    
 
         

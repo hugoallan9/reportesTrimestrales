@@ -648,10 +648,9 @@ public class Transito extends Documento{
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Flor de María Hernández Soto\\\\\n" +
-                "	Cristian Miguel Cabrera Ayala\\\\\n" +
-                "	Blanca Angelica Ramirez González\\\\\n" +
-                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "       Karin Lenisse Barrios Carrascosa\\\\\n" +
+                "	Ricardo Francisco Loaiza Díaz\\\\\n" +
+                "	Oralia Ramírez Galicia\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
