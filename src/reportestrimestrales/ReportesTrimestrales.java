@@ -274,7 +274,7 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.rellenar();
-            docu.apendices(comercioTrimestre.getAbsolutePath()+"/");
+            //docu.apendices(comercioTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             docu.getRr().get().end();
             
