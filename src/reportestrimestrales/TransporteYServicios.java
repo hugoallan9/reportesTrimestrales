@@ -443,8 +443,8 @@ public class TransporteYServicios extends Documento{
         seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
         seccion1.add("4_02");
-        seccion1.add("Parque vehicular por modelo");
-        seccion1.add("Distribución porcentual del parque vehicular por modelo");
+        seccion1.add("Movimiento parque vehicular por modelo");
+        seccion1.add("Movimiento del parque vehicular entre trimestres, según modelo");
         seccion1.add(getFormatoTrimestre());
         seccion1.add("4_02.tex");
         seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
@@ -462,7 +462,7 @@ public class TransporteYServicios extends Documento{
         seccion2.add(true);
         seccion2.add("4_04");
         seccion2.add("Parque vehicular por tipo");
-        seccion2.add("Distribución porcentual del parque vehicular según tipo de vehículo");
+        seccion2.add("Proporción de motocicletas y de automóviles respecto al total del parque vehicular al último día del trimestre");
         seccion2.add(getFormatoTrimestre());
         seccion2.add("4_04.tex");
         seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
@@ -473,7 +473,7 @@ public class TransporteYServicios extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("4_05");
         seccion3.add("Parque vehicular por tipo de combustible");
-        seccion3.add("Porcentaje de parque vehicular por tipo de combustible");
+        seccion3.add("Proporción de vehículos que usan gasolina respecto al total del parque vehicular al último día del trimestre");
         seccion3.add(getFormatoTrimestre());
         seccion3.add("4_05.tex");
         seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
@@ -578,10 +578,8 @@ public class TransporteYServicios extends Documento{
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Flor de María Hernández Soto\\\\\n" +
-                "	Cristian Miguel Cabrera Ayala\\\\\n" +
-                "	Blanca Angelica Ramirez González\\\\\n" +
-                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "	Mónica Fuentes Castañeda\\\\\n" +
+                "	Fabiola Beatriz Ramírez Pinto\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
