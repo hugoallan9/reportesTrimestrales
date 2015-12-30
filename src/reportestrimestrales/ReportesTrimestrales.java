@@ -284,7 +284,7 @@ public class ReportesTrimestrales {
             System.out.println("Despues");
             
             //if (args[3].equalsIgnoreCase("true")){
-                System.out.println("entro a hacer graficas");
+                System.out.println("entro a hacer graficas de comercio");
                 docu.generarGraficas("trimestral");
             //}
         }
