@@ -45,7 +45,7 @@ public class Grafica extends Thread {
             System.out.println(r.eval("getListIpc()"));
             System.out.println("Iniciando Gráficas");
             
-            /*r.eval("capitulo1()");
+            r.eval("capitulo1()");
             r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");
@@ -55,7 +55,7 @@ public class Grafica extends Thread {
             r.eval("capitulo8()");
             r.eval("capitulo9()");
             r.eval("capitulo10()");
-            */
+            
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
@@ -84,9 +84,9 @@ public class Grafica extends Thread {
             
         }
         else if(lista.equalsIgnoreCase("faltas")){
-            r.eval("graficasFaltas("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            r.eval("graficasJudiciales("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             System.out.println("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
-            r.eval("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+            //r.eval("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta  + "/faltas.tex', mostrar = F)");
             r.eval("compilar('" + ruta + "/faltas.tex', mostrar = F)");
