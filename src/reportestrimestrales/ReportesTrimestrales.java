@@ -225,6 +225,7 @@ public class ReportesTrimestrales {
             docu.setTex("hospitalarias");
             docu.hacerPortada();
             docu.preambulo();
+            docu.preambuloPresentacion();
             docu.iniciarDocumento();
             docu.hacerTitulo();
             docu.juntaDirectiva();
