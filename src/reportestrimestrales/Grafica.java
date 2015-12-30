@@ -149,6 +149,7 @@ public class Grafica extends Thread {
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado VIF', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vif.pdf','" + ruta+ "presentacionVif.pdf'))"));
         }
         else if(lista.equalsIgnoreCase("transito")){
+            System.out.println("graficasTransito("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             r.eval("graficasTransito("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             System.out.println("graficasTransito("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             r.eval("graficasTransito("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
