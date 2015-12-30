@@ -49,8 +49,9 @@ public class Hospitalarias extends Documento{
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
-        formatoSerie = "Serie histórica " +  (int)(Double.parseDouble(getAnioPublicacion()) -2) + "-" + getAnioPublicacion();
-        formatoTrimestre = corregirTrimestre( getTrimestre() ) +  " trimestre, año "  + getAnioPublicacion();
+        formatoSerie = "República de Guatemala, serie histórica trimestral, ";
+        formatoTrimestre ="República de Guatemala, "+corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre "
+                + getAnioPublicacion() +", ";
                 
         cargarCSV(rutaCSV);
         setCapitulos();
@@ -127,15 +128,16 @@ public class Hospitalarias extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("1_01");
         seccion1.add("Consulta externa");
-        seccion1.add("Número de atenciones por semestre");
-        seccion1.add(formatoSerie);
+        seccion1.add("Atenciones de consulta externa en hospitales privados");
+        seccion1.add(formatoSerie + "en miles de unidades");
         seccion1.add("1_01.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Consulta externa por departamento");
-        seccion1.add("Número de Atenciones por departamento de residencia del paciente");
-        seccion1.add(formatoTrimestre);
+        seccion1.add("Atenciones de consulta externa e hospitales privados, "
+                + "por departamento de residencia del paciente");
+        seccion1.add(formatoTrimestre + "en miles de unidades");
         seccion1.add("1_02.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
@@ -145,15 +147,17 @@ public class Hospitalarias extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
         seccion2.add("Consulta externa por grupos de edad");
-        seccion2.add("Distribución porcentual de atenciones según rango de edad del paciente");
-        seccion2.add(formatoTrimestre);
+        seccion2.add("Distribución porcentual de atenciones en consulta "
+                + "externa en hospitales privados, según rango de edad del paciente");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("1_03.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Consulta externa en pacientes menores de cinco años");
-        seccion2.add("Porcentaje de atenciones en menores de cinco años");
-        seccion2.add(formatoSerie);
+        seccion2.add("Porcentaje de atenciones por consulta externa en "
+                + "hospitales privados a pacientes menores de cinco años");
+        seccion2.add(formatoSerie + "en porcentaje");
         seccion2.add("1_04.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
@@ -163,15 +167,16 @@ public class Hospitalarias extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
         seccion3.add("Consulta externa por sexo del paciente");
-        seccion3.add("Distribución porcentual de atenciones según sexo");
-        seccion3.add(formatoTrimestre);
+        seccion3.add("Distribución porcentual de atenciones por sexo del paciente");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("1_05.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
         seccion3.add("1_06");
         seccion3.add("Consulta externa por grupo étnico del paciente");
-        seccion3.add("Distribución porcentual de atenciones externas por grupo étnico");
-        seccion3.add(formatoTrimestre);
+        seccion3.add("Distribución porcentual de atenciones externas en hospitales "
+                + "privados, por grupo étnico del paciente");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("1_06.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
@@ -184,15 +189,16 @@ public class Hospitalarias extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
         seccion1.add("Consulta Interna");
-        seccion1.add("Número de atenciones por trimestre");
-        seccion1.add(formatoSerie);
+        seccion1.add("Atenciones de consulta interna en hospitales privados");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("2_01.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Consulta interna por departamento");
-        seccion1.add("Número de atenciones por departamento de residencia del paciente");
-        seccion1.add(formatoTrimestre);
+        seccion1.add("Atenciones de consulta interna en hospitales privados, "
+                + "por departamento de residencia del paciente");
+        seccion1.add(formatoTrimestre + "en unidades");
         seccion1.add("2_02.tex");
         seccion1.add("INE, Unidad de Estadísticas de Salud");
         seccion1.add(true);
@@ -202,15 +208,17 @@ public class Hospitalarias extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
         seccion2.add("Consulta interna por grupos de edad");
-        seccion2.add("Distribución porcentual de atenciones según rangos de edad del paciente");
-        seccion2.add(formatoTrimestre);
+        seccion2.add("Distribución porcentual de atenciones de consulta interna en "
+                + "hospitales privados, según rangos de edad del paciente");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_03.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Consulta interna en pacientes menores de cinco años");
-        seccion2.add("Porcentaje de atenciones en menores de cinco años");
-        seccion2.add(formatoSerie);
+        seccion2.add("Porcentaje de atenciones por consulta interna en "
+                + "hospitales privados, en pacientes menores de cinco años");
+        seccion2.add(formatoSerie + "en porcentaje");
         seccion2.add("2_04.tex");
         seccion2.add("INE, Unidad de Estadísticas de Salud");
         seccion2.add(true);
@@ -220,15 +228,17 @@ public class Hospitalarias extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
         seccion3.add("Consulta interna por sexo del paciente");
-        seccion3.add("Distribución porcentual de atenciones por sexo");
-        seccion3.add(formatoTrimestre);
+        seccion3.add("Distribución porcentual de atenciones por consulta interna "
+                + "en hospitales privados, por sexo del paciente");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("2_05.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Consulta interna por grupo étnico del paciente");
-        seccion3.add("Distribución orcentual de atenciones por grupo étnico");
-        seccion3.add(formatoTrimestre);
+        seccion3.add("Distribución orcentual de atenciones por consulta interna "
+                + "en hospitales privados, por grupo étnico del paciente");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("2_06.tex");
         seccion3.add("INE, Unidad de Estadísticas de Salud");
         seccion3.add(true);
@@ -239,15 +249,16 @@ public class Hospitalarias extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
         seccion4.add("Consulta interna por tratamiento");
-        seccion4.add("Distribución porcentual de atenciones por tratamiento");
-        seccion4.add("Distribución porcentual por tipo de falta cometida");
+        seccion4.add("Distribución porcentual de atenciones por consulta interna "
+                + "en hospitales nacionales, segun tratamiento");
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("2_07.tex");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         seccion4.add(true);
         seccion4.add("2_08");
         seccion4.add("Consulta interna por promedio de días de estancia del paciente");
-        seccion4.add("Promedio de días de estancia por trimestre");
-        seccion4.add(formatoTrimestre);
+        seccion4.add("Promedio de días de estancia en hospitales privados");
+        seccion4.add(formatoSerie + "en unidades");
         seccion4.add("2_08.tex");
         seccion4.add("INE, Unidad de Estadísticas de Salud");
         seccion4.add(true);
@@ -257,8 +268,10 @@ public class Hospitalarias extends Documento{
         ArrayList seccion5 = new ArrayList();
         seccion5.add("2_09");
         seccion5.add("Consulta interna por condición de egreso del paciente");
-        seccion5.add("Distribución porcentual por condición de egreso del paciente");
-        seccion5.add(formatoTrimestre);
+        seccion5.add("Distribución porcentual de las consultas internas "
+                + "realizadas en hospitales privados, "
+                + "por condición de egreso del paciente");
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("2_09.tex");
         seccion5.add("INE, Unidad de Estadísticas de Salud");
         seccion5.add(true);
