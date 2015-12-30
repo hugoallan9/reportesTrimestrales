@@ -405,7 +405,7 @@ public class Hospitalarias extends Documento{
                 "	Flor de María Hernández Soto\\\\\n" +
                 "	Cristian Miguel Cabrera Ayala\\\\\n" +
                 "	Blanca Angelica Ramirez González\\\\\n" +
-                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "	Edgar Guillermo Solares\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
