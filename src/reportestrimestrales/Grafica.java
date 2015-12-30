@@ -85,7 +85,7 @@ public class Grafica extends Thread {
         }
         else if(lista.equalsIgnoreCase("faltas")){        
             r.eval("setListJudiciales(faltas)");
-            System.out.println(ruta);
+            System.out.println("La ruta es: " + ruta);
             r.eval("setPathJudiciales('"+ruta+"')");
             r.eval("graficasJudiciales(modalidad= 'trimestral')");
             r.eval("setPathJudiciales(file.path('"+ ruta +"','GraficasPresentacion/'))");
