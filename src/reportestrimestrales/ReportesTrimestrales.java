@@ -195,7 +195,7 @@ public class ReportesTrimestrales {
             
             
             //if (args[3].equalsIgnoreCase("true")){
-                System.out.println("entro a hacer graficas");
+                System.out.println("entro a hacer graficas de faltas");
                 docu.generarGraficas("trimestral");
             //}
         }
