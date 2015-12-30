@@ -451,7 +451,7 @@ public class FaltasJudiciales extends Documento{
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
-        Grafica vitales = new Grafica("vitales", getRuta(), rr.get(), modalidad);
+        Grafica vitales = new Grafica("faltas", getRuta(), rr.get(), modalidad);
         vitales.start();
     }
     
