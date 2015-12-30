@@ -73,7 +73,7 @@ public class Tabla {
         generarCSV2("A_02");
         setEncabezadoTabla("Número de defunciones");
         generarCSV2("A_04");
-        setEncabezadoTabla("Número de defunciones fetales");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de defunciones fetales}");
         generarCSV2("A_06");
         setEncabezadoTabla("Número de matrimonios");
         generarCSV2("A_08");
@@ -84,9 +84,9 @@ public class Tabla {
     public void generarHospitalarias(){
         generarCSV1("A_01");
         generarCSV1("A_03");
-        setEncabezadoTabla("Número de consultas externas");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de consultas externas}");
         generarCSV2("A_02");
-        setEncabezadoTabla("Número de consultas internas");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de consultas internas}");
         generarCSV2("A_04");
         
     }
@@ -106,32 +106,32 @@ public class Tabla {
         
     }
     public void generarTransito(){
-        setEncabezadoTabla("Número de eventos de tránsito");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de eventos de tránsito}");
         generarCSV2("A_01");
-        setEncabezadoTabla("Número de lesionados en accidentes de tránsito");
+        setEncabezadoTabla("Número de lesionados");
         generarCSV2("A_02");
         setEncabezadoTabla("Número de víctimas fatales");
         generarCSV2("A_03");
-        setEncabezadoTabla("Número de vehículos involucrados en eventos de tránsito");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de vehículos involucrados}");
         generarCSV2("A_04");
-        setEncabezadoTabla("Número de eventos con atropello");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de eventos con atropello}");
         generarCSV2("A_05");
-        setEncabezadoTabla("Número de atropellados lesionados en eventos de tránsito");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de atropellados lesionados}");
         generarCSV2("A_06");
-        setEncabezadoTabla("Número de atropellados fatales");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de atropellados fatales}");
         generarCSV2("A_07");
         
     }
     public void generarFaltasJudiciales(){
         setEncabezadoTabla("Número de faltas judiciales");
         generarCSV2("A_01");
-        setEncabezadoTabla("Número de faltas contra las personas");  
+        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra las personas}");  
         generarCSV2("A_02");
-        setEncabezadoTabla("Número de faltas contra la propiedad");
+        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra la propiedad}");
         generarCSV2("A_03");
-        setEncabezadoTabla("Número de faltas contra el orden público");
+        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra el orden público}");
         generarCSV2("A_04");
-        setEncabezadoTabla("Número de faltas contra las buenas costumbres");
+        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra las buenas costumbres}");
         generarCSV2("A_05");
         
     }
@@ -142,38 +142,38 @@ public class Tabla {
         generarCSV2("A_02");
         setEncabezadoTabla("Número de sindicados");
         generarCSV2("A_03");
-        setEncabezadoTabla("Número de evaluaciones médico legales");
+        setEncabezadoTabla("\\parbox{3.5}{Número de evaluaciones médico legales}");
         generarCSV2("A_04");
         setEncabezadoTabla("Número de necropsias");
         generarCSV2("A_05");
         
     }
     public void generarAgropecuarias(){
-        setEncabezadoTabla("Producción de azúcar blanca (en quintales)");
+        setEncabezadoTabla("\\parbox{3.5}{Producción de azúcar blanca (en quintales)}");
         generarCSV2("A_01");
-        setEncabezadoTabla("Producción de azúcar cruda (en quintales)");
+        setEncabezadoTabla("\\parbox{3.5}{Producción de azúcar cruda (en quintales)}");
         generarCSV2("A_02");
-        setEncabezadoTabla("Trigo procesado (en quintales)");
+        setEncabezadoTabla("\\parbox{3.5}{Trigo procesado (en quintales)}");
         generarCSV2("A_03");
-        setEncabezadoTabla("Producción de banano (en quintales)");
+        setEncabezadoTabla("\\parbox{3.5}{Producción de banano (en quintales)}");
         generarCSV2("A_04");
-        setEncabezadoTabla("Destace ganado bovino (número de cabezas)");    
+        setEncabezadoTabla("\\parbox{3.5}{Destace ganado bovino (número de cabezas)}");    
         generarCSV2("A_05");
-        setEncabezadoTabla("Destace ganado porcino (número de cabezas)");    
+        setEncabezadoTabla("\\parbox{3.5}{Destace ganado porcino (número de cabezas)}");    
         generarCSV2("A_06");
-        setEncabezadoTabla("Destace ganado ovino (número de cabezas)");    
+        setEncabezadoTabla("\\parbox{3.5}{Destace ganado ovino (número de cabezas)}");    
         generarCSV2("A_07");
-        setEncabezadoTabla("Destace ganado caprino (número de cabezas)");    
+        setEncabezadoTabla("\\parbox{3.5}{Destace ganado caprino (número de cabezas)}");    
         generarCSV2("A_08");
     }
     public void generarVIF(){
         setEncabezadoTabla("Número de denuncias VIF");    
         generarCSV2("A_01");
-        setEncabezadoTabla("Número de mujeres víctimas de VIF");    
+        setEncabezadoTabla("\\parbox{3.5}{Número de mujeres víctimas de VIF}");    
         generarCSV2("A_02");
-        setEncabezadoTabla("Número de hombres víctimas de VIF");    
+        setEncabezadoTabla("\\parbox{3.5}{Número de hombres víctimas de VIF}");    
         generarCSV2("A_03");
-        setEncabezadoTabla("Número de hombres agresores VIF");    
+        setEncabezadoTabla("\\parbox{3.5}{Número de hombres agresores VIF}");    
         generarCSV2("A_04");
     }
     private void escribirTEX(String nombre, String texto,boolean compilar){
