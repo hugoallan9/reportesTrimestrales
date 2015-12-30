@@ -45,7 +45,7 @@ public class Grafica extends Thread {
             System.out.println(r.eval("getListIpc()"));
             System.out.println("Iniciando Gráficas");
             
-            /*r.eval("capitulo1()");
+            r.eval("capitulo1()");
             r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");
@@ -55,7 +55,7 @@ public class Grafica extends Thread {
             r.eval("capitulo8()");
             r.eval("capitulo9()");
             r.eval("capitulo10()");
-            */
+            
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta + "', mostrar = F)");
@@ -83,10 +83,12 @@ public class Grafica extends Thread {
             //System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "vitales.pdf','" + ruta+ "presentacionVitales.pdf'))"));
             
         }
-        else if(lista.equalsIgnoreCase("faltas")){
-            r.eval("graficasFaltas("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
-            System.out.println("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
-            r.eval("graficasFaltas("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
+        else if(lista.equalsIgnoreCase("faltas")){        
+            r.eval("setListJudiciales(faltas)");
+            r.eval("setPathJudiciales('"+ruta+"')");
+            r.eval("graficasJudiciales(modalidad= 'trimestral')");
+            r.eval("setPathJudiciales(file.path('"+ ruta +"','GraficasPresentacion/'))");
+            r.eval("graficasJudiciales(modalidad='presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
             r.eval("compilar('" + ruta  + "/faltas.tex', mostrar = F)");
             r.eval("compilar('" + ruta + "/faltas.tex', mostrar = F)");

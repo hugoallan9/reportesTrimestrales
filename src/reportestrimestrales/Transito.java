@@ -58,7 +58,7 @@ public class Transito extends Documento{
     
     protected void setCapitulos(){
         capitulos.add("Eventos de tránsito");
-        capitulos.add("Víctimas lesionadas \\\\  y fallecidas");
+        capitulos.add("Lesionados   y fallecidos");
         capitulos.add("Atropellados");
                 
     }
