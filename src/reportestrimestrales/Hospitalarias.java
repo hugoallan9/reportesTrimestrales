@@ -115,7 +115,7 @@ public class Hospitalarias extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("hospitalarias <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("hospitalarias <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(hospitalarias)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
