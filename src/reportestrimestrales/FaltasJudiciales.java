@@ -596,7 +596,15 @@ public class FaltasJudiciales extends Documento{
 
     
    
-
+ protected void preambuloPresentacion(){
+        File source = new File("/home/ineservidor/Vitales/Presentacion");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
         
 
 
