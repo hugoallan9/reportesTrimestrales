@@ -125,7 +125,7 @@ public class FaltasJudiciales extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("faltas <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("faltas <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(faltas)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
