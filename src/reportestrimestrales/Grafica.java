@@ -96,7 +96,7 @@ public class Grafica extends Thread {
             r.eval("compilar('" + ruta  + "/presentacionFaltas.tex', mostrar = F)");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))");
-            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))"));
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltasJudiciales.pdf','" + ruta+ "presentacionFaltas.pdf'))"));
         }
         else if(lista.equalsIgnoreCase("transporte")){
             System.out.println("Entre a transportes");
