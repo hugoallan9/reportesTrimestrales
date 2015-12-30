@@ -456,32 +456,14 @@ public class FaltasJudiciales extends Documento{
     }
     
     protected void hacerPortada(){
-       String portada = "http://www.ine.gob.gt/ftparchivos/portadaVitales.pdf";
-       File file = new File(getRuta(),"portada.pdf");
-       URL url = null;
+       File source = new File("/home/ineservidor/Vitales/Caratula");
+        File dest = new File(getRuta());
         try {
-            url = new URL(portada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         
-        String contraPortada = "http://www.ine.gob.gt/ftparchivos/contraportadaVitales.pdf";
-        File file1 = new File(getRuta(),"contraPortada.pdf");
-        try {
-            url = new URL(contraPortada);
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        try {
-            FileUtils.copyURLToFile(url, file1);
-        } catch (IOException ex) {
-            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         try {
             File p1 = new File(getRuta(),"caratula.tex");
@@ -516,7 +498,7 @@ public class FaltasJudiciales extends Documento{
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
