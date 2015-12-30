@@ -379,7 +379,7 @@ public class Hospitalarias extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.54,0.595) {\n" +
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.44,0.595) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
             getTitulo() + "\n" +
