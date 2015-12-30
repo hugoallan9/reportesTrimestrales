@@ -794,13 +794,13 @@ public class ComercioExterior extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.44,0.595) {\n" +
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.49,0.595) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
@@ -829,10 +829,8 @@ public class ComercioExterior extends Documento{
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Flor de María Hernández Soto\\\\\n" +
-                "	Cristian Miguel Cabrera Ayala\\\\\n" +
-                "	Blanca Angelica Ramirez González\\\\\n" +
-                "	Marlon Humberto Pirir Garcia\\\\[0.8cm]\n" +
+                "	Magda Lilian Herrera Ceron\\\\\n" +
+                "	Fabiola Beatriz Ramírez\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +

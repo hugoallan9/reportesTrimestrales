@@ -614,7 +614,7 @@ public class Documento {
            "\\vspace{4.5cm}\n" +
            "\n" +
            "\\noindent\\begin{tabular}{p{0.1cm}p{6.8cm}}\n" +
-           "	& " + getMesServidor() +  ".$\\,$ Guatemala, América Central \\\\\n" +
+           "	& " + getYearServidor() +  ".$\\,$ Guatemala, América Central \\\\\n" +
            "	&\\Bold Instituto Nacional de Estadística\\\\[-0.4cm]\n" +
            "	&\\color{blue!50!black}\\url{www.ine.gob.gt}\\\\[0.9cm]\n" +
            "\\end{tabular}\\\\\n" +
