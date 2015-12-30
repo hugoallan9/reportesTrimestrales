@@ -70,7 +70,7 @@ public class Grafica extends Thread {
             /*hospitalarias
                     graficas aqui
             */
-            
+            System.out.println("graficasHospitalarias("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             r.eval("graficasHospitalarias("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             System.out.println("graficasHospitalarias("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             r.eval("graficasHospitalarias("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
