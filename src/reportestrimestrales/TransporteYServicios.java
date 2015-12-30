@@ -29,6 +29,7 @@ public class TransporteYServicios extends Documento{
     private List introCapitulos;
     private List contenidos;
     private String formatoSerie;
+    private String formatoTrimestre;
     Collator comparador = Collator.getInstance();
     private SesionR rr;
     private String rutaCSV;    
@@ -47,7 +48,9 @@ public class TransporteYServicios extends Documento{
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
-        formatoSerie = "Serie histórica " +  (int)(Double.parseDouble(getAnioPublicacion()) -2) + "-" + getAnioPublicacion();
+        formatoSerie = "República de Guatemala, serie histórica trimestral, ";
+        formatoTrimestre ="República de Guatemala, "+corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre "
+                + getAnioPublicacion() +", ";
                 
                 
         cargarCSV(rutaCSV);
@@ -60,7 +63,7 @@ public class TransporteYServicios extends Documento{
         capitulos.add("Tráfico aéreo");
         capitulos.add("Tráfico postal");
         capitulos.add("Movimiento marítimo");
-        capitulos.add("Parque vehicular");
+        //capitulos.add("Parque vehicular");
         
     }
     
@@ -74,15 +77,15 @@ public class TransporteYServicios extends Documento{
                 + "utilizado para el comercio internacional y el que soporta "
                 + "mayor movimiento de mercancías, tanto en contenedores como "
                 + "graneles secos o líquidos.");
-        introCapitulos.add("Es la cantidad de vehículos registrados en la "
+        /*introCapitulos.add("Es la cantidad de vehículos registrados en la "
                 + "ciudad de Guatemala a través de la Superintendencia de "
-                + "Administración Tributaria.");
+                + "Administración Tributaria.");*/
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
          contenidos.add(cargarCapitulo3());
-         contenidos.add(cargarCapitulo4());
+         //contenidos.add(cargarCapitulo4());
          System.out.println("cargados los contenidos");
     }
     
@@ -138,112 +141,71 @@ public class TransporteYServicios extends Documento{
         seccion1.add("1_01");
         seccion1.add("Exportación aérea");
         seccion1.add("Volumen de carga exportada a través del "
-                + "aereopuerto internacional La Aurora en miles de Kilogramos.");
-        seccion1.add(formatoSerie);
+                + "aeropuerto internacional La Aurora");
+        seccion1.add(formatoSerie + "en miles de kilogramos");
         seccion1.add("1_01.tex");
         seccion1.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Importación aérea");
         seccion1.add("Volumen de carga importada a través del "
-                + "aereopuerto internacional La Aurora en miles de Kilogramos");
-        seccion1.add(formatoSerie);
+                + "aeropuerto internacional La Aurora");
+        seccion1.add(formatoSerie + "en miles de kilogramos");
         seccion1.add("1_02.tex");
         seccion1.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion1.add(true);
         cap1.add(seccion1);
         
         
-        ArrayList seccion2 = new ArrayList();
-        seccion2.add("1_03");
-        seccion2.add("Alimentos exportados vía aérea");
-        seccion2.add("Carga de alimentos exportados a través del "
-                + "aereopuerto internacional La Aurora en Kilogramos");
-        seccion2.add(formatoSerie);
-        seccion2.add("1_03.tex");
-        seccion2.add("INE, con datos de Dirección General de Aeronáutica Civil");
-        seccion2.add(true);
-        seccion2.add("1_04");
-        seccion2.add("Artículos exportados vía aérea");
-        seccion2.add("Carga de artículos exportados a través del "
-                + "aereopuerto internacional La Aurora en Kilogramos");
-        seccion2.add(formatoSerie);
-        seccion2.add("1_04.tex");
-        seccion2.add("INE, con datos de Dirección General de Aeronáutica Civil");
-        seccion2.add(true);
-        cap1.add(seccion2);
-        
-        
-        ArrayList seccion3 = new ArrayList();
-        seccion3.add("1_05");
-        seccion3.add("Plantas exportadoras vía aérea");
-        seccion3.add("Carga de plantas exportadas a través del "
-                + "aereopuerto internacional La Aurora en miles de Kilogramos");
-        seccion3.add(formatoSerie);
-        seccion3.add("1_05.tex");
-        seccion3.add("INE, con datos de Dirección General de Aeronáutica Civil");
-        seccion3.add(true);
-        seccion3.add("1_06");
-        seccion3.add("Animales exportados vía aérea");
-        seccion3.add("Carga de animales exportados a través del "
-                + "aeropuerto internacional La Aurora en Kilogramos");
-        seccion3.add(formatoSerie);
-        seccion3.add("1_06.tex");
-        seccion3.add("INE, con datos de Dirección General de Aeronáutica Civil");
-        seccion3.add(true);
-        cap1.add(seccion3);
-        
-        
-        
         ArrayList seccion4 = new ArrayList();
-        seccion4.add("1_07");
+        seccion4.add("1_03");
         seccion4.add("Aeropuerto La Aurora: vuelos nacionales");
-        seccion4.add("Despegues de vuelos nacionales en aeropuerto internacional"
+        seccion4.add("Despegues de vuelos nacionales en aeropuerto internacional "
                 + "La Aurora");
-        seccion4.add(formatoSerie);
-        seccion4.add("1_07.tex");
+        seccion4.add(formatoSerie + "en unidades");
+        seccion4.add("1_03.tex");
         seccion4.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion4.add(true);
-        seccion4.add("1_08");
+        seccion4.add("1_04");
         seccion4.add("Aeropuerto La Aurora: vuelos internacionales");
         seccion4.add("Despegues de vuelos internacionales en aeropuerto "
                 + "internacional La Aurora");
-        seccion4.add(formatoSerie);
-        seccion4.add("1_08.tex");
+        seccion4.add(formatoSerie + "en unidades");
+        seccion4.add("1_04.tex");
         seccion4.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion4.add(true);
         cap1.add(seccion4);
         
         ArrayList seccion5 = new ArrayList();
-        seccion5.add("1_09");
+        seccion5.add("1_05");
         seccion5.add("Aeropuerto La Aurora: pasajeros que arriban");
         seccion5.add("Pasajeros que arriban en el aeropuerto internacional La Aurora");
-        seccion5.add(formatoSerie);
-        seccion5.add("1_09.tex");
+        seccion5.add(formatoSerie + "en miles de unidades");
+        seccion5.add("1_05.tex");
         seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
-        seccion5.add("1_10");
+        seccion5.add("1_06");
         seccion5.add("Aeropuerto La Aurora: pasajeros que salen");
         seccion5.add("Pasajeros que salen del aeropuerto internacional La Aurora");
-        seccion5.add(formatoSerie);
-        seccion5.add("1_10.tex");
+        seccion5.add(formatoSerie + "en miles de unidades");
+        seccion5.add("1_06.tex");
         seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
         cap1.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
-        seccion6.add("1_11");
+        seccion6.add("1_07");
         seccion6.add("Aeropuerto Mundo Maya: pasajeros que arriban");
         seccion6.add("Pasajeros que arriban en el aeropuerto internacional Mundo Maya");
-        seccion6.add(formatoSerie);
-        seccion6.add("1_11.tex");
+        seccion6.add(formatoSerie + "en unidades");
+        seccion6.add("1_07.tex");
         seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
-        seccion6.add("1_12");
+        seccion6.add("1_08");
         seccion6.add("Aeropuerto Mundo Maya: pasajeros que salen");
         seccion6.add("Pasajeros que salen del aeropuerto internacional Mundo Maya");
-        seccion6.add(formatoSerie);
-        seccion6.add("1_12.tex");
+        seccion6.add(formatoSerie + "en unidades");
+        seccion6.add("1_08.tex");
         seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
         cap1.add(seccion6);
@@ -256,15 +218,15 @@ public class TransporteYServicios extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
         seccion1.add("Envío de correspondencia vía aérea");
-        seccion1.add("Envío de correspondencia vía aérea");
-        seccion1.add(formatoSerie);
+        seccion1.add("Envío de correspondencia por vía aérea");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("2_01.tex");
         seccion1.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Peso de la correspondencia vía aérea");
-        seccion1.add("Peso de la correspondencia enviada por vía aérea en Kilogramos");
-        seccion1.add(formatoSerie);
+        seccion1.add("Peso de la correspondencia enviada por vía aérea");
+        seccion1.add(formatoSerie + "en kilogramos");
         seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion1.add(true);
@@ -273,245 +235,40 @@ public class TransporteYServicios extends Documento{
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Envío de correspondencia por continente");
-        seccion2.add("Envío de correspondencia vía aérea");
-        seccion2.add("Distribución porcentual según continente");
+        seccion2.add("Principales países de destino de correspondencia");
+        seccion2.add("Principales países de destino de la correspondencia enviada desde Guatemala");
+        seccion2.add(formatoTrimestre + "en unidades");
         seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
         seccion2.add("2_04");
-        seccion2.add("Principales países de destino de correspondencia");
-        seccion2.add("Principales países de destino de la correspondencia enviada desde Guatemala");
-        seccion2.add("Número de envíos");
+        seccion2.add("Envío de encomiendas vía aérea");
+        seccion2.add("Cantidad de encomiendas enviadas por vía aérea");
+        seccion2.add(formatoSerie + "en unidades");
         seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
-        cap2.add(seccion2);
         
+        
+        cap2.add(seccion2);
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
-        seccion3.add("Correspondencia a Centroamérica y Panamá");
-        seccion3.add("Envío de correspondencia vía aérea a América Central y Panamá");
-        seccion3.add(formatoSerie);
+        seccion3.add("Peso de las encomiendas vía aérea");
+        seccion3.add("Peso total de las encomiendas enviadas por vía aérea");
+        seccion3.add(formatoSerie + "en kilogramos");
         seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion3.add(true);
         seccion3.add("2_06");
-        seccion3.add("Peso de la correspondencia enviada a Centroamérica y Panamá");
-        seccion3.add("Peso de la correspondencia enviada por vía aérea a "
-                + "América Central y Panamá en Kilogramos");
-        seccion3.add(formatoSerie);
+        seccion3.add("Principales destinos de las encomiendas");
+        seccion3.add("Envío de encomiendas según los principales países de destino");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion3.add(true);
+        
+        
         cap2.add(seccion3);
-        
-        
-        
-        ArrayList seccion4 = new ArrayList();
-        seccion4.add("2_07");
-        seccion4.add("Correspondencia a Norteamérica");
-        seccion4.add("Envío de correspondencia vía aérea a América del Norte");
-        seccion4.add(formatoSerie);
-        seccion4.add("2_07.tex");
-        seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion4.add(true);
-        seccion4.add("2_08");
-        seccion4.add("Peso de la correspondencia enviada a Norteamérica");
-        seccion4.add("Peso de la correspondencia enviada por vía aérea a Norteamérica en Kilogramos");
-        seccion4.add(formatoSerie);
-        seccion4.add("2_08.tex");
-        seccion4.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion4.add(true);
-        cap2.add(seccion4);
-        
-        
-        ArrayList seccion5 = new ArrayList();
-        seccion5.add("2_09");
-        seccion5.add("Correspondencia a Sudamérica");
-        seccion5.add("Envío de correspondencia vía aérea a América del Sur");
-        seccion5.add(formatoSerie);
-        seccion5.add("2_09.tex");
-        seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion5.add(true);
-        seccion5.add("2_10");
-        seccion5.add("Peso de la correspondencia enviada a Sudamérica");
-        seccion5.add("Peso de la correspondencia enviada por vía aérea a "
-                + "América del Sur en Kilogramos");
-        seccion5.add(formatoSerie);
-        seccion5.add("2_10.tex");
-        seccion5.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion5.add(true);
-        cap2.add(seccion5);
-        
-        ArrayList seccion6 = new ArrayList();
-        seccion6.add("2_11");
-        seccion6.add("Correspondencia a Europa");
-        seccion6.add("Envío de correspondencia vía aérea a Europa");
-        seccion6.add(formatoSerie);
-        seccion6.add("2_11.tex");
-        seccion6.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion6.add(true);
-        seccion6.add("2_12");
-        seccion6.add("Peso de la correspondencia enviada a Europa");
-        seccion6.add("Peso de la correspondencia enviada por vía aérea a Europa en Kilogramos");
-        seccion6.add(formatoSerie);
-        seccion6.add("2_12.tex");
-        seccion6.add("INE, con datos del BANGUAT");
-        seccion6.add(true);
-        cap2.add(seccion6);
-        
-        
-        ArrayList seccion7 = new ArrayList();
-        seccion7.add("2_13");
-        seccion7.add("Correspondencia a Asia, África y Oceanía");
-        seccion7.add("Envío de correspondencia vía aérea a Asia, África y Oceanía");
-        seccion7.add(formatoSerie);
-        seccion7.add("2_13.tex");
-        seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion7.add(true);
-        seccion7.add("2_14");
-        seccion7.add("Peso de la correspondencia enviada a Asia, África y Oceanía");
-        seccion7.add("Peso de la correspondencia enviada por vía aérea a Asia, África "
-                + "y Oceanía en Kilogramos");
-        seccion7.add(formatoSerie);
-        seccion7.add("2_14.tex");
-        seccion7.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion7.add(true);
-        cap2.add(seccion7);
-        
-        ArrayList seccion8 = new ArrayList();
-        seccion8.add("2_15");
-        seccion8.add("Envío de encomiendas vía aérea");
-        seccion8.add("Cantidad de encomiendas enviadas por vía aérea");
-        seccion8.add(formatoSerie);
-        seccion8.add("2_15.tex");
-        seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion8.add(true);
-        seccion8.add("2_16");
-        seccion8.add("Peso de las encomiendas vía aérea");
-        seccion8.add("Peso total de las encomiendas enviadas por vía aérea en Kilogramos");
-        seccion8.add(formatoSerie);
-        seccion8.add("2_16.tex");
-        seccion8.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion8.add(true);
-        cap2.add(seccion8);
-        
-        
-        
-        
-        ArrayList seccion9 = new ArrayList();
-        seccion9.add("2_17");
-        seccion9.add("Encomiendas a Centroamérica y Panamá");
-        seccion9.add("Cantidad de encomiendas enviadas por vía aérea a "
-                + "América Central y Panamá");
-        seccion9.add(formatoSerie);
-        seccion9.add("2_17.tex");
-        seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion9.add(true);
-        seccion9.add("2_18");
-        seccion9.add("Peso de las encomiendas a Centroamérica y Panamá");
-        seccion9.add("Peso total de las encomiendas enviadas por vía aérea "
-                + "a América Central y Panamá en Kilogramos");
-        seccion9.add(formatoSerie);
-        seccion9.add("2_18.tex");
-        seccion9.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion9.add(true);
-        cap2.add(seccion9);
-        
-        
-        
-        
-        ArrayList seccion10 = new ArrayList();
-        seccion10.add("2_19");
-        seccion10.add("Encomiendas a Norteamérica");
-        seccion10.add("Cantidad de encomiendas enviadas por vía aérea a "
-                + "América del Norte");
-        seccion10.add(formatoSerie);
-        seccion10.add("2_19.tex");
-        seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion10.add(true);
-        seccion10.add("2_20");
-        seccion10.add("Peso de las encomiendas a Norteamérica");
-        seccion10.add("Peso total de las encomiendas enviadas por vía aérea "
-                + "a América del Norte en Kilogramos");
-        seccion10.add(formatoSerie);
-        seccion10.add("2_20.tex");
-        seccion10.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion10.add(true);
-        cap2.add(seccion10);
-        
-        ArrayList seccion11 = new ArrayList();
-        seccion11.add("2_21");
-        seccion11.add("Encomiendas a Sudamérica");
-        seccion11.add("Cantidad de encomiendas enviadas por vía aérea a "
-                + "América del Sur");
-        seccion11.add(formatoSerie);
-        seccion11.add("2_21.tex");
-        seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion11.add(true);
-        seccion11.add("2_22");
-        seccion11.add("Peso de las encomiendas a Sudamérica");
-        seccion11.add("Peso total de las encomiendas enviadas por vía aérea "
-                + "a América del Sur en Kilogramos");
-        seccion11.add(formatoSerie);
-        seccion11.add("2_22.tex");
-        seccion11.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion11.add(true);
-        cap2.add(seccion11);
-        
-        
-        
-        ArrayList seccion12 = new ArrayList();
-        seccion12.add("2_23");
-        seccion12.add("Encomiendas a Europa");
-        seccion12.add("Cantidad de encomiendas enviadas por vía aérea a "
-                + "Europa");
-        seccion12.add(formatoSerie);
-        seccion12.add("2_23.tex");
-        seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion12.add(true);
-        seccion12.add("2_24");
-        seccion12.add("Peso de las encomiendas a Europa");
-        seccion12.add("Peso total de las encomiendas enviadas por vía aérea "
-                + "a Europa en Kilogramos");
-        seccion12.add(formatoSerie);
-        seccion12.add("2_24.tex");
-        seccion12.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion12.add(true);
-        cap2.add(seccion12);
-        
-        
-        
-        ArrayList seccion13 = new ArrayList();
-        seccion13.add("2_25");
-        seccion13.add("Encomiendas a Asia, África y Oceanía");
-        seccion13.add("Cantidad de encomiendas enviadas por vía aérea a "
-                + "Asia, África y Oceanía");
-        seccion13.add(formatoSerie);
-        seccion13.add("2_25.tex");
-        seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion13.add(true);
-        seccion13.add("2_26");
-        seccion13.add("Peso de las encomiendas a Asia, África y Oceanía");
-        seccion13.add("Peso total de las encomiendas enviadas por vía aérea "
-                + "a Asia, África y Oceanía en Kilogramos");
-        seccion13.add(formatoSerie);
-        seccion13.add("2_26.tex");
-        seccion13.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        seccion13.add(true);
-        cap2.add(seccion13);
-        
-        ArrayList seccion14 = new ArrayList();
-        seccion14.add("2_27");
-        seccion14.add("Principales destinos de las encomiendas");
-        seccion14.add("Principales países de destino de las encomiendas");
-        seccion14.add(getFormatoTrimestre());
-        seccion14.add("2_27.tex");
-        seccion14.add("INE, con datos de Dirección General de Correos y Telégrafos");
-        
-        
         
         return cap2;        
     }
@@ -524,14 +281,14 @@ public class TransporteYServicios extends Documento{
         seccion1.add("3_01");
         seccion1.add("Buques");
         seccion1.add("Buques que arribaron a Guatemala");
-        seccion1.add(formatoSerie);
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("3_01.tex");
         seccion1.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion1.add(true);
         seccion1.add("3_02");
         seccion1.add("Carga total exportada");
-        seccion1.add("Exportaciones en el sistema portuario nacional en miles de toneladas métricas");
-        seccion1.add(formatoSerie);
+        seccion1.add("Exportaciones en el sistema portuario nacional");
+        seccion1.add(formatoSerie + "en miles de toneladas métricas");
         seccion1.add("3_02.tex");
         seccion1.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion1.add(true);
@@ -541,130 +298,91 @@ public class TransporteYServicios extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
         seccion2.add("Carga total importada");
-        seccion2.add("Importaciones en el sistema portuario nacional en miles de toneladas métricas");
-        seccion2.add(formatoSerie);
+        seccion2.add("Importaciones en el sistema portuario nacional");
+        seccion2.add(formatoSerie + "en miles de toneladas métricas");
         seccion2.add("3_03.tex");
         seccion2.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion2.add(true);
         seccion2.add("3_04");
-        seccion2.add("Tipo de carga: general");
-        seccion2.add("Exportaciones e importaciones en el sistema portuario nacional, "
-                + "de carga tipo general en miles de toneladas métricas");
-        seccion2.add(formatoSerie);
+        seccion2.add("Importaciones y exportaciones según puerto");
+        seccion2.add("Distribuciones porcentuales de la carga exxportada e "
+                + "importada que pasa a través del sistema portuario "
+                + "nacional, según puerto");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("3_04.tex");
         seccion2.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion2.add(true);
+        
+        
         cap3.add(seccion2);
         
         
-        ArrayList seccion3 = new ArrayList();
-        seccion3.add("3_05");
-        seccion3.add("Tipo de carga: contenerizada");
-        seccion3.add("Exportaciones e importaciones en el sistema portuario nacional, "
-                + "carga en contendores en miles de toneladas métricas");
-        seccion3.add(formatoSerie);
-        seccion3.add("3_05.tex");
-        seccion3.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
-        seccion3.add(true);
-        seccion3.add("3_06");
-        seccion3.add("Tipo de carga: líquida a granel");
-        seccion3.add("Exportacones e importaciones en el sistema portuario nacional, "
-                + "carga líquida a granel en miles de toneladas métricas");
-        seccion3.add(formatoSerie);
-        seccion3.add("3_06.tex");
-        seccion3.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
-        seccion3.add(true);
-        cap3.add(seccion3);
-        
-        
-        
-        ArrayList seccion4 = new ArrayList();
-        seccion4.add("3_07");
-        seccion4.add("Tipo de carga: sólida a granel");
-        seccion4.add("Exportaciones e importaciones en el sistema portuario nacional, "
-                + "carga sólida a granel en miles de toneladas métricas");
-        seccion4.add(formatoSerie);
-        seccion4.add("3_07.tex");
-        seccion4.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
-        seccion4.add(true);
-        seccion4.add("3_08");
-        seccion4.add("Relación de las exportaciones respecto al total de carga según el tipo");
-        seccion4.add("Porcentaje de exportaciones en relación al total de carga manejada "
-                + "en el sistema portuario nacional, según el tipo de carga");
-        seccion4.add(getFormatoTrimestre());
-        seccion4.add("3_08.tex");
-        seccion4.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
-        seccion4.add(true);
-        cap3.add(seccion4);
-        
-        
+       
         ArrayList seccion5 = new ArrayList();
-        seccion5.add("3_09");
+        seccion5.add("3_05");
         seccion5.add("Puerto Santo Tomás de Castilla: buques");
         seccion5.add("Buques que arribanron al puerto Santo Tomás de Castilla");
-        seccion5.add(formatoSerie);
-        seccion5.add("3_09.tex");
+        seccion5.add(formatoSerie + "en unidades");
+        seccion5.add("3_05.tex");
         seccion5.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion5.add(true);
-        seccion5.add("3_10");
+        seccion5.add("3_06");
         seccion5.add("Puerto Santo Tomás de Castilla: carga exportada");
-        seccion5.add("Exportaciones en el puerto Santo Tomás de Castilla en miles "
-                + "de toneladas métricas");
-        seccion5.add(formatoSerie);
-        seccion5.add("3_10.tex");
+        seccion5.add("Exportaciones en el puerto Santo Tomás de Castilla");
+        seccion5.add(formatoSerie + "en miles de toneladas métricas");
+        seccion5.add("3_06.tex");
         seccion5.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion5.add(true);
         cap3.add(seccion5);
         
         ArrayList seccion6 = new ArrayList();
-        seccion6.add("3_11");
+        seccion6.add("3_07");
         seccion6.add("Puerto Santo Tomás de Castilla: carga importada");
-        seccion6.add("Importaciones a través del puerto Santo Tomás de Castilla en miles de "
-                + "toneladas métricas");
-        seccion6.add(formatoSerie);
-        seccion6.add("3_11.tex");
+        seccion6.add("Importaciones a través del puerto Santo Tomás de Castilla");
+        seccion6.add(formatoSerie + "en miles de toneladas métricas");
+        seccion6.add("3_07.tex");
         seccion6.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion6.add(true);
-        seccion6.add("3_12");
+        seccion6.add("3_08");
         seccion6.add("Puerto Barrios: Buques");
         seccion6.add("Buques que arribaron a Puerto Barrios");
-        seccion6.add(formatoSerie);
-        seccion6.add("3_12.tex");
+        seccion6.add(formatoSerie + "en unidades");
+        seccion6.add("3_08.tex");
         seccion6.add("INE, con datos del BANGUAT");
         seccion6.add(true);
         cap3.add(seccion6);
         
         
         ArrayList seccion7 = new ArrayList();
-        seccion7.add("3_13");
+        seccion7.add("3_09");
         seccion7.add("Puerto Barrios: carga exportada");
-        seccion7.add("Exportaciones en Puerto Barrios en miles de toneladas métricas");
-        seccion7.add(formatoSerie);
-        seccion7.add("3_13.tex");
+        seccion7.add("Exportaciones en Puerto Barrios");
+        seccion7.add(formatoSerie + "en miles de toneladas métricas");
+        seccion7.add("3_09.tex");
         seccion7.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion7.add(true);
-        seccion7.add("3_14");
+        seccion7.add("3_10");
         seccion7.add("Puerto Barrios: carga importada");
-        seccion7.add("Importaciones a través de Puerto Barrios en miles de toneladas métricas");
-        seccion7.add(formatoSerie);
-        seccion7.add("3_14.tex");
+        seccion7.add("Importaciones a través de Puerto Barrios");
+        seccion7.add(formatoSerie + "en miles de toneladas métricas");
+        seccion7.add("3_10.tex");
         seccion7.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion7.add(true);
         cap3.add(seccion7);
         
         ArrayList seccion8 = new ArrayList();
-        seccion8.add("3_15");
+        seccion8.add("3_11");
         seccion8.add("Puerto San José: buques");
         seccion8.add("Buques que arribaron al puerto San José");
-        seccion8.add(formatoSerie);
-        seccion8.add("3_15.tex");
+        seccion8.add(formatoSerie + "en unidades");
+        seccion8.add("3_11.tex");
         seccion8.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion8.add(true);
-        seccion8.add("3_16");
+        seccion8.add("3_12");
         seccion8.add("Puerto San José: carga exportada");
-        seccion8.add("Exportaciones en el puerto San José en miles de toneladas métricas");
-        seccion8.add(formatoSerie);
-        seccion8.add("3_16.tex");
+        seccion8.add("Exportaciones en el puerto San José");
+        seccion8.add(formatoSerie + "en miles de toneladas métricas");
+        seccion8.add("3_12.tex");
         seccion8.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion8.add(true);
         cap3.add(seccion8);
@@ -673,18 +391,18 @@ public class TransporteYServicios extends Documento{
         
         
         ArrayList seccion9 = new ArrayList();
-        seccion9.add("3_17");
+        seccion9.add("3_13");
         seccion9.add("Puerto San José: carga importada");
-        seccion9.add("Importaciones a través de puerto San José en miles de toneladas métricas");
-        seccion9.add(formatoSerie);
-        seccion9.add("3_17.tex");
+        seccion9.add("Importaciones a través de puerto San José");
+        seccion9.add(formatoSerie + "en miles de toneladas métricas");
+        seccion9.add("3_13.tex");
         seccion9.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion9.add(true);
-        seccion9.add("3_18");
+        seccion9.add("3_14");
         seccion9.add("Puerto Quetzal: buques");
         seccion9.add("Buques que arribaron al Puerto Quetzal");
-        seccion9.add(formatoSerie);
-        seccion9.add("3_18.tex");
+        seccion9.add(formatoSerie + "en unidades");
+        seccion9.add("3_14.tex");
         seccion9.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion9.add(true);
         cap3.add(seccion9);
@@ -693,18 +411,18 @@ public class TransporteYServicios extends Documento{
         
         
         ArrayList seccion10 = new ArrayList();
-        seccion10.add("3_19");
+        seccion10.add("3_15");
         seccion10.add("Puerto Quetzal: carga exportada");
-        seccion10.add("Exportacoines en el Puerto Quetzal en miles de toneladas métricas");
-        seccion10.add(formatoSerie);
-        seccion10.add("3_19.tex");
+        seccion10.add("Exportacoines en el Puerto Quetzal");
+        seccion10.add(formatoSerie+ "en miles de toneladas métricas");
+        seccion10.add("3_15.tex");
         seccion10.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion10.add(true);
-        seccion10.add("3_20");
+        seccion10.add("3_16");
         seccion10.add("Puerto Quetzal: carga importada");
-        seccion10.add("Importaciones a través de Puerto Quetzal en miles de tonelas métricas");
-        seccion10.add(formatoSerie);
-        seccion10.add("3_20.tex");
+        seccion10.add("Importaciones a través de Puerto Quetzal");
+        seccion10.add(formatoSerie + "en miles de toneladas métricas");
+        seccion10.add("3_16.tex");
         seccion10.add("INE, con datos proporcionados por la Comisión Portuaria Nacional");
         seccion10.add(true);
         cap3.add(seccion10);

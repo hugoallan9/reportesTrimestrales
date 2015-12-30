@@ -29,6 +29,7 @@ public class HechosDelictivos extends Documento{
     private List introCapitulos;
     private List contenidos;
     private String formatoSerie;
+    private String formatoTrimestre;
     Collator comparador = Collator.getInstance();
     private SesionR rr;
     private String rutaCSV;    
@@ -47,7 +48,10 @@ public class HechosDelictivos extends Documento{
         this.rutaCSV = rutaCSV;
         rr = new SesionR();
         comparador.setStrength(Collator.PRIMARY);
-        formatoSerie = "Serie histórica " +  (int)(Double.parseDouble(getAnioPublicacion()) -2) + "-" + getAnioPublicacion();
+        formatoSerie = "República de Guatemala, serie histórica trimestral, ";
+        formatoTrimestre ="República de Guatemala, "+corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre "
+                + getAnioPublicacion() +", ";
+        
                 
                 
         cargarCSV(rutaCSV);
@@ -162,15 +166,15 @@ public class HechosDelictivos extends Documento{
         seccion1.add("1_01");
         seccion1.add("Víctimas");
         seccion1.add("Víctimas de hechos delictivos");
-        seccion1.add(formatoSerie);
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("1_01.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("1_02");
         seccion1.add("Víctimas según causa");
-        seccion1.add("Distribución porcentual de víctimas de hechos delictivos por "
-                + "tipo de causas");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Distribución de las víctimas de hechos delictivos por "
+                + "tipo de causa");
+        seccion1.add(formatoTrimestre + "en porcentaje");
         seccion1.add("1_02.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
@@ -180,17 +184,17 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("1_03");
         seccion2.add("Víctimas según departamento");
-        seccion2.add("Distribución porcentual de víctimas de hechos delictivos "
+        seccion2.add("Distribución de las víctimas de hechos delictivos "
                 + "por departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("1_03.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("1_04");
         seccion2.add("Víctimas por área geográfica");
-        seccion2.add("Distribución porcentual de víctimas de hechos delictivos "
+        seccion2.add("Distribución de las víctimas de hechos delictivos "
                 + "por área geográfica");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("1_04.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
@@ -200,15 +204,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("1_05");
         seccion3.add("Víctimas según grupos de edad y sexo");
-        seccion3.add("Víctimas según grupos de edad y sexo en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Víctimas según grupos de edad y sexo");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("1_05.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
-        seccion3.add("1_06");
+           seccion3.add("1_06");
         seccion3.add("Víctimas de homicidio por tipo");
-        seccion3.add("Víctimas de homicidio por tipo en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Víctimas de homicidio");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("1_06.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
@@ -216,16 +220,16 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
         seccion4.add("Víctimas de delitos contra el patrimonio");
-        seccion4.add("Víctimas de hechos delictivos contra el patrimonio según "
-                + "tipo en unidades");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Víctimas de hechos delictivos contra el patrimonio, según "
+                + "el tipo");
+        seccion4.add(formatoTrimestre + "en unidades");
         seccion4.add("1_07.tex");
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         seccion4.add("1_08");
         seccion4.add("Víctimas de extorsiones por departamento");
-        seccion4.add("Distribución porcentual de víctimas de extorsiones por departamento");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Distribución de las víctimas de extorsiones por departamento");
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("1_08.tex");
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
@@ -233,15 +237,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion5 = new ArrayList();
         seccion5.add("1_09");
         seccion4.add("Víctimas de extorsiones por sexo");
-        seccion4.add("Distribución porcentual de víctimas de extorsiones por sexo");
-        seccion5.add(getFormatoTrimestre());
+        seccion4.add("Distribución de las víctimas de extorsiones por sexo");
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("1_09.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
         seccion5.add("1_10");
         seccion5.add("Víctimas de extorsiones por grupos de edad y sexo");
-        seccion5.add("Víctimas de extorsiones por grupos de edad y sexo en unidades");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Víctimas de extorsiones por grupos de edad y sexo");
+        seccion5.add(formatoTrimestre + "en unidades");
         seccion5.add("1_10.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
@@ -254,16 +258,16 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("2_01");
         seccion1.add("Detenidos");
-        seccion1.add("Detenidos(as) por cometer hechos delictivos en unidades");
-        seccion1.add(formatoSerie);
+        seccion1.add("Detenidos(as) por cometer hechos delictivos");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("2_01.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
         seccion1.add("2_02");
         seccion1.add("Detenidos según tipos de causa");
         seccion1.add("Detenidos(as) por cometer hechos delictivos según los principales "
-                + "tipos de causa en unidades");
-        seccion1.add(getFormatoTrimestre());
+                + "tipos de causa");
+        seccion1.add(formatoTrimestre + "en unidades");
         seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de la Policía Nacional Civil");
         seccion1.add(true);
@@ -273,17 +277,17 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
         seccion2.add("Detenidos según departamento");
-        seccion2.add("Distribución porcentual de detenidos por cometer hechos delictivos según"
+        seccion2.add("Detenidos(as) por cometer hechos delictivos según"
                 + "departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
         seccion2.add("2_04");
         seccion2.add("Detenidos según área geográfica");
-        seccion2.add("Distribución porcentual de detenidos por cometer hechos delictivos según "
+        seccion2.add("Detenidos(as) por cometer hechos delictivos según "
                 + "área geográfica");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de la Policía Nacional Civil");
         seccion2.add(true);
@@ -293,15 +297,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
         seccion3.add("Detenidos según edad y sexo");
-        seccion3.add("Detenidos por cometer hechos delictivos según edad y sexo en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Detenidos(as) por cometer hechos delictivos según edad y sexo");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
         seccion3.add("2_06");
         seccion3.add("Detenidos por cometer homicidio según tipo");
-        seccion3.add("Detenidos por cometer homicidios según el tipo de arma utilizada en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Detenidos(as) por cometer homicidios según el tipo de arma utilizada");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de la Policía Nacional Civil");
         seccion3.add(true);
@@ -312,17 +316,17 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("2_07");
         seccion4.add("Detenidos por cometer delitos contra el patrimonio");
-        seccion4.add("Detenidos por cometer delitos contra el patrimonio según las principales "
-                + "causas en unidades");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add("Detenidos(as) por cometer delitos contra el patrimonio, según las principales "
+                + "causas");
+        seccion4.add(formatoTrimestre + "en unidades");
         seccion4.add("2_07.tex");
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
         seccion4.add("2_08");
         seccion4.add("Detenidos por extorsiones según departamento");
-        seccion4.add("Distribucipon porcentual de detenidos por cometer extorsiones "
+        seccion4.add("Detenidos(as) por cometer extorsiones "
                 + "según departamento");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("2_08.tex");       
         seccion4.add("INE, con datos de la Policía Nacional Civil");
         seccion4.add(true);
@@ -330,16 +334,16 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion5 = new ArrayList();
         seccion5.add("2_09");
         seccion5.add("Detenidos por extorsiones según sexo");
-        seccion5.add("Distribución porcentual de detenidos por cometer extorsiones "
-                + "segpun sexo");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Detenidos(as) por cometer extorsiones "
+                + "según sexo");
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("2_09.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
         seccion5.add("2_10");
         seccion5.add("Detenidos por extorsiones según grupos de edad y sexo");
-        seccion5.add("Detenidos por cometer extorsiones según edad y sexo en unidades");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add("Detenidos(as) por cometer extorsiones según edad y sexo");
+        seccion5.add(formatoTrimestre + "en unidades");
         seccion5.add("2_10.tex");       
         seccion5.add("INE, con datos de la Policía Nacional Civil");
         seccion5.add(true);
@@ -354,16 +358,16 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("3_01");
         seccion1.add("Sindicados");
-        seccion1.add("Sindicados por cometer hechos delictivos en unidades");
-        seccion1.add(formatoSerie);
+        seccion1.add("Sindicados por cometer hechos delictivos");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("3_01.tex");
         seccion1.add("INE, con datos del Ministerio Público");
         seccion1.add(true);
         seccion1.add("3_02");
         seccion1.add("Sindicados por tipo de delito");
-        seccion1.add("Distribución porcentual de sindicados por cometer hechos delictivos "
-                + "según el tipo de delito");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Distribución de las sindicados por cometer hechos delictivos, "
+                + "según el tipo");
+        seccion1.add(formatoTrimestre + "en porcentaje");
         seccion1.add("3_02.tex");
         seccion1.add("INE, con datos del Ministerio Público");
         seccion1.add(true);
@@ -373,17 +377,17 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("3_03");
         seccion2.add("Sindicados según departamento");
-        seccion2.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+        seccion2.add("Distribución de las sindicados por cometer hechos delictivos, "
                 + "por departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("3_03.tex");
         seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
         seccion2.add("3_04");
         seccion2.add("Sindicados según mes");
-        seccion2.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+        seccion2.add("Distribución de las sindicados por cometer hechos delictivos, "
                 + "según mes");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en unidades");
         seccion2.add("3_04.tex");
         seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
@@ -393,17 +397,17 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("3_05");
         seccion3.add("Sindicados según sexo");
-        seccion3.add("Distribución porcentual de sindicados por cometer hechos delictivos "
+        seccion3.add("Distribución de las sindicados por cometer hechos delictivos, "
                 + "según sexo");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("3_05.tex");
         seccion3.add("INE, con datos del Ministerio Público");
         seccion3.add(true);
         seccion3.add("3_06");
         seccion3.add("Sinidcados según sexo y grupo de edad");
-        seccion3.add("Sindicados por cometer hechos delictivos según sexo y grupo de edad "
-                + "en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Distribucion de los sindicados por cometer hechos delictivos,"
+                + " según sexo y grupo de edad ");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("3_06.tex");
         seccion3.add("INE, con datos del Ministerio Público");
         seccion3.add(true);
@@ -418,15 +422,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("4_01");
         seccion1.add("Evaluaciones médico legal");
-        seccion1.add("Evaluciones médico legal en unidades");
-        seccion1.add(formatoSerie);
+        seccion1.add("Evaluciones médico legal");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("4_01.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         seccion1.add("4_02");
         seccion1.add("Evaluaciones médico legal por tipo de dictamen");
-        seccion1.add("Distribución porcentual de evaluaciones médico legal según tipo de dictamen");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Evaluaciones médico legal, según tipo de dictamen");
+        seccion1.add(formatoTrimestre + "en porcentaje");
         seccion1.add("4_02.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
@@ -436,15 +440,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("4_03");
         seccion2.add("Evaluaciones médico legal por departamento");
-        seccion2.add("Distribución porcentual de evaluaciones médico legal según departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add("Evaluaciones médico legal, según departamento");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("4_03.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         seccion2.add("4_04");
         seccion2.add("Evaluaciones médico legal por sexo");
-        seccion2.add("Distribución porcentual de evaluaciones médico legal según sexo");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add("Evaluaciones médico legal, según sexo");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("4_04.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
@@ -454,8 +458,8 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("4_05");
         seccion3.add("Evaluaciones médico legal por grupos de edad");
-        seccion3.add("Evaluaciones médico legal según grupo de edad en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Evaluaciones médico legal, según grupo de edad");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("4_05.tex");
         seccion3.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion3.add(true);
@@ -469,15 +473,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("5_01");
         seccion1.add("Necropsias");
-        seccion1.add("Número de necropsias en unidades");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Número de necropsias");
+        seccion1.add(formatoSerie + "en unidades");
         seccion1.add("5_01.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
         seccion1.add("5_02");
         seccion1.add("Necropsias por tipo de dictamen");
-        seccion1.add("Distribución porcentual de necropsias según tipo de dictamen");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Necropsias, según tipo de dictamen");
+        seccion1.add(formatoTrimestre + "en porcentaje");
         seccion1.add("5_02.tex");
         seccion1.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion1.add(true);
@@ -487,15 +491,15 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("5_03");
         seccion2.add("Necropsias por departamento");
-        seccion2.add("Distribución porcentual de necropcias según departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add("Necropsias, según departamento");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("5_03.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
         seccion2.add("5_04");
         seccion2.add("Necropsias por sexo");
-        seccion2.add("Distribución porcentual de necropcias según sexo");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add("Necropsias, según sexo");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("5_04.tex");
         seccion2.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion2.add(true);
@@ -505,8 +509,8 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("5_05");
         seccion3.add("Necropsias por grupos de edad");
-        seccion3.add("Necropsias según grupo de edad en unidades");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Necropsias, según grupo de edad");
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("5_05.tex");
         seccion3.add("INE, con datos del Instituto Nacional de Ciencias Forenses");
         seccion3.add(true);
@@ -520,16 +524,16 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("6_01");
         seccion1.add("Sentencias");
-        seccion1.add("Sentenciados por el Organismo Judicial, por cometer hechos delictivos");
-        seccion1.add(formatoSerie);
+        seccion1.add("Sentenciados(as) por el Organismo Judicial, por cometer hechos delictivos");
+        seccion1.add(formatoSerie + "en datos absolutos");
         seccion1.add("6_01.tex");
         seccion1.add("INE, con datos del Organismo Judicial");
         seccion1.add(true);
         seccion1.add("6_02");
         seccion1.add("Sentencias por tipo");
-        seccion1.add("Sentenciados por el Organismo Judicial, por cometer hechos delictivos "
-                + "según el tipo de sentencia en unidades");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Sentenciados(as) por el Organismo Judicial, por cometer hechos delictivos, "
+                + "según el tipo de sentencia");
+        seccion1.add(formatoTrimestre + "en unidades");
         seccion1.add("6_02.tex");
         seccion1.add("INE, con datos del Organismo Judicial");
         seccion1.add(true);
@@ -539,17 +543,17 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("6_03");
         seccion2.add("Sentencias condenatorias por departamento");
-        seccion2.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+        seccion2.add("Distribución porcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia condenatoria, por departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("6_03.tex");
         seccion2.add("INE, con datos del Organismo Judicial");
         seccion2.add(true);
         seccion2.add("6_04");
         seccion2.add("Setnencias condenatorias por sexo");
-        seccion2.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+        seccion2.add("Distribución porcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia condenatoria, según sexo");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("6_04.tex");
         seccion2.add("INE, con datos del Organismo Judicial");
         seccion2.add(true);
@@ -561,15 +565,15 @@ public class HechosDelictivos extends Documento{
         seccion3.add("Sentencias condenatorias por edad y sexo");
         seccion3.add("Personas procesadas por el Organismo Judicial por cometer hechos delictivos, "
                 + "con sentencia condenatoria, según edad y sexo");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add(formatoTrimestre + "en unidades");
         seccion3.add("6_05.tex");
         seccion3.add("INE, con datos del Organismo Judicial");
         seccion3.add(true);
         seccion3.add("6_06");
         seccion3.add("Sentencias condenatorias por tipo de ley");
-        seccion3.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+        seccion3.add("Distribución porcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia condenatoria, según ley aplicada");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("6_06.tex");
         seccion3.add("INE, con datos del Organismo Judicial");
         seccion3.add(true);
@@ -580,18 +584,18 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion4 = new ArrayList();
         seccion4.add("6_07");
         seccion4.add("Sentencias condenatorias por tipo de delito en el Ramo Penal");
-        seccion4.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+        seccion4.add("Distribución porcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos del ramo penal, con sentencia condenatoria, "
                 + "según delitos");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("6_07.tex");
         seccion4.add("INE, con datos del Organismo Judicial");
         seccion4.add(true);
         seccion4.add("6_08");
         seccion4.add("Sentencias aboslutorias por departamento");
-        seccion4.add("Distribucipon porcentual de personas procesadas por el Organismo Judicial "
+        seccion4.add("Distribución de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia absolutoria, por departamento");
-        seccion4.add(getFormatoTrimestre());
+        seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("6_08.tex");       
         seccion4.add("INE, con datos del Organismo Judicial");
         seccion4.add(true);
@@ -601,9 +605,9 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion5 = new ArrayList();
         seccion5.add("6_09");
         seccion5.add("Sentencias absolutorias por sexo");
-        seccion5.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+        seccion5.add("Distribución porcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia absolutoria, según sexo");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("6_09.tex");
         seccion5.add("INE, con datos del Organismo Judicial");
         seccion5.add(true);
@@ -611,7 +615,7 @@ public class HechosDelictivos extends Documento{
         seccion5.add("Sentencias absolutorias por edad y sexo");
         seccion5.add("Personas procesadas por el Organismo Judicial por cometer hechos delictivos, "
                 + "con sentencia absolutoria, según edad y sexo");
-        seccion5.add(getFormatoTrimestre());
+        seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("6_10.tex");       
         seccion5.add("INE, con datos del Organismo Judicial");
         seccion5.add(true);
@@ -620,19 +624,19 @@ public class HechosDelictivos extends Documento{
         ArrayList seccion6 = new ArrayList();
         seccion6.add("6_11");
         seccion6.add("Sentencias absolutorias por tipo de ley");
-        seccion6.add("Distribución porcentual de personas procesadas por el Organismo Judicial "
+        seccion6.add("Distribución porcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos, con sentencia absolutoria, "
                 + "según ley aplicada");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add(formatoTrimestre + "en porcentaje");
         seccion6.add("6_11.tex");
         seccion6.add("INE, con datos del Organismo Judicial");
         seccion6.add(true);
         seccion6.add("6_12");
         seccion6.add("Sentencias aboslutorias por tipo de delito en el Ramo Penal");
-        seccion6.add("Distribucipon porcentual de personas procesadas por el Organismo Judicial "
+        seccion6.add("Distribución orcentual de las personas procesadas por el Organismo Judicial "
                 + "por cometer hechos delictivos contemplados en el ramo penal,"
                 + " con sentencia absolutoria, según delitos");
-        seccion6.add(getFormatoTrimestre());
+        seccion6.add(formatoTrimestre + "en porcentaje");
         seccion6.add("6_12.tex");       
         seccion6.add("INE, con datos del Organismo Judicial");
         seccion6.add(true);
