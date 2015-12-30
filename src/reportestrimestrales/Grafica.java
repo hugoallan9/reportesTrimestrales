@@ -91,8 +91,8 @@ public class Grafica extends Thread {
             r.eval("setPathJudiciales(file.path('"+ ruta +"','GraficasPresentacion/'))");
             r.eval("graficasJudiciales(modalidad='presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
-            r.eval("compilar('" + ruta  + "/faltas.tex', mostrar = F)");
-            r.eval("compilar('" + ruta + "/faltas.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/faltasJudiciales.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/faltasJudiciales.tex', mostrar = F)");
             r.eval("compilar('" + ruta  + "/presentacionFaltas.tex', mostrar = F)");
             //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "faltas.pdf','" + ruta+ "presentacionFaltas.pdf'))");
