@@ -477,7 +477,7 @@ public class ReportesTrimestrales {
             //descripciones.run();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
-                System.out.println("entro a hacer graficas");
+                System.out.println("entro a hacer graficas de hechos");
                 docu.generarGraficas("trimestral");
             //}
         }
