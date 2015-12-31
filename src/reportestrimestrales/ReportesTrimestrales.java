@@ -473,8 +473,8 @@ public class ReportesTrimestrales {
             docu.apendices(delictivosTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             //descripciones
-            descriptordelictivos.Generador descripciones = new descriptordelictivos.Generador("/var/www/html/Delictivos/Entradas/CSV", delictivosTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
-            descripciones.run();
+            //descriptordelictivos.Generador descripciones = new descriptordelictivos.Generador("/var/www/html/Delictivos/Entradas/CSV", delictivosTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
+            //descripciones.run();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
                 System.out.println("entro a hacer graficas");
