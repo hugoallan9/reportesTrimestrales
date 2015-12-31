@@ -147,16 +147,24 @@ public class Agropecuarias extends Documento{
         seccion1.add("1_02.tex");
         seccion1.add("INE, Estadísticas Agropecuarias");
         seccion1.add(true);
-        cap1.add(seccion1);
+        //cap1.add(seccion1);
         
         
         ArrayList seccion2 = new ArrayList();
-        seccion2.add("1_03");
+        /*seccion2.add("1_03");
         seccion2.add("Producción de azúcar cruda");
         seccion2.add("Producción de azúcar cruda en los ingenios de la república "
                 + "en millones de quintales");
         seccion2.add(formatoSerie);
         seccion2.add("1_03.tex");
+        seccion2.add("INE, Estadísticas Agropecuarias");
+        seccion2.add(true);*/
+        seccion2.add("1_03");
+        seccion2.add("Producción de azúcar cruda");
+        seccion2.add("Producción de azúcar cruda en los ingenios de la república "
+                + "en millones de quintales");
+        seccion2.add(formatoSerie);
+        seccion2.add("1_04.tex");
         seccion2.add("INE, Estadísticas Agropecuarias");
         seccion2.add(true);
         seccion2.add("1_04");
@@ -404,7 +412,7 @@ public class Agropecuarias extends Documento{
         "\n" +
         "\n" +
         "\n" );
-        apendice1();
+        //apendice1();
         apendice2();
         apendice3();
         apendice4();
