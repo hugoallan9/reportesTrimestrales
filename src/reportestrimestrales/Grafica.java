@@ -162,6 +162,7 @@ public class Grafica extends Thread {
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Eventos de Tránsito', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "transito.pdf','" + ruta+ "presentacionTransito.pdf'))"));
         }
         else if(lista.equalsIgnoreCase("delictivos")){
+            System.out.println("Por que no funcionas");
             System.out.println(r.eval(lista +"$'1_01'"));
             System.out.println("graficasDelictivos("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
             System.out.println(r.eval("graficasDelictivos("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')"));
