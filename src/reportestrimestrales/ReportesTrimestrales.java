@@ -449,7 +449,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("delictivos <- leerLibro('/var/www/html/Delictivos/Entradas/delictivos.xlsx')"));
-            System.out.println(r.get().eval("delictivos <- convertirFechas(delictivos)"));
+            System.out.println(r.get().eval("delictivos <- convertirFechasTodos(delictivos)"));
             r.get().eval("escribirCSV(delictivos, '/var/www/html/Delictivos/Entradas/CSV')");
             File delictivosTrimestre = new File(rutaDelictivos, args[2] + args[1]);
             if ( !delictivosTrimestre.exists() ){
