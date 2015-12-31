@@ -164,7 +164,7 @@ public class Grafica extends Thread {
         else if(lista.equalsIgnoreCase("delictivos")){
             System.out.println(r.eval("names("+ lista +" )"));
             System.out.println("graficasDelictivos("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
-            r.eval("graficasDelictivos("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')");
+            System.out.println(r.eval("graficasDelictivos("+lista+ ",'"+ ruta +"', modalidad = 'trimestral')"));
             System.out.println("graficasDelictivos("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             r.eval("graficasDelictivos("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
             System.out.println("compilar('" + ruta + "', mostrar = F)");
