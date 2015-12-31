@@ -163,7 +163,9 @@ public class Grafica extends Thread {
         }
         else if(lista.equalsIgnoreCase("delictivos")){
             System.out.println("Por que no funcionas");
-            System.out.println(r.eval(lista +"$'1_01'"));
+            System.out.println(r.eval(lista +"$'1_05'"));
+            
+            System.out.println(r.eval(lista +"$'1_06'"));
             System.out.println("graficasDelictivos(delictivos,'"+ ruta +"', modalidad = 'trimestral')");
             System.out.println(r.eval("graficasDelictivos(delictivos,'"+ ruta +"', modalidad = 'trimestral')"));
             System.out.println("graficasDelictivos("+lista+ ",file.path('"+ ruta +"','GraficasPresentacion/'), modalidad = 'presentacion')");
