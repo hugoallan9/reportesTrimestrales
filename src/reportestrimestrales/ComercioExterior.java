@@ -137,7 +137,7 @@ public class ComercioExterior extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("comercio <- cargaMasiva('" +  ruta +"'codificacion = 'utf8')");
+                REXP listadoCSV = rr.get().eval("comercio <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(comercio)");
                 //System.out.println(listadoCSV);
                 //System.out.println(nombres);
