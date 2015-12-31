@@ -137,7 +137,7 @@ public class ComercioExterior extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE)");
-                REXP listadoCSV = rr.get().eval("comercio <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("comercio <- cargaMasiva('" +  ruta +"'codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(comercio)");
                 //System.out.println(listadoCSV);
                 //System.out.println(nombres);
@@ -794,7 +794,7 @@ public class ComercioExterior extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.49,0.595) {\n" +
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.52,0.595) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
             getTitulo() + "\n" +
