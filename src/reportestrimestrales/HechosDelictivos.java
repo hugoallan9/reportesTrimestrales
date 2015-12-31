@@ -785,10 +785,9 @@ public class HechosDelictivos extends Documento{
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
-                "	Flor de María Hernández Soto\\\\\n" +
-                "	Cristian Miguel Cabrera Ayala\\\\\n" +
-                "	Anabella De La Cruz Rodríguez\\\\\n" +
-                "	José Alberto Flores Gallo\\\\[0.8cm]\n" +
+                "	Karin Barrios\\\\\n" +
+                "	Carla Villatoro\\\\\n" +
+                "	Ricardo Loaiza\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
