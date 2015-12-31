@@ -236,8 +236,8 @@ public class HechosDelictivos extends Documento{
         cap1.add(seccion4);
         ArrayList seccion5 = new ArrayList();
         seccion5.add("1_09");
-        seccion4.add("Víctimas de extorsiones por sexo");
-        seccion4.add("Distribución de las víctimas de extorsiones por sexo");
+        seccion5.add("Víctimas de extorsiones por sexo");
+        seccion5.add("Distribución de las víctimas de extorsiones por sexo");
         seccion5.add(formatoTrimestre + "en porcentaje");
         seccion5.add("1_09.tex");
         seccion5.add("INE, con datos de la Policía Nacional Civil");
