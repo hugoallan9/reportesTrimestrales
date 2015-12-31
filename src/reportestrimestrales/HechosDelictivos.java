@@ -153,7 +153,7 @@ public class HechosDelictivos extends Documento{
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
                 rr.get().eval("library(funcionesINE, con datos de la Policía Nacional Civil)");
-                REXP listadoCSV = rr.get().eval("delictivos <- cargaMasiva('" +  ruta +"')");
+                REXP listadoCSV = rr.get().eval("delictivos <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(delictivos)");
                 System.out.println(listadoCSV);
                 System.out.println(nombres);
@@ -750,13 +750,13 @@ public class HechosDelictivos extends Documento{
             "\\begin{tikzpicture} \n "+
             "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
             "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
-            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.44,0.595) {\n" +
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.5,0.595) {\n" +
              "República de Guatemala \n" +
             "		\\\\\n" +
             getTitulo() + "\n" +
             "		\\\\\n" +
             corregirTrimestre( getTrimestre() ) +  " trimestre "  + getAnioPublicacion() + " };" +
-            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMes()  +" de " +  getYear()+"};\n "
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
             + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
             "\\end{scope}\n" +
             "\\end{tikzpicture}\n" +
