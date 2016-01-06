@@ -69,7 +69,7 @@ public class Transito extends Documento{
         introCapitulos.add("Los vehículos se entiende que es cualquier medio de transporte que "
                 + "circule en la vía pública para el transporte de personas, cargas o estén "
                 + "destinados a actividades especiales. \n \n Un evento de tránsito es "
-                + "un suceos donde uno o varios vehículos ocasionan perjuico a una persona, "
+                + "un suceso donde uno o varios vehículos ocasionan perjuico a una persona, "
                 + "bien público o privado, por acción negligente de conductores, pasajeros "
                 + "o peatones (como factores humanos), factores mecánicos o climatológicos.");
         introCapitulos.add("Es el recuento de las personas que sufrieron un daño o perjuicio, "
@@ -649,8 +649,7 @@ public class Transito extends Documento{
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
                 "       Karin Lenisse Barrios Carrascosa\\\\\n" +
-                "	Ricardo Francisco Loaiza Díaz\\\\\n" +
-                "	Oralia Ramírez Galicia\\\\[0.8cm]\n" +
+                "	Ricardo Francisco Loaiza Díaz\\\\[0.8cm]\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
                 "	Hugo Allan García Monterrosa\\\\\n" +
@@ -693,9 +692,9 @@ public class Transito extends Documento{
                 + "y su Reglamento, Decreto número 132-96, registra datos estadísticos sobre "
                 + "eventos de tránsito. \n"
                 + "\n"
-                + "La información presentada a continuación se generpo a través de las tres bases "
+                + "La información presentada a continuación se generó a través de las cuatro bases "
                 + "de datos que la Policía Nacional Civil entrega al INE, las cuales son: "
-                + "hechos de tránsito, personas lesionadas y personas fallecidas. \n"
+                + "hechos de tránsito, personas lesionadas, personas atropelladas y personas fallecidas. \n"
                 + "\n"
                 + "Finalmente, el INE presenta el informe de las Estadísticas de "
                 + "{\\Bold Eventos de Tránsito} del "
