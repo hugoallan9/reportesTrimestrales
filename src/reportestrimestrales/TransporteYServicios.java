@@ -180,14 +180,14 @@ public class TransporteYServicios extends Documento{
         seccion5.add("1_05");
         seccion5.add("Aeropuerto La Aurora: pasajeros que arriban");
         seccion5.add("Pasajeros que arriban en el aeropuerto internacional La Aurora");
-        seccion5.add(formatoSerie + "en miles de unidades");
+        seccion5.add(formatoSerie + "en miles de pasajeros");
         seccion5.add("1_05.tex");
         seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
         seccion5.add("1_06");
         seccion5.add("Aeropuerto La Aurora: pasajeros que salen");
         seccion5.add("Pasajeros que salen del aeropuerto internacional La Aurora");
-        seccion5.add(formatoSerie + "en miles de unidades");
+        seccion5.add(formatoSerie + "en miles de pasajeros");
         seccion5.add("1_06.tex");
         seccion5.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion5.add(true);
@@ -197,14 +197,14 @@ public class TransporteYServicios extends Documento{
         seccion6.add("1_07");
         seccion6.add("Aeropuerto Mundo Maya: pasajeros que arriban");
         seccion6.add("Pasajeros que arriban en el aeropuerto internacional Mundo Maya");
-        seccion6.add(formatoSerie + "en unidades");
+        seccion6.add(formatoSerie + "en pasajeros");
         seccion6.add("1_07.tex");
         seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
         seccion6.add("1_08");
         seccion6.add("Aeropuerto Mundo Maya: pasajeros que salen");
         seccion6.add("Pasajeros que salen del aeropuerto internacional Mundo Maya");
-        seccion6.add(formatoSerie + "en unidades");
+        seccion6.add(formatoSerie + "en pasajeros");
         seccion6.add("1_08.tex");
         seccion6.add("INE, con datos de Dirección General de Aeronáutica Civil");
         seccion6.add(true);
@@ -237,7 +237,7 @@ public class TransporteYServicios extends Documento{
         seccion2.add("2_03");
         seccion2.add("Principales países de destino de correspondencia");
         seccion2.add("Principales países de destino de la correspondencia enviada desde Guatemala");
-        seccion2.add(formatoTrimestre + "en unidades");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de Dirección General de Correos y Telégrafos");
         seccion2.add(true);
@@ -263,7 +263,7 @@ public class TransporteYServicios extends Documento{
         seccion3.add("2_06");
         seccion3.add("Principales destinos de las encomiendas");
         seccion3.add("Envío de encomiendas según los principales países de destino");
-        seccion3.add(formatoTrimestre + "en unidades");
+        seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("2_06.tex");
         seccion3.add("INE, con datos de Dirección General de Correos y Telégrafos");
         
@@ -835,10 +835,10 @@ public class TransporteYServicios extends Documento{
                 "\\indent El Instituto Nacional de Estadística -INE-, a través de la Unidad de Transportes "
                 + "y Servicios, elaboró la edición del {\\Bold " + corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre del "
                 + getAnioPublicacion() +"} sobre {\\Bold Estadísticas de Transportes y Servicios}, que contiene "
-                + "los capítulos de transporte aéreo, tráfico postal, movimiento marítimo "
-                + "y paque vehícular. \n" +
+                + "los capítulos de Tráfico Aéreo, Tráfico Postal, Movimiento Marítimo "
+                + "y Parque Vehícular. \n" +
                 "\n" +
-                "El documento contiene la información que proporciona la Dirección de Aeronáutica "
+                "El documento contiene la información que proporciona la Dirección General de Aeronáutica "
                 + "Civil, Dirección General de Correos y Telégrafos, Comisión Portuaria Nacional y "
                 + "Superintendecia de Administración Tributaria. {\\Bold Los datos presentados son "
                 + "preliminares} y serán ajustados con el ingreso de los registros tardíos.\n" +
