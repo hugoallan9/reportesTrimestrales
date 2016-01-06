@@ -3,11 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/rafael/Documentos/ine/reportesTrimestrales2/reportesTrimestrales/src/reportestrimestrales/Transito.java</file>
-            <file>file:/home/rafael/Documentos/ine/reportesTrimestrales2/reportesTrimestrales/src/reportestrimestrales/Tabla.java</file>
-            <file>file:/home/rafael/Documentos/ine/reportesTrimestrales2/reportesTrimestrales/src/reportestrimestrales/ComercioExterior.java</file>
-            <file>file:/home/rafael/Documentos/ine/reportesTrimestrales2/reportesTrimestrales/src/reportestrimestrales/Hospitalarias.java</file>
-            <file>file:/home/rafael/Documentos/ine/reportesTrimestrales2/reportesTrimestrales/src/reportestrimestrales/FaltasJudiciales.java</file>
+            <file>file:/mnt/datos/GitHub/reportesTrimestrales/src/reportestrimestrales/ReportesTrimestrales.java</file>
+            <file>file:/mnt/datos/GitHub/reportesTrimestrales/src/reportestrimestrales/Vitales.java</file>
+            <file>file:/mnt/datos/GitHub/reportesTrimestrales/src/reportestrimestrales/ComercioExterior.java</file>
+            <file>file:/mnt/datos/GitHub/reportesTrimestrales/src/reportestrimestrales/Agropecuarias.java</file>
+            <file>file:/mnt/datos/GitHub/reportesTrimestrales/src/reportestrimestrales/Grafica.java</file>
+            <file>file:/mnt/datos/GitHub/reportesTrimestrales/src/reportestrimestrales/IPC.java</file>
         </group>
     </open-files>
 </project-private>
