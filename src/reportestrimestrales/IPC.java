@@ -481,7 +481,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_02","Evolución del IPC", 
                 "descripcion201",
                 "IPC, base diciembre del 2010",
-                "República de Guatemala, Serie histórica años " + getSerie()      + "adimensional",
+                "República de Guatemala, Serie histórica años " + getSerie()      + ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_02.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -491,7 +491,7 @@ public class IPC extends Documento{
         escribirLinea(seccion( "2_03","IPC por división de gasto", 
                 "descripcion203",
                 "IPC por división de gasto, base diciembre del 2010",
-                "República de Guatemala, " + getMes() + " " + getYear()+  "adimensional",
+                "República de Guatemala, " + getMes() + " " + getYear()+  ", adimensional",
                 "\\begin{tikzpicture}[x=1pt,y=1pt]  \\input{2_03.tex}  \\end{tikzpicture}",
                 "Instituto Nacional de Estadística"));
     }
@@ -501,7 +501,7 @@ public class IPC extends Documento{
                 "Índice de precios al consumidor por regiones", 
                 "",
                 "IPC",
-                " República de Guatemala, " + getMes() + " " + getYear() + "adimensional",
+                " República de Guatemala, " + getMes() + " " + getYear() + ", adimensional",
                 "\\includegraphics[width=52\\cuadri]{2_04.pdf}",
                 "Instituto Nacional de Estadística"));
         
