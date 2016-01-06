@@ -301,16 +301,18 @@ public class Tabla {
             }else{
                 
                     System.out.println("dato:"+valores[0].toString()+"\n");
-                    String val = cambioStringEncabezadoFila(valores[0]);
+                    String val = valores[0];
+                    System.out.println("La longitud de valores es " + valores.length );
                     lista.add("\\multicolumn{1}{l}{"+val+"} & ");
-                    for(int j=1;j<10;j++){
-
-                        if(j==9)
+                    for(int j=1;j< valores.length - 1 ;j++){
+                        System.out.println("Estoy entrando al for con j igual " + j );
+                        if(valores.length -1 ==9)
                             lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} \\\\[0.15cm]");
                         else
                             lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} &");
 
                     }
+                    
                 }
             }
     } catch (FileNotFoundException e) {

@@ -146,10 +146,12 @@ public class ReportesTrimestrales {
             docu.juntaDirectiva();
             docu.equipoYPresentacion();
             docu.capitulo1();
+            /*
             docu.capitulo2();
             docu.capitulo3();
             docu.capitulo4();
             docu.capitulo5();
+*/
             docu.apendices(vitalesTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumentoApendice();
             //docu.getRr().get().end();
@@ -294,7 +296,7 @@ public class ReportesTrimestrales {
             r.get().eval("library(funcionesINE)");
             r.get().eval("library(xlsx)");
             System.out.println(r.get().eval("transporte <- leerLibro('/var/www/html/Transportes/Entradas/transportes.xlsx')"));
-            
+            System.out.println(r.get().eval("transporte <- convertirFechasTransporte(transporte)"));
             r.get().eval("escribirCSV(transporte, '/var/www/html/Transportes/Entradas/CSV')");
             File transporteTrimestre = new File(rutaTransporte, args[2] + args[1]);
             if ( !transporteTrimestre.exists() ){
@@ -317,7 +319,7 @@ public class ReportesTrimestrales {
             docu.rellenar();
             descriptortransporte.Generador descripciones = new descriptortransporte.Generador("/var/www/html/Transportes/Entradas/CSV", transporteTrimestre.getAbsolutePath(), args[2], Integer.parseInt(args[1]));
             descripciones.run();
-            //docu.apendices(transporteTrimestre.getAbsolutePath()+"/");
+            docu.apendices(transporteTrimestre.getAbsolutePath()+"/");
             docu.terminarDocumento();
             //docu.getRr().get().end();
             //if (args[3].equalsIgnoreCase("true")){
