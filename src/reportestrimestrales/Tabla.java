@@ -39,7 +39,7 @@ public class Tabla {
     DecimalFormat df;
     DecimalFormat dm;
     String encabezadoTabla;
-    
+    private String encabezadoCSV1;
    
     public Tabla(String rutaTEX, List listado,SesionR rr){
         System.out.println("Iniciando el constructor de tabla");
@@ -54,6 +54,7 @@ public class Tabla {
         this.r = rr;
         System.out.println("Finalizando el contructor de tabla");
         this.encabezadoTabla = "";
+        this.encabezadoCSV1="Departamento";
     }
     
     public void setRuta(String ruta){
@@ -79,6 +80,54 @@ public class Tabla {
         generarCSV2("A_08");
         setEncabezadoTabla("Número de divorcios");
         generarCSV2("A_10");
+    }
+    
+    public void generarTransportes(){
+        this.encabezadoCSV1 = "\\parbox{1.6cm}{Tipo de producto}";
+        generarCSV1("A_01");
+        generarCSV1("A_02");
+        generarCSV1("A_04");
+        generarCSV1("A_05");
+        generarCSV1("A_07");
+        generarCSV1("A_16");
+        generarCSV1("A_17");
+        generarCSV1("A_18");
+        generarCSV1("A_19");
+        generarCSV1("A_20");
+        generarCSV1("A_21");
+        generarCSV1("A_22");
+        generarCSV1("A_23");
+        
+        setEncabezadoTabla("Número de envíos");
+        generarCSV2("A_03");
+        setEncabezadoTabla("Número de encomiendas");
+        generarCSV2("A_06");
+        setEncabezadoTabla("Peso");
+        generarCSV2("A_08");
+        setEncabezadoTabla("Peso");
+        generarCSV2("A_09");
+        setEncabezadoTabla("Número de vuelos");
+        generarCSV2("A_10");
+        setEncabezadoTabla("Número de pasajeros");
+        generarCSV2("A_11");
+        setEncabezadoTabla("Número de pasajeros");
+        generarCSV2("A_12");
+        setEncabezadoTabla("Número de buques");
+        generarCSV2("A_13");
+        setEncabezadoTabla("Peso");
+        generarCSV2("A_14");
+        setEncabezadoTabla("Peso");
+        generarCSV2("A_15");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
     
     public void generarHospitalarias(){
@@ -125,13 +174,13 @@ public class Tabla {
     public void generarFaltasJudiciales(){
         setEncabezadoTabla("Número de faltas judiciales");
         generarCSV2("A_01");
-        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra las personas}");  
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de faltas contra las personas}");  
         generarCSV2("A_02");
-        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra la propiedad}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de faltas contra la propiedad}");
         generarCSV2("A_03");
-        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra el orden público}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de faltas contra el orden público}");
         generarCSV2("A_04");
-        setEncabezadoTabla("\\parbox{3.5}{Número de faltas contra las buenas costumbres}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de faltas contra las buenas costumbres}");
         generarCSV2("A_05");
         
     }
@@ -142,38 +191,38 @@ public class Tabla {
         generarCSV2("A_02");
         setEncabezadoTabla("Número de sindicados");
         generarCSV2("A_03");
-        setEncabezadoTabla("\\parbox{3.5}{Número de evaluaciones médico legales}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de evaluaciones médico legales}");
         generarCSV2("A_04");
         setEncabezadoTabla("Número de necropsias");
         generarCSV2("A_05");
         
     }
     public void generarAgropecuarias(){
-        setEncabezadoTabla("\\parbox{3.5}{Producción de azúcar blanca (en quintales)}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Producción de azúcar blanca (en quintales)}");
         generarCSV2("A_01");
-        setEncabezadoTabla("\\parbox{3.5}{Producción de azúcar cruda (en quintales)}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Producción de azúcar cruda (en quintales)}");
         generarCSV2("A_02");
-        setEncabezadoTabla("\\parbox{3.5}{Trigo procesado (en quintales)}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Trigo procesado (en quintales)}");
         generarCSV2("A_03");
-        setEncabezadoTabla("\\parbox{3.5}{Producción de banano (en quintales)}");
+        setEncabezadoTabla("\\parbox{3.5cm}{Producción de banano (en quintales)}");
         generarCSV2("A_04");
-        setEncabezadoTabla("\\parbox{3.5}{Destace ganado bovino (número de cabezas)}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Destace ganado bovino (número de cabezas)}");    
         generarCSV2("A_05");
-        setEncabezadoTabla("\\parbox{3.5}{Destace ganado porcino (número de cabezas)}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Destace ganado porcino (número de cabezas)}");    
         generarCSV2("A_06");
-        setEncabezadoTabla("\\parbox{3.5}{Destace ganado ovino (número de cabezas)}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Destace ganado ovino (número de cabezas)}");    
         generarCSV2("A_07");
-        setEncabezadoTabla("\\parbox{3.5}{Destace ganado caprino (número de cabezas)}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Destace ganado caprino (número de cabezas)}");    
         generarCSV2("A_08");
     }
     public void generarVIF(){
         setEncabezadoTabla("Número de denuncias VIF");    
         generarCSV2("A_01");
-        setEncabezadoTabla("\\parbox{3.5}{Número de mujeres víctimas de VIF}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de mujeres víctimas de VIF}");    
         generarCSV2("A_02");
-        setEncabezadoTabla("\\parbox{3.5}{Número de hombres víctimas de VIF}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de hombres víctimas de VIF}");    
         generarCSV2("A_03");
-        setEncabezadoTabla("\\parbox{3.5}{Número de hombres agresores VIF}");    
+        setEncabezadoTabla("\\parbox{3.5cm}{Número de hombres agresores VIF}");    
         generarCSV2("A_04");
     }
     private void escribirTEX(String nombre, String texto,boolean compilar){
@@ -232,12 +281,12 @@ public class Tabla {
         
         try {
             br = new BufferedReader(new FileReader(f.getAbsolutePath()));
-            lista.add("\\multirow{2}{*}{\\Bold{Departamento}} &");//aqui va el texto en latex del archivo info.tex
+            lista.add("\\multirow{2}{*}{\\Bold{"+encabezadoCSV1+"}} &");//aqui va el texto en latex del archivo info.tex
             for(int i = 0;i<9;i++){
                 if(i==8){
-                    lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{"+trimestres.get(8).toString()+"}} \\\\");
+                    lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{\\Bold{"+trimestres.get(8).toString()+"}}} \\\\");
                 }else{
-                lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{"+trimestres.get(i).toString()+"}} &");
+                lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{\\Bold{"+trimestres.get(i).toString()+"}}} &");
                 }
             }
             lista.add("& & & & & & & & &\\\\[0.25cm]");
@@ -252,7 +301,8 @@ public class Tabla {
             }else{
                 
                     System.out.println("dato:"+valores[0].toString()+"\n");
-                    lista.add("\\multicolumn{1}{l}{"+valores[0]+"} & ");
+                    String val = cambioStringEncabezadoFila(valores[0]);
+                    lista.add("\\multicolumn{1}{l}{"+val+"} & ");
                     for(int j=1;j<10;j++){
 
                         if(j==9)
@@ -282,6 +332,28 @@ public class Tabla {
          
         
   }
+     private String cambioStringEncabezadoFila(String val){
+         switch(val.toLowerCase()){
+             case "ca":
+                 return "Centroamérica";
+             case "na":
+                 return "Norteamérica";
+             case "sa":
+                 return "Sudamérica";
+             case "eu":
+                 return "Europa";
+             case "aa":
+                 return "Asia, África y Oceanía";
+             case "contenedor":
+                 return "Contenedorizado";
+             case "granelliq":
+                 return "Granel Líquido";
+             case "granelsol":
+                 return "Granel Sólido";
+             default:
+                 return val;
+         }         
+     }
      
      public void generarCSV2(String csv) {
          

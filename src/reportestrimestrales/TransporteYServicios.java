@@ -499,7 +499,223 @@ public class TransporteYServicios extends Documento{
         seccion4.add(true);
         cap4.add(seccion4);
         return cap4;        
-    }        
+    }       
+    
+    
+    protected void apendices(String rutaTEX){
+        escribirLinea("\n \\appendixa \n" +
+        "\n" +
+        "\n" +
+        "\n" );
+        apendice1();
+        apendice2();
+        apendice3();
+        apendice4();
+        apendice5();
+        apendice6();
+        apendice7();
+        apendice8();
+        apendice9();
+        apendice10();
+        apendice11();
+        apendice12();
+        Tabla ap = new Tabla(rutaTEX,trimestres(),rr);
+        ap.setRuta("/var/www/html/Transportes/Entradas/CSV");
+        ap.generarTransportes();
+        
+    }
+    private void apendice1(){
+        String columna1 = tablaApendice("A_01",
+                "Volumen de carga exportada en el aeropuerto internacional La Aurora por trimestre, según tipo de mercadería, en miles de kilogramos",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_02",
+                "Correspondencia enviada vía aérea por área geográfica",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice2(){
+        String columna1 = tablaApendice("A_03",
+                "Análisis de variación del envío de correspondencia por vía aérea",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_04",
+                "Peso de la correspondencia enviada por vía aérea, según área geográfica, en kilogramos",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    private void apendice3(){
+        String columna1 = tablaApendice("A_05",
+                "Encomiendas enviada vía aérea por área geográfica",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_06",
+                "Análisis de variación del envío de encomiendas por vía aérea",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+
+    private void apendice4(){
+        String columna1 = tablaApendice("A_07",
+                "Peso de las encomiendas enviadas por vía aérea, según área geográfica, en kilogramos",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_08",
+                "Análisis de variación de la carga exportada por el aeropuerto internacional La Aurora",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice5(){
+        String columna1 = tablaApendice("A_09",
+                "Análisis de variación de la carga importada por el aeropuerto internacional La Aurora",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_10",
+                "Análisis de variación del número de vuelos en el aeropuerto internacional La Aurora",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice6(){
+        String columna1 = tablaApendice("A_11",
+                "Análisis de variación del número de pasajeros que ingresan por el aeropuerto internacional La Aurora",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_12",
+                "Análisis de variación del número de pasajeros que ingresan por el aeropuerto internacional Mundo Maya",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice7(){
+        String columna1 = tablaApendice("A_13",
+                "Análisis de variación del número de buques que arribaron a Guatemala",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_14",
+                "Análisis de variación de la carga total exportada, vía marítima, en miles de toneladas métricas",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice8(){
+        String columna1 = tablaApendice("A_15",
+                "Análisis de variación de la carga total importada, vía marítima, en miles de toneladas métricas",
+                "2",
+                "plantillaTabla2.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_16",
+                "Exportaciones por el puerto de Santo Tomás de Castilla, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice9(){
+        String columna1 = tablaApendice("A_17",
+                "Importaciones por el puerto de Santo Tomás de Castilla, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_18",
+                "Exportaciones por Puerto Barrios, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice10(){
+        String columna1 = tablaApendice("A_19",
+                "Importaciones por Puerto Barrios, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_20",
+                "Exportaciones por el puerto de San José, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice11(){
+        String columna1 = tablaApendice("A_21",
+                "Importaciones por el puerto de San José, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = tablaApendice("A_22",
+                "Exportaciones por el puerto Quetzal, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    private void apendice12(){
+        String columna1 = tablaApendice("A_23",
+                "Importaciones por el puerto Quetzal, según tipo de carga, en miles de toneladas métricas",
+                "1",
+                "plantillaTabla1.pdf",
+                "INE",
+                "");
+        
+        String columna2 = "";
+        escribirLinea(hojaTrimestral(columna1, columna2));
+    }
+    
+    
     
     protected void generarGraficas(String modalidad){
         System.out.println("GENERANDO LAS GRAFICAS");
