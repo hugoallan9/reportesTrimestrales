@@ -63,7 +63,7 @@ public class TransporteYServicios extends Documento{
         capitulos.add("Tráfico aéreo");
         capitulos.add("Tráfico postal");
         capitulos.add("Movimiento marítimo");
-        //capitulos.add("Parque vehicular");
+        capitulos.add("Parque vehicular");
         
     }
     
@@ -77,15 +77,15 @@ public class TransporteYServicios extends Documento{
                 + "utilizado para el comercio internacional y el que soporta "
                 + "mayor movimiento de mercancías, tanto en contenedores como "
                 + "graneles secos o líquidos.");
-        /*introCapitulos.add("Es la cantidad de vehículos registrados en la "
+        introCapitulos.add("Es la cantidad de vehículos registrados en la "
                 + "ciudad de Guatemala a través de la Superintendencia de "
-                + "Administración Tributaria.");*/
+                + "Administración Tributaria.");
     }
     protected void setContenidos(){
          contenidos.add(cargarCapitulo1());
          contenidos.add(cargarCapitulo2());
          contenidos.add(cargarCapitulo3());
-         //contenidos.add(cargarCapitulo4());
+         contenidos.add(cargarCapitulo4());
          System.out.println("cargados los contenidos");
     }
     
@@ -437,15 +437,15 @@ public class TransporteYServicios extends Documento{
         ArrayList seccion1 = new ArrayList();
         seccion1.add("4_01");
         seccion1.add("Parque vehicular");
-        seccion1.add("Parque vehicular");
-        seccion1.add(formatoSerie);
+        seccion1.add("Parque vehicular registrado al último día del trimestre");
+        seccion1.add(formatoSerie + "en miles de unidades");
         seccion1.add("4_01.tex");
         seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
         seccion1.add("4_02");
-        seccion1.add("Movimiento parque vehicular por modelo");
-        seccion1.add("Movimiento del parque vehicular entre trimestres, según modelo");
-        seccion1.add(getFormatoTrimestre());
+        seccion1.add("Movimiento de parque vehicular por modelo");
+        seccion1.add("Movimiento del parque vehicular al último día del trimestre, según modelo");
+        seccion1.add(formatoTrimestre + "en unidades");
         seccion1.add("4_02.tex");
         seccion1.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion1.add(true);
@@ -455,15 +455,17 @@ public class TransporteYServicios extends Documento{
         ArrayList seccion2 = new ArrayList();
         seccion2.add("4_03");
         seccion2.add("Parque vehicular por departamento");
-        seccion2.add("Distribución porcuentual del parque vehicular por departamento");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add("Distribución porcuentual del parque vehicular al último"
+                + " día del trimestre, según departamento");
+        seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("4_03.tex");
         seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion2.add(true);
         seccion2.add("4_04");
         seccion2.add("Parque vehicular por tipo");
-        seccion2.add("Proporción de motocicletas y de automóviles respecto al total del parque vehicular al último día del trimestre");
-        seccion2.add(getFormatoTrimestre());
+        seccion2.add("Proporción de motocicletas y de automóviles respecto al total"
+                + " del parque vehicular al último día del trimestre");
+        seccion2.add(formatoSerie + "en porcentaje");
         seccion2.add("4_04.tex");
         seccion2.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion2.add(true);
@@ -473,15 +475,16 @@ public class TransporteYServicios extends Documento{
         ArrayList seccion3 = new ArrayList();
         seccion3.add("4_05");
         seccion3.add("Parque vehicular por tipo de combustible");
-        seccion3.add("Proporción de vehículos que usan gasolina respecto al total del parque vehicular al último día del trimestre");
-        seccion3.add(getFormatoTrimestre());
+        seccion3.add("Proporción de vehículos que usan gasolina respecto al total"
+                + " del parque vehicular al último día del trimestre");
+        seccion3.add(formatoSerie + "en porcentaje");
         seccion3.add("4_05.tex");
         seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion3.add(true);
         seccion3.add("4_06");
         seccion3.add("Importación de vehículos nuevos");
         seccion3.add("Importación de vehículos nuevos");
-        seccion3.add(formatoSerie);
+        seccion3.add(formatoSerie + "en unidades");
         seccion3.add("4_06.tex");
         seccion3.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion3.add(true);
@@ -493,7 +496,7 @@ public class TransporteYServicios extends Documento{
         seccion4.add("4_07");
         seccion4.add("Importacion de vehículos usados");
         seccion4.add("Importación de vehículos usados");
-        seccion4.add(formatoSerie);
+        seccion4.add(formatoSerie + "en unidades");
         seccion4.add("4_07.tex");
         seccion4.add("INE, con datos proporcionados por la Superintendencia de Administración Tributaria");
         seccion4.add(true);
