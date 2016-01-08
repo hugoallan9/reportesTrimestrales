@@ -304,12 +304,12 @@ public class Tabla {
                     String val = valores[0];
                     System.out.println("La longitud de valores es " + valores.length );
                     lista.add("\\multicolumn{1}{l}{"+val+"} & ");
-                    for(int j=1;j< valores.length - 1 ;j++){
+                    for(int j=1;j< valores.length;j++){
                         System.out.println("Estoy entrando al for con j igual " + j );
-                        if(valores.length -1 ==9)
-                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} \\\\[0.15cm]");
+                        if(j ==(valores.length -1))
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Double.parseDouble(valores[j]))+"} \\\\[0.15cm]");
                         else
-                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} &");
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Double.parseDouble(valores[j]))+"} &");
 
                     }
                     
@@ -393,9 +393,9 @@ public class Tabla {
                     String val = valores[0];
                     System.out.println("La longitud de valores es " + valores.length );
                     lista.add("\\multicolumn{1}{l}{"+val+"} & ");
-                    for(int j=1;j< valores.length - 1 ;j++){
+                    for(int j=1;j< valores.length  ;j++){
                         System.out.println("Estoy entrando al for con j igual " + j );
-                        if(valores.length -1 ==9)
+                        if((valores.length -1) ==j)
                             lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} \\\\[0.15cm]");
                         else
                             lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} &");
