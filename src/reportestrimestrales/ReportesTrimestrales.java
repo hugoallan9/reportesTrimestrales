@@ -111,7 +111,7 @@ public class ReportesTrimestrales {
             docu.capitulo2();
             docu.capitulosRegionales();
             docu.generarGraficas("anual");
-            docu.terminarDocumento();
+            docu.terminarDocumentoApendice();
             } catch (SQLException ex) {
                 Logger.getLogger(ReportesTrimestrales.class.getName()).log(Level.SEVERE, null, ex);
             }
