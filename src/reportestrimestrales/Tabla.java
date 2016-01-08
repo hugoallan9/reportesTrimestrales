@@ -84,7 +84,7 @@ public class Tabla {
     
     public void generarTransportes(){
         this.encabezadoCSV1 = "\\parbox{1.6cm}{Tipo de producto}";
-        generarCSV1("A_01");
+        generarCSV1("A_01",7);
         generarCSV1("A_02");
         generarCSV1("A_04");
         generarCSV1("A_05");
@@ -290,6 +290,95 @@ public class Tabla {
                 }
             }
             lista.add("& & & & & & & & &\\\\[0.25cm]");
+            lista.add("\\hline \\\\[-0.2cm]");
+            
+        while ((line = br.readLine()) != null) {
+            String[] valores = line.split(";");
+            
+            if(encabezado){
+                System.out.println("salta la linea"+valores[0].toString()+"\n");
+                        encabezado = false;
+            }else{
+                
+                    System.out.println("dato:"+valores[0].toString()+"\n");
+                    String val = valores[0];
+                    System.out.println("La longitud de valores es " + valores.length );
+                    lista.add("\\multicolumn{1}{l}{"+val+"} & ");
+                    for(int j=1;j< valores.length - 1 ;j++){
+                        System.out.println("Estoy entrando al for con j igual " + j );
+                        if(valores.length -1 ==9)
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} \\\\[0.15cm]");
+                        else
+                            lista.add("\\multicolumn{1}{g{0.9cm}}{"+dm.format(Long.parseLong(valores[j]))+"} &");
+
+                    }
+                    
+                }
+            }
+    } catch (FileNotFoundException e) {
+        e.printStackTrace();
+    } catch (IOException e) {
+        e.printStackTrace();
+    } finally {
+        if (br != null) {
+            try {
+                br.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+        escribirTEX(new File(rutaTex, new File(csv, "info").getPath()).getAbsolutePath(), listToString(lista),false);
+        escribirTEX(new File(rutaTex, new File(csv, "plantillaTabla1").getPath()).getAbsolutePath(), listToString(listaPlantilla),true);
+      
+         
+        
+  }
+      private void generarCSV1(String csv,int column) {         
+        File f = new File(ruta, csv + ".csv");
+    BufferedReader br = null;
+    String line = "";
+        boolean encabezado = false;
+        List<String> listaPlantilla= new ArrayList();
+        List<String> lista = new ArrayList();
+        String tabularFormat ="\\begin{tabular}{l" ;
+        String newLineWithAmp="";
+        for(int ix = 0;ix<column;ix++){
+            tabularFormat += "S[table-format=2.1]";
+            newLineWithAmp+="&";
+        }
+        tabularFormat +="}";
+        listaPlantilla.add("\\input{../../../pre2}");
+        listaPlantilla.add("\\begin{document}");
+        listaPlantilla.add("	\\addtocounter{section}{1}");
+        listaPlantilla.add("\\begin{center}");
+        
+        
+        listaPlantilla.add(tabularFormat);
+        listaPlantilla.add("\\hline");
+        listaPlantilla.add("\\\\[-0.2cm]");
+        listaPlantilla.add("\\rowcolor{white!25!white} &&&\\\\[-0.36cm] \\rowcolor{white!25!white}");
+        listaPlantilla.add("\\input{info.tex}");
+        listaPlantilla.add("\\hline");
+        listaPlantilla.add(newLineWithAmp + "\\\\[-0.36cm]");
+        listaPlantilla.add("\\end{tabular}\\addtocounter{Cuadro}{1}");
+        listaPlantilla.add("\\end{center}");
+        listaPlantilla.add("\\end{document}");
+        
+        
+        
+        try {
+            br = new BufferedReader(new FileReader(f.getAbsolutePath()));
+            lista.add("\\multirow{2}{*}{\\Bold{"+encabezadoCSV1+"}} &");//aqui va el texto en latex del archivo info.tex
+            
+            for(int i = 0;i<column;i++){
+                if(i==(column-1)){
+                    lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{\\Bold{"+trimestres.get(i).toString()+"}}} \\\\");
+                }else{
+                lista.add("\\multirow{2}{*}{\\rotatebox[origin = c]{90}{\\Bold{"+trimestres.get(i).toString()+"}}} &");
+                }
+            }
+            lista.add(newLineWithAmp + "\\\\[0.25cm]");
             lista.add("\\hline \\\\[-0.2cm]");
             
         while ((line = br.readLine()) != null) {
