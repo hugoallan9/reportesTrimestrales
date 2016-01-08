@@ -44,8 +44,7 @@ public class Grafica extends Thread {
             //r.eval("sink(file = '/var/www/html/IPC/sync.txt')" );
             System.out.println(r.eval("getListIpc()"));
             System.out.println("Iniciando Gráficas");
-            /*
-            r.eval("capitulo1()");
+            /*r.eval("capitulo1()");
             r.eval("capitulo2()");
             r.eval("capitulo3()");
             r.eval("capitulo4()");
