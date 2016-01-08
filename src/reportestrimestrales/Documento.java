@@ -485,6 +485,13 @@ public class Documento {
                 "	\n" +
                 "	\n" +
                 "	{\\Bold \\large \\color{color1!89!black} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
+                "	Luis Eduardo Arroyo \\\\ \n" +
+                "	Henry Efraín Coc \\\\ \n" +
+                "	Werner Santos Salguero \\\\ \n" +
+                "	Eslie Pérez \\\\ \n" +
+                "	Donald Schaad \\\\ \n" +
+                "	Jorge Noguera \\\\ \n" +
+                "	Manuel Boch \\\\ \n" +
                 "	Eiji Arturo De Paz Pérez \\\\ \n" +
                 "       Edwin Rafael Tut Roquel \\\\[0.8cm]" +
                 "	\n" +
