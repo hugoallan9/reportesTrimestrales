@@ -466,7 +466,7 @@ public class Hospitalarias extends Documento{
                 + "de los distintos hospitales, sanatorios, casas de salud, hospitales privados "
                 + "de día de la República de Guatemal en el " + getAnioPublicacion() + ". \\\\ \\\\"
                 + "{\\Bold Las cifras del  "  +  corregirTrimestre(getTrimestre()).toLowerCase() +  " trimestre del "  + getAnioPublicacion()
-                + "son preliminares} y serán ajustadas con el ingreso de los registros tardíos.\\\\ \\\\"+
+                + " son preliminares} y serán ajustadas con el ingreso de los registros tardíos.\\\\ \\\\"+
                 
                 "Por lo tanto, el INE se complace en presentar este informe, con "
                 + "el propósito de brindar una herramienta más de análisis a la "

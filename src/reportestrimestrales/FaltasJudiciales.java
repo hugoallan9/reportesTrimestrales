@@ -197,10 +197,10 @@ public class FaltasJudiciales extends Documento{
         
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
-        seccion4.add("Faltas judiciales por analfabetismo");
+        seccion4.add("Faltas judiciales por alfabetismo");
         seccion4.add("Distribución porcentual de las personas que "
                 + "cometieron faltas judiciales, según condición de "
-                + "analfabetismo");
+                + "alfabetismo");
         seccion4.add(formatoTrimestre + "en porcentaje");
         seccion4.add("1_07.tex");
         seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
