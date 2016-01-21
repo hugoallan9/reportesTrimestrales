@@ -5,9 +5,14 @@
  */
 package reportestrimestrales;
 import au.com.bytecode.opencsv.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -29,7 +34,9 @@ public class Canasta extends Documento{
     List<String[]>mes10;
     List<String[]>mes11;
     List<String[]>mes12;
+    List<String[]>mes13;
     List<String>meses;
+    List<String>mesesCortos;
     
     public Canasta(String titulo, String mes, String pYear){
         super(titulo, mes, pYear);
@@ -45,10 +52,63 @@ public class Canasta extends Documento{
         mes10 = new ArrayList<String[]>();
         mes11 = new ArrayList<String[]>();
         mes12 = new ArrayList<String[]>();
+        mes13 = new ArrayList<String[]>();
         meses = new ArrayList<String>();
+        mesesCortos = new ArrayList<String>();
         leerDatos(mes, pYear);
     }
+    
+    
+    private void generarCSVEntradaSimple(int indicador){
+        
+        String nombreArchivo = ""+indicador;
+        if (indicador<10) nombreArchivo="0"+nombreArchivo;
+        File f = new File("/var/www/html/Canasta/Entradas/CSV","2_"+nombreArchivo + ".csv");
+        
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter(f.getAbsolutePath());
+            pw = new PrintWriter(fichero);
+ 
+            
+                pw.println(mesesCortos.get(12)+";" +((String[])mes1.get(0))[indicador]);
+                pw.println(mesesCortos.get(11)+";" +((String[])mes2.get(0))[indicador]);
+                pw.println(mesesCortos.get(10)+";" +((String[])mes3.get(0))[indicador]);
+                pw.println(mesesCortos.get(9)+";" +((String[])mes4.get(0))[indicador]);
+                pw.println(mesesCortos.get(8)+";" +((String[])mes5.get(0))[indicador]);
+                pw.println(mesesCortos.get(7)+";" +((String[])mes6.get(0))[indicador]);
+                pw.println(mesesCortos.get(6)+";" +((String[])mes7.get(0))[indicador]);
+                pw.println(mesesCortos.get(5)+";" +((String[])mes8.get(0))[indicador]);
+                pw.println(mesesCortos.get(4)+";" +((String[])mes9.get(0))[indicador]);
+                pw.println(mesesCortos.get(3)+";" +((String[])mes10.get(0))[indicador]);
+                pw.println(mesesCortos.get(2)+";" +((String[])mes11.get(0))[indicador]);
+                pw.println(mesesCortos.get(1)+";" +((String[])mes12.get(0))[indicador]);
+                pw.println(mesesCortos.get(0)+";" +((String[])mes13.get(0))[indicador]);
+ 
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+           try {
+           // Nuevamente aprovechamos el finally para 
+           // asegurarnos que se cierra el fichero.
+           if (null != fichero)
+              fichero.close();
+           } catch (Exception e2) {
+              e2.printStackTrace();
+           }
+        }
+        
+    }
+    
+    private void generarCSVEntradas(){
+        for (int i = 1; i<=36; i++){
+            generarCSVEntradaSimple(i);
+        }
 
+    }
+    
     private void leerDatos(String mes, String year) {
         int mesNumerico;
         mesNumerico = convertirMesANumero(mes);
@@ -111,6 +171,11 @@ public class Canasta extends Documento{
                         contador++;
                         break;
                             
+                        case 12:
+                        mes13 = lectorCSV.readAll();
+                        contador++;
+                        break;
+                            
                 }
                 for(String[] data :  mes1){
                     for(String dato: data){
@@ -125,15 +190,7 @@ public class Canasta extends Documento{
             Logger.getLogger(Canasta.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        mesNumerico = mesNumerico -1;
-        
-        
-
-        
-        
-        
-        
-        
+        mesNumerico = mesNumerico -1;        
         
     }
 
@@ -169,6 +226,38 @@ public class Canasta extends Documento{
         return retorno;
     }
 
+    private String convertirNumeroAMesCorto(int mesNumerico) {
+        String retorno = "Mes incorrecto";
+        
+        if( mod(mesNumerico,12) ==0 ){
+            retorno = "Ene";
+        }else if( mod(mesNumerico,12) == 1 ){
+            retorno = "Feb";
+        }else if( mod(mesNumerico,12) == 2 ){
+            retorno = "Mar";
+        }else if( mod(mesNumerico,12) == 3 ){
+            retorno = "Abr";
+        }else if( mod(mesNumerico,12) == 4 ){
+            retorno = "May";
+        }else if( mod(mesNumerico,12) == 5 ){
+            retorno = "Jun";
+        }else if( mod(mesNumerico,12) == 6 ){
+            retorno = "Jul";
+        }else if( mod(mesNumerico,12) == 7 ){
+            retorno = "Ago";
+        }else if( mod(mesNumerico,12) == 8 ){
+            retorno = "Sep";
+        }else if( mod(mesNumerico,12) == 9 ){
+            retorno = "Oct";
+        }else if( mod(mesNumerico,12) == 10 ){
+            retorno = "Nov";
+        }else if( mod(mesNumerico,12) == 11 ){
+            retorno = "Dic";
+        }
+        
+        return retorno;
+    }
+    
     private String convertirNumeroAMes(int mesNumerico) {
         String retorno = "Mes incorrecto";
         
@@ -202,7 +291,20 @@ public class Canasta extends Documento{
     }
 
 
-
+    public List<String> calcularMesesCortos(int mesNumerico,String year){
+         List<String> retorno = new ArrayList<String>();
+        int mesInicial  =  mesNumerico;
+        do{
+             if( mesNumerico == -1 ){
+                year = String.valueOf( Integer.parseInt(year) - 1 );
+            }
+            retorno.add(convertirNumeroAMesCorto(mesNumerico) + "-" + year);
+            mesNumerico--;
+            System.out.println("Mes inicial  = " + mesInicial + " Mes numérico  = " + mesNumerico);
+        }while( mod(mesNumerico, 12) != mesInicial );
+        retorno.add(convertirNumeroAMesCorto(mesInicial) + "-" + year);
+        return retorno;
+    }
     public List<String> calcularMeses(int mesNumerico, String year) {
            List<String> retorno = new ArrayList<String>();
         int mesInicial  =  mesNumerico;
@@ -217,6 +319,8 @@ public class Canasta extends Documento{
         retorno.add(convertirNumeroAMes(mesInicial) + "-" + year);
         return retorno;
     }
+    
+    
 
 
     private static int mod(int x, int y)
