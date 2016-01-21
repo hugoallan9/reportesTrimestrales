@@ -55,15 +55,16 @@ public class Canasta extends Documento{
         mes13 = new ArrayList<String[]>();
         meses = new ArrayList<String>();
         mesesCortos = new ArrayList<String>();
+        mesesCortos = calcularMesesCortos(convertirMesANumero(mes), pYear);
         leerDatos(mes, pYear);
     }
     
     
-    private void generarCSVEntradaSimple(int indicador){
+    public void generarCSVEntradaSimple(int indicador){
         
         String nombreArchivo = ""+indicador;
         if (indicador<10) nombreArchivo="0"+nombreArchivo;
-        File f = new File("/var/www/html/Canasta/Entradas/CSV","2_"+nombreArchivo + ".csv");
+        File f = new File("/home/hugo/CB/","2_"+nombreArchivo + ".csv");
         
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -72,20 +73,21 @@ public class Canasta extends Documento{
             fichero = new FileWriter(f.getAbsolutePath());
             pw = new PrintWriter(fichero);
  
-            
-                pw.println(mesesCortos.get(12)+";" +((String[])mes1.get(0))[indicador]);
-                pw.println(mesesCortos.get(11)+";" +((String[])mes2.get(0))[indicador]);
-                pw.println(mesesCortos.get(10)+";" +((String[])mes3.get(0))[indicador]);
-                pw.println(mesesCortos.get(9)+";" +((String[])mes4.get(0))[indicador]);
-                pw.println(mesesCortos.get(8)+";" +((String[])mes5.get(0))[indicador]);
-                pw.println(mesesCortos.get(7)+";" +((String[])mes6.get(0))[indicador]);
-                pw.println(mesesCortos.get(6)+";" +((String[])mes7.get(0))[indicador]);
-                pw.println(mesesCortos.get(5)+";" +((String[])mes8.get(0))[indicador]);
-                pw.println(mesesCortos.get(4)+";" +((String[])mes9.get(0))[indicador]);
-                pw.println(mesesCortos.get(3)+";" +((String[])mes10.get(0))[indicador]);
-                pw.println(mesesCortos.get(2)+";" +((String[])mes11.get(0))[indicador]);
-                pw.println(mesesCortos.get(1)+";" +((String[])mes12.get(0))[indicador]);
-                pw.println(mesesCortos.get(0)+";" +((String[])mes13.get(0))[indicador]);
+            System.out.println(mesesCortos);
+            System.out.println(((String[])mes1.get(1))[0]);
+                pw.println(mesesCortos.get(12)+";" +((String[])mes1.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(11)+";" +((String[])mes2.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(10)+";" +((String[])mes3.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(9)+";" +((String[])mes4.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(8)+";" +((String[])mes5.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(7)+";" +((String[])mes6.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(6)+";" +((String[])mes7.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(5)+";" +((String[])mes8.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(4)+";" +((String[])mes9.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(3)+";" +((String[])mes10.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(2)+";" +((String[])mes11.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(1)+";" +((String[])mes12.get(indicador-1))[0]);
+                pw.println(mesesCortos.get(0)+";" +((String[])mes13.get(indicador-1))[0]);
  
         } catch (Exception e) {
             e.printStackTrace();
@@ -102,7 +104,7 @@ public class Canasta extends Documento{
         
     }
     
-    private void generarCSVEntradas(){
+    public void generarCSVEntradas(){
         for (int i = 1; i<=36; i++){
             generarCSVEntradaSimple(i);
         }
@@ -145,9 +147,19 @@ public class Canasta extends Documento{
                         mes5 = lectorCSV.readAll();
                         contador++;
                         break;
-
+                        
+                        case 5:
+                        mes6 = lectorCSV.readAll();
+                        contador++;
+                        break;
+                         
                         case 6:
                         mes7 = lectorCSV.readAll();
+                        contador++;
+                        break;
+                        
+                        case 7:
+                        mes8 = lectorCSV.readAll();
                         contador++;
                         break;
 
@@ -176,11 +188,6 @@ public class Canasta extends Documento{
                         contador++;
                         break;
                             
-                }
-                for(String[] data :  mes1){
-                    for(String dato: data){
-                        System.out.println(dato);
-                    }
                 }
                     
             }
@@ -302,9 +309,14 @@ public class Canasta extends Documento{
             mesNumerico--;
             System.out.println("Mes inicial  = " + mesInicial + " Mes numérico  = " + mesNumerico);
         }while( mod(mesNumerico, 12) != mesInicial );
+        if( mesNumerico == -1 ){
+                year = String.valueOf( Integer.parseInt(year) - 1 );
+            }
         retorno.add(convertirNumeroAMesCorto(mesInicial) + "-" + year);
         return retorno;
     }
+    
+    
     public List<String> calcularMeses(int mesNumerico, String year) {
            List<String> retorno = new ArrayList<String>();
         int mesInicial  =  mesNumerico;
@@ -316,6 +328,9 @@ public class Canasta extends Documento{
             mesNumerico--;
             System.out.println("Mes inicial  = " + mesInicial + " Mes numérico  = " + mesNumerico);
         }while( mod(mesNumerico, 12) != mesInicial );
+        if( mesNumerico == -1 ){
+                year = String.valueOf( Integer.parseInt(year) - 1 );
+            }
         retorno.add(convertirNumeroAMes(mesInicial) + "-" + year);
         return retorno;
     }
