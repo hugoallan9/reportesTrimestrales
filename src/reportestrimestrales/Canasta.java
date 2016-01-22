@@ -13,32 +13,46 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.Collator;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.rosuda.JRI.REXP;
 /**
  *
  * @author hugo
  */
 public class Canasta extends Documento{
-    List<String[]>mes1;
-    List<String[]>mes2;
-    List<String[]>mes3;
-    List<String[]>mes4;
-    List<String[]>mes5;
-    List<String[]>mes6;
-    List<String[]>mes7;
-    List<String[]>mes8;
-    List<String[]>mes9;
-    List<String[]>mes10;
-    List<String[]>mes11;
-    List<String[]>mes12;
-    List<String[]>mes13;
-    List<String>meses;
-    List<String>mesesCortos;
+    private List<String[]>mes1;
+    private List<String[]>mes2;
+    private List<String[]>mes3;
+    private List<String[]>mes4;
+    private List<String[]>mes5;
+    private List<String[]>mes6;
+    private List<String[]>mes7;
+    private List<String[]>mes8;
+    private List<String[]>mes9;
+    private List<String[]>mes10;
+    private List<String[]>mes11;
+    private List<String[]>mes12;
+    private List<String[]>mes13;
+    private List<String>meses;
+    private List<String>mesesCortos;
+    private List capitulos;
+    private List introCapitulos;
+    private List contenidos;
+    private String formatoSerie;
+    private String formatoTrimestre;
+    Collator comparador = Collator.getInstance();
+    private SesionR rr;
+    private String rutaCSV;    
+    public SesionR getRr() {
+        return rr;
+    }
     
-    public Canasta(String titulo, String mes, String pYear){
+    
+    public Canasta(String titulo, String mes, String pYear, String rutaCSV){
         super(titulo, mes, pYear);
         mes1 = new ArrayList<String[]>();
         mes2 = new ArrayList<String[]>();
@@ -57,14 +71,411 @@ public class Canasta extends Documento{
         mesesCortos = new ArrayList<String>();
         mesesCortos = calcularMesesCortos(convertirMesANumero(mes), pYear);
         leerDatos(mes, pYear);
+         capitulos = new ArrayList();
+        introCapitulos = new ArrayList();
+        contenidos = new ArrayList();
+        this.rutaCSV = rutaCSV;
+        rr = new SesionR();
+        comparador.setStrength(Collator.PRIMARY);
+        formatoSerie = "República de Guatemala, serie histórica trimestral, ";
+        formatoTrimestre ="República de Guatemala, "+corregirTrimestre(getTrimestre()).toLowerCase() + " trimestre "
+                + getAnioPublicacion() +", ";
+        
+        cargarCSV(rutaCSV);
+        setCapitulos();
+        setIntroCapitulos();
+        setContenidos();
+        
     }
     
     
+        protected void setCapitulos(){
+        capitulos.add("Canasta básica");
+        capitulos.add("Productos de la canasta básica alimentaria");
+    }
+    
+        
+    protected void cargarCSV(String ruta){
+        if (!rr.get().waitForR())
+            {
+                System.err.println("No se pudo establecer  conexión con R ");
+            }else {
+                rr.get().eval("library(funcionesINE)");
+                REXP listadoCSV = rr.get().eval("delictivos <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
+                REXP nombres = rr.get().eval("names(delictivos)");
+                System.out.println(listadoCSV);
+                System.out.println(nombres);
+            }
+    }
+    
+    
+    protected void setIntroCapitulos(){
+        introCapitulos.add("Acá descripción de la canasta básica alimentaria y vital");
+        introCapitulos.add("Descripción de productos que conforman la canasta básica alimentaria");
+        
+    }
+    
+    protected void setContenidos(){
+         contenidos.add(cargarCapitulo1());
+         contenidos.add(cargarCapitulo2());
+         System.out.println("cargados los contenidos");
+    }
+
+     protected ArrayList cargarCapitulo1(){
+        ArrayList cap1 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("1_01");
+        seccion1.add("Canasta básica alimentaria");
+        seccion1.add("Costo de la canasta básica alimentaria");
+        seccion1.add(formatoSerie + ", en quetzales");
+        seccion1.add("1_01.tex");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
+        seccion1.add(true);
+        seccion1.add("1_02");
+        seccion1.add("Canasta básica vital");
+        seccion1.add("Costo de la canasta básica vital");
+        seccion1.add(formatoTrimestre + ", en quetzales");
+        seccion1.add("1_02.tex");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
+        seccion1.add(true);
+        cap1.add(seccion1);
+        return cap1;        
+        
+    }
+    protected ArrayList cargarCapitulo2(){
+        ArrayList cap2 = new ArrayList();
+        ArrayList seccion1 = new ArrayList();
+        seccion1.add("2_01");
+        seccion1.add("Arroz");
+        seccion1.add("Costo medio del arroz corriente de segunda");
+        seccion1.add(formatoSerie + ", en quetzales por 460 gramos");
+        seccion1.add("2_01.tex");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
+        seccion1.add(true);
+        seccion1.add("2_02");
+        seccion1.add("Hojuelas de maíz");
+        seccion1.add("Costo medio de las hojuelas de maíz");
+        seccion1.add(formatoTrimestre + ", en qetzales por gramo");
+        seccion1.add("2_02.tex");
+        seccion1.add("INE, con datos de la Policía Nacional Civil");
+        seccion1.add(true);
+        cap2.add(seccion1);
+        
+        
+        ArrayList seccion2 = new ArrayList();
+        seccion2.add("2_03");
+        seccion2.add("Incaparina");
+        seccion2.add("Costo medio de la incaparina");
+        seccion2.add(formatoTrimestre + "en porcentaje");
+        seccion2.add("2_03.tex");
+        seccion2.add("INE, con datos de la Policía Nacional Civil");
+        seccion2.add(true);
+        seccion2.add("2_04");
+        seccion2.add("Avena mosh");
+        seccion2.add("Costo medio de la avena mosh");
+        seccion2.add(formatoTrimestre + "en porcentaje");
+        seccion2.add("2_04.tex");
+        seccion2.add("INE, con datos de la Policía Nacional Civil");
+        seccion2.add(true);
+        cap2.add(seccion2);
+        
+        
+        ArrayList seccion3 = new ArrayList();
+        seccion3.add("2_05");
+        seccion3.add("Pan francés");
+        seccion3.add("Costo medio pan tipo francés");
+        seccion3.add(formatoTrimestre + "en unidades");
+        seccion3.add("2_05.tex");
+        seccion3.add("INE, con datos de la Policía Nacional Civil");
+        seccion3.add(true);
+        seccion3.add("2_06");
+        seccion3.add("Pan dulce");
+        seccion3.add("Costo medio pan dulce de manteca");
+        seccion3.add(formatoTrimestre + "en unidades");
+        seccion3.add("2_06.tex");
+        seccion3.add("INE, con datos de la Policía Nacional Civil");
+        seccion3.add(true);
+        cap2.add(seccion3);
+        
+        
+        
+        ArrayList seccion4 = new ArrayList();
+        seccion4.add("2_07");
+        seccion4.add("Fideos");
+        seccion4.add("Costo medio de los fideos ");
+        seccion4.add(formatoTrimestre + "en unidades");
+        seccion4.add("2_07.tex");
+        seccion4.add("INE, con datos de la Policía Nacional Civil");
+        seccion4.add(true);
+        seccion4.add("2_08");
+        seccion4.add("Tortillas calientes");
+        seccion4.add("Costo medio de las tortillas calientes");
+        seccion4.add(formatoTrimestre + "en porcentaje");
+        seccion4.add("2_08.tex");       
+        seccion4.add("INE, con datos de la Policía Nacional Civil");
+        seccion4.add(true);
+        cap2.add(seccion4);
+        
+        ArrayList seccion5 = new ArrayList();
+        seccion5.add("2_09");
+        seccion5.add("Posta");
+        seccion5.add("Costo medio de carne de res sin hueso o posta ");
+        seccion5.add(formatoTrimestre + "en porcentaje");
+        seccion5.add("2_09.tex");
+        seccion5.add("INE, con datos de la Policía Nacional Civil");
+        seccion5.add(true);
+        seccion5.add("2_10");
+        seccion5.add("Carne de res con hueso");
+        seccion5.add("Costo medio de carne de res con hueso para cocido");
+        seccion5.add(formatoTrimestre + "en unidades");
+        seccion5.add("2_10.tex");       
+        seccion5.add("INE, con datos de la Policía Nacional Civil");
+        seccion5.add(true);
+        cap2.add(seccion5);
+              
+                
+        ArrayList seccion6 = new ArrayList();
+        seccion6.add("2_11");
+        seccion6.add("Pollo de Granja");
+        seccion6.add("Costo medio de pollo fresco entero de granja sin menudos  ");
+        seccion6.add(formatoTrimestre + "en porcentaje");
+        seccion6.add("2_11.tex");
+        seccion6.add("INE, con datos de la Policía Nacional Civil");
+        seccion6.add(true);
+        seccion6.add("2_12");
+        seccion6.add("Salchicha");
+        seccion6.add("Costo medio de variedades de salchichas");
+        seccion6.add(formatoTrimestre + "en unidades");
+        seccion6.add("2_12.tex");       
+        seccion6.add("INE, con datos de la Policía Nacional Civil");
+        seccion6.add(true);
+        cap2.add(seccion6);
+        
+              
+        ArrayList seccion7 = new ArrayList();
+        seccion7.add("2_13");
+        seccion7.add("Leche en polvo");
+        seccion7.add("Costo medio de la leche entera en polvo");
+        seccion7.add(formatoTrimestre + "en porcentaje");
+        seccion7.add("2_13.tex");
+        seccion7.add("INE, con datos de la Policía Nacional Civil");
+        seccion7.add(true);
+        seccion7.add("2_14");
+        seccion7.add("Leche fluida");
+        seccion7.add("Costo medio de leche entera fluida");
+        seccion7.add(formatoTrimestre + "en unidades");
+        seccion7.add("2_14.tex");       
+        seccion7.add("INE, con datos de la Policía Nacional Civil");
+        seccion7.add(true);
+        cap2.add(seccion7);
+        
+        
+        ArrayList seccion8 = new ArrayList();
+        seccion8.add("2_15");
+        seccion8.add("Queso fresco");
+        seccion8.add("Costo medio del queso fresco de vaca");
+        seccion8.add(formatoTrimestre + "en porcentaje");
+        seccion8.add("2_15.tex");
+        seccion8.add("INE, con datos de la Policía Nacional Civil");
+        seccion8.add(true);
+        seccion8.add("2_16");
+        seccion8.add("Crema de vaca");
+        seccion8.add("Costo medio de la crema fresca pasteurizada envasada");
+        seccion8.add(formatoTrimestre + "en unidades");
+        seccion8.add("2_16.tex");       
+        seccion8.add("INE, con datos de la Policía Nacional Civil");
+        seccion8.add(true);
+        cap2.add(seccion8);
+        
+              ArrayList seccion9 = new ArrayList();
+        seccion9.add("2_17");
+        seccion9.add("Huevos de gallina");
+        seccion9.add("Costo medio de los huevos de gallina");
+        seccion9.add(formatoTrimestre + "en porcentaje");
+        seccion9.add("2_17.tex");
+        seccion9.add("INE, con datos de la Policía Nacional Civil");
+        seccion9.add(true);
+        seccion9.add("2_18");
+        seccion9.add("Aceite vegetal");
+        seccion9.add("Costo medio del aceite corriente de origen vegetal envasado");
+        seccion9.add(formatoTrimestre + "en unidades");
+        seccion9.add("2_18.tex");       
+        seccion9.add("INE, con datos de la Policía Nacional Civil");
+        seccion9.add(true);
+        cap2.add(seccion9);
+        
+        
+        
+              ArrayList seccion10 = new ArrayList();
+        seccion10.add("2_19");
+        seccion10.add("Aguacate");
+        seccion10.add("Costo medio del aguacate");
+        seccion10.add(formatoTrimestre + "en porcentaje");
+        seccion10.add("2_19.tex");
+        seccion10.add("INE, con datos de la Policía Nacional Civil");
+        seccion10.add(true);
+        seccion10.add("2_20");
+        seccion10.add("Banano");
+        seccion10.add("Costo medio del banano");
+        seccion10.add(formatoTrimestre + "en unidades");
+        seccion10.add("2_20.tex");       
+        seccion10.add("INE, con datos de la Policía Nacional Civil");
+        seccion10.add(true);
+        cap2.add(seccion10);
+        
+                      ArrayList seccion11 = new ArrayList();
+        seccion11.add("2_21");
+        seccion11.add("Manzana roja");
+        seccion11.add("Costo medio de la manzana");
+        seccion11.add(formatoTrimestre + "en porcentaje");
+        seccion11.add("2_21.tex");
+        seccion11.add("INE, con datos de la Policía Nacional Civil");
+        seccion11.add(true);
+        seccion11.add("2_22");
+        seccion11.add("Naranjas");
+        seccion11.add("Costo medio de la naranja");
+        seccion11.add(formatoTrimestre + "en unidades");
+        seccion11.add("2_22.tex");       
+        seccion11.add("INE, con datos de la Policía Nacional Civil");
+        seccion11.add(true);
+        cap2.add(seccion11);
+        
+        
+                      ArrayList seccion12 = new ArrayList();
+        seccion12.add("2_23");
+        seccion12.add("Plátano");
+        seccion12.add("Costo medio del plátano");
+        seccion12.add(formatoTrimestre + "en porcentaje");
+        seccion12.add("2_23.tex");
+        seccion12.add("INE, con datos de la Policía Nacional Civil");
+        seccion12.add(true);
+        seccion12.add("2_24");
+        seccion12.add("Sandia");
+        seccion12.add("Costo medio de la sandia");
+        seccion12.add(formatoTrimestre + "en unidades");
+        seccion12.add("2_24.tex");       
+        seccion12.add("INE, con datos de la Policía Nacional Civil");
+        seccion12.add(true);
+        cap2.add(seccion12);
+        
+        
+                            ArrayList seccion13 = new ArrayList();
+        seccion13.add("2_25");
+        seccion13.add("Tomate");
+        seccion13.add("Costo medio del tomate");
+        seccion13.add(formatoTrimestre + "en porcentaje");
+        seccion13.add("2_25.tex");
+        seccion13.add("INE, con datos de la Policía Nacional Civil");
+        seccion13.add(true);
+        seccion13.add("2_26");
+        seccion13.add("Güisquil");
+        seccion13.add("Costo medio del güisquil");
+        seccion13.add(formatoTrimestre + "en unidades");
+        seccion13.add("2_26.tex");       
+        seccion13.add("INE, con datos de la Policía Nacional Civil");
+        seccion13.add(true);
+        cap2.add(seccion13);
+        
+                
+                            ArrayList seccion14 = new ArrayList();
+        seccion14.add("2_27");
+        seccion14.add("Frijol negro");
+        seccion14.add("Costo medio del frijol negro en grano");
+        seccion14.add(formatoTrimestre + "en porcentaje");
+        seccion14.add("2_27.tex");
+        seccion14.add("INE, con datos de la Policía Nacional Civil");
+        seccion14.add(true);
+        seccion14.add("2_28");
+        seccion14.add("Cebolla");
+        seccion14.add("Costo medio de la cebolla blanca sin tallo");
+        seccion14.add(formatoTrimestre + "en unidades");
+        seccion14.add("2_28.tex");       
+        seccion14.add("INE, con datos de la Policía Nacional Civil");
+        seccion14.add(true);
+        cap2.add(seccion14);
+        
+        ArrayList seccion15 = new ArrayList();
+        seccion15.add("2_29");
+        seccion15.add("Papa");
+        seccion15.add("Costo medio de la papa");
+        seccion15.add(formatoTrimestre + "en porcentaje");
+        seccion15.add("2_29.tex");
+        seccion15.add("INE, con datos de la Policía Nacional Civil");
+        seccion15.add(true);
+        seccion15.add("2_30");
+        seccion15.add("Zanahoria");
+        seccion15.add("Costo medio de la zanahoria");
+        seccion15.add(formatoTrimestre + "en unidades");
+        seccion15.add("2_30.tex");       
+        seccion15.add("INE, con datos de la Policía Nacional Civil");
+        seccion15.add(true);
+        cap2.add(seccion15);
+        
+        
+        
+        ArrayList seccion16 = new ArrayList();
+        seccion16.add("2_31");
+        seccion16.add("Macuy");
+        seccion16.add("Costo medio del macuy");
+        seccion16.add(formatoTrimestre + "en porcentaje");
+        seccion16.add("2_31.tex");
+        seccion16.add("INE, con datos de la Policía Nacional Civil");
+        seccion16.add(true);
+        seccion16.add("2_32");
+        seccion16.add("Azúcar");
+        seccion16.add("Costo medio del azúcar blanca granulada");
+        seccion16.add(formatoTrimestre + "en unidades");
+        seccion16.add("2_32.tex");       
+        seccion16.add("INE, con datos de la Policía Nacional Civil");
+        seccion16.add(true);
+        cap2.add(seccion16);
+        
+        
+        
+        ArrayList seccion17 = new ArrayList();
+        seccion17.add("2_33");
+        seccion17.add("Sal");
+        seccion17.add("Costo medio de la sal entera");
+        seccion17.add(formatoTrimestre + "en porcentaje");
+        seccion17.add("2_33.tex");
+        seccion17.add("INE, con datos de la Policía Nacional Civil");
+        seccion17.add(true);
+        seccion17.add("2_34");
+        seccion17.add("Sopa en sobre");
+        seccion17.add("Costo medio de la sopa concentrada en sobre");
+        seccion17.add(formatoTrimestre + "en unidades");
+        seccion17.add("2_34.tex");       
+        seccion17.add("INE, con datos de la Policía Nacional Civil");
+        seccion17.add(true);
+        cap2.add(seccion17);
+        
+        
+        ArrayList seccion18 = new ArrayList();
+        seccion18.add("2_35");
+        seccion18.add("Café");
+        seccion18.add("Costo medio del café molido");
+        seccion18.add(formatoTrimestre + "en porcentaje");
+        seccion18.add("2_35.tex");
+        seccion18.add("INE, con datos de la Policía Nacional Civil");
+        seccion18.add(true);
+        seccion18.add("2_36");
+        seccion18.add("Aguas gaseosas");
+        seccion18.add("Costo medio aguas gaseosas");
+        seccion18.add(formatoTrimestre + "en unidades");
+        seccion18.add("2_36.tex");       
+        seccion18.add("INE, con datos de la Policía Nacional Civil");
+        seccion18.add(true);
+        cap2.add(seccion18);
+        
+        
+        return cap2;        
+    }
+ 
     public void generarCSVEntradaSimple(int indicador){
         
         String nombreArchivo = ""+indicador;
         if (indicador<10) nombreArchivo="0"+nombreArchivo;
-        File f = new File("/home/hugo/CB/","2_"+nombreArchivo + ".csv");
+        File f = new File("/home/hugo/CB/CSV/","2_"+nombreArchivo + ".csv");
         
         FileWriter fichero = null;
         PrintWriter pw = null;
@@ -75,6 +486,7 @@ public class Canasta extends Documento{
  
             System.out.println(mesesCortos);
             System.out.println(((String[])mes1.get(1))[0]);
+            pw.println("x;y");
                 pw.println(mesesCortos.get(12)+";" +((String[])mes1.get(indicador-1))[0]);
                 pw.println(mesesCortos.get(11)+";" +((String[])mes2.get(indicador-1))[0]);
                 pw.println(mesesCortos.get(10)+";" +((String[])mes3.get(indicador-1))[0]);

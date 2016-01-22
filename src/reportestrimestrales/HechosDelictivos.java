@@ -147,12 +147,13 @@ public class HechosDelictivos extends Documento{
         }
         
     }
+    
     protected void cargarCSV(String ruta){
         if (!rr.get().waitForR())
             {
                 System.err.println("No se pudo establecer  conexión con R ");
             }else {
-                rr.get().eval("library(funcionesINE, con datos de la Policía Nacional Civil)");
+                rr.get().eval("library(funcionesINE)");
                 REXP listadoCSV = rr.get().eval("delictivos <- cargaMasiva('" +  ruta +"', codificacion = 'utf8')");
                 REXP nombres = rr.get().eval("names(delictivos)");
                 System.out.println(listadoCSV);
