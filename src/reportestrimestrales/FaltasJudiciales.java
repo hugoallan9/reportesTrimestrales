@@ -195,6 +195,7 @@ public class FaltasJudiciales extends Documento{
         
         
         
+        
         ArrayList seccion4 = new ArrayList();
         seccion4.add("1_07");
         seccion4.add("Faltas judiciales por alfabetismo");
