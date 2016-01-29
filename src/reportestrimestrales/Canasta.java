@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.commons.io.FileUtils;
 import org.rosuda.JRI.REXP;
 /**
  *
@@ -758,6 +759,155 @@ public class Canasta extends Documento{
         result += y;
     }
     return result;
+    }
+
+    void hacerPortada() {
+        File source = new File("/home/ineservidor/FaltasJudiciales/Caratula");
+        File dest = new File(getRuta());
+        try {
+            FileUtils.copyDirectory(source, dest);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        
+        try {
+            File p1 = new File(getRuta(),"caratula.tex");
+            FileWriter escritora = new FileWriter(p1.getAbsolutePath(),false);
+            BufferedWriter buffer = new BufferedWriter(escritora);
+            buffer.write("\\documentclass[10pt,twoside]{book}\\usepackage[T1]{fontenc}\n" +
+            "\\usepackage{tikz}\n" +
+            "\n" +
+            "\\usepackage[active,tightpage,xetex]{preview}\n" +
+            "\n" +
+            "\\usepackage{fontspec,xunicode}\n" +
+            "\n" +
+            "\\PreviewEnvironment{pgfpicture}\n" +
+            "\n" +
+            "\\setlength\\PreviewBorder{0pt}\n" +
+            "\n" +
+            "\\usetikzlibrary{calc}\n" +
+            "\n" +
+            "\\usetikzlibrary{positioning}\n" +
+            "\n" +
+            "\\usepackage{fontspec,xunicode}\n" +
+            "\n" +
+            "\\setmainfont{Open Sans Condensed Light}\n" +
+            "\\begin{document}\n" +
+            "\n" +
+            "\\begin{tikzpicture} \n "+
+            "\\node[anchor=south west,inner sep=0] (image) at (0,0) {\\includegraphics{portada}};\n" +
+            "\\begin{scope}[x={(image.south east)},y={(image.north west)}] "
+            + "\\node[inner sep =0, scale = 3.5, align = left] at (0.44,0.595) {\n" +
+             "República de Guatemala \n" +
+            "		\\\\\n" +
+            getTitulo() + "\n" +
+            "		\\\\\n" +
+            getMes() +  " "  + getAnioPublicacion() + " };" +
+            "\\node[inner sep =0, rotate = 90]at(0.908,0.15){Guatemala, "+ getMesServidor()+" de " +  getYearServidor()+"};\n "
+            + "\\node[inner sep = 0, rotate = 90]at(0.18, 0.39) {\\textcolor{gray}{Cifras Preliminares}}; \n" +
+            "\\end{scope}\n" +
+            "\\end{tikzpicture}\n" +
+            "\n" +
+            "\\end{document}");
+            buffer.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Documento.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        compilar(rr, getRuta() + "/caratula.tex","F");
+    }
+
+    void equipoYPresentacion() {
+     escribirLinea("\\clearpage\n" +
+                "\n" +
+                "$\\ $\n" +
+                "\\vspace{0.5cm}\n" +
+                "\n" +
+                "\\begin{center}\n" +
+                "	{\\Bold \\LARGE EQUIPO RESPONSABLE}\\\\[1.5cm]\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color2} REVISIÓN GENERAL}\\\\[0.2cm]\n" +
+                "	Rubén Narciso\\\\[0.8cm]\n" +
+                "	\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color2} EQUIPO TÉCNICO}\\\\[0.2cm]\n" +
+                "	Karin Lenisse Barrios Carrascosa\\\\\n" +                
+                "	Mirta Rubidia Marín Hernández\\\\[0.8cm]\n" +
+                "	\n" +
+                "	{\\Bold \\large \\color{color2} DIAGRAMACIÓN Y DISEÑO}\\\\[0.2cm]\n" +
+                "	Hugo Allan García Monterrosa\\\\\n" +
+                "	Fabiola Beatriz Ramírez Pinto\\\\\n" +
+                "	José Carlos Bonilla Aldana\\\\[0.8cm]\n" +
+                "	\n" +
+                "	\n" +
+                "	\n" +
+                "\\end{center}\\setcounter{page}{0}\\cleardoublepage\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[0.7cm]\n" +
+                "\n" +
+                "\\tableofcontents\n" +
+                "\n" +
+                "\\cleardoublepage\n" +
+                "\\pagestyle{estandar}\n" +
+                "\\setcounter{page}{1}\n" +
+                "\\setlength{\\arrayrulewidth}{1.0pt}\n" +
+                "\n" +
+                "\n" +
+                "\\cleardoublepage\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\[0.5cm]\n" +
+                "\\thispagestyle{empty}\n" +
+                "\\noindent {\\Bold \\LARGE Presentación}\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "\n" +
+                "$\\ $\\\\\n" +
+                "\\indent El Instituto Nacional de Estadística -INE- en cumplimiento a su Ley Orgánica, "
+                + "Decreto Ley 3-85, "
+                + "presenta datos sobre las {\\Bold Faltas Judiciales del "
+                + getMes() + " trimestre del "
+                + getAnioPublicacion() +"}, las cuales son los delitos menores, contemplados en el "
+                + "código penal en el artículo 480, correspondiente al Libro Tercero de las Faltas, "
+                + "Título Único.\n" +
+                "\n" +
+                "Los datos son recolectados a través de la boleta 42 B, que registras las características "
+                + "y datos generales de las personas que cometieron las faltas, proporcionados por los "
+                + "Juzgados de Paz y Juzgados de Paz Móviles de todo el país, la cual es {\\Bold información "
+                + " preliminar} y será ajustada con el ingreso de registros tardíos.\n" +
+                "\n" +
+                "Se pone a disposición el presente informe de Faltas Judiciales del "
+                + getMes() + " trimestre del "
+                + getAnioPublicacion() 
+                + " con el fin de apoyar la elaboración de programas, planes, en materia de "
+                + "seguridad nacional. A su vez se agradece el aporte y colaboración de los "
+                + "Juzgados y se les insta a continuar el apoyo a este proceso.\n" +
+                "\n" +
+                "\\thispagestyle{empty}\n" +
+                "\n" +
+                "\n" +
+                "\\cleardoublepage");    
+    
+    }
+
+    void rellenar() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void apendices(String string) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    void generarGraficas(String modalidad) {
+        System.out.println("GENERANDO LAS GRAFICAS");
+        Grafica vitales = new Grafica("canasta", getRuta(), rr.get(), modalidad);
+        vitales.start();
     }
     
     

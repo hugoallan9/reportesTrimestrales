@@ -177,6 +177,21 @@ public class Grafica extends Thread {
             System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Hechos Delictivos', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "delictivos.pdf','" + ruta+ "presentacionDelictivos.pdf'))");
             System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Hechos Delictivos', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "delictivos.pdf','" + ruta+ "presentacionDelictivos.pdf'))"));
         }
+        else if(lista.equalsIgnoreCase("faltas")){        
+            r.eval("setListCB(canasta)");
+            System.out.println("La ruta es: " + ruta);
+            r.eval("setPath('"+ruta+"')");
+            r.eval("graficasCanasta(modalidad= 'trimestral')");
+            r.eval("setPathJudiciales(file.path('"+ ruta +"','GraficasPresentacion/'))");
+            r.eval("graficasJudiciales(modalidad='presentacion')");
+            System.out.println("compilar('" + ruta + "', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/canasta.tex', mostrar = F)");
+            r.eval("compilar('" + ruta + "/canasta.tex', mostrar = F)");
+            r.eval("compilar('" + ruta  + "/canasta.tex', mostrar = F)");
+            //r.eval("mandarCorreo(c('<hugoallangm@gmail.com>', '<ccabrera@ine.gob.gt>', '<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Vitales', 'Su reporte lo encontrará adjunto en este correo. ','" + ruta  + "/vitales.pdf"+ "')");
+            System.out.println("mandarCorreo(c('<hugoallangm@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "canasta.pdf','" + ruta+ "presentacionCanasta.pdf'))");
+            System.out.println(r.eval("mandarCorreo(c('<hugoallangm@gmail.com>','<rdnarcisoc@gmail.com>'), 'Reporte Finalizado Faltas Judiciales', 'Su reporte lo encontrará adjunto en este correo. ',c('" + ruta  + "canasta.pdf','" + ruta+ "canasta.pdf'))"));
+        }
         
     }
 }

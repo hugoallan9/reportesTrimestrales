@@ -483,6 +483,42 @@ public class ReportesTrimestrales {
                 docu.generarGraficas("trimestral");
             //}
         }
+        
+        else if ( args[0].equalsIgnoreCase("canasta") ){
+            String rutaHospitalarias = "/home/ineservidor/Canasta";
+            SesionR r = new SesionR();
+            r.get().eval("library(funcionesINE)");
+            r.get().eval("library(xlsx)");
+            File hospitalarias = new File(rutaHospitalarias, args[2] + args[1]);
+            if ( !hospitalarias.exists() ){
+                hospitalarias.setReadable(true, false);
+                hospitalarias.setExecutable(true, false);
+                hospitalarias.setWritable(true, false);
+                hospitalarias.mkdir();
+            }
+
+            Canasta docu;
+            docu= new Canasta("Canasta Básica",args[2],args[1],"/var/www/html/Canasta/Entradas/CSV");
+            docu.setRuta(hospitalarias.getAbsolutePath()+"/");
+            docu.setTex("canasta");
+            docu.hacerPortada();
+            docu.preambulo();
+            docu.preambuloPresentacion();
+            docu.iniciarDocumento();
+            docu.hacerTitulo();
+            docu.juntaDirectiva();
+            docu.equipoYPresentacion();
+            docu.rellenar();
+            docu.apendices(hospitalarias.getAbsolutePath()+"/");
+            docu.terminarDocumento();
+            docu.getRr().get().end();
+            
+            
+            //if (args[3].equalsIgnoreCase("true")){
+                System.out.println("entro a hacer graficas");
+                docu.generarGraficas("trimestral");
+            //}
+        }
       
   }
     

@@ -392,7 +392,7 @@ public class HechosDelictivos extends Documento{
         seccion2.add("3_04.tex");
         seccion2.add("INE, con datos del Ministerio Público");
         seccion2.add(true);
-        //cap3.add(seccion2);
+        cap3.add(seccion2);
         
         
         ArrayList seccion3 = new ArrayList();
