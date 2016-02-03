@@ -70,9 +70,9 @@ public class FaltasJudiciales extends Documento{
         introCapitulos.add("Las faltas judiciales son acciones u omisiones voluntarias castigadas "
                 + "por la ley con pena leve. En la legislación guatemalteca están contenidas "
                 + "en el Libro Tercero del Código Penal.");
-        introCapitulos.add("Comprende a todas las edades de las personas antes de cumplir 18 " 
-                + "años que han cometido acciones u omisiones voluntarias castigadas por " 
-                + "la Ley con pena leve.");
+        introCapitulos.add("Las estadísticas de jóvenes que participan en hechos delictivos menores, " +
+                "ayudan a detectar las características de los mismos, así como su distribución " +
+                "geográfica en el país.");
         introCapitulos.add("En derecho Penal, son acciones u omisiones voluntarias castigadas " 
                 + "por la ley con pena leve.  Contenidas en el libro tercero de las faltas, " 
                 + "título único del Código Penal, el artículo 480 en el inciso 6º. Indica: “Se " 
@@ -262,9 +262,9 @@ public class FaltasJudiciales extends Documento{
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion1.add(true);
         seccion1.add("2_02");
-        seccion1.add("Infractores menores de edad por departamento");
+        seccion1.add("Infractores menores de edad por sexo");
         seccion1.add("Distribución porcentual de las personas menores de edad"
-                + " que cometieron faltas judiciales, según departamento");
+                + " que cometieron faltas judiciales, según sexo");
         seccion1.add(formatoTrimestre + "en porcentaje");
         seccion1.add("2_02.tex");
         seccion1.add("INE, con datos de los juzgados de paz del Organismo Judicial");
@@ -274,17 +274,17 @@ public class FaltasJudiciales extends Documento{
         
         ArrayList seccion2 = new ArrayList();
         seccion2.add("2_03");
-        seccion2.add("Infractores menores de edad por sexo");
+        seccion2.add("Infractores menores de edad por edad");
         seccion2.add("Distribución porcentual de las personas menores de edad"
-                + " que cometieron faltas judiciales, según sexo");
+                + " que cometieron faltas judiciales, según edad simple");
         seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_03.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion2.add(true);
         seccion2.add("2_04");
-        seccion2.add("Infractores menores de edad por edad");
+        seccion2.add("Infractores menores de edad por grupo étnico");
         seccion2.add("Distribución porcentual de las personas menores de edad"
-                + " que cometieron faltas judiciales, según edad simple");
+                + " que cometieron faltas judiciales, según grupo étnico");
         seccion2.add(formatoTrimestre + "en porcentaje");
         seccion2.add("2_04.tex");
         seccion2.add("INE, con datos de los juzgados de paz del Organismo Judicial");
@@ -294,15 +294,15 @@ public class FaltasJudiciales extends Documento{
         
         ArrayList seccion3 = new ArrayList();
         seccion3.add("2_05");
-        seccion3.add("Infractores menores de edad por grupo étnico");
+        seccion3.add("Infractores menores de edad por nivel de educación");
         seccion3.add("Distribución porcentual de las personas menores de edad"
-                + " que cometieron faltas judiciales, según grupo étnico");
+                + " que cometieron faltas judiciales, según nivel de educación");
         seccion3.add(formatoTrimestre + "en porcentaje");
         seccion3.add("2_05.tex");
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
         seccion3.add("2_06");
-        seccion3.add("Infractores menores de edad por nivel de educación");
+        seccion3.add("Infractores menores de edad por tipo de falta cometida");
         seccion3.add("Distribución porcentual de las personas menores de edad"
                 + " que cometieron faltas judiciales, según nivel de educación");
         seccion3.add(formatoTrimestre + "en porcentaje");
@@ -310,20 +310,6 @@ public class FaltasJudiciales extends Documento{
         seccion3.add("INE, con datos de los juzgados de paz del Organismo Judicial");
         seccion3.add(true);
         cap2.add(seccion3);
-        
-        
-        
-        ArrayList seccion4 = new ArrayList();
-        seccion4.add("2_07");
-        seccion4.add("Infractores menores de edad por tipo de falta cometida");
-        seccion4.add("Distribución porcentual de las personas menores de edad"
-                + " que cometieron faltas judiciales, según nivel de educación");
-        seccion4.add(formatoTrimestre + "en porcentaje");
-        seccion4.add("2_07.tex");
-        seccion4.add("INE, con datos de los juzgados de paz del Organismo Judicial");
-        seccion4.add(true);
-        cap2.add(seccion4);
-        
         
         return cap2;        
     }
