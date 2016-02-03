@@ -14,8 +14,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.Collator;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.apache.commons.io.FileUtils;
@@ -48,10 +51,8 @@ public class Canasta extends Documento{
     Collator comparador = Collator.getInstance();
     private SesionR rr;
     private String rutaCSV;    
-    public SesionR getRr() {
-        return rr;
-    }
-    
+    private Double[] unidadMedida;
+    private Double[] consumo;
     
     public Canasta(String titulo, String mes, String pYear, String rutaCSV){
         super(titulo, mes, pYear);
@@ -86,10 +87,18 @@ public class Canasta extends Documento{
         setCapitulos();
         setIntroCapitulos();
         setContenidos();
+        unidadMedida = new Double[36];
+        consumo = new Double[36];
+        setUnidadMedida();
+        setConsumoGramos();
         
     }
     
+        public SesionR getRr() {
+        return rr;
+    }
     
+        
         protected void setCapitulos(){
         capitulos.add("Canasta básica");
         capitulos.add("Productos de la canasta básica alimentaria");
@@ -471,6 +480,36 @@ public class Canasta extends Documento{
         
         return cap2;        
     }
+    
+    
+    public void pruebaMetodo(){
+        Double[] c = calcularCanastaBasica(mes1);
+        System.out.println("Canasta básica: " + c[0]);
+        System.out.println("Canasta básica: " + c[1]);
+    }
+    
+    public Double[] calcularCanastaBasica( List<String[]>mes ){
+        Double[] canasta = new Double[2];
+        Double costoDiario = 0.0;
+        NumberFormat nf = NumberFormat.getInstance(); 
+        nf = NumberFormat.getNumberInstance(Locale.ENGLISH);
+        nf.setMaximumFractionDigits(2);
+        nf.setMinimumFractionDigits(2);
+        for(int i = 0; i < 36; i++){
+            System.out.println("Para i = " + i);
+            String dosDecimales = nf.format( Double.valueOf((((String[])mes.get(i))[0]))/unidadMedida[i] * consumo[i] );
+            System.out.println(dosDecimales);
+            costoDiario += Double.valueOf(dosDecimales)  ;
+            System.out.println("El costo diario es " + costoDiario);
+        }
+        Double costoMensual = 30 * 1.221348 * costoDiario;
+        
+        
+        canasta[0] = costoMensual;
+        canasta[1] = costoMensual/42.1*100;
+        return canasta;
+    }
+    
  
     public void generarCSVEntradaSimple(int indicador){
         
@@ -486,7 +525,7 @@ public class Canasta extends Documento{
             pw = new PrintWriter(fichero);
  
             System.out.println(mesesCortos);
-            System.out.println(((String[])mes1.get(1))[0]);
+            System.out.println("El valor de prueba es:  " + ((String[])mes1.get(1))[0]);
             pw.println("x;y");
                 pw.println(mesesCortos.get(12)+";" +((String[])mes1.get(indicador-1))[0]);
                 pw.println(mesesCortos.get(11)+";" +((String[])mes2.get(indicador-1))[0]);
@@ -908,6 +947,84 @@ public class Canasta extends Documento{
         System.out.println("GENERANDO LAS GRAFICAS");
         Grafica vitales = new Grafica("canasta", getRuta(), rr.get(), modalidad);
         vitales.start();
+    }
+
+    private void setUnidadMedida() {
+        unidadMedida[0] = 460.0;
+        unidadMedida[1] = 350.0;
+        unidadMedida[2] =460.0;
+        unidadMedida[3] =460.0;
+        unidadMedida[4] = 460.0;
+        unidadMedida[5] = 460.0;
+        unidadMedida[6] = 230.0;
+        unidadMedida[7] = 460.0;
+        unidadMedida[8] = 460.0;
+        unidadMedida[9] = 460.0;
+        unidadMedida[10] = 460.0;
+        unidadMedida[11] = 460.0;
+        unidadMedida[12] = 460.0;
+        unidadMedida[13] = 1000.0;
+        unidadMedida[14] = 460.0;
+        unidadMedida[15] = 250.0;
+        unidadMedida[16] = 648.0;
+        unidadMedida[17] = 750.0;
+        unidadMedida[18] = 460.0;
+        unidadMedida[19] = 460.0;
+        unidadMedida[20] = 460.0;
+        unidadMedida[21] =460.0;
+        unidadMedida[22] = 460.0;
+        unidadMedida[23] = 460.0;
+        unidadMedida[24] = 460.0;
+        unidadMedida[25] = 460.0;
+        unidadMedida[26] = 460.0;
+        unidadMedida[27] = 460.0;
+        unidadMedida[28] = 460.0;
+        unidadMedida[29] = 460.0;
+        unidadMedida[30] = 460.0;
+        unidadMedida[31] = 460.0;
+        unidadMedida[32] = 115.0;
+        unidadMedida[33] = 230.0;
+        unidadMedida[34] = 460.0;
+        unidadMedida[35] = 1000.0;
+    }
+
+    private void setConsumoGramos() {
+        consumo[0] = 115.0;
+        consumo[1] = 28.0;
+        consumo[2] = 50.0;
+        consumo[3] = 60.0;
+        consumo[4] = 173.0;
+        consumo[5] = 193.0;
+        consumo[6] = 70.0;
+        consumo[7] = 1800.0;
+        consumo[8] = 58.0;
+        consumo[9] = 72.0;
+        consumo[10] = 168.0;
+        consumo[11] = 55.0;
+        consumo[12] = 20.0;
+        consumo[13] = 156.0;
+        consumo[14] = 40.0;
+        consumo[15] = 52.0;
+        consumo[16] = 145.0;
+        consumo[17] = 100.0;
+        consumo[18] = 55.0;
+        consumo[19] = 300.0;
+        consumo[20] = 75.0;
+        consumo[21] = 169.0;
+        consumo[22] = 187.0;
+        consumo[23] = 84.0;
+        consumo[24] = 190.0;
+        consumo[25] = 475.0;
+        consumo[26] = 256.0;
+        consumo[27] = 100.0;
+        consumo[28] = 173.0;
+        consumo[29] = 133.0;
+        consumo[30] = 115.0;
+        consumo[31] = 288.0;
+        consumo[32] = 43.0;
+        consumo[33] = 28.0;
+        consumo[34] = 183.0;
+        consumo[35] = 173.0;
     }
     
     
